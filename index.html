@@ -33,10 +33,8 @@
       max-width: 1200px;
       margin: 0 auto;
     }
-    nav .logo {
-      font-weight: bold;
-      font-size: 1.5rem;
-      color: rgb(31,186,156);
+    nav .logo img {
+      height: 40px;
       cursor: pointer;
     }
     nav ul {
@@ -160,6 +158,20 @@
       color: #666;
       margin-top: auto;
     }
+    /* Kontakt email s ikonou */
+    .contact-email {
+      display: inline-flex;
+      align-items: center;
+      font-size: 1rem;
+      color: #222;
+      text-decoration: none;
+    }
+    .contact-email svg {
+      width: 20px;
+      height: 20px;
+      margin-right: 8px;
+      fill: rgb(31,186,156);
+    }
     /* Responsive */
     @media (max-width: 768px) {
       nav ul {
@@ -175,7 +187,9 @@
 <body>
   <header>
     <nav>
-      <div class="logo">USDt.z</div>
+      <div class="logo">
+        <img src="logo.png" alt="USDt.z Logo" />
+      </div>
       <ul>
         <li><a href="#about">O tokenu</a></li>
         <li><a href="#swap">Swap & DEX</a></li>
@@ -244,7 +258,12 @@
     <section id="contact">
       <h2>Kontakt</h2>
       <p>Máte otázky? Kontaktujte nás prostřednictvím emailu nebo sociálních sítí.</p>
-      <p>Email: <a href="mailto:info@usdtz.com">info@usdtz.com</a></p>
+      <a href="mailto:sca.sca@centrum.cz" class="contact-email" aria-label="Email">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+          <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 2l-8 5-8-5h16zm0 12H4v-9l8 5 8-5v9z"/>
+        </svg>
+        sca.sca@centrum.cz
+      </a>
     </section>
   </main>
 
