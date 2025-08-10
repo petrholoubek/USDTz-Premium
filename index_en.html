@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>USDt.z – Next Generation Stablecoin</title>
+  <style>
+    /* (stejný CSS jako v české verzi, můžeš si ho zkopírovat) */
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #fff;
+      color: #222;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      background: #fff;
+      border-bottom: 2px solid rgb(31,186,156);
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    nav .logo img {
+      height: 40px;
+      cursor: pointer;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #222;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+    nav ul li a:hover {
+      color: rgb(31,186,156);
+    }
+    main {
+      flex: 1;
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    section {
+      margin-bottom: 4rem;
+    }
+    h1, h2, h3 {
+      color: rgb(31,186,156);
+      margin-bottom: 1rem;
+    }
+    h1 {
+      font-size: 2.5rem;
+    }
+    h2 {
+      font-size: 2rem;
+    }
+    p {
+      margin-bottom: 1rem;
+      color: #222;
+      font-size: 1rem;
+    }
+    .btn {
+      background-color: rgb(31,186,156);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-block;
+      transition: background-color 0.3s ease;
+    }
+    .btn:hover {
+      background-color: #1eab91;
+    }
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 4rem 1rem;
+      background: #f9f9f9;
+      border-radius: 8px;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 1rem auto 2rem;
+    }
+    /* Footer */
+    footer {
+      background: #f1f1f1;
+      text-align: center;
+      padding: 1.5rem 1rem;
+      font-size: 0.9rem;
+      color: #666;
+      margin-top: auto;
+    }
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      nav {
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">
+        <img src="logo.png" alt="USDt.z Logo" />
+      </div>
+      <ul>
+        <li><a href="#about">About Token</a></li>
+        <li><a href="#swap">Swap & DEX</a></li>
+        <li><a href="#usecases">Use Cases</a></li>
+        <li><a href="#docs">Documentation</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="index.html">CZ</a></li>
+        <li><a href="index_en.html" style="font-weight:700; color: rgb(31,186,156);">EN</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section class="hero" id="hero">
+      <h1>USDt.z – Next Generation Stablecoin</h1>
+      <p>Stable, secure, and innovative token designed for banking and non-banking sectors.</p>
+      <a href="#docs" class="btn">Download Whitepaper</a>
+      <a href="#swap" class="btn" style="margin-left: 1rem;">Swap on PancakeSwap</a>
+    </section>
+
+    <section id="about">
+      <h2>About USDt.z Token</h2>
+      <p>USDt.z is a stablecoin that combines the stability of traditional currencies with next-generation blockchain technology.</p>
+      <p>The token offers high security, transparency, and wide usability across various financial applications.</p>
+    </section>
+
+    <section id="swap">
+      <h2>Swap & DEX</h2>
+      <p>Use PancakeSwap for quick and secure trading of the USDt.z token.</p>
+      <a href="https://pancakeswap.finance/swap?outputCurrency=0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" target="_blank" rel="noopener" class="btn">Go to PancakeSwap</a>
+    </section>
+
+    <section id="usecases">
+      <h2>Use Cases & Benefits</h2>
+      <p>USDt.z is ideal for banking collateral, loans, and fast crypto swaps.</p>
+      <p>Thanks to its stability and trust, it is also used by non-banking entities and investors.</p>
+    </section>
+
+    <section id="docs">
+      <h2>Documentation & Whitepaper</h2>
+      <p>The complete USDt.z whitepaper is available for download.</p>
+      <a href="docs/USDTz_Whitepaper_EN.pdf" target="_blank" class="btn">Download PDF (EN)</a>
+      <a href="docs/USDTz_Whitepaper_CS.pdf" target="_blank" class="btn" style="margin-left: 1rem;">Stáhnout PDF (CZ)</a>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Have questions? Contact us by email or social media.</p>
+      <p>Email: <a href="mailto:sca.sca@centrum.cz">sca.sca@centrum.cz</a></p>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 USDt.z – Next Generation Stablecoin. All rights reserved.
+  </footer>
+</body>
+</html>
