@@ -36,6 +36,7 @@
     nav .logo img {
       height: 40px;
       cursor: pointer;
+      filter: drop-shadow(0 0 3px rgba(0,0,0,0.2));
     }
     nav ul {
       list-style: none;
@@ -173,6 +174,14 @@
       color: white;
     }
 
+    /* Stav připojení peněženky */
+    #walletStatus {
+      margin-top: 1rem;
+      font-weight: 600;
+      color: rgb(31,186,156);
+      text-align: center;
+    }
+
     /* Responsive */
     @media (max-width: 768px) {
       nav ul {
@@ -199,6 +208,11 @@
       }
     }
   </style>
+
+  <!-- CDN knihovny pro Web3Modal, WalletConnect a Coinbase Wallet -->
+  <script src="https://unpkg.com/web3modal@1.9.12/dist/index.js"></script>
+  <script src="https://unpkg.com/@walletconnect/web3-provider@1.8.0/dist/umd/index.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@coinbase/wallet-sdk@3.7.0/dist/CoinbaseWalletSDK.min.js"></script>
 </head>
 <body>
   <header>
@@ -262,19 +276,21 @@
       <a href="https://www.geckoterminal.com/bsc/pools/0x553b402b3d6f91ea2208c7df61a6d4aa96ccb6191787c20fedb7ae6c9823b280" target="_blank" rel="noopener" class="btn">Zobrazit likviditní pool</a>
     </section>
 
-    <section id="usecases">
-      <h2>Připojení peněženky</h2>
-      <button id="connectMetaMask" class="btn">Připojit MetaMask</button>
-      <button id="connectWalletConnect" class="btn">Připojit Trust Wallet (WalletConnect)</button>
-      <button id="connectCoinbaseWallet" class="btn">Připojit Coinbase Wallet</button>
-      <p id="walletStatus" style="margin-top: 1rem; color: #1fba9c; font-weight: 600;"></p>
-    </section>
-
     <section id="docs">
       <h2>Audit a dokumentace</h2>
       <p>Kompletní technická dokumentace a auditní zpráva jsou k dispozici ke stažení.</p>
       <a href="docs/USDTz_Whitepaper_CS.pdf" target="_blank" class="btn">Stáhnout Whitepaper</a>
       <a href="docs/Audit_Report.pdf" target="_blank" class="btn audit" style="margin-left: 1rem;">Stáhnout Audit</a>
+    </section>
+
+    <!-- Připojení peněženky -->
+    <section id="wallet">
+      <h2>Připojit peněženku</h2>
+      <div style="text-align:center;">
+        <button id="connectWallet" class="btn">Připojit peněženku</button>
+        <button id="disconnectWallet" class="btn" style="margin-left: 1rem;">Odpojit peněženku</button>
+        <p id="walletStatus"></p>
+      </div>
     </section>
 
     <section id="contact">
@@ -293,11 +309,7 @@
     &copy; 2025 USDt.z – Next Generation Stablecoin. Všechna práva vyhrazena.
   </footer>
 
-  <!-- Knihovny pro WalletConnect a Coinbase Wallet -->
-  <script src="https://cdn.jsdelivr.net/npm/@walletconnect/web3-provider@1.7.8/dist/umd/index.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@coinbase/wallet-sdk@3.7.0/dist/CoinbaseWalletSDK.min.js"></script>
-  
-  <!-- Tvůj JS -->
+  <!-- Tvůj vlastní JS -->
   <script src="js/wallet-connect.js"></script>
 </body>
 </html>
