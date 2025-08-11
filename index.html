@@ -56,8 +56,21 @@
       max-width: 1200px;
       margin: 2rem auto;
       padding: 0 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .big-logo-container {
+      margin-bottom: 3rem;
+      text-align: center;
+    }
+    .big-logo-container img {
+      max-width: 220px;
+      height: auto;
     }
     section {
+      width: 100%;
+      max-width: 900px;
       margin-bottom: 4rem;
     }
     h1, h2, h3 {
@@ -67,9 +80,7 @@
     h1 {
       font-size: 2.5rem;
       text-align: center;
-    }
-    h2 {
-      font-size: 2rem;
+      margin-bottom: 1rem;
     }
     p {
       margin-bottom: 1rem;
@@ -87,15 +98,14 @@
       text-decoration: none;
       display: inline-block;
       transition: background-color 0.3s ease;
+      margin-right: 1rem;
     }
     .btn:hover {
       background-color: #1eab91;
     }
 
-    /* Sekce blockchain + QR */
+    /* Sekce blockchain + QR dole */
     #blockchain-section {
-      max-width: 600px;
-      margin: 0 auto 4rem;
       background: #f9f9f9;
       border: 2px solid rgb(31,186,156);
       border-radius: 12px;
@@ -104,6 +114,8 @@
       flex-direction: column;
       align-items: center;
       text-align: center;
+      max-width: 600px;
+      margin: 0 auto 4rem;
     }
     #blockchain-section img.logo {
       max-height: 60px;
@@ -128,6 +140,13 @@
       text-decoration: underline;
     }
 
+    /* Vlajky v navigaci */
+    nav ul li a img {
+      width: 24px;
+      height: 16px;
+      vertical-align: middle;
+    }
+
     /* Responsivní */
     @media (max-width: 768px) {
       nav ul {
@@ -137,11 +156,8 @@
       nav {
         padding: 1rem;
       }
-      h1 {
-        font-size: 2rem;
-      }
-      #blockchain-section {
-        padding: 1rem;
+      .big-logo-container img {
+        max-width: 160px;
       }
       #blockchain-section img.qr-code {
         width: 140px;
@@ -150,6 +166,12 @@
       #blockchain-section img.logo {
         max-height: 50px;
       }
+      .btn {
+        margin-bottom: 1rem;
+        margin-right: 0;
+        width: 100%;
+        text-align: center;
+      }
     }
   </style>
 </head>
@@ -157,41 +179,34 @@
   <header>
     <nav>
       <div class="logo">
-        <img src="logo.png" alt="USDt.z Logo" />
+        <a href="index.html"><img src="logo.png" alt="USDt.z Logo" /></a>
       </div>
       <ul>
-        <li><a href="#blockchain-section">Blockchain</a></li>
         <li><a href="#about">O tokenu</a></li>
         <li><a href="#swap">Swap & DEX</a></li>
         <li><a href="#usecases">Použití</a></li>
         <li><a href="#docs">Dokumentace</a></li>
         <li><a href="#contact">Kontakt</a></li>
-        <li><a href="index.html"><img src="img/flags/cz.png" alt="Česky" style="width:24px; height:16px;"></a></li>
-        <li><a href="index_en.html"><img src="img/flags/en.png" alt="English" style="width:24px; height:16px;"></a></li>
+        <li><a href="index.html"><img src="img/flags/cz.png" alt="Česky" /></a></li>
+        <li><a href="index_en.html"><img src="img/flags/en.png" alt="English" /></a></li>
       </ul>
     </nav>
   </header>
   <main>
-    <section id="blockchain-section">
-      <img src="logo.png" alt="USDt.z Logo" class="logo" />
-      <h2>Prozkoumejte token USDt.z na blockchainu</h2>
-      <p>Seznamte se s tokenem přes QR kód nebo klikněte na odkaz níže pro zobrazení na BscScan.</p>
-      <a href="https://bscscan.com/token/0x913ef7244bed019b95ec5321408ee4ce83e25c01" target="_blank" rel="noopener">
-        <img src="img/qr_bscscan.png" alt="QR kód USDt.z na BscScan" class="qr-code" />
-      </a>
-      <a href="https://bscscan.com/token/0x913ef7244bed019b95ec5321408ee4ce83e25c01" target="_blank" rel="noopener" class="token-link">
-        Zobrazit token USDt.z na BscScan
-      </a>
-    </section>
+    <div class="big-logo-container">
+      <img src="logo.png" alt="USDt.z Velké Logo" />
+    </div>
 
     <section class="hero" id="hero">
       <h1>USDt.z – Next Generation Stablecoin</h1>
-      <p style="color:#222; max-width:600px; margin: 0 auto 1rem;">
+      <p style="color:#222; max-width:600px; margin: 0 auto 1rem; text-align:center;">
         Stabilní, bezpečný a inovativní token navržený<br />
         pro bankovní i nebankovní sektor.
       </p>
-      <a href="#docs" class="btn">Stáhnout Whitepaper</a>
-      <a href="#swap" class="btn" style="margin-left: 1rem;">Swap na PancakeSwap</a>
+      <div style="text-align:center;">
+        <a href="#docs" class="btn">Stáhnout Whitepaper</a>
+        <a href="#swap" class="btn">Swap na PancakeSwap</a>
+      </div>
     </section>
 
     <section id="about">
@@ -216,13 +231,26 @@
       <h2>Dokumentace & Whitepaper</h2>
       <p>Kompletní whitepaper USDt.z je k dispozici ke stažení.</p>
       <a href="docs/USDTz_Whitepaper_CS.pdf" target="_blank" class="btn">Stáhnout PDF (CZ)</a>
-      <a href="docs/USDTz_Whitepaper_EN.pdf" target="_blank" class="btn" style="margin-left: 1rem;">Download PDF (EN)</a>
+      <a href="docs/USDTz_Whitepaper_EN.pdf" target="_blank" class="btn">Download PDF (EN)</a>
     </section>
 
     <section id="contact">
       <h2>Kontakt</h2>
       <p>Máte otázky? Kontaktujte nás prostřednictvím e-mailu nebo sociálních sítí.</p>
       <p>Email: <a href="mailto:sca.sca@centrum.cz">sca.sca@centrum.cz</a></p>
+    </section>
+
+    <!-- Sekce blockchain a QR dole -->
+    <section id="blockchain-section">
+      <img src="logo.png" alt="USDt.z Logo" class="logo" />
+      <h2>Prozkoumejte token USDt.z na blockchainu</h2>
+      <p>Seznamte se s tokenem přes QR kód nebo klikněte na odkaz níže pro zobrazení na BscScan.</p>
+      <a href="https://bscscan.com/token/0x913ef7244bed019b95ec5321408ee4ce83e25c01" target="_blank" rel="noopener">
+        <img src="img/qr_bscscan.png" alt="QR kód USDt.z na BscScan" class="qr-code" />
+      </a>
+      <a href="https://bscscan.com/token/0x913ef7244bed019b95ec5321408ee4ce83e25c01" target="_blank" rel="noopener" class="token-link">
+        Zobrazit token USDt.z na BscScan
+      </a>
     </section>
   </main>
 
