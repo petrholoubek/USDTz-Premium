@@ -84,12 +84,12 @@
     }
 
     section {
-      margin-bottom: 1.5rem; /* menší mezera mezi sekcemi */
+      margin-bottom: 1.5rem;
       background: #fff;
-      padding: 1rem 1.5rem; /* menší padding v rámečku */
+      padding: 1rem 1.5rem;
       border: 1px solid #ddd;
       border-radius: 8px;
-      box-shadow: 0 0 5px rgb(31 186 156 / 0.1); /* jemnější stín */
+      box-shadow: 0 0 5px rgb(31 186 156 / 0.1);
     }
 
     h1, h2 {
@@ -99,7 +99,7 @@
     h1 {
       font-size: 2.5rem;
       text-align: center;
-      margin-bottom: 1rem; /* zmenšená mezera pod hlavním nadpisem */
+      margin-bottom: 1rem;
     }
     h2 {
       font-size: 2rem;
@@ -123,7 +123,6 @@
       display: inline-block;
       transition: background-color 0.3s ease;
       margin-top: 0.5rem;
-      text-align: center;
       min-width: 110px;
       text-align: center;
     }
@@ -142,10 +141,43 @@
     /* Tlačítka v jedné řadě */
     .button-group {
       display: flex;
-      gap: 0.7rem; /* menší mezera mezi tlačítky */
+      gap: 0.7rem;
       justify-content: center;
-      margin-top: 1rem; /* menší mezera nad tlačítky */
+      margin-top: 1rem;
       flex-wrap: wrap;
+    }
+
+    /* Připojení peněženek tlačítka */
+    .wallet-buttons {
+      display: flex;
+      gap: 0.7rem;
+      justify-content: center;
+      margin: 1rem 0 1.5rem 0;
+      flex-wrap: wrap;
+    }
+    .wallet-buttons button {
+      min-width: 130px;
+      padding: 0.45rem 1rem;
+      font-weight: 600;
+      background-color: rgb(31,186,156);
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .wallet-buttons button:hover {
+      background-color: #1eab91;
+    }
+
+    /* Status text */
+    #walletStatus {
+      text-align: center;
+      font-weight: 600;
+      color: #004d40;
+      min-height: 1.5rem;
+      margin-top: 0.5rem;
+      font-size: 1rem;
     }
 
     /* Kontakt + odkaz explore token */
@@ -267,6 +299,14 @@
         <a href="https://pancakeswap.finance/swap?outputCurrency=0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" target="_blank" rel="noopener" class="btn">Swap na PancakeSwap</a>
         <a href="https://www.geckoterminal.com/bsc/pools/0x553b402b3d6f91ea2208c7df61a6d4aa96ccb6191787c20fedb7ae6c9823b280" target="_blank" rel="noopener" class="btn">GeckoTerminal Pool</a>
       </div>
+
+      <!-- Tlačítka pro připojení peněženek -->
+      <div class="wallet-buttons">
+        <button id="connectMetaMask">MetaMask</button>
+        <button id="connectWalletConnect">Trust Wallet</button>
+        <button id="connectCoinbaseWallet">Coinbase Wallet</button>
+      </div>
+      <div id="walletStatus"></div>
     </section>
 
     <section id="swap">
@@ -305,5 +345,8 @@
   <footer>
     &copy; 2025 USDt.z – Next Generation Stablecoin. Všechna práva vyhrazena.
   </footer>
+
+  <!-- Připojení tvého JS souboru se skripty pro peněženky -->
+  <script src="js/wallet-connect.js"></script>
 </body>
 </html>
