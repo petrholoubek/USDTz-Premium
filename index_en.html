@@ -127,7 +127,7 @@
       background-color: #1eab91;
     }
 
-    /* Speciální styl modrého tlačítka audit */
+    /* Special style for audit blue button */
     .btn.audit {
       background-color: #007acc;
     }
@@ -135,7 +135,7 @@
       background-color: #005f99;
     }
 
-    /* Tlačítka v jedné řadě */
+    /* Buttons in one row */
     .button-group {
       display: flex;
       gap: 1rem;
@@ -144,7 +144,7 @@
       flex-wrap: wrap;
     }
 
-    /* Kontakt + odkaz explore token */
+    /* Contact + token explore link */
     #contact {
       display: flex;
       justify-content: space-between;
@@ -173,6 +173,14 @@
       color: white;
     }
 
+    /* Wallet connection status */
+    #walletStatus {
+      margin-top: 1rem;
+      color: green;
+      font-weight: 600;
+      text-align: center;
+    }
+
     /* Responsive */
     @media (max-width: 768px) {
       nav ul {
@@ -197,8 +205,19 @@
         max-width: 100%;
         text-align: center !important;
       }
+      .button-group {
+        flex-direction: column;
+        align-items: center;
+      }
     }
   </style>
+
+  <!-- WalletConnect SDK -->
+  <script src="https://unpkg.com/@walletconnect/web3-provider@1.7.8/dist/umd/index.min.js"></script>
+
+  <!-- Coinbase Wallet SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@coinbase/wallet-sdk@3.3.1/dist/CoinbaseWalletSDK.min.js"></script>
+
 </head>
 <body>
   <header>
@@ -213,7 +232,7 @@
         <li><a href="#docs">Documentation</a></li>
         <li><a href="#contact">Contact</a></li>
         <li>
-          <a href="index.html" title="Česky">
+          <a href="index.html" title="Čeština">
             <img class="flag" src="img/flags/cz.png" alt="Czech Flag" />
           </a>
         </li>
@@ -234,7 +253,7 @@
     <section class="hero" id="hero">
       <h1>USDt.z – Next Generation Stablecoin</h1>
       <p style="color: black; max-width: 600px; margin: 0 auto 1rem; font-size: 1.1rem; line-height: 1.4;">
-        Stable, secure, and innovative token designed for banking and non-banking sectors.
+        Stable, secure, and innovative token designed for both banking and non-banking sectors.
       </p>
 
       <div class="button-group">
@@ -245,26 +264,36 @@
 
     <section id="about">
       <h2>About USDt.z Token</h2>
-      <p>USDt.z is a stablecoin that combines the stability of traditional currencies with next-generation blockchain technology.</p>
-      <p>The token offers high security, transparency, and wide usability across various financial applications.</p>
-      <p>Clients can purchase USDt.z at a discount. The token is ideal as collateral for loans and financial security.</p>
+      <p>USDt.z is a stablecoin combining the stability of traditional currencies with next-generation blockchain technology.</p>
+      <p>The token offers high security, transparency, and wide usability in various financial applications.</p>
+      <p>Clients can purchase USDt.z at a discount. The token is ideal as collateral for loans and financial hedging.</p>
     </section>
 
     <section id="swap">
       <h2>Swap & DEX</h2>
-      <p>For fast and secure trading of USDt.z token, use PancakeSwap. The token is listed with a market cap over 5 million USD and is pegged 1:1 to the USD.</p>
+      <p>For fast and secure trading of USDt.z token, use PancakeSwap. The token is listed with a market value exceeding 5 million USD and is pegged 1:1 to USD.</p>
       <a href="https://pancakeswap.finance/swap?outputCurrency=0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" target="_blank" rel="noopener" class="btn">Go to PancakeSwap</a>
     </section>
 
     <section id="pool">
       <h2>Liquidity Pool</h2>
-      <p>Check our liquidity pool and track the market performance of USDt.z on GeckoTerminal.</p>
+      <p>Check out our liquidity pool and monitor USDt.z market performance on GeckoTerminal.</p>
       <a href="https://www.geckoterminal.com/bsc/pools/0x553b402b3d6f91ea2208c7df61a6d4aa96ccb6191787c20fedb7ae6c9823b280" target="_blank" rel="noopener" class="btn">View Liquidity Pool</a>
+    </section>
+
+    <section id="wallet-connect">
+      <h2>Wallet Connection</h2>
+      <div class="button-group">
+        <button id="connectMetaMask" class="btn">Connect MetaMask</button>
+        <button id="connectWalletConnect" class="btn">Connect Trust Wallet</button>
+        <button id="connectCoinbaseWallet" class="btn">Connect Coinbase Wallet</button>
+      </div>
+      <div id="walletStatus"></div>
     </section>
 
     <section id="docs">
       <h2>Audit and Documentation</h2>
-      <p>Complete technical documentation and audit report are available.</p>
+      <p>Complete technical documentation and audit report are available for download.</p>
       <a href="docs/USDTz_Whitepaper_EN.pdf" target="_blank" class="btn">Download Whitepaper</a>
       <a href="docs/Audit_Report.pdf" target="_blank" class="btn audit" style="margin-left: 1rem;">Download Audit</a>
     </section>
@@ -284,5 +313,8 @@
   <footer>
     &copy; 2025 USDt.z – Next Generation Stablecoin. All rights reserved.
   </footer>
+
+  <!-- Your custom JavaScript -->
+  <script src="js/wallet-connect.js"></script>
 </body>
 </html>
