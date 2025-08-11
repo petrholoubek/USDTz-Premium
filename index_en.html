@@ -16,21 +16,24 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      align-items: center;
+      padding: 0 1rem;
     }
     header {
       background: #fff;
       border-bottom: 2px solid rgb(31,186,156);
-      padding: 1rem 2rem;
+      width: 100%;
+      max-width: 900px;
+      padding: 1rem 1rem;
       position: sticky;
       top: 0;
       z-index: 1000;
+      margin: 0 auto;
     }
     nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      max-width: 1200px;
-      margin: 0 auto;
     }
     nav .logo img {
       height: 40px;
@@ -53,9 +56,9 @@
     }
     main {
       flex: 1;
-      max-width: 1200px;
+      max-width: 900px;
+      width: 100%;
       margin: 2rem auto;
-      padding: 0 1rem;
     }
     section {
       margin-bottom: 4rem;
@@ -75,6 +78,11 @@
       margin-bottom: 1rem;
       color: #222;
       font-size: 1rem;
+    }
+    ul {
+      margin-left: 1.25rem;
+      margin-bottom: 1rem;
+      color: #222;
     }
     .btn {
       background-color: rgb(31,186,156);
@@ -121,8 +129,12 @@
       font-size: 0.9rem;
       color: #666;
       margin-top: auto;
+      max-width: 900px;
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
     }
-    /* Flags */
+    /* Language flags */
     .lang-switcher {
       display: flex;
       gap: 0.5rem;
@@ -135,6 +147,7 @@
       border: 1px solid transparent;
       border-radius: 2px;
       transition: border-color 0.3s ease;
+      display: block;
     }
     .lang-switcher img:hover,
     .lang-switcher img.active {
@@ -147,10 +160,13 @@
         gap: 1rem;
       }
       nav {
-        padding: 1rem;
+        padding: 1rem 0;
       }
       .big-logo-container img {
         max-width: 140px;
+      }
+      main {
+        margin: 1rem auto;
       }
     }
   </style>
@@ -190,8 +206,8 @@
 
     <section id="about">
       <h2>About USDt.z Token</h2>
-      <p>USDt.z is a stable digital currency (stablecoin) built on next-generation blockchain technology. It combines the stability of traditional fiat currencies, especially the US dollar, with the high security and transparency of decentralized technologies. The token is designed to serve as a reliable medium of exchange and store of value for both banking and non-banking sectors.</p>
-      <p>Thanks to its advanced collateral mechanism and decentralized governance, USDt.z offers a high degree of trust, fast transactions with low fees, and easy integration into existing financial systems. The project emphasizes auditability, compliance with regulatory standards, and flexibility in various financial applications.</p>
+      <p>USDt.z is a stable digital currency built on next-generation blockchain technology. It combines the stability of traditional fiat currencies, especially the US dollar, with high security and transparency of decentralized technologies. The token is designed as a reliable medium of payment and store of value for both banking and non-banking sectors.</p>
+      <p>Thanks to advanced collateral mechanisms and decentralized governance, USDt.z offers high trust, fast transactions with low fees, and easy integration into existing financial systems. The project emphasizes auditability, regulatory compliance, and flexibility in various financial applications.</p>
     </section>
 
     <section id="swap">
@@ -202,12 +218,12 @@
 
     <section id="usecases">
       <h2>Use Cases & Benefits</h2>
-      <p>USDt.z is not just a stable token but also a beneficial purchase tool. On our website, you can buy USDt.z at a special discount, allowing you to get more value for less money.</p>
-      <p>Key benefits of USDt.z include:</p>
+      <p>USDt.z is not just a stable token but also a beneficial tool for purchase. On our site, you can buy USDt.z with a special discount, giving you more value for less money.</p>
+      <p>Main advantages of USDt.z:</p>
       <ul>
-        <li><strong>Collateral loans:</strong> The token serves as a reliable collateral asset for loans with transparent terms and low interest rates.</li>
+        <li><strong>Collateral loans:</strong> The token serves as a reliable collateral asset for loans with transparent conditions and low interest rates.</li>
         <li><strong>Liquidity and speed:</strong> Instant swaps and low transaction fees ensure efficient capital management.</li>
-        <li><strong>Security and auditability:</strong> The project is regularly audited and complies with strict regulatory requirements.</li>
+        <li><strong>Security and auditability:</strong> The project undergoes regular audits and complies with strict regulatory requirements.</li>
         <li><strong>Flexible use:</strong> USDt.z can be used in both banking and non-banking financial applications.</li>
       </ul>
       <a href="#buy" class="btn" style="margin-top:1rem;">Buy USDt.z with Discount</a>
@@ -215,15 +231,15 @@
 
     <section id="docs">
       <h2>Documentation & Whitepaper</h2>
-      <p>The complete technical documentation and whitepaper of USDt.z provide detailed descriptions of the token architecture, collateral mechanism, governance model, and security measures. The whitepaper also includes information about planned audits and partnerships with financial institutions.</p>
-      <p>Downloadable versions in Czech and English are available for the general public and industry professionals alike.</p>
+      <p>The complete technical documentation and whitepaper of USDt.z include a detailed description of the token architecture, collateral mechanism, governance model, and security measures. The whitepaper also covers information about planned audits and cooperation with financial institutions.</p>
+      <p>Downloadable versions in Czech and English are available for the public and professionals alike.</p>
       <a href="docs/USDTz_Whitepaper_EN.pdf" target="_blank" class="btn">Download PDF (EN)</a>
       <a href="docs/USDTz_Whitepaper_CS.pdf" target="_blank" class="btn" style="margin-left: 1rem;">Stáhnout PDF (CZ)</a>
     </section>
 
     <section id="contact">
       <h2>Contact</h2>
-      <p>Have questions? Contact us via email or social media.</p>
+      <p>Have questions? Contact us by email or social media.</p>
       <p>Email: <a href="mailto:sca.sca@centrum.cz">sca.sca@centrum.cz</a></p>
     </section>
   </main>
