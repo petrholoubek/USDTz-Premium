@@ -18,55 +18,72 @@
       display: flex;
       flex-direction: column;
       position: relative;
-      padding-bottom: 80px; /* pro footer a chat */
+      padding-bottom: 80px; /* prostor pro footer a chat */
     }
+    /* HORNÍ LIŠTA (HEADER) */
     header {
       background: rgb(31,186,156);
-      padding: 1rem 2rem;
+      padding: 0.5rem 1rem;
       position: sticky;
       top: 0;
       z-index: 1000;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center; /* logo vycentrované */
+      gap: 1rem;
+      flex-wrap: wrap;
     }
+    header .logo {
+      flex-shrink: 0;
+    }
+    header .logo img {
+      height: 50px;
+      filter: drop-shadow(0 0 3px rgba(0,0,0,0.15));
+      cursor: pointer;
+      display: block;
+    }
+    header .live-chart-container {
+      position: relative;
+      width: 80px;
+      height: 80px;
+      flex-shrink: 0;
+    }
+    header .live-chart-container canvas {
+      width: 80px !important;
+      height: 80px !important;
+      border-radius: 50%;
+      display: block;
+    }
+    header .live-info {
+      color: white;
+      font-weight: 700;
+      font-size: 1.1rem;
+      text-align: center;
+      user-select: none;
+      width: 160px;
+    }
+
     nav {
+      width: 100%;
       max-width: 1200px;
       margin: 0 auto;
       display: flex;
-      justify-content: space-between;
-      align-items: center;
+      justify-content: center;
+      gap: 3rem;
+      padding: 0.5rem 0;
     }
-    nav .logo img {
-      height: 40px;
-      cursor: pointer;
-      filter: drop-shadow(0 0 3px rgba(0,0,0,0.15));
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 1.5rem;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-    nav ul li a {
-      text-decoration: none;
+    nav a {
       color: white;
+      text-decoration: none;
       font-weight: 600;
-      transition: color 0.3s ease;
       font-size: 1rem;
-      display: flex;
-      align-items: center;
-      gap: 0.3rem;
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
     }
-    nav ul li a:hover, nav ul li a.active {
-      color: #004d40;
-    }
-    nav ul li img.flag {
-      width: 24px;
-      height: 16px;
-      object-fit: cover;
-      border: 1px solid #ddd;
-      border-radius: 3px;
-      vertical-align: middle;
+    nav a:hover, nav a.active {
+      background-color: #004d40;
     }
 
     main {
@@ -90,14 +107,18 @@
       margin-bottom: 2rem;
       background: #fff;
       padding: 1.5rem 2rem;
-      border: 1px solid #ddd;
-      border-radius: 8px;
+      border: 2px solid rgb(31,186,156);
+      border-radius: 12px;
       box-shadow: 0 0 10px rgb(31 186 156 / 0.15);
       max-width: 900px;
       margin-left: auto;
       margin-right: auto;
       min-height: 250px;
       position: relative;
+      transition: box-shadow 0.3s ease;
+    }
+    section:hover {
+      box-shadow: 0 0 20px rgb(31,186,156 / 0.4);
     }
 
     h1, h2 {
@@ -124,7 +145,7 @@
       color: white;
       padding: 0.75rem 1.5rem;
       border: none;
-      border-radius: 4px;
+      border-radius: 6px;
       cursor: pointer;
       font-weight: 600;
       text-decoration: none;
@@ -195,8 +216,8 @@
       max-width: 900px;
       background: #fff;
       padding: 1.5rem 2rem;
-      border: 1px solid #ddd;
-      border-radius: 8px;
+      border: 2px solid rgb(31,186,156);
+      border-radius: 12px;
       box-shadow: 0 0 10px rgb(31 186 156 / 0.15);
       text-align: center;
     }
@@ -210,7 +231,7 @@
       background-color: rgb(31,186,156);
       color: white;
       border: none;
-      border-radius: 4px;
+      border-radius: 6px;
       padding: 0.5rem 1rem;
       cursor: pointer;
       font-weight: 600;
@@ -232,8 +253,8 @@
       max-width: 900px;
       margin: 0 auto 2rem;
       padding: 1.5rem 2rem;
-      border: 1px solid #ddd;
-      border-radius: 8px;
+      border: 2px solid rgb(31,186,156);
+      border-radius: 12px;
       box-shadow: 0 0 10px rgb(31 186 156 / 0.15);
       background: #fff;
       display: flex;
@@ -277,7 +298,7 @@
       padding: 0.5rem;
       font-size: 1rem;
       border: 1px solid #ccc;
-      border-radius: 4px;
+      border-radius: 6px;
       outline: none;
       transition: border-color 0.3s ease;
     }
@@ -289,7 +310,7 @@
       background-color: rgb(31,186,156);
       color: white;
       border: none;
-      border-radius: 4px;
+      border-radius: 6px;
       padding: 0.75rem;
       font-weight: 600;
       cursor: pointer;
@@ -309,7 +330,9 @@
     canvas {
       max-width: 100%;
       height: 220px !important;
-      border-radius: 8px;
+      border-radius: 12px;
+      display: block;
+      margin: 0 auto;
     }
 
     /* Chatovací podpora */
@@ -342,8 +365,8 @@
       width: 320px;
       max-width: 90vw;
       background: white;
-      border: 1px solid rgb(31,186,156);
-      border-radius: 10px;
+      border: 2px solid rgb(31,186,156);
+      border-radius: 12px;
       box-shadow: 0 0 15px rgb(31 186 156 / 0.6);
       display: none;
       flex-direction: column;
@@ -353,7 +376,7 @@
       background: rgb(31,186,156);
       color: white;
       padding: 0.75rem 1rem;
-      border-radius: 10px 10px 0 0;
+      border-radius: 12px 12px 0 0;
       font-weight: 700;
       display: flex;
       justify-content: space-between;
@@ -384,14 +407,14 @@
       padding: 0.5rem;
       font-size: 1rem;
       border: 1px solid #ccc;
-      border-radius: 6px;
+      border-radius: 8px;
       outline: none;
     }
     #chat-send-btn {
       background-color: rgb(31,186,156);
       color: white;
       border: none;
-      border-radius: 6px;
+      border-radius: 8px;
       padding: 0 15px;
       cursor: pointer;
       font-weight: 600;
@@ -403,19 +426,17 @@
 
     /* Responsive */
     @media (max-width: 768px) {
-      nav ul {
-        flex-direction: column;
-        gap: 0.8rem;
+      nav {
+        gap: 1.5rem;
       }
-      nav ul li a {
+      header {
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 0.5rem 0.5rem;
+      }
+      header .live-info {
+        width: 140px;
         font-size: 1rem;
-      }
-      nav ul li a img.flag {
-        width: 30px;
-        height: 20px;
-      }
-      main {
-        margin: 1rem auto 2rem;
       }
       #contact {
         flex-direction: column;
@@ -441,30 +462,32 @@
 </head>
 <body>
   <header>
-    <nav>
-      <div class="logo">
-        <a href="index.html"><img src="logo.png" alt="USDt.z Logo" /></a>
+    <div class="logo">
+      <a href="index.html" aria-label="USDt.z Logo">
+        <img src="logo.png" alt="USDt.z Logo" />
+      </a>
+    </div>
+    <div class="live-chart-container" aria-label="Živý kurz tokenu">
+      <canvas id="liveCircleChart" role="img" aria-describedby="liveChartDesc"></canvas>
+      <div id="liveChartDesc" style="display:none;">
+        Tento kruhový graf zobrazuje aktuální kurz USDt.z tokenu v porovnání s BNB.
       </div>
-      <ul>
-        <li><a href="pages/about.html">O tokenu</a></li>
-        <li><a href="pages/usecases.html">Použití</a></li>
-        <li><a href="#swap">Swap &amp; DEX</a></li>
-        <li><a href="pages/docs.html" class="active">Dokumentace</a></li>
-        <li><a href="#wallet-connect">Připojit peněženku</a></li>
-        <li><a href="#contact">Kontakt</a></li>
-        <li>
-          <a href="index.html" title="Česky">
-            <img class="flag" src="img/flags/cz.png" alt="Česká vlajka" />
-          </a>
-        </li>
-        <li>
-          <a href="index_en.html" title="English">
-            <img class="flag" src="img/flags/en.png" alt="Anglická vlajka" />
-          </a>
-        </li>
-      </ul>
-    </nav>
+    </div>
+    <div class="live-info" aria-live="polite" aria-atomic="true" aria-relevant="text">
+      <div><strong>USDt.z / BNB</strong></div>
+      <div id="livePrice">Načítání...</div>
+      <div id="liveChange" style="font-size:0.9rem;"></div>
+    </div>
   </header>
+
+  <nav aria-label="Hlavní navigace">
+    <a href="pages/about.html">O tokenu</a>
+    <a href="pages/usecases.html">Použití</a>
+    <a href="#swap">Swap &amp; DEX</a>
+    <a href="pages/docs.html" class="active">Dokumentace</a>
+    <a href="#wallet-connect">Připojit peněženku</a>
+    <a href="#contact">Kontakt</a>
+  </nav>
 
   <main>
     <div class="big-logo-container">
@@ -511,7 +534,7 @@
       </div>
       <div>
         <h2>Kalkulačka USDt.z</h2>
-        <form id="calcForm">
+        <form id="calcForm" aria-label="Kalkulačka měn">
           <label for="amount">Částka</label>
           <input type="number" id="amount" min="0" step="any" value="1" required />
           <label for="fromCurrency">Z měny</label>
@@ -534,7 +557,7 @@
           </select>
           <button type="submit">Přepočítat</button>
         </form>
-        <div id="result"></div>
+        <div id="result" role="status" aria-live="polite" style="margin-top: 0.8rem; font-weight: 700;"></div>
       </div>
     </section>
 
@@ -547,17 +570,17 @@
 
     <section id="wallet-connect">
       <h2>Připojit peněženku</h2>
-      <div class="wallet-buttons">
+      <div class="wallet-buttons" role="group" aria-label="Možnosti připojení peněženky">
         <button id="connectMetaMask">MetaMask</button>
         <button id="connectWalletConnect">Trust Wallet (WalletConnect)</button>
         <button id="connectCoinbaseWallet">Coinbase Wallet</button>
       </div>
-      <p id="walletStatus"></p>
+      <p id="walletStatus" aria-live="polite" aria-atomic="true" style="margin-top: 1rem;"></p>
     </section>
 
-    <section id="contact">
+    <section id="contact" aria-label="Kontaktní informace">
       <div class="contact-info">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="rgb(31,186,156)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="rgb(31,186,156)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M22 2H2v20h20V2zM2 7h20" />
           <path d="M22 2l-10 13L2 2" />
         </svg>
@@ -578,13 +601,13 @@
   </footer>
 
   <!-- Chat podpora -->
-  <button id="chat-support-btn" title="Online podpora">💬</button>
+  <button id="chat-support-btn" title="Online podpora" aria-label="Otevřít online podporu">💬</button>
   <div id="chat-box" role="dialog" aria-modal="true" aria-labelledby="chat-header" aria-describedby="chat-messages">
     <div id="chat-header">
       Online podpora
       <button id="chat-close-btn" aria-label="Zavřít chat">×</button>
     </div>
-    <div id="chat-messages">
+    <div id="chat-messages" tabindex="0">
       <p><em>Dobrý den! Jak Vám mohu pomoci?</em></p>
     </div>
     <div id="chat-input-container">
@@ -593,11 +616,61 @@
     </div>
   </div>
 
+  <script>
+    // --- Živý kruhový graf v headeru ---
+    document.addEventListener('DOMContentLoaded', () => {
+      const ctxLive = document.getElementById('liveCircleChart').getContext('2d');
+
+      const liveChart = new Chart(ctxLive, {
+        type: 'doughnut',
+        data: {
+          labels: ['USDt.z', 'BNB'],
+          datasets: [{
+            data: [70, 30], // začátek, měníme dynamicky níže
+            backgroundColor: ['#1fba9c', '#e0e0e0'],
+            borderWidth: 2,
+            borderColor: '#fff',
+            cutout: '75%',
+            hoverOffset: 15,
+          }]
+        },
+        options: {
+          responsive: false,
+          maintainAspectRatio: false,
+          animation: {duration: 700},
+          plugins: {
+            legend: { display: false },
+            tooltip: { enabled: true }
+          }
+        }
+      });
+
+      // Simulace aktualizace dat (nahraď API voláním)
+      function updateLiveChart() {
+        // Generování náhodného "kurzu" kolem 0.7 až 0.9 pro demo
+        const value = (Math.random() * 0.2 + 0.7).toFixed(3);
+        const valNum = parseFloat(value);
+        liveChart.data.datasets[0].data = [valNum * 100, 100 - valNum * 100];
+        liveChart.update();
+
+        // Aktualizace textu v headeru
+        const livePriceElem = document.getElementById('livePrice');
+        const liveChangeElem = document.getElementById('liveChange');
+        livePriceElem.textContent = valNum.toFixed(3);
+        // Simulace změny za posledních 24h v procentech - generování
+        const changePercent = ((Math.random() - 0.5) * 2).toFixed(2);
+        liveChangeElem.textContent = (changePercent >= 0 ? '+' : '') + changePercent + '% za 24h';
+        liveChangeElem.style.color = changePercent >= 0 ? '#4caf50' : '#e74c3c';
+      }
+      updateLiveChart();
+      setInterval(updateLiveChart, 5000);
+    });
+  </script>
+
   <script src="js/wallet-connect.js" defer></script>
   <script>
-    // Charty
+    // --- Tokenomics a likvidita grafy ---
     document.addEventListener('DOMContentLoaded', () => {
-      // Tokenomics chart (barevný koláč)
       const ctxTokenomics = document.getElementById('tokenomicsChart').getContext('2d');
       new Chart(ctxTokenomics, {
         type: 'doughnut',
@@ -620,7 +693,6 @@
         }
       });
 
-      // Liquidity chart (barevný sloupcový)
       const ctxLiquidity = document.getElementById('liquidityChart').getContext('2d');
       new Chart(ctxLiquidity, {
         type: 'bar',
@@ -655,7 +727,7 @@
       });
     });
 
-    // Kurz měn (fake data, nahradit reálným API)
+    // --- Kurz měn (demo) ---
     const exchangeRatesElem = document.getElementById('exchangeRates');
     const exchangeRates = {
       CZK: 23.50,
@@ -684,7 +756,7 @@
     }
     updateExchangeRates();
 
-    // Kalkulačka
+    // --- Kalkulačka ---
     const form = document.getElementById('calcForm');
     const amountInput = document.getElementById('amount');
     const fromCurrency = document.getElementById('fromCurrency');
@@ -729,7 +801,7 @@
       resultDiv.textContent = `${amount} ${from} = ${converted.toFixed(4)} ${to}`;
     });
 
-    // Chat podpora
+    // --- Chat podpora ---
     const chatBtn = document.getElementById('chat-support-btn');
     const chatBox = document.getElementById('chat-box');
     const chatCloseBtn = document.getElementById('chat-close-btn');
@@ -764,7 +836,6 @@
       chatInput.value = '';
       chatMessages.scrollTop = chatMessages.scrollHeight;
 
-      // Simulovaná odpověď supportu po 1.5 s
       setTimeout(() => {
         const botMsg = document.createElement('p');
         botMsg.textContent = 'Podpora: Děkujeme za zprávu, brzy Vám odpovíme.';
