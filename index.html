@@ -1,298 +1,128 @@
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>USDt.z – Next Generation Stablecoin</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>USDt.z – Stabilní měna nové generace</title>
   <style>
-    :root{
-      --green: rgb(31,186,156);
-      --green-hover: #1eab91;
-      --content-width: 900px;
-      --nav-height: 64px;
-      --max-logo: 200px;
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f9fa;
+      color: #333;
+      margin: 0;
+      padding: 0;
     }
-    *{box-sizing:border-box;margin:0;padding:0}
-    html,body{height:100%}
-    body{
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      color:#222;
-      line-height:1.5;
-      background:#fff;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      -webkit-font-smoothing:antialiased;
+    header {
+      background-color: rgb(31, 186, 156);
+      color: white;
+      padding: 15px;
+      text-align: center;
+      position: relative;
     }
-
-    /* HEADER */
-    header{
-      width:100%;
-      background:#fff;
-      border-bottom:3px solid var(--green);
-      position:sticky;
-      top:0;
-      z-index:1200;
+    .lang-switch {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: white;
+      border: none;
+      padding: 8px 12px;
+      cursor: pointer;
+      border-radius: 5px;
+      font-weight: bold;
+      color: rgb(31, 186, 156);
+      transition: background-color 0.3s;
     }
-    .nav-wrap{
-      max-width:1200px;
-      margin:0 auto;
-      padding:0.5rem 1rem;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:1rem;
+    .lang-switch:hover {
+      background-color: #1eab91;
+      color: white;
     }
-    .nav-left{display:flex;align-items:center;gap:1rem}
-    .nav-left img.logo-small{height:40px}
-    nav ul{
-      list-style:none;
-      display:flex;
-      gap:0.75rem;
-      align-items:center;
-      margin-left:1rem;
-      flex-wrap:wrap;
+    main {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
     }
-    nav a{
-      color:#222;
-      text-decoration:none;
-      font-weight:600;
-      padding:0.35rem 0.6rem;
-      border-radius:6px;
-      display:inline-flex;
-      align-items:center;
-      gap:0.4rem;
+    h1, h2 {
+      color: rgb(31, 186, 156);
     }
-    nav a:hover{color:var(--green)}
-    img.flag{width:24px;height:16px;object-fit:cover;border-radius:2px}
-
-    /* MAIN CONTENT */
-    main{
-      width:100%;
-      max-width:var(--content-width);
-      padding:1.5rem;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      gap:1.75rem;
+    ul {
+      list-style-type: disc;
+      padding-left: 20px;
     }
-    .big-logo{
-      margin-top:0.25rem;
-      margin-bottom:0.75rem;
-    }
-    .big-logo img{max-width:var(--max-logo);height:auto;display:block;margin:0 auto}
-
-    section{
-      width:100%;
-      background:transparent;
-    }
-    .hero{
-      background:#f8f9f9;
-      border-radius:10px;
-      padding:2rem;
-      text-align:center;
-      box-shadow:0 6px 18px rgba(31,186,156,0.06);
-    }
-    h1{color:var(--green);font-size:2.25rem;margin-bottom:0.75rem}
-    h2{color:var(--green);font-size:1.5rem;margin-bottom:.6rem}
-    p{color:#222;font-size:1rem;margin-bottom:.8rem}
-
-    .btn{
-      background:var(--green);
-      color:#fff;
-      padding:0.7rem 1.25rem;
-      border-radius:8px;
-      text-decoration:none;
-      font-weight:700;
-      display:inline-block;
-      transition:background .18s ease, transform .06s;
-    }
-    .btn:hover{background:var(--green-hover)}
-    .btn.secondary{background:#4CAF50}
-    .btn-stack{display:flex;gap:0.75rem;flex-wrap:wrap;justify-content:center}
-
-    /* content columns, lists */
-    .content{max-width:760px;margin:0 auto}
-    ul{margin-left:1rem;margin-bottom:0.75rem}
-    strong{font-weight:700}
-
-    /* Trading & docs cards */
-    .card{
-      background:#fafafa;border:1px solid #eee;border-radius:10px;padding:1rem;
-      box-shadow:0 6px 18px rgba(0,0,0,0.03);
-    }
-
-    /* BLOCKCHAIN / QR area */
-    .blockchain{
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      gap:0.75rem;
-      background:#f9f9f9;
-      border:2px solid var(--green);
-      border-radius:12px;
-      padding:1.25rem;
-    }
-    .blockchain img.qr{
-      width:140px;height:140px;border-radius:10px;border:1px solid #e6e6e6;
-    }
-    .blockchain a.token-link{
-      color:var(--green);font-weight:800;text-decoration:none;margin-top:.25rem;
-    }
-    .blockchain a.token-link:hover{text-decoration:underline}
-
-    /* footer */
-    footer{
-      width:100%;
-      background:#f2f2f2;
-      padding:1.25rem 0;
-      margin-top:1.25rem;
-      text-align:center;
-      color:#666;font-size:0.9rem;
-    }
-
-    /* RESPONSIVE - MOBILE */
-    @media (max-width:920px){
-      :root{--content-width:92%}
-      h1{font-size:2rem}
-    }
-    @media (max-width:640px){
-      .nav-wrap{padding:0.6rem}
-      nav ul{gap:0.5rem;justify-content:center}
-      .big-logo img{max-width:160px}
-      .hero{padding:1.25rem}
-      h1{font-size:1.6rem}
-      .blockchain img.qr{width:110px;height:110px}
-      .btn{width:100%;text-align:center;padding:0.75rem}
-      .btn-stack{flex-direction:column}
-      .content{padding:0 0.25rem}
-    }
-
   </style>
 </head>
 <body>
-  <header>
-    <div class="nav-wrap">
-      <div class="nav-left">
-        <a href="index.html"><img src="logo.png" alt="USDt.z logo" class="logo-small" /></a>
-      </div>
 
-      <nav aria-label="Hlavní navigace">
-        <ul>
-          <li><a href="#about">O tokenu</a></li>
-          <li><a href="#swap">Swap &amp; DEX</a></li>
-          <li><a href="#trading-info">Trading info</a></li>
-          <li><a href="#documentation">Dokumentace</a></li>
-          <li><a href="#contact">Kontakt</a></li>
-          <li><a href="index.html" title="Česky"><img src="img/flags/cz.png" alt="CZ" class="flag" /></a></li>
-          <li><a href="index_en.html" title="English"><img src="img/flags/en.png" alt="EN" class="flag" /></a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+<header>
+  <button class="lang-switch" onclick="switchLanguage()">English</button>
+  <h1 id="title">USDt.z – Stabilní měna nové generace</h1>
+</header>
 
-  <main>
-    <!-- big centered logo -->
-    <div class="big-logo">
-      <img src="logo.png" alt="USDt.z Velké logo" />
-    </div>
+<main>
+  <section>
+    <h2 id="intro-title">Úvod</h2>
+    <p id="intro-text">
+      USDt.z je stabilní digitální měna navržená pro moderní finanční svět, poskytující rychlé transakce, nízké poplatky a maximální bezpečnost.
+    </p>
+  </section>
 
-    <!-- HERO -->
-    <section class="hero" id="hero">
-      <div class="content">
-        <h1>USDt.z – Next Generation Stablecoin</h1>
-        <p style="color:#111; font-weight:500;">
-          Stabilní, bezpečný a inovativní token navržený pro bankovní i nebankovní sektor.
-        </p>
-        <p style="color:#333">
-          USDt.z poskytuje spolehlivost díky 1:1 vazbě na americký dolar. Ideální pro kolaterální půjčky, likviditu a rychlé swapy.
-        </p>
+  <section>
+    <h2 id="benefits-title">Výhody</h2>
+    <ul id="benefits-list">
+      <li>Stabilita vázaná na USD</li>
+      <li>Okamžité převody 24/7</li>
+      <li>Bezpečné smart kontrakty</li>
+    </ul>
+  </section>
+</main>
 
-        <div class="btn-stack" style="margin-top:0.8rem;">
-          <a class="btn" href="#documentation">Stáhnout whitepaper</a>
-          <a class="btn" href="#swap">Swap na PancakeSwap</a>
-        </div>
-      </div>
-    </section>
+<script>
+  const translations = {
+    cs: {
+      title: "USDt.z – Stabilní měna nové generace",
+      "intro-title": "Úvod",
+      "intro-text": "USDt.z je stabilní digitální měna navržená pro moderní finanční svět, poskytující rychlé transakce, nízké poplatky a maximální bezpečnost.",
+      "benefits-title": "Výhody",
+      "benefits-list": [
+        "Stabilita vázaná na USD",
+        "Okamžité převody 24/7",
+        "Bezpečné smart kontrakty"
+      ],
+      button: "English"
+    },
+    en: {
+      title: "USDt.z – Stablecoin for Next Generation",
+      "intro-title": "Introduction",
+      "intro-text": "USDt.z is a stable digital currency designed for the modern financial world, offering fast transactions, low fees, and maximum security.",
+      "benefits-title": "Benefits",
+      "benefits-list": [
+        "Stability pegged to USD",
+        "Instant transfers 24/7",
+        "Secure smart contracts"
+      ],
+      button: "Čeština"
+    }
+  };
 
-    <!-- ABOUT -->
-    <section id="about">
-      <div class="content card">
-        <h2>O tokenu USDt.z</h2>
-        <p>USDt.z je stablecoin postavený na Binance Smart Chain (BSC), navržený tak, aby spojil stabilitu fiat měn s výhodami blockchainu — rychlostí, auditovatelností a nízkými poplatky.</p>
-        <p>Projekt reaguje na potřebu spolehlivého digitálního aktiva s jasnou 1:1 vazbou na USD pro použití v bankách i v nebankovních finančních službách.</p>
-        <ul>
-          <li><strong>Bezpečnost:</strong> auditované chytré kontrakty a transparentní procesy.</li>
-          <li><strong>Rychlost:</strong> nízké náklady a rychlé potvrzení transakcí na BSC.</li>
-          <li><strong>Flexibilita:</strong> použití jako kolaterál, pro swapy a pro likviditu.</li>
-        </ul>
-      </div>
-    </section>
+  let currentLang = "cs";
 
-    <!-- SWAP -->
-    <section id="swap">
-      <div class="content card">
-        <h2>Swap &amp; DEX</h2>
-        <p>Pro obchodování USDt.z využijte decentralizované burzy. Doporučujeme použít PancakeSwap pro rychlé swapy.</p>
-        <a class="btn" href="https://pancakeswap.finance/swap?outputCurrency=0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" target="_blank" rel="noopener">Přejít na PancakeSwap</a>
-      </div>
-    </section>
+  function switchLanguage() {
+    currentLang = currentLang === "cs" ? "en" : "cs";
+    document.getElementById("title").innerText = translations[currentLang].title;
+    document.getElementById("intro-title").innerText = translations[currentLang]["intro-title"];
+    document.getElementById("intro-text").innerText = translations[currentLang]["intro-text"];
+    document.getElementById("benefits-title").innerText = translations[currentLang]["benefits-title"];
 
-    <!-- TRADING INFO -->
-    <section id="trading-info">
-      <div class="content card">
-        <h2>Trading info &amp; likvidita</h2>
-        <p>Sledujte stav poolu (likviditu, objem a transakce) přímo na GeckoTerminal:</p>
-        <a class="btn secondary" href="https://www.geckoterminal.com/bsc/pools/0x553b402b3d6f91ea2208c7df61a6d4aa96ccb6191787c20fedb7ae6c9823b280" target="_blank" rel="noopener">Zobrazit na GeckoTerminal</a>
-        <p style="margin-top:0.5rem;color:#444;font-size:.95rem;">Tržní kapitalizace tokenu (uváděná) přesahuje 5T USDT — USDt.z drží peg 1:1 k americkému dolaru.</p>
-      </div>
-    </section>
+    const list = document.getElementById("benefits-list");
+    list.innerHTML = "";
+    translations[currentLang]["benefits-list"].forEach(item => {
+      const li = document.createElement("li");
+      li.textContent = item;
+      list.appendChild(li);
+    });
 
-    <!-- DOCUMENTATION & AUDIT -->
-    <section id="documentation">
-      <div class="content card">
-        <h2>Dokumentace &amp; audit</h2>
-        <p>Kompletní whitepaper obsahuje technické detaily, tokenomics, bezpečnostní mechanismy a plán auditu. Projekt prošel nezávislým bezpečnostním auditem.</p>
-        <div style="display:flex;gap:0.6rem;flex-wrap:wrap;margin-top:0.6rem;">
-          <a class="btn" href="docs/USDTz_Whitepaper_CS.pdf" target="_blank" rel="noopener">Stáhnout Whitepaper (CZ)</a>
-          <a class="btn" href="docs/USDTz_Whitepaper_EN.pdf" target="_blank" rel="noopener">Download Whitepaper (EN)</a>
-          <!-- pokud máte report auditu jako PDF, odkaz sem -->
-          <a class="btn" href="docs/USDTz_Audit_Report.pdf" target="_blank" rel="noopener" style="background:#3b7bd1">Stáhnout Audit</a>
-        </div>
-      </div>
-    </section>
+    document.querySelector(".lang-switch").innerText = translations[currentLang].button;
+  }
+</script>
 
-    <!-- BLOCKCHAIN + QR (DOLU) -->
-    <section id="blockchain" style="width:100%;display:flex;justify-content:center;">
-      <div class="blockchain" style="max-width:640px;">
-        <img src="logo.png" alt="USDt.z logo" class="logo" style="max-height:56px" />
-        <h3 style="margin:0.25rem 0 0.25rem 0;color:var(--green);font-size:1.15rem;">Prozkoumejte token na blockchainu</h3>
-        <p style="margin:0 0 0.5rem 0;color:#333;text-align:center;max-width:520px;">
-          Otevřete detail tokenu na BscScan nebo naskenujte QR kód pro rychlý přístup z mobilu.
-        </p>
-
-        <a class="btn" href="https://bscscan.com/token/0x913ef7244bed019b95ec5321408ee4ce83e25c01" target="_blank" rel="noopener">Zobrazit na BscScan</a>
-
-        <div class="qr-container" aria-hidden="false">
-          <!-- Vygenerovaný QR přes api.qrserver.com; pokud chceš vlastní obrázek, nahraj img/qr_bscscan.png a změň src -->
-          <img class="qr" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://bscscan.com/token/0x913ef7244bed019b95ec5321408ee4ce83e25c01" alt="QR kód USDt.z BscScan" />
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact">
-      <div class="content" style="text-align:center">
-        <h2>Kontakt</h2>
-        <p>Máte dotazy? Napište nám e-mail nebo nás kontaktujte přes sociální sítě.</p>
-        <p><a href="mailto:sca.sca@centrum.cz">sca.sca@centrum.cz</a></p>
-      </div>
-    </section>
-
-  </main>
-
-  <footer>
-    &copy; 2025 USDt.z – Next Generation Stablecoin. Všechna práva vyhrazena.
-  </footer>
 </body>
 </html>
