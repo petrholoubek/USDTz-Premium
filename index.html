@@ -18,16 +18,6 @@
       display: flex;
       flex-direction: column;
     }
-    /* Velké logo nahoře */
-    .big-logo-container {
-      text-align: center;
-      padding: 2rem 0 1rem;
-      background: #f9f9f9;
-    }
-    .big-logo-container img {
-      max-width: 200px;
-      height: auto;
-    }
     header {
       background: #fff;
       border-bottom: 2px solid rgb(31,186,156);
@@ -64,8 +54,16 @@
     main {
       flex: 1;
       max-width: 1200px;
-      margin: 2rem auto;
+      margin: 0 auto;
       padding: 0 1rem;
+    }
+    .big-logo-container {
+      text-align: center;
+      margin: 3rem 0 2rem;
+    }
+    .big-logo-container img {
+      max-width: 200px;
+      height: auto;
     }
     section {
       margin-bottom: 4rem;
@@ -76,6 +74,8 @@
     }
     h1 {
       font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 2rem;
     }
     h2 {
       font-size: 2rem;
@@ -103,14 +103,15 @@
     /* Hero Section */
     .hero {
       text-align: center;
-      padding: 4rem 1rem;
+      padding: 0 1rem 4rem;
       background: #f9f9f9;
       border-radius: 8px;
+      max-width: 700px;
+      margin: 0 auto 4rem;
     }
     .hero p {
       font-size: 1.2rem;
-      max-width: 700px;
-      margin: 1rem auto 2rem;
+      margin-bottom: 2rem;
     }
     /* Footer */
     footer {
@@ -130,13 +131,13 @@
       nav {
         padding: 1rem;
       }
+      .big-logo-container img {
+        max-width: 140px;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="big-logo-container">
-    <img src="logo.png" alt="USDt.z Velké Logo" />
-  </div>
   <header>
     <nav>
       <div class="logo">
@@ -148,12 +149,14 @@
         <li><a href="#usecases">Použití</a></li>
         <li><a href="#docs">Dokumentace</a></li>
         <li><a href="#contact">Kontakt</a></li>
-        <li><a href="index.html" style="font-weight:700; color: rgb(31,186,156);">CZ</a></li>
-        <li><a href="index_en.html">EN</a></li>
       </ul>
     </nav>
   </header>
   <main>
+    <div class="big-logo-container">
+      <img src="logo.png" alt="USDt.z Velké Logo" />
+    </div>
+
     <section class="hero" id="hero">
       <h1>USDt.z – Next Generation Stablecoin</h1>
       <p>Stabilní, bezpečný a inovativní token navržený pro bankovní i nebankovní sektor.</p>
