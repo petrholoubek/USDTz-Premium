@@ -37,14 +37,6 @@
       height: 40px;
       cursor: pointer;
     }
-    main .big-logo {
-      display: flex;
-      justify-content: center;
-      margin: 2rem 0;
-    }
-    main .big-logo img {
-      height: 120px;
-    }
     nav ul {
       list-style: none;
       display: flex;
@@ -62,16 +54,11 @@
     main {
       flex: 1;
       max-width: 1200px;
-      margin: 0 auto;
+      margin: 2rem auto;
       padding: 0 1rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
     }
     section {
-      width: 100%;
       margin-bottom: 4rem;
-      max-width: 900px;
     }
     h1, h2, h3 {
       color: rgb(31,186,156);
@@ -79,7 +66,6 @@
     }
     h1 {
       font-size: 2.5rem;
-      text-align: center;
     }
     h2 {
       font-size: 2rem;
@@ -107,7 +93,7 @@
     /* Hero Section */
     .hero {
       text-align: center;
-      padding: 2rem 1rem 4rem 1rem;
+      padding: 4rem 1rem;
       background: #f9f9f9;
       border-radius: 8px;
     }
@@ -115,67 +101,6 @@
       font-size: 1.2rem;
       max-width: 700px;
       margin: 1rem auto 2rem;
-    }
-    /* Slider Section */
-    #slider {
-      margin: 2rem auto 4rem auto;
-      padding: 0 1rem;
-    }
-    .slider-container {
-      position: relative;
-      overflow: hidden;
-      border-radius: 10px;
-      box-shadow: 0 0 15px rgba(31,186,156,0.3);
-    }
-    .slides {
-      display: flex;
-      transition: transform 0.5s ease-in-out;
-    }
-    .slide {
-      min-width: 100%;
-      padding: 2rem;
-      color: #1fbabc;
-    }
-    .slide:nth-child(1) {
-      background: #f9f9f9;
-    }
-    .slide:nth-child(2) {
-      background: #f0fdfa;
-    }
-    .slide:nth-child(3) {
-      background: #e7f6f5;
-    }
-    #prev, #next {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: transparent;
-      border: none;
-      font-size: 2rem;
-      color: #1fbabc;
-      cursor: pointer;
-      user-select: none;
-    }
-    #prev {
-      left: 10px;
-    }
-    #next {
-      right: 10px;
-    }
-    /* New Buy Section */
-    #buy-section {
-      text-align: center;
-      background: #e6f7f5;
-      border: 2px solid rgb(31,186,156);
-      border-radius: 8px;
-      padding: 2rem 1rem;
-      margin-bottom: 4rem;
-    }
-    #buy-section p {
-      max-width: 700px;
-      margin: 0 auto 1.5rem auto;
-      font-size: 1.1rem;
-      color: #13675d;
     }
     /* Footer */
     footer {
@@ -185,20 +110,6 @@
       font-size: 0.9rem;
       color: #666;
       margin-top: auto;
-    }
-    /* Kontakt email s ikonou */
-    .contact-email {
-      display: inline-flex;
-      align-items: center;
-      font-size: 1rem;
-      color: #222;
-      text-decoration: none;
-    }
-    .contact-email svg {
-      width: 20px;
-      height: 20px;
-      margin-right: 8px;
-      fill: rgb(31,186,156);
     }
     /* Responsive */
     @media (max-width: 768px) {
@@ -224,49 +135,17 @@
         <li><a href="#usecases">Použití</a></li>
         <li><a href="#docs">Dokumentace</a></li>
         <li><a href="#contact">Kontakt</a></li>
+        <li><a href="index.html" style="font-weight:700; color: rgb(31,186,156);">CZ</a></li>
+        <li><a href="index_en.html">EN</a></li>
       </ul>
     </nav>
   </header>
   <main>
-    <div class="big-logo">
-      <img src="logo.png" alt="USDt.z Velké Logo" />
-    </div>
-
     <section class="hero" id="hero">
       <h1>USDt.z – Next Generation Stablecoin</h1>
       <p>Stabilní, bezpečný a inovativní token navržený pro bankovní i nebankovní sektor.</p>
       <a href="#docs" class="btn">Stáhnout Whitepaper</a>
       <a href="#swap" class="btn" style="margin-left: 1rem;">Swap na PancakeSwap</a>
-    </section>
-
-    <!-- Slider start -->
-    <section id="slider">
-      <div class="slider-container">
-        <div class="slides">
-          <div class="slide">
-            <h3>Stabilita a bezpečnost tokenu</h3>
-            <p>USDt.z kombinuje stabilitu tradičních měn s nejmodernější blockchainovou technologií, zajišťující bezpečnost a konzistenci hodnoty i v turbulentních časech.</p>
-          </div>
-          <div class="slide">
-            <h3>Použití v bankovním sektoru</h3>
-            <p>Token je navržen pro snadnou integraci do bankovních systémů, umožňuje efektivní zajištění, rychlé půjčky a bezpečné kolaterály s plnou transparentností.</p>
-          </div>
-          <div class="slide">
-            <h3>Transparentnost a auditovatelnost</h3>
-            <p>Veškeré transakce a likvidita jsou veřejně sledovatelné na blockchainu, což zajišťuje důvěru a možnost nezávislého auditu v reálném čase.</p>
-          </div>
-        </div>
-        <button id="prev" aria-label="Previous slide">&#10094;</button>
-        <button id="next" aria-label="Next slide">&#10095;</button>
-      </div>
-    </section>
-    <!-- Slider end -->
-
-    <!-- New Buy Section -->
-    <section id="buy-section">
-      <h2>Koupit USDt.z</h2>
-      <p>Chcete si pořídit USDt.z? Klikněte na tlačítko níže a nakupte bezpečně přímo na PancakeSwap.</p>
-      <a href="https://pancakeswap.finance/swap?outputCurrency=0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" target="_blank" rel="noopener" class="btn">Koupit na PancakeSwap</a>
     </section>
 
     <section id="about">
@@ -297,33 +176,12 @@
     <section id="contact">
       <h2>Kontakt</h2>
       <p>Máte otázky? Kontaktujte nás prostřednictvím emailu nebo sociálních sítí.</p>
-      <a href="mailto:sca.sca@centrum.cz" class="contact-email" aria-label="Email">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-          <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 2l-8 5-8-5h16zm0 12H4v-9l8 5 8-5v9z"/>
-        </svg>
-        sca.sca@centrum.cz
-      </a>
+      <p>Email: <a href="mailto:sca.sca@centrum.cz">sca.sca@centrum.cz</a></p>
     </section>
   </main>
 
   <footer>
     &copy; 2025 USDt.z – Next Generation Stablecoin. Všechna práva vyhrazena.
   </footer>
-
-  <script>
-    const slides = document.querySelector('.slides');
-    const totalSlides = document.querySelectorAll('.slide').length;
-    let index = 0;
-
-    document.getElementById('next').addEventListener('click', () => {
-      index = (index + 1) % totalSlides;
-      slides.style.transform = `translateX(-${index * 100}%)`;
-    });
-
-    document.getElementById('prev').addEventListener('click', () => {
-      index = (index - 1 + totalSlides) % totalSlides;
-      slides.style.transform = `translateX(-${index * 100}%)`;
-    });
-  </script>
 </body>
 </html>
