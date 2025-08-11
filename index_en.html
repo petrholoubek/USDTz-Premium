@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>About USDt.z Token - Next Generation Stablecoin</title>
+  <title>USDt.z – Next Generation Stablecoin</title>
   <style>
     /* Reset */
     * {
@@ -32,7 +32,6 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      flex-wrap: wrap;
     }
     nav .logo img {
       height: 40px;
@@ -44,7 +43,6 @@
       display: flex;
       gap: 1.5rem;
       align-items: center;
-      flex-wrap: wrap;
     }
     nav ul li a {
       text-decoration: none;
@@ -70,9 +68,31 @@
 
     main {
       flex: 1;
-      max-width: 900px;
+      max-width: 1200px;
       margin: 2rem auto 3rem;
       padding: 0 1rem;
+    }
+
+    .big-logo-container {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .big-logo-container img {
+      max-width: 200px;
+      height: auto;
+      filter: drop-shadow(0 0 5px rgb(31,186,156));
+    }
+
+    section {
+      margin-bottom: 2rem;
+      background: #fff;
+      padding: 1.5rem 2rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgb(31 186 156 / 0.15);
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     h1, h2 {
@@ -82,7 +102,7 @@
     h1 {
       font-size: 2.5rem;
       text-align: center;
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
     }
     h2 {
       font-size: 2rem;
@@ -94,23 +114,48 @@
       font-size: 1rem;
     }
 
-    section {
-      background: #fff;
-      padding: 1.5rem 2rem;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgb(31 186 156 / 0.15);
-      margin-bottom: 2rem;
+    .btn {
+      background-color: rgb(31,186,156);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-block;
+      transition: background-color 0.3s ease;
+      margin-top: 0.5rem;
+      text-align: center;
+    }
+    .btn:hover {
+      background-color: #1eab91;
     }
 
-    /* Kontakt + odkaz explore token */
+    /* Special blue audit button */
+    .btn.audit {
+      background-color: #007acc;
+    }
+    .btn.audit:hover {
+      background-color: #005f99;
+    }
+
+    .button-group {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 1.5rem;
+      flex-wrap: wrap;
+    }
+
     #contact {
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
       max-width: 900px;
-      margin: 0 auto 2rem;
+      margin-left: auto;
+      margin-right: auto;
     }
     #contact div.contact-info {
       max-width: 60%;
@@ -142,10 +187,9 @@
       color: white;
     }
 
-    /* Wallet connect */
     #wallet-connect {
+      margin: 1.5rem auto 2rem;
       max-width: 900px;
-      margin: 0 auto 2rem;
       background: #fff;
       padding: 1.5rem 2rem;
       border: 1px solid #ddd;
@@ -153,12 +197,14 @@
       box-shadow: 0 0 10px rgb(31 186 156 / 0.15);
       text-align: center;
     }
+
     #wallet-connect .wallet-buttons {
       display: flex;
       gap: 1rem;
       justify-content: center;
       flex-wrap: wrap;
     }
+
     #wallet-connect .wallet-buttons button {
       background-color: rgb(31,186,156);
       color: white;
@@ -169,12 +215,12 @@
       font-weight: 600;
       min-width: 120px;
       transition: background-color 0.3s ease;
-      max-width: 150px;
-      white-space: nowrap;
     }
+
     #wallet-connect .wallet-buttons button:hover {
       background-color: #1eab91;
     }
+
     #walletStatus {
       margin-top: 1rem;
       color: #1eab91;
@@ -182,16 +228,6 @@
       min-height: 1.5rem;
     }
 
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background: #f9f9f9;
-      font-size: 0.9rem;
-      color: #666;
-      margin-top: auto;
-    }
-
-    /* Responsive */
     @media (max-width: 768px) {
       nav ul {
         flex-direction: column;
@@ -220,7 +256,6 @@
       }
       #wallet-connect .wallet-buttons button {
         width: 100%;
-        max-width: unset;
         min-width: unset;
       }
     }
@@ -230,23 +265,23 @@
   <header>
     <nav>
       <div class="logo">
-        <a href="../index_en.html"><img src="../logo.png" alt="USDt.z Logo" /></a>
+        <a href="index_en.html"><img src="logo.png" alt="USDt.z Logo" /></a>
       </div>
       <ul>
-        <li><a href="about_en.html" aria-current="page">About Token</a></li>
-        <li><a href="swap_en.html">Swap & DEX</a></li>
-        <li><a href="usecases_en.html">Use Cases</a></li>
-        <li><a href="docs_en.html">Documentation</a></li>
+        <li><a href="pages/about_en.html">About Token</a></li>
+        <li><a href="#swap">Swap & DEX</a></li>
+        <li><a href="#usecases">Use Cases</a></li>
+        <li><a href="#docs">Documentation</a></li>
         <li><a href="#wallet-connect">Connect Wallet</a></li>
         <li><a href="#contact">Contact</a></li>
         <li>
-          <a href="../index.html" title="Česky">
-            <img class="flag" src="../img/flags/cz.png" alt="Czech Flag" />
+          <a href="index.html" title="Česky">
+            <img class="flag" src="img/flags/cz.png" alt="Czech Flag" />
           </a>
         </li>
         <li>
-          <a href="../index_en.html" title="English">
-            <img class="flag" src="../img/flags/en.png" alt="English Flag" />
+          <a href="index_en.html" title="English">
+            <img class="flag" src="img/flags/en.png" alt="English Flag" />
           </a>
         </li>
       </ul>
@@ -254,30 +289,39 @@
   </header>
 
   <main>
-    <h1>About USDt.z Token</h1>
-    <section>
-      <p>USDt.z is a next-generation stablecoin combining traditional currency stability with blockchain technology.</p>
-      <p>It offers transparency, security, and versatility across financial applications.</p>
-      <p>Designed to support young people and clients lacking loan collateral, USDt.z can serve as collateral to secure financing.</p>
-      <p>Clients may purchase USDt.z at a discount, making it ideal for loans and financial guarantees.</p>
+    <div class="big-logo-container">
+      <img src="logo.png" alt="USDt.z Large Logo" />
+    </div>
+
+    <section class="hero" id="hero">
+      <h1>USDt.z – Next Generation Stablecoin</h1>
+      <p style="color: black; max-width: 600px; margin: 0 auto 1rem; font-size: 1.1rem; line-height: 1.4;">
+        Stable, secure, and innovative token designed for banking and non-banking sectors.
+      </p>
+
+      <div class="button-group">
+        <a href="pages/about_en.html" class="btn">Learn More About Token</a>
+        <a href="https://pancakeswap.finance/swap?outputCurrency=0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" target="_blank" rel="noopener" class="btn">Swap on PancakeSwap</a>
+      </div>
     </section>
 
-    <section>
-      <h2>Token Features</h2>
-      <ul>
-        <li>Stable and secure with 1:1 peg to USD</li>
-        <li>Fast and low-cost transactions on Binance Smart Chain</li>
-        <li>Supports decentralized finance (DeFi) applications</li>
-        <li>Backed by transparent smart contracts audited by third parties</li>
-        <li>Facilitates access to loans and credit using the token as collateral</li>
-      </ul>
+    <section id="swap">
+      <h2>Swap & DEX</h2>
+      <p>Use PancakeSwap for fast and secure USDt.z token trading. The token is listed with a market cap over 5 million USD and pegged 1:1 to the USD.</p>
+      <a href="https://pancakeswap.finance/swap?outputCurrency=0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" target="_blank" rel="noopener" class="btn">Go to PancakeSwap</a>
     </section>
 
-    <section>
-      <h2>Why USDt.z?</h2>
-      <p>USDt.z bridges the gap between traditional finance and blockchain innovation.</p>
-      <p>Its design emphasizes stability, security, and accessibility for a broad range of users, including those underserved by traditional banking.</p>
-      <p>Through USDt.z, users gain access to financial tools and lending opportunities previously unavailable.</p>
+    <section id="pool">
+      <h2>Liquidity Pool</h2>
+      <p>Check our liquidity pool and monitor USDt.z market performance on GeckoTerminal.</p>
+      <a href="https://www.geckoterminal.com/bsc/pools/0x553b402b3d6f91ea2208c7df61a6d4aa96ccb6191787c20fedb7ae6c9823b280" target="_blank" rel="noopener" class="btn">View Liquidity Pool</a>
+    </section>
+
+    <section id="docs">
+      <h2>Audit & Documentation</h2>
+      <p>Complete technical documentation and audit report are available for download.</p>
+      <a href="docs/USDTz_Whitepaper_EN.pdf" target="_blank" class="btn">Download Whitepaper</a>
+      <a href="docs/Audit_Report.pdf" target="_blank" class="btn audit" style="margin-left: 1rem;">Download Audit</a>
     </section>
 
     <section id="wallet-connect">
@@ -292,13 +336,13 @@
 
     <section id="contact">
       <div class="contact-info">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-          <path fill="none" d="M0 0h24v24H0z"/>
-          <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="rgb(31,186,156)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 2H2v20h20V2zM2 7h20" />
+          <path d="M22 2l-10 13L2 2" />
         </svg>
         <div>
           <h2>Contact</h2>
-          <p>Have questions? Contact us via email or social networks.</p>
+          <p>Questions? Reach us via email or social media.</p>
           <p>Email: <a href="mailto:sca.sca@centrum.cz">sca.sca@centrum.cz</a></p>
         </div>
       </div>
@@ -308,10 +352,10 @@
     </section>
   </main>
 
-  <footer>
+  <footer style="text-align:center; padding:1rem; background:#f9f9f9; font-size:0.9rem; color:#666;">
     &copy; 2025 USDt.z – Next Generation Stablecoin. All rights reserved.
   </footer>
 
-  <script src="../js/wallet-connect.js"></script>
+  <script src="js/wallet-connect.js"></script>
 </body>
 </html>
