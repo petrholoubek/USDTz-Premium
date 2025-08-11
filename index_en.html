@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>USDt.z – Next Generation Stablecoin</title>
   <style>
-    /* (stejný CSS jako v české verzi, můžeš si ho zkopírovat) */
+    /* Stejný CSS jako v české verzi, s přidáním stylů pro lang-switcher */
     * {
       margin: 0; padding: 0; box-sizing: border-box;
     }
@@ -41,6 +41,8 @@
       list-style: none;
       display: flex;
       gap: 1.5rem;
+      margin: 0;
+      padding: 0;
     }
     nav ul li a {
       text-decoration: none;
@@ -50,6 +52,22 @@
     }
     nav ul li a:hover {
       color: rgb(31,186,156);
+    }
+    .lang-switcher {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .lang-switcher a img {
+      cursor: pointer;
+      border: 2px solid transparent;
+      border-radius: 3px;
+      transition: border-color 0.3s ease;
+      width: 24px;
+      height: auto;
+    }
+    .lang-switcher a:hover img {
+      border-color: rgb(31,186,156);
     }
     main {
       flex: 1;
@@ -135,9 +153,15 @@
         <li><a href="#usecases">Use Cases</a></li>
         <li><a href="#docs">Documentation</a></li>
         <li><a href="#contact">Contact</a></li>
-        <li><a href="index.html">CZ</a></li>
-        <li><a href="index_en.html" style="font-weight:700; color: rgb(31,186,156);">EN</a></li>
       </ul>
+      <div class="lang-switcher">
+        <a href="index.html" title="Čeština">
+          <img src="img/flags/cz.png" alt="CZ" />
+        </a>
+        <a href="index_en.html" title="English" style="border: 2px solid rgb(31,186,156); border-radius: 3px;">
+          <img src="img/flags/en.png" alt="EN" />
+        </a>
+      </div>
     </nav>
   </header>
   <main>
