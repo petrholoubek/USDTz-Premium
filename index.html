@@ -41,15 +41,30 @@
       list-style: none;
       display: flex;
       gap: 1.5rem;
+      align-items: center;
     }
     nav ul li a {
       text-decoration: none;
       color: #222;
       font-weight: 600;
       transition: color 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
     }
     nav ul li a:hover {
       color: rgb(31,186,156);
+    }
+    nav ul li.lang-switch {
+      padding-left: 1rem;
+      border-left: 1px solid #ccc;
+    }
+    nav ul li.lang-switch a img {
+      width: 24px;
+      height: auto;
+      vertical-align: middle;
+      border-radius: 3px;
+      box-shadow: 0 0 3px rgba(0,0,0,0.2);
     }
     main {
       flex: 1;
@@ -82,8 +97,27 @@
     }
     p {
       margin-bottom: 1rem;
-      color: #222;
+      color: #222; /* Černá barva textu */
       font-size: 1rem;
+    }
+    .hero {
+      text-align: center;
+      padding: 3rem 1rem 4.5rem;
+      background: #f9f9f9;
+      border-radius: 8px;
+      max-width: 700px;
+      margin: 0 auto 3.5rem;
+    }
+    .hero h1 {
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.3rem;
+      max-width: 480px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.5;
+      font-weight: 600;
+      color: #222; /* černá */
     }
     .btn {
       background-color: rgb(31,186,156);
@@ -99,128 +133,6 @@
     }
     .btn:hover {
       background-color: #1eab91;
-    }
-    /* Hero Section */
-    .hero {
-      text-align: center;
-      padding: 3rem 1rem 4.5rem; /* víc nahoře, aby nebyl moc dole */
-      background: #f9f9f9;
-      border-radius: 8px;
-      max-width: 700px;
-      margin: 0 auto 3.5rem;
-    }
-    .hero h1 {
-      margin-bottom: 1rem;
-    }
-    .hero p {
-      font-size: 1.3rem;
-      max-width: 480px;
-      margin: 0 auto 2.5rem;
-      line-height: 1.5;
-      color: rgb(31,186,156);
-      font-weight: 600;
-    }
-    /* Slider */
-    #slider {
-      max-width: 700px;
-      margin: 0 auto 4rem;
-      position: relative;
-      border-radius: 10px;
-      box-shadow: 0 6px 18px rgba(31,186,156,0.3);
-      overflow: hidden;
-      background: #fff;
-    }
-    #slider h2 {
-      text-align: center;
-      color: rgb(31,186,156);
-      padding: 1rem 0;
-      font-weight: 700;
-      font-size: 1.8rem;
-    }
-    .slides {
-      position: relative;
-      height: 300px;
-    }
-    .slide {
-      display: none;
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      text-align: center;
-      top: 0;
-      left: 0;
-      background: #fff;
-      padding: 1rem;
-      box-sizing: border-box;
-    }
-    .slide.active {
-      display: block;
-      animation: fadeIn 1s ease;
-    }
-    .slide img {
-      max-height: 180px;
-      width: auto;
-      margin: 0 auto 1rem;
-      border-radius: 6px;
-      border: 2px solid rgb(31,186,156);
-      object-fit: contain;
-    }
-    .slide-text {
-      color: rgb(31,186,156);
-      font-weight: 700;
-      font-size: 1.2rem;
-    }
-    @keyframes fadeIn {
-      from {opacity: 0;}
-      to {opacity: 1;}
-    }
-    /* Buttons */
-    .prev, .next {
-      cursor: pointer;
-      position: absolute;
-      top: 50%;
-      width: 40px;
-      height: 40px;
-      margin-top: -20px;
-      color: white;
-      background-color: rgb(31,186,156);
-      border: none;
-      border-radius: 50%;
-      font-size: 24px;
-      line-height: 40px;
-      text-align: center;
-      opacity: 0.8;
-      transition: opacity 0.3s ease;
-      user-select: none;
-      z-index: 10;
-    }
-    .prev:hover, .next:hover {
-      opacity: 1;
-    }
-    .prev {
-      left: 15px;
-    }
-    .next {
-      right: 15px;
-    }
-    /* Dots */
-    .dots {
-      text-align: center;
-      padding: 0.8rem 0 1.2rem;
-      background: #f9f9f9;
-    }
-    .dot {
-      cursor: pointer;
-      height: 14px;
-      width: 14px;
-      margin: 0 6px;
-      background-color: #bbb;
-      border-radius: 50%;
-      display: inline-block;
-      transition: background-color 0.3s ease;
-    }
-    .dot.active, .dot:hover {
-      background-color: rgb(31,186,156);
     }
     /* Footer */
     footer {
@@ -243,13 +155,6 @@
       .big-logo-container img {
         max-width: 140px;
       }
-      #slider {
-        max-width: 90vw;
-        height: auto;
-      }
-      .slide img {
-        max-height: 140px;
-      }
       .hero {
         max-width: 90vw;
         padding: 2rem 1rem 4rem;
@@ -257,6 +162,11 @@
       .hero p {
         font-size: 1.1rem;
         max-width: 100%;
+      }
+      nav ul li.lang-switch {
+        border-left: none;
+        padding-left: 0;
+        margin-top: 1rem;
       }
     }
   </style>
@@ -273,9 +183,18 @@
         <li><a href="#usecases">Použití</a></li>
         <li><a href="#docs">Dokumentace</a></li>
         <li><a href="#contact">Kontakt</a></li>
+        <li class="lang-switch">
+          <a href="index.html" title="Česky">
+            <img src="img/flags/cz.png" alt="CZ" /> CZ
+          </a>
+          <a href="index_en.html" title="English" style="margin-left: 10px;">
+            <img src="img/flags/en.png" alt="EN" /> EN
+          </a>
+        </li>
       </ul>
     </nav>
   </header>
+
   <main>
     <div class="big-logo-container">
       <img src="logo.png" alt="USDt.z Velké Logo" />
@@ -286,32 +205,6 @@
       <p>Stable, secure, and innovative token designed for banking and non-banking sectors.</p>
       <a href="#docs" class="btn">Stáhnout Whitepaper</a>
       <a href="#swap" class="btn" style="margin-left: 1rem;">Swap na PancakeSwap</a>
-    </section>
-
-    <!-- Slider Section -->
-    <section id="slider">
-      <h2>Klíčové vlastnosti</h2>
-      <div class="slides">
-        <div class="slide active">
-          <img src="img/feature1.jpg" alt="Vysoká bezpečnost a transparentnost" />
-          <div class="slide-text">Vysoká bezpečnost a transparentnost</div>
-        </div>
-        <div class="slide">
-          <img src="img/feature2.jpg" alt="Rychlé a bezpečné swapy" />
-          <div class="slide-text">Rychlé a bezpečné swapy</div>
-        </div>
-        <div class="slide">
-          <img src="img/feature3.jpg" alt="Široké využití v bankovnictví i mimo něj" />
-          <div class="slide-text">Široké využití v bankovnictví i mimo něj</div>
-        </div>
-      </div>
-      <button class="prev" aria-label="Předchozí slide">&#10094;</button>
-      <button class="next" aria-label="Další slide">&#10095;</button>
-      <div class="dots">
-        <span class="dot active" aria-label="Slide 1"></span>
-        <span class="dot" aria-label="Slide 2"></span>
-        <span class="dot" aria-label="Slide 3"></span>
-      </div>
     </section>
 
     <section id="about">
@@ -349,58 +242,5 @@
   <footer>
     &copy; 2025 USDt.z – Next Generation Stablecoin. Všechna práva vyhrazena.
   </footer>
-
-  <script>
-    const slides = document.querySelectorAll('.slide');
-    const dots = document.querySelectorAll('.dot');
-    const prevBtn = document.querySelector('.prev');
-    const nextBtn = document.querySelector('.next');
-
-    let currentIndex = 0;
-    let slideInterval = setInterval(nextSlide, 6000);
-
-    function showSlide(index) {
-      if (index >= slides.length) index = 0;
-      if (index < 0) index = slides.length - 1;
-      slides.forEach((slide, i) => {
-        slide.classList.toggle('active', i === index);
-        dots[i].classList.toggle('active', i === index);
-      });
-      currentIndex = index;
-    }
-
-    function nextSlide() {
-      showSlide(currentIndex + 1);
-    }
-
-    function prevSlide() {
-      showSlide(currentIndex - 1);
-    }
-
-    nextBtn.addEventListener('click', () => {
-      nextSlide();
-      resetInterval();
-    });
-
-    prevBtn.addEventListener('click', () => {
-      prevSlide();
-      resetInterval();
-    });
-
-    dots.forEach((dot, i) => {
-      dot.addEventListener('click', () => {
-        showSlide(i);
-        resetInterval();
-      });
-    });
-
-    function resetInterval() {
-      clearInterval(slideInterval);
-      slideInterval = setInterval(nextSlide, 6000);
-    }
-
-    // Inicializace slideru
-    showSlide(currentIndex);
-  </script>
 </body>
 </html>
