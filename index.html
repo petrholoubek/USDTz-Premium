@@ -3,142 +3,114 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>USDt.z – Stabilní měna nové generace</title>
+  <title>USDt.z – Nové generace</title>
   <style>
     /* Reset */
     * {
-      margin: 0; padding: 0; box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: #f8f9fa;
-      color: #222;
+      color: #333;
       line-height: 1.6;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
       padding: 20px;
     }
     header {
-      width: 100%;
-      max-width: 1100px;
-      background: white;
-      padding: 20px 30px;
+      background-color: #1fba9c;
+      color: white;
+      padding: 20px;
       border-radius: 8px;
-      box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
       margin-bottom: 30px;
-    }
-    header img.logo {
-      height: 60px;
-      cursor: pointer;
-    }
-    nav {
-      display: flex;
-      gap: 15px;
-    }
-    nav a.lang-flag {
-      width: 36px;
-      height: 24px;
-      display: inline-block;
-      border-radius: 4px;
-      overflow: hidden;
-      cursor: pointer;
-      border: 2px solid transparent;
-      transition: border-color 0.3s ease;
-    }
-    nav a.lang-flag.active,
-    nav a.lang-flag:hover {
-      border-color: rgb(31, 186, 156);
-    }
-    nav a.lang-flag img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    main {
-      width: 100%;
-      max-width: 1100px;
-      background: white;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
-      padding: 40px 50px;
-      box-sizing: border-box;
-    }
-
-    section {
-      margin-bottom: 40px;
-      padding: 20px 30px;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      background-color: #fff;
-    }
-
-    h1, h2 {
-      color: rgb(31, 186, 156);
-      margin-bottom: 20px;
-    }
-    h1 {
-      font-size: 2.8rem;
       text-align: center;
     }
+    header img {
+      max-width: 100px;
+      margin-bottom: 10px;
+    }
+    header nav {
+      margin-top: 10px;
+    }
+    header nav a {
+      margin: 0 10px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    main {
+      max-width: 1100px;
+      margin: auto;
+      background-color: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+    section {
+      margin-bottom: 20px;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      background-color: white;
+    }
+    h1 {
+      color: #1fba9c;
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
     h2 {
-      font-size: 2rem;
+      color: #1fba9c;
+      margin-bottom: 15px;
+    }
+    p.description {
+      color: #000;
+      font-size: 1.1rem;
+      margin-bottom: 25px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
     }
     p {
       margin-bottom: 15px;
-      font-size: 1.1rem;
-      color: #333;
     }
-    a.btn {
-      background-color: rgb(31, 186, 156);
-      color: white;
-      padding: 12px 26px;
-      border-radius: 5px;
-      font-weight: 600;
-      text-decoration: none;
-      display: inline-block;
-      transition: background-color 0.3s ease;
-      margin-right: 15px;
-      font-size: 1.1rem;
+    ul {
+      list-style-type: disc;
+      margin-left: 20px;
     }
-    a.btn:hover {
-      background-color: #1eab91;
-    }
-
-    /* Footer */
-    footer {
-      margin-top: 50px;
-      color: #666;
-      font-size: 0.9rem;
+    .btn-container {
       text-align: center;
-      width: 100%;
-      max-width: 1100px;
+      margin-top: 20px;
+    }
+    .btn {
+      background-color: #1fba9c;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      margin: 5px;
+      display: inline-block;
+      transition: background-color 0.3s;
+    }
+    .btn:hover {
+      background-color: #17a68d;
     }
   </style>
 </head>
 <body>
 
 <header>
-  <img src="logo.png" alt="USDt.z logo" class="logo" />
+  <img src="logo.png" alt="USDt.z Logo" />
+  <h1>USDt.z – Nové generace</h1>
+  <p class="description">Stabilní, bezpečný a inovativní token navržený pro bankovní i nebankovní sektor.</p>
   <nav>
-    <a href="index.html" class="lang-flag active" title="Čeština">
-      <img src="img/flags/cz.png" alt="Česká vlajka" />
-    </a>
-    <a href="index_en.html" class="lang-flag" title="English">
-      <img src="img/flags/en.png" alt="English flag" />
-    </a>
+    <a href="index.html">Čeština</a> | <a href="index_en.html">English</a>
   </nav>
 </header>
 
 <main>
-  <h1>USDt.z – Stabilní měna nové generace</h1>
-
   <section>
     <h2>O tokenu USDt.z</h2>
     <p>USDt.z je stablecoin navržený tak, aby spojoval stabilitu tradičních měn s bezpečností a transparentností blockchainu nové generace.</p>
@@ -147,34 +119,44 @@
 
   <section>
     <h2>Výhody a použití</h2>
-    <p><strong>Koupě USDt.z se slevou:</strong> Na našem portálu můžete token USDt.z zakoupit za zvýhodněných podmínek. Využijte stabilní hodnotu a možnosti rychlého převodu.</p>
-    <p><strong>Kolaterální půjčky:</strong> USDt.z lze použít jako kolaterál pro půjčky, což vám umožňuje využívat výhod stabilní digitální měny při financování.</p>
-    <p><strong>Rychlé swapy:</strong> Snadno a bezpečně směňujte USDt.z na decentralizovaných burzách jako PancakeSwap.</p>
+    <ul>
+      <li>Stabilita vázaná na USD</li>
+      <li>Okamžité převody 24/7</li>
+      <li>Bezpečné smart kontrakty</li>
+      <li>Výhodné kolaterální půjčky</li>
+      <li>Snadný přístup k likviditě</li>
+    </ul>
   </section>
 
   <section>
     <h2>Tržní informace a DEX</h2>
     <p>Token USDt.z je aktuálně zalistován na PancakeSwap s tržní hodnotou přes 5 miliard USD. Nabízíme stabilitu 1:1 vůči americkému dolaru.</p>
-    <p>Pro obchodování využijte PancakeSwap: <a href="https://pancakeswap.finance/swap?outputCurrency=0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" target="_blank" class="btn">Přejít na PancakeSwap</a></p>
-    <p>Pool na GeckoTerminal: <a href="https://www.geckoterminal.com/bsc/pools/0x553b402b3d6f91ea2208c7df61a6d4aa96ccb6191787c20fedb7ae6c9823b280" target="_blank" class="btn">Zobrazit pool</a></p>
+    <div class="btn-container">
+      <a href="https://pancakeswap.finance/swap?outputCurrency=0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" class="btn" target="_blank">Přejít na PancakeSwap</a>
+      <a href="https://www.geckoterminal.com/bsc/pools/0x553b402b3d6f91ea2208c7df61a6d4aa96ccb6191787c20fedb7ae6c9823b280" class="btn" target="_blank">Zobrazit pool</a>
+    </div>
   </section>
 
   <section>
     <h2>Technická dokumentace a audit</h2>
     <p>Kompletní technická dokumentace a whitepaper jsou k dispozici ke stažení níže.</p>
-    <a href="docs/USDTz_Whitepaper_CS.pdf" target="_blank" class="btn">Stáhnout whitepaper (CZ)</a>
-    <a href="docs/USDTz_Whitepaper_EN.pdf" target="_blank" class="btn">Download whitepaper (EN)</a>
+    <div class="btn-container">
+      <a href="docs/USDTz_Whitepaper_CS.pdf" class="btn" target="_blank">Stáhnout whitepaper (CZ)</a>
+      <a href="docs/USDTz_Whitepaper_EN.pdf" class="btn" target="_blank">Download whitepaper (EN)</a>
+    </div>
   </section>
 
   <section>
     <h2>Blockchain Explorer</h2>
     <p>Pro ověření transakcí a aktuální stav tokenu navštivte BscScan:</p>
-    <a href="https://bscscan.com/token/0x913ef7244bed019b95ec5321408ee4ce83e25c01" target="_blank" class="btn">Zobrazit na BscScan</a>
+    <div class="btn-container">
+      <a href="https://bscscan.com/token/0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" class="btn" target="_blank">Zobrazit na BscScan</a>
+    </div>
   </section>
 </main>
 
 <footer>
-  &copy; 2025 USDt.z – Všechna práva vyhrazena.
+  <p style="text-align:center; margin-top: 30px;">&copy; 2025 USDt.z – Všechna práva vyhrazena.</p>
 </footer>
 
 </body>
