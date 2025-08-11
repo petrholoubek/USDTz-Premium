@@ -1,380 +1,176 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>USDt.z – Next Generation Stablecoin</title>
-  <style>
-    /* Reset */
-    * {
-      margin: 0; padding: 0; box-sizing: border-box;
-    }
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #fff;
-      color: #222;
-      line-height: 1.6;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-    header {
-      background: #fff;
-      border-bottom: 2px solid rgb(31,186,156);
-      padding: 1rem 2rem;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    nav .logo img {
-      height: 40px;
-      cursor: pointer;
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 1.5rem;
-      margin: 0;
-      padding: 0;
-    }
-    nav ul li a {
-      text-decoration: none;
-      color: #222;
-      font-weight: 600;
-      transition: color 0.3s ease;
-    }
-    nav ul li a:hover {
-      color: rgb(31,186,156);
-    }
-    .lang-switcher {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .lang-switcher a img {
-      cursor: pointer;
-      border: 2px solid transparent;
-      border-radius: 3px;
-      transition: border-color 0.3s ease;
-      width: 24px;
+<section id="slider">
+  <h2 style="color: rgb(31,186,156); text-align:center; margin-bottom:1rem;">Our Features</h2>
+  <div class="slider-container">
+    <div class="slides fade">
+      <div class="slide active">
+        <img src="feature1.jpg" alt="Feature 1" />
+        <div class="slide-text">High Security & Transparency</div>
+      </div>
+      <div class="slide">
+        <img src="feature2.jpg" alt="Feature 2" />
+        <div class="slide-text">Fast and Secure Swaps</div>
+      </div>
+      <div class="slide">
+        <img src="feature3.jpg" alt="Feature 3" />
+        <div class="slide-text">Wide Banking & Non-Banking Use</div>
+      </div>
+    </div>
+    <button class="prev" aria-label="Previous Slide">&#10094;</button>
+    <button class="next" aria-label="Next Slide">&#10095;</button>
+    <div class="dots">
+      <span class="dot active" aria-label="Slide 1"></span>
+      <span class="dot" aria-label="Slide 2"></span>
+      <span class="dot" aria-label="Slide 3"></span>
+    </div>
+  </div>
+</section>
+
+<style>
+  .slider-container {
+    position: relative;
+    max-width: 700px;
+    margin: 2rem auto;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(31,186,156,0.3);
+    overflow: hidden;
+  }
+  .slides {
+    position: relative;
+    height: 350px;
+  }
+  .slide {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+  }
+  .slide img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-bottom: 2px solid rgb(31,186,156);
+  }
+  .slide-text {
+    color: rgb(31,186,156);
+    font-weight: 700;
+    font-size: 1.3rem;
+    padding: 1rem 0;
+  }
+  .slide.active {
+    display: block;
+    animation: fadeIn 1s ease;
+  }
+  @keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+  /* Buttons */
+  .prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: 40px;
+    height: 40px;
+    margin-top: -20px;
+    color: white;
+    background-color: rgb(31,186,156);
+    border: none;
+    border-radius: 50%;
+    font-size: 24px;
+    line-height: 40px;
+    text-align: center;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+    user-select: none;
+  }
+  .prev:hover, .next:hover {
+    opacity: 1;
+  }
+  .prev {
+    left: 15px;
+  }
+  .next {
+    right: 15px;
+  }
+  /* Dots */
+  .dots {
+    text-align: center;
+    padding: 0.8rem 0 1.2rem;
+    background: #f9f9f9;
+  }
+  .dot {
+    cursor: pointer;
+    height: 14px;
+    width: 14px;
+    margin: 0 6px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+  }
+  .dot.active, .dot:hover {
+    background-color: rgb(31,186,156);
+  }
+  /* Responsive */
+  @media (max-width: 768px) {
+    .slider-container {
+      max-width: 90vw;
       height: auto;
     }
-    .lang-switcher a:hover img {
-      border-color: rgb(31,186,156);
+    .slide img {
+      height: 200px;
     }
-    main {
-      flex: 1;
-      max-width: 1200px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
-    section {
-      margin-bottom: 4rem;
-    }
-    h1, h2, h3 {
-      color: rgb(31,186,156);
-      margin-bottom: 1rem;
-    }
-    h1 {
-      font-size: 2.5rem;
-      text-align: center;
-    }
-    h2 {
-      font-size: 2rem;
-    }
-    p {
-      margin-bottom: 1rem;
-      color: #222;
-      font-size: 1rem;
-      max-width: 400px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .btn {
-      background-color: rgb(31,186,156);
-      color: white;
-      padding: 0.75rem 1.5rem;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      font-weight: 600;
-      text-decoration: none;
-      display: inline-block;
-      transition: background-color 0.3s ease;
-    }
-    .btn:hover {
-      background-color: #1eab91;
-    }
-    /* Hero Section */
-    .hero {
-      text-align: center;
-      padding: 4rem 1rem;
-      background: #f9f9f9;
-      border-radius: 8px;
-    }
-    /* Footer */
-    footer {
-      background: #f1f1f1;
-      text-align: center;
-      padding: 1.5rem 1rem;
-      font-size: 0.9rem;
-      color: #666;
-      margin-top: auto;
-    }
-    /* Responsive */
-    @media (max-width: 768px) {
-      nav ul {
-        flex-direction: column;
-        gap: 1rem;
-      }
-      nav {
-        padding: 1rem;
-      }
-    }
+  }
+</style>
 
-    /* --- Slidery CSS --- */
-    /* Slider 1 */
-    #slider1 {
-      position: relative;
-      max-width: 600px;
-      margin: 2rem auto;
-      overflow: hidden;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-    #slider1 img {
-      display: none;
-      width: 100%;
-      height: auto;
-    }
-    #slider1 img.active {
-      display: block;
-    }
-    #slider1 button {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(31,186,156,0.8);
-      border: none;
-      color: white;
-      padding: 0.5rem 1rem;
-      cursor: pointer;
-      font-weight: bold;
-      border-radius: 3px;
-      user-select: none;
-    }
-    #slider1 #prev1 {
-      left: 10px;
-    }
-    #slider1 #next1 {
-      right: 10px;
-    }
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const dots = document.querySelectorAll('.dot');
+  const prevBtn = document.querySelector('.prev');
+  const nextBtn = document.querySelector('.next');
 
-    /* Slider 2 */
-    #slider2 {
-      max-width: 600px;
-      margin: 2rem auto;
-      overflow: hidden;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-    #slider2 img {
-      display: none;
-      width: 100%;
-      height: auto;
-      border-radius: 8px;
-    }
-    #slider2 img.active {
-      display: block;
-    }
+  let currentIndex = 0;
+  let slideInterval = setInterval(nextSlide, 6000); // autoplay every 6s
 
-    /* Slider 3 */
-    #slider3 {
-      max-width: 600px;
-      margin: 2rem auto;
-      position: relative;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-    #slider3 > img {
-      display: none;
-      width: 100%;
-      height: auto;
-      border-radius: 8px;
-    }
-    #slider3 > img.active {
-      display: block;
-    }
-    #slider3 .thumbnails {
-      display: flex;
-      justify-content: center;
-      margin-top: 10px;
-      gap: 10px;
-    }
-    #slider3 .thumbnails img {
-      width: 60px;
-      height: auto;
-      cursor: pointer;
-      opacity: 0.6;
-      border-radius: 4px;
-      border: 2px solid transparent;
-      transition: opacity 0.3s ease, border-color 0.3s ease;
-    }
-    #slider3 .thumbnails img.active-thumb {
-      opacity: 1;
-      border-color: rgb(31,186,156);
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <nav>
-      <div class="logo">
-        <img src="logo.png" alt="USDt.z Logo" />
-      </div>
-      <ul>
-        <li><a href="#about">About Token</a></li>
-        <li><a href="#swap">Swap & DEX</a></li>
-        <li><a href="#usecases">Use Cases</a></li>
-        <li><a href="#docs">Documentation</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-      <div class="lang-switcher">
-        <a href="index.html" title="Čeština">
-          <img src="img/flags/cz.png" alt="CZ" />
-        </a>
-        <a href="index_en.html" title="English" style="border: 2px solid rgb(31,186,156); border-radius: 3px;">
-          <img src="img/flags/en.png" alt="EN" />
-        </a>
-      </div>
-    </nav>
-  </header>
-
-  <main>
-    <section class="hero" id="hero">
-      <h1>USDt.z – Next Generation Stablecoin</h1>
-      <p>
-        Stable, secure, and innovative token designed for both banking<br />
-        and non-banking sectors.
-      </p>
-      <a href="#docs" class="btn">Download Whitepaper</a>
-      <a href="#swap" class="btn" style="margin-left: 1rem;">Swap on PancakeSwap</a>
-    </section>
-
-    <section id="about">
-      <h2>About USDt.z Token</h2>
-      <p>USDt.z is a stablecoin that combines the stability of traditional currencies with next-generation blockchain technology.</p>
-      <p>The token offers high security, transparency, and wide usability across various financial applications.</p>
-    </section>
-
-    <section id="slider1-section">
-      <h2>Image Slider with Buttons</h2>
-      <div class="slider" id="slider1">
-        <img src="img/slide1.jpg" alt="Slide 1" class="active" />
-        <img src="img/slide2.jpg" alt="Slide 2" />
-        <img src="img/slide3.jpg" alt="Slide 3" />
-        <button id="prev1">Prev</button>
-        <button id="next1">Next</button>
-      </div>
-    </section>
-
-    <section id="slider2-section">
-      <h2>Autoplay Slider</h2>
-      <div class="slider" id="slider2">
-        <img src="img/slideA.jpg" alt="Slide A" class="active" />
-        <img src="img/slideB.jpg" alt="Slide B" />
-        <img src="img/slideC.jpg" alt="Slide C" />
-      </div>
-    </section>
-
-    <section id="slider3-section">
-      <h2>Slider with Thumbnails</h2>
-      <div class="slider" id="slider3">
-        <img src="img/slideX.jpg" alt="Slide X" class="active" />
-        <img src="img/slideY.jpg" alt="Slide Y" />
-        <img src="img/slideZ.jpg" alt="Slide Z" />
-        <div class="thumbnails">
-          <img src="img/slideX_thumb.jpg" alt="Thumb X" data-index="0" class="active-thumb" />
-          <img src="img/slideY_thumb.jpg" alt="Thumb Y" data-index="1" />
-          <img src="img/slideZ_thumb.jpg" alt="Thumb Z" data-index="2" />
-        </div>
-      </div>
-    </section>
-
-    <section id="swap">
-      <h2>Swap & DEX</h2>
-      <p>Use PancakeSwap for quick and secure trading of the USDt.z token.</p>
-      <a href="https://pancakeswap.finance/swap?outputCurrency=0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" target="_blank" rel="noopener" class="btn">Go to PancakeSwap</a>
-    </section>
-
-    <section id="usecases">
-      <h2>Use Cases & Benefits</h2>
-      <p>USDt.z is ideal for banking collateral, loans, and fast crypto swaps.</p>
-      <p>Thanks to its stability and trust, it is also used by non-banking entities and investors.</p>
-    </section>
-
-    <section id="docs">
-      <h2>Documentation & Whitepaper</h2>
-      <p>The complete USDt.z whitepaper is available for download.</p>
-      <a href="docs/USDTz_Whitepaper_EN.pdf" target="_blank" class="btn">Download PDF (EN)</a>
-      <a href="docs/USDTz_Whitepaper_CS.pdf" target="_blank" class="btn" style="margin-left: 1rem;">Stáhnout PDF (CZ)</a>
-    </section>
-
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>Have questions? Contact us by email or social media.</p>
-      <p>Email: <a href="mailto:sca.sca@centrum.cz">sca.sca@centrum.cz</a></p>
-    </section>
-  </main>
-
-  <footer>
-    &copy; 2025 USDt.z – Next Generation Stablecoin. All rights reserved.
-  </footer>
-
-  <script>
-    // Slider 1 - buttons
-    const slides1 = document.querySelectorAll('#slider1 img');
-    let current1 = 0;
-    document.getElementById('next1').onclick = () => {
-      slides1[current1].classList.remove('active');
-      current1 = (current1 + 1) % slides1.length;
-      slides1[current1].classList.add('active');
-    };
-    document.getElementById('prev1').onclick = () => {
-      slides1[current1].classList.remove('active');
-      current1 = (current1 - 1 + slides1.length) % slides1.length;
-      slides1[current1].classList.add('active');
-    };
-
-    // Slider 2 - autoplay
-    const slides2 = document.querySelectorAll('#slider2 img');
-    let current2 = 0;
-    setInterval(() => {
-      slides2[current2].classList.remove('active');
-      current2 = (current2 + 1) % slides2.length;
-      slides2[current2].classList.add('active');
-    }, 3000);
-
-    // Slider 3 - thumbnails
-    const slides3 = document.querySelectorAll('#slider3 > img:not(.thumbnails img)');
-    const thumbs = document.querySelectorAll('#slider3 .thumbnails img');
-    let current3 = 0;
-    thumbs.forEach(thumb => {
-      thumb.addEventListener('click', () => {
-        slides3[current3].classList.remove('active');
-        thumbs[current3].classList.remove('active-thumb');
-        current3 = parseInt(thumb.dataset.index);
-        slides3[current3].classList.add('active');
-        thumbs[current3].classList.add('active-thumb');
-      });
+  function showSlide(index) {
+    if(index >= slides.length) index = 0;
+    if(index < 0) index = slides.length - 1;
+    slides.forEach((slide, i) => {
+      slide.classList.toggle('active', i === index);
+      dots[i].classList.toggle('active', i === index);
     });
-  </script>
-</body>
-</html>
+    currentIndex = index;
+  }
+
+  function nextSlide() {
+    showSlide(currentIndex + 1);
+  }
+  function prevSlide() {
+    showSlide(currentIndex - 1);
+  }
+
+  nextBtn.addEventListener('click', () => {
+    nextSlide();
+    resetInterval();
+  });
+  prevBtn.addEventListener('click', () => {
+    prevSlide();
+    resetInterval();
+  });
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => {
+      showSlide(i);
+      resetInterval();
+    });
+  });
+
+  function resetInterval() {
+    clearInterval(slideInterval);
+    slideInterval = setInterval(nextSlide, 6000);
+  }
+
+  // Initialize first slide
+  showSlide(currentIndex);
+</script>
