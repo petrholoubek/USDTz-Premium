@@ -1,361 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>USDt.z – Next Generation Stablecoin</title>
-  <style>
-    /* Reset */
-    * {
-      margin: 0; padding: 0; box-sizing: border-box;
-    }
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #fff;
-      color: #222;
-      line-height: 1.6;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-    header {
-      background: rgb(31,186,156);
-      padding: 1rem 2rem;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    nav {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    nav .logo img {
-      height: 40px;
-      cursor: pointer;
-      filter: drop-shadow(0 0 3px rgba(0,0,0,0.15));
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 1.5rem;
-      align-items: center;
-    }
-    nav ul li a {
-      text-decoration: none;
-      color: white;
-      font-weight: 600;
-      transition: color 0.3s ease;
-      font-size: 1rem;
-      display: flex;
-      align-items: center;
-      gap: 0.3rem;
-    }
-    nav ul li a:hover {
-      color: #004d40;
-    }
-    nav ul li img.flag {
-      width: 24px;
-      height: 16px;
-      object-fit: cover;
-      border: 1px solid #ddd;
-      border-radius: 3px;
-      vertical-align: middle;
-    }
-
-    main {
-      flex: 1;
-      max-width: 1200px;
-      margin: 2rem auto 3rem;
-      padding: 0 1rem;
-    }
-
-    .big-logo-container {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-    .big-logo-container img {
-      max-width: 200px;
-      height: auto;
-      filter: drop-shadow(0 0 5px rgb(31,186,156));
-    }
-
-    section {
-      margin-bottom: 2rem;
-      background: #fff;
-      padding: 1.5rem 2rem;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgb(31 186 156 / 0.15);
-      max-width: 900px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    h1, h2 {
-      color: rgb(31,186,156);
-      margin-bottom: 1rem;
-    }
-    h1 {
-      font-size: 2.5rem;
-      text-align: center;
-      margin-bottom: 1.5rem;
-    }
-    h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-    p {
-      margin-bottom: 1rem;
-      color: #222;
-      font-size: 1rem;
-    }
-
-    .btn {
-      background-color: rgb(31,186,156);
-      color: white;
-      padding: 0.75rem 1.5rem;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      font-weight: 600;
-      text-decoration: none;
-      display: inline-block;
-      transition: background-color 0.3s ease;
-      margin-top: 0.5rem;
-      text-align: center;
-    }
-    .btn:hover {
-      background-color: #1eab91;
-    }
-
-    /* Special blue audit button */
-    .btn.audit {
-      background-color: #007acc;
-    }
-    .btn.audit:hover {
-      background-color: #005f99;
-    }
-
-    .button-group {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      margin-top: 1.5rem;
-      flex-wrap: wrap;
-    }
-
-    #contact {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      max-width: 900px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    #contact div.contact-info {
-      max-width: 60%;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    #contact div.contact-info svg {
-      width: 20px;
-      height: 20px;
-      fill: rgb(31,186,156);
-    }
-    #contact div.token-explore {
-      max-width: 35%;
-      text-align: right;
-    }
-    #contact div.token-explore a {
-      color: rgb(31,186,156);
-      font-weight: 600;
-      text-decoration: none;
-      border: 1px solid rgb(31,186,156);
-      padding: 0.5rem 1rem;
-      border-radius: 6px;
-      display: inline-block;
-      transition: background-color 0.3s ease;
-    }
-    #contact div.token-explore a:hover {
-      background-color: rgb(31,186,156);
-      color: white;
-    }
-
-    #wallet-connect {
-      margin: 1.5rem auto 2rem;
-      max-width: 900px;
-      background: #fff;
-      padding: 1.5rem 2rem;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgb(31 186 156 / 0.15);
-      text-align: center;
-    }
-
-    #wallet-connect .wallet-buttons {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    #wallet-connect .wallet-buttons button {
-      background-color: rgb(31,186,156);
-      color: white;
-      border: none;
-      border-radius: 4px;
-      padding: 0.5rem 1rem;
-      cursor: pointer;
-      font-weight: 600;
-      min-width: 120px;
-      transition: background-color 0.3s ease;
-    }
-
-    #wallet-connect .wallet-buttons button:hover {
-      background-color: #1eab91;
-    }
-
-    #walletStatus {
-      margin-top: 1rem;
-      color: #1eab91;
-      font-weight: 600;
-      min-height: 1.5rem;
-    }
-
-    @media (max-width: 768px) {
-      nav ul {
-        flex-direction: column;
-        gap: 0.8rem;
-      }
-      nav ul li a {
-        font-size: 1rem;
-      }
-      nav ul li a img.flag {
-        width: 30px;
-        height: 20px;
-      }
-      main {
-        margin: 1rem auto 2rem;
-      }
-      #contact {
-        flex-direction: column;
-        gap: 1rem;
-      }
-      #contact div.contact-info, #contact div.token-explore {
-        max-width: 100%;
-        text-align: center !important;
-      }
-      #wallet-connect .wallet-buttons {
-        flex-direction: column;
-      }
-      #wallet-connect .wallet-buttons button {
-        width: 100%;
-        min-width: unset;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>USDt.z - Stablecoin for Next Generation</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header>
-    <nav>
-      <div class="logo">
-        <a href="index_en.html"><img src="logo.png" alt="USDt.z Logo" /></a>
-      </div>
-      <ul>
-        <li><a href="pages/about_en.html">About Token</a></li>
-        <li><a href="#swap">Swap & DEX</a></li>
-        <li><a href="#usecases">Use Cases</a></li>
-        <li><a href="#docs">Documentation</a></li>
-        <li><a href="#wallet-connect">Connect Wallet</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li>
-          <a href="index.html" title="Česky">
-            <img class="flag" src="img/flags/cz.png" alt="Czech Flag" />
-          </a>
-        </li>
-        <li>
-          <a href="index_en.html" title="English">
-            <img class="flag" src="img/flags/en.png" alt="English Flag" />
-          </a>
-        </li>
-      </ul>
-    </nav>
-  </header>
+    <!-- Header -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index_en.html">Home</a></li>
+                <li><a href="pages/about_en.html">About Token</a></li>
+                <li><a href="pages/usecases_en.html">Use Cases</a></li>
+                <li><a href="pages/contact_en.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-  <main>
-    <div class="big-logo-container">
-      <img src="logo.png" alt="USDt.z Large Logo" />
-    </div>
-
-    <section class="hero" id="hero">
-      <h1>USDt.z – Next Generation Stablecoin</h1>
-      <p style="color: black; max-width: 600px; margin: 0 auto 1rem; font-size: 1.1rem; line-height: 1.4;">
-        Stable, secure, and innovative token designed for banking and non-banking sectors.
-      </p>
-
-      <div class="button-group">
-        <a href="pages/about_en.html" class="btn">Learn More About Token</a>
-        <a href="https://pancakeswap.finance/swap?outputCurrency=0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" target="_blank" rel="noopener" class="btn">Swap on PancakeSwap</a>
-      </div>
+    <!-- Hero Section -->
+    <section id="hero">
+        <h1>USDt.z - Stablecoin for Next Generation</h1>
+        <p>Trust, stability, and innovation for banking and non-banking sectors.</p>
     </section>
 
-    <section id="swap">
-      <h2>Swap & DEX</h2>
-      <p>Use PancakeSwap for fast and secure USDt.z token trading. The token is listed with a market cap over 5 million USD and pegged 1:1 to the USD.</p>
-      <a href="https://pancakeswap.finance/swap?outputCurrency=0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" target="_blank" rel="noopener" class="btn">Go to PancakeSwap</a>
+    <!-- Intro Section -->
+    <section id="intro">
+        <h2>Welcome</h2>
+        <p>
+            USDt.z is a next-generation stablecoin designed to provide financial stability, transparency, and security in both banking and non-banking environments. Our mission is to bridge the gap between traditional finance and the rapidly evolving blockchain ecosystem.
+        </p>
     </section>
 
-    <section id="pool">
-      <h2>Liquidity Pool</h2>
-      <p>Check our liquidity pool and monitor USDt.z market performance on GeckoTerminal.</p>
-      <a href="https://www.geckoterminal.com/bsc/pools/0x553b402b3d6f91ea2208c7df61a6d4aa96ccb6191787c20fedb7ae6c9823b280" target="_blank" rel="noopener" class="btn">View Liquidity Pool</a>
+    <!-- Features -->
+    <section id="features">
+        <h2>Key Features</h2>
+        <ul>
+            <li>Price stability pegged to 1 USD</li>
+            <li>Fully backed by audited reserves</li>
+            <li>Fast transactions with low fees</li>
+            <li>Integration with DeFi and traditional banking</li>
+        </ul>
     </section>
 
-    <section id="docs">
-      <h2>Audit & Documentation</h2>
-      <p>Complete technical documentation and audit report are available for download.</p>
-      <a href="docs/USDTz_Whitepaper_EN.pdf" target="_blank" class="btn">Download Whitepaper</a>
-      <a href="docs/Audit_Report.pdf" target="_blank" class="btn audit" style="margin-left: 1rem;">Download Audit</a>
+    <!-- Call to Action -->
+    <section id="cta">
+        <h2>Start using USDt.z today</h2>
+        <p>Join our growing ecosystem and discover the benefits of next-gen stablecoin technology.</p>
+        <a href="pages/contact_en.html" class="btn">Get in touch</a>
     </section>
 
-    <section id="wallet-connect">
-      <h2>Connect Wallet</h2>
-      <div class="wallet-buttons">
-        <button id="connectMetaMask">MetaMask</button>
-        <button id="connectWalletConnect">Trust Wallet (WalletConnect)</button>
-        <button id="connectCoinbaseWallet">Coinbase Wallet</button>
-      </div>
-      <p id="walletStatus"></p>
-    </section>
-
-    <section id="contact">
-      <div class="contact-info">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="rgb(31,186,156)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M22 2H2v20h20V2zM2 7h20" />
-          <path d="M22 2l-10 13L2 2" />
-        </svg>
-        <div>
-          <h2>Contact</h2>
-          <p>Questions? Reach us via email or social media.</p>
-          <p>Email: <a href="mailto:sca.sca@centrum.cz">sca.sca@centrum.cz</a></p>
-        </div>
-      </div>
-      <div class="token-explore">
-        <a href="https://bscscan.com/token/0x913ef7244bed019b95ec5321408ee4ce83e25c01" target="_blank" rel="noopener">Explore Token on BscScan</a>
-      </div>
-    </section>
-  </main>
-
-  <footer style="text-align:center; padding:1rem; background:#f9f9f9; font-size:0.9rem; color:#666;">
-    &copy; 2025 USDt.z – Next Generation Stablecoin. All rights reserved.
-  </footer>
-
-  <script src="js/wallet-connect.js"></script>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 USDt.z Project. All rights reserved.</p>
+        <nav>
+            <ul>
+                <li><a href="index.html">Česky</a></li>
+                <li><a href="index_en.html">English</a></li>
+            </ul>
+        </nav>
+    </footer>
 </body>
 </html>
