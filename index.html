@@ -47,30 +47,33 @@
       color: #222;
       font-weight: 600;
       transition: color 0.3s ease;
+      display: flex;
+      align-items: center;
     }
     nav ul li a:hover {
       color: rgb(31,186,156);
     }
+    nav ul li img.flag {
+      width: 24px;
+      height: 16px;
+      margin-left: 0.3rem;
+      object-fit: contain;
+    }
     main {
       flex: 1;
-      max-width: 1200px;
+      max-width: 900px;
       margin: 2rem auto;
       padding: 0 1rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
     }
     .big-logo-container {
-      margin-bottom: 3rem;
       text-align: center;
+      margin-bottom: 3rem;
     }
     .big-logo-container img {
-      max-width: 220px;
+      max-width: 200px;
       height: auto;
     }
     section {
-      width: 100%;
-      max-width: 900px;
       margin-bottom: 4rem;
     }
     h1, h2, h3 {
@@ -80,7 +83,10 @@
     h1 {
       font-size: 2.5rem;
       text-align: center;
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    h2 {
+      font-size: 2rem;
     }
     p {
       margin-bottom: 1rem;
@@ -98,79 +104,36 @@
       text-decoration: none;
       display: inline-block;
       transition: background-color 0.3s ease;
-      margin-right: 1rem;
     }
     .btn:hover {
       background-color: #1eab91;
     }
-
-    /* Sekce blockchain + QR dole */
-    #blockchain-section {
-      background: #f9f9f9;
-      border: 2px solid rgb(31,186,156);
-      border-radius: 12px;
-      padding: 2rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+    /* Footer */
+    footer {
+      background: #f1f1f1;
       text-align: center;
-      max-width: 600px;
-      margin: 0 auto 4rem;
+      padding: 1.5rem 1rem;
+      font-size: 0.9rem;
+      color: #666;
+      margin-top: auto;
     }
-    #blockchain-section img.logo {
-      max-height: 60px;
-      margin-bottom: 1rem;
-    }
-    #blockchain-section img.qr-code {
-      width: 180px;
-      height: 180px;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(31,186,156,0.4);
-      margin-bottom: 1rem;
-    }
-    #blockchain-section a.token-link {
-      color: rgb(31,186,156);
-      font-weight: 700;
-      text-decoration: none;
-      font-size: 1.1rem;
-      margin-top: 0.5rem;
-      display: inline-block;
-    }
-    #blockchain-section a.token-link:hover {
-      text-decoration: underline;
-    }
-
-    /* Vlajky v navigaci */
-    nav ul li a img {
-      width: 24px;
-      height: 16px;
-      vertical-align: middle;
-    }
-
-    /* Responsivní */
+    /* Responsive */
     @media (max-width: 768px) {
       nav ul {
-        flex-direction: column;
+        flex-direction: row;
         gap: 1rem;
+        justify-content: center;
       }
-      nav {
-        padding: 1rem;
+      nav ul li a {
+        font-size: 0.9rem;
       }
-      .big-logo-container img {
-        max-width: 160px;
+      nav ul li img.flag {
+        width: 20px;
+        height: 14px;
       }
-      #blockchain-section img.qr-code {
-        width: 140px;
-        height: 140px;
-      }
-      #blockchain-section img.logo {
-        max-height: 50px;
-      }
-      .btn {
-        margin-bottom: 1rem;
-        margin-right: 0;
-        width: 100%;
-        text-align: center;
+      main {
+        max-width: 95%;
+        margin: 1rem auto;
       }
     }
   </style>
@@ -179,19 +142,20 @@
   <header>
     <nav>
       <div class="logo">
-        <a href="index.html"><img src="logo.png" alt="USDt.z Logo" /></a>
+        <img src="logo.png" alt="USDt.z Malé Logo" />
       </div>
       <ul>
         <li><a href="#about">O tokenu</a></li>
         <li><a href="#swap">Swap & DEX</a></li>
-        <li><a href="#usecases">Použití</a></li>
-        <li><a href="#docs">Dokumentace</a></li>
+        <li><a href="#trading-info">Trading Info</a></li>
+        <li><a href="#documentation">Dokumentace & Audit</a></li>
         <li><a href="#contact">Kontakt</a></li>
-        <li><a href="index.html"><img src="img/flags/cz.png" alt="Česky" /></a></li>
-        <li><a href="index_en.html"><img src="img/flags/en.png" alt="English" /></a></li>
+        <li><a href="index.html" title="Česky"><img src="img/flags/cz.png" alt="CZ" class="flag" /></a></li>
+        <li><a href="index_en.html" title="English"><img src="img/flags/en.png" alt="EN" class="flag" /></a></li>
       </ul>
     </nav>
   </header>
+
   <main>
     <div class="big-logo-container">
       <img src="logo.png" alt="USDt.z Velké Logo" />
@@ -199,20 +163,22 @@
 
     <section class="hero" id="hero">
       <h1>USDt.z – Next Generation Stablecoin</h1>
-      <p style="color:#222; max-width:600px; margin: 0 auto 1rem; text-align:center;">
-        Stabilní, bezpečný a inovativní token navržený<br />
-        pro bankovní i nebankovní sektor.
+      <p style="color: black; max-width: 600px; margin: 0 auto;">
+        Stable, secure, and innovative token designed for banking<br />
+        and non-banking sectors.
       </p>
-      <div style="text-align:center;">
-        <a href="#docs" class="btn">Stáhnout Whitepaper</a>
-        <a href="#swap" class="btn">Swap na PancakeSwap</a>
-      </div>
+      <p style="margin-top: 1rem;">
+        USDt.z nabízí výhody při kolaterálních půjčkách, rychlé swapy a spolehlivost díky 1:1 vazbě na americký dolar.
+      </p>
+      <a href="#documentation" class="btn" style="margin-top: 1rem;">Stáhnout Whitepaper</a>
+      <a href="#swap" class="btn" style="margin-left: 1rem; margin-top: 1rem;">Swap na PancakeSwap</a>
     </section>
 
     <section id="about">
       <h2>O tokenu USDt.z</h2>
       <p>USDt.z je stablecoin, který kombinuje stabilitu tradičních měn s technologií blockchain nové generace.</p>
       <p>Token nabízí vysokou bezpečnost, transparentnost a široké využití v různých finančních aplikacích.</p>
+      <p>Projekt vznikl jako reakce na potřebu spolehlivého tokenu s jasnou 1:1 vazbou na americký dolar, který je vhodný pro bankovní i nebankovní sektor.</p>
     </section>
 
     <section id="swap">
@@ -221,36 +187,29 @@
       <a href="https://pancakeswap.finance/swap?outputCurrency=0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" target="_blank" rel="noopener" class="btn">Přejít na PancakeSwap</a>
     </section>
 
-    <section id="usecases">
-      <h2>Použití a výhody</h2>
-      <p>USDt.z je ideální pro bankovní zajištění, půjčky a rychlé swapy mezi kryptoměnami.</p>
-      <p>Díky své stabilitě a důvěře jej využívají i nebankovní subjekty a investoři.</p>
+    <section id="trading-info">
+      <h2>Trading Info & Liquidity Pool</h2>
+      <p>Token USDt.z je zalistován s dobrou tržní hodnotou a likviditou. Sledujte aktuální stav poolu na GeckoTerminal.</p>
+      <a href="https://www.geckoterminal.com/bsc/pools/0x553b402b3d6f91ea2208c7df61a6d4aa96ccb6191787c20fedb7ae6c9823b280" target="_blank" rel="noopener" class="btn" style="background-color:#4CAF50;">Zobrazit na GeckoTerminal</a>
+      <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #444;">
+        Tržní kapitalizace tokenu je aktuálně přes 5T USDT, USDt.z je 1:1 vázán na americký dolar.
+      </p>
     </section>
 
-    <section id="docs">
-      <h2>Dokumentace & Whitepaper</h2>
-      <p>Kompletní whitepaper USDt.z je k dispozici ke stažení.</p>
-      <a href="docs/USDTz_Whitepaper_CS.pdf" target="_blank" class="btn">Stáhnout PDF (CZ)</a>
-      <a href="docs/USDTz_Whitepaper_EN.pdf" target="_blank" class="btn">Download PDF (EN)</a>
+    <section id="documentation">
+      <h2>Technická dokumentace & Audit</h2>
+      <p>Kompletní whitepaper projektu USDt.z je k dispozici ke stažení, obsahuje podrobné informace o technických parametrech tokenu, bezpečnostních opatřeních a auditu.</p>
+      <a href="docs/USDTz_Whitepaper_CS.pdf" target="_blank" class="btn">Stáhnout Whitepaper (CZ)</a>
+      <a href="docs/USDTz_Whitepaper_EN.pdf" target="_blank" class="btn" style="margin-left: 1rem;">Download Whitepaper (EN)</a>
+      <p style="margin-top: 1rem;">
+        Projekt prošel nezávislým bezpečnostním auditem, který zajišťuje vysokou úroveň ochrany pro uživatele i investory.
+      </p>
     </section>
 
     <section id="contact">
       <h2>Kontakt</h2>
-      <p>Máte otázky? Kontaktujte nás prostřednictvím e-mailu nebo sociálních sítí.</p>
+      <p>Máte otázky? Kontaktujte nás prostřednictvím emailu nebo sociálních sítí.</p>
       <p>Email: <a href="mailto:sca.sca@centrum.cz">sca.sca@centrum.cz</a></p>
-    </section>
-
-    <!-- Sekce blockchain a QR dole -->
-    <section id="blockchain-section">
-      <img src="logo.png" alt="USDt.z Logo" class="logo" />
-      <h2>Prozkoumejte token USDt.z na blockchainu</h2>
-      <p>Seznamte se s tokenem přes QR kód nebo klikněte na odkaz níže pro zobrazení na BscScan.</p>
-      <a href="https://bscscan.com/token/0x913ef7244bed019b95ec5321408ee4ce83e25c01" target="_blank" rel="noopener">
-        <img src="img/qr_bscscan.png" alt="QR kód USDt.z na BscScan" class="qr-code" />
-      </a>
-      <a href="https://bscscan.com/token/0x913ef7244bed019b95ec5321408ee4ce83e25c01" target="_blank" rel="noopener" class="token-link">
-        Zobrazit token USDt.z na BscScan
-      </a>
     </section>
   </main>
 
