@@ -91,16 +91,43 @@
     .btn:hover {
       background-color: #1eab91;
     }
-    /* QR Code Section */
-    #blockchain-link {
+
+    /* QR Code & Logo Section */
+    #blockchain-section {
+      max-width: 600px;
+      margin: 0 auto 4rem;
+      background: #f9f9f9;
+      border: 2px solid rgb(31,186,156);
+      border-radius: 12px;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       text-align: center;
-      margin-top: 2rem;
-      margin-bottom: 4rem;
     }
-    #blockchain-link img {
-      width: 150px;
-      height: 150px;
+    #blockchain-section img.logo {
+      max-height: 60px;
+      margin-bottom: 1rem;
     }
+    #blockchain-section img.qr-code {
+      width: 180px;
+      height: 180px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(31,186,156,0.4);
+      margin-bottom: 1rem;
+    }
+    #blockchain-section a.token-link {
+      color: rgb(31,186,156);
+      font-weight: 700;
+      text-decoration: none;
+      font-size: 1.1rem;
+      margin-top: 0.5rem;
+      display: inline-block;
+    }
+    #blockchain-section a.token-link:hover {
+      text-decoration: underline;
+    }
+
     /* Responsive */
     @media (max-width: 768px) {
       nav ul {
@@ -113,6 +140,16 @@
       h1 {
         font-size: 2rem;
       }
+      #blockchain-section {
+        padding: 1rem;
+      }
+      #blockchain-section img.qr-code {
+        width: 140px;
+        height: 140px;
+      }
+      #blockchain-section img.logo {
+        max-height: 50px;
+      }
     }
   </style>
 </head>
@@ -123,7 +160,7 @@
         <img src="logo.png" alt="USDt.z Logo" />
       </div>
       <ul>
-        <li><a href="#blockchain-link">Blockchain</a></li>
+        <li><a href="#blockchain-section">Blockchain</a></li>
         <li><a href="#about">About Token</a></li>
         <li><a href="#swap">Swap & DEX</a></li>
         <li><a href="#usecases">Use Cases</a></li>
@@ -135,13 +172,16 @@
     </nav>
   </header>
   <main>
-    <section id="blockchain-link">
-      <h2>Explore the Token on the Blockchain</h2>
-      <p>For quick access to USDt.z token details, scan the QR code below:</p>
+    <section id="blockchain-section">
+      <img src="logo.png" alt="USDt.z Logo" class="logo" />
+      <h2>Explore USDt.z Token on the Blockchain</h2>
+      <p>Scan the QR code or click below to view the token on BscScan.</p>
       <a href="https://bscscan.com/token/0x913ef7244bed019b95ec5321408ee4ce83e25c01" target="_blank" rel="noopener">
-        <img src="https://api.qrserver.com/v1/create-qr-code/?data=https://bscscan.com/token/0x913ef7244bed019b95ec5321408ee4ce83e25c01&size=150x150" alt="QR Code to BscScan USDt.z Token" />
+        <img src="img/qr_bscscan.png" alt="USDt.z BscScan QR Code" class="qr-code" />
       </a>
-      <p><a href="https://bscscan.com/token/0x913ef7244bed019b95ec5321408ee4ce83e25c01" target="_blank" rel="noopener">View USDt.z token on BscScan</a></p>
+      <a href="https://bscscan.com/token/0x913ef7244bed019b95ec5321408ee4ce83e25c01" target="_blank" rel="noopener" class="token-link">
+        View USDt.z token on BscScan
+      </a>
     </section>
 
     <section class="hero" id="hero">
