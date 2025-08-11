@@ -1,98 +1,110 @@
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dokumentace - USDt.z</title>
-    <link rel="stylesheet" href="../css/styles.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f5f7fa;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: #1fba9c;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-        .container {
-            width: 85%;
-            margin: 30px auto;
-        }
-        .box {
-            background-color: white;
-            border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 25px;
-            box-shadow: 0px 2px 6px rgba(0,0,0,0.1);
-        }
-        h1, h2 {
-            color: #1fba9c;
-        }
-        .flag {
-            width: 30px;
-            vertical-align: middle;
-            margin-right: 8px;
-        }
-        .download-btn {
-            display: inline-block;
-            padding: 12px 20px;
-            background-color: #1fba9c;
-            color: white;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .download-btn:hover {
-            background-color: #17a589;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dokumentace USDt.z – Next Generation Stablecoin</title>
+  <link rel="stylesheet" href="../style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
+  <header>
+    <nav>
+      <div class="logo">
+        <a href="../index.html"><img src="../logo.png" alt="USDt.z Logo" /></a>
+      </div>
+      <ul>
+        <li><a href="../index.html">Domů</a></li>
+        <li><a href="../pages/about.html">O tokenu</a></li>
+        <li><a href="../pages/usecases.html">Použití</a></li>
+        <li><a href="../pages/docs.html" class="active">Dokumentace</a></li>
+        <li>
+          <a href="../index.html" title="Česky">
+            <img class="flag" src="../img/flags/cz.png" alt="Česká vlajka" />
+          </a>
+        </li>
+        <li>
+          <a href="../index_en.html" title="English">
+            <img class="flag" src="../img/flags/en.png" alt="Anglická vlajka" />
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
 
-<header>
-    <img src="../img/flags/cz.png" alt="CZ" class="flag">
-    <h1>Dokumentace USDt.z</h1>
-</header>
+  <main>
+    <section>
+      <h1>Dokumentace a technické informace k USDt.z</h1>
 
-<div class="container">
+      <p>
+        USDt.z je stabilnícoin navržený tak, aby spojoval výhody bezpečnosti, transparentnosti a rychlosti
+        transakcí. Naše řešení je postavené na blockchainu Binance Smart Chain (BSC), který nabízí nízké poplatky a
+        rychlé potvrzení transakcí.
+      </p>
 
-    <!-- První rámeček s informacemi -->
-    <div class="box">
-        <h2>O projektu USDt.z</h2>
-        <p>
-            USDt.z je <strong>stablecoin nové generace</strong> navržený pro maximální stabilitu, bezpečnost a široké využití
-            v bankovním i nebankovním sektoru. Naše řešení kombinuje výhody blockchain technologie se striktními
-            bezpečnostními standardy a podporou reálných aktiv.
-        </p>
-        <p>
-            ✅ <strong>Vlastní likviditní pool</strong> – plná kontrola nad prostředky a likviditou.<br>
-            ✅ <strong>Bezpečnost</strong> – auditovaný smart kontrakt, implementace ochrany proti útokům a zneužití.<br>
-            ✅ <strong>Roadmap</strong> – jasně definované cíle a fáze rozvoje projektu.<br>
-            ✅ <strong>Transparentnost</strong> – pravidelné reporty a kontrola tokenové ekonomiky.<br>
-            ✅ <strong>Kompatibilita</strong> – snadné použití na decentralizovaných burzách a DeFi platformách.
-        </p>
-        <p>
-            Náš cíl je nabídnout finančním institucím i jednotlivcům nástroj pro rychlé, levné a bezpečné transakce, který
-            překonává limity současných stablecoinů. S USDt.z získáváte jistotu, že vaše prostředky jsou v bezpečí
-            a hodnotově stabilní.
-        </p>
-    </div>
+      <h2>Vlastní likviditní pool</h2>
+      <p>
+        Pro zajištění stability a likvidity tokenu USDt.z provozujeme vlastní likviditní pool na PancakeSwap,
+        který umožňuje uživatelům rychlý a bezpečný swap s minimálními poplatky.
+        Tento pool je pravidelně monitorován a spravován, aby byla zachována jeho optimální funkčnost.
+      </p>
 
-    <!-- Druhý rámeček s PDF ke stažení -->
-    <div class="box">
-        <h2>Whitepaper ke stažení</h2>
-        <p>
-            Kompletní technická dokumentace a podrobnosti o fungování USDt.z včetně ekonomického modelu,
-            bezpečnostních opatření a plánovaného rozvoje jsou k dispozici v našem <strong>Whitepaperu</strong>.
-        </p>
-        <a href="../docs/USDtz-Whitepaper.pdf" class="download-btn" download>📄 Stáhnout Whitepaper (PDF)</a>
-    </div>
+      <canvas id="liquidityPoolChart" style="max-width:100%; height:300px;"></canvas>
 
-</div>
+      <h2>Bezpečnost a audit</h2>
+      <p>
+        Bezpečnost je pro nás prioritou. Token a jeho smart kontrakt prošly detailním auditním procesem provedeným
+        nezávislou auditorskou společností. Auditní zpráva je dostupná ke stažení níže.
+        Pro zvýšení důvěryhodnosti provozujeme vícevrstvý bezpečnostní systém, který zahrnuje ochranu proti
+        zneužití a průběžné sledování neobvyklých aktivit.
+      </p>
 
+      <h2>Roadmapa vývoje</h2>
+      <p>
+        Naše roadmapa zahrnuje rozšíření ekosystému USDt.z o nové funkce jako jsou půjčky, staking, rozvoj decentralizovaných aplikací (dApps)
+        a zlepšení uživatelského rozhraní pro snadnější přístup k tokenu.
+        Stálý vývoj a komunikace s komunitou jsou základem pro dlouhodobý úspěch projektu.
+      </p>
+
+      <div class="button-group" style="margin-top: 2rem;">
+        <a href="../docs/USDTz_Whitepaper_CS.pdf" target="_blank" class="btn">Stáhnout Whitepaper (PDF)</a>
+        <a href="../docs/Audit_Report.pdf" target="_blank" class="btn audit">Stáhnout Audit</a>
+      </div>
+    </section>
+  </main>
+
+  <footer style="text-align:center; padding:1rem; background:#f9f9f9; font-size:0.9rem; color:#666;">
+    &copy; 2025 USDt.z – Next Generation Stablecoin. Všechna práva vyhrazena.
+  </footer>
+
+  <script>
+    const ctx = document.getElementById('liquidityPoolChart').getContext('2d');
+    const liquidityPoolChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['Leden', 'Únor', 'Březen', 'Duben', 'Květen', 'Červen', 'Červenec'],
+        datasets: [{
+          label: 'Objem likvidity (v milionech USD)',
+          data: [1.2, 1.5, 2.3, 2.8, 3.0, 3.5, 4.2],
+          fill: true,
+          borderColor: 'rgb(31,186,156)',
+          backgroundColor: 'rgba(31,186,156,0.2)',
+          tension: 0.3
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { display: true, position: 'top' },
+          tooltip: { enabled: true }
+        },
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+  </script>
 </body>
 </html>
