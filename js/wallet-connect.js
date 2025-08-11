@@ -1,51 +1,82 @@
-// Konfigurace providerů peněženek pro web3modal
-const providerOptions = {
-  walletconnect: {
-    package: window.WalletConnectProvider.default,
-    options: {
-      infuraId: "YOUR_INFURA_ID"  // můžeš použít i veřejný endpoint nebo vlastní
+// wallet-connect.js
+
+// Pomocná funkce na zobrazení stavu
+function setStatus(message) {
+  const status = document.getElementById('walletStatus');
+  if (status) status.textContent = message;
+}
+
+// Připojení MetaMask
+async function connectMetaMask() {
+  if (window.ethereum && window.ethereum.isMetaMask) {
+    try {
+      const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+      setStatus('MetaMask připojena: ' + accounts[0]);
+    } catch (error) {
+      setStatus('MetaMask připojení zrušeno nebo chyba');
+      console.error(error);
     }
-  },
-  coinbasewallet: {
-    package: window.CoinbaseWalletSDK,
-    options: {
-      appName: "USDt.z Stablecoin",
-      infuraId: "YOUR_INFURA_ID"
-    }
+  } else {
+    setStatus('MetaMask není nainstalována.');
   }
-  // Přidat další providery, pokud chceš
-};
+}
 
-let web3Modal;
-let provider;
-let signer;
+// Připojení Trust Wallet přes WalletConnect
+async function connectWalletConnect() {
+  // WalletConnect SDK musí být nahrán v projektu
+  // Pro jednoduchost zde použijeme cdn link (musíš přidat do HTML <script>)
 
-async function init() {
-  web3Modal = new window.Web3Modal.default({
-    cacheProvider: false, // zvaž true, pokud chceš automatické připojení
-    providerOptions,
-    theme: "dark",
+  if (typeof WalletConnectProvider === 'undefined') {
+    setStatus('WalletConnect SDK není dostupné. Přidej jej do HTML.');
+    return;
+  }
+
+  const provider = new WalletConnectProvider.default({
+    rpc: {
+      56: "https://bsc-dataseed.binance.org/" // BSC mainnet RPC URL
+    },
   });
-  
-  const btn = document.getElementById("btn-connect-wallet");
-  btn.addEventListener("click", onConnect);
-}
 
-async function onConnect() {
   try {
-    provider = await web3Modal.connect();
-
-    // Převést na ethers provider
-    const ethersProvider = new ethers.providers.Web3Provider(provider);
-    signer = ethersProvider.getSigner();
-
-    const address = await signer.getAddress();
-    alert("Připojeno: " + address);
-
-    // Tady můžeš přidat další logiku po připojení, např. číst zůstatek, data apod.
-  } catch (e) {
-    console.log("Chyba připojení:", e);
+    await provider.enable();
+    setStatus('Trust Wallet (WalletConnect) připojena: ' + provider.accounts[0]);
+  } catch (error) {
+    setStatus('Chyba při připojení Trust Wallet');
+    console.error(error);
   }
 }
 
-window.addEventListener("load", init);
+// Připojení Coinbase Wallet
+async function connectCoinbaseWallet() {
+  if (typeof CoinbaseWalletSDK === 'undefined') {
+    setStatus('Coinbase Wallet SDK není dostupné. Přidej jej do HTML.');
+    return;
+  }
+
+  const coinbaseWallet = new CoinbaseWalletSDK.default({
+    appName: "USDt.z Stablecoin",
+    darkMode: false
+  });
+
+  const provider = coinbaseWallet.makeWeb3Provider("https://bsc-dataseed.binance.org/", 56);
+
+  try {
+    await provider.request({ method: 'eth_requestAccounts' });
+    setStatus('Coinbase Wallet připojena.');
+  } catch (error) {
+    setStatus('Chyba při připojení Coinbase Wallet');
+    console.error(error);
+  }
+}
+
+// Přidáme event listenery na tlačítka po načtení stránky
+window.addEventListener('DOMContentLoaded', () => {
+  const btnMetaMask = document.getElementById('connectMetaMask');
+  if (btnMetaMask) btnMetaMask.addEventListener('click', connectMetaMask);
+
+  const btnWalletConnect = document.getElementById('connectWalletConnect');
+  if (btnWalletConnect) btnWalletConnect.addEventListener('click', connectWalletConnect);
+
+  const btnCoinbaseWallet = document.getElementById('connectCoinbaseWallet');
+  if (btnCoinbaseWallet) btnCoinbaseWallet.addEventListener('click', connectCoinbaseWallet);
+});
