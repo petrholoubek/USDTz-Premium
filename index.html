@@ -3,161 +3,252 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>USDt.z – Nové generace</title>
+  <title>USDt.z – Next Generation Stablecoin</title>
   <style>
     /* Reset */
     * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+      margin: 0; padding: 0; box-sizing: border-box;
     }
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f8f9fa;
-      color: #333;
+      background: #fff;
+      color: #222;
       line-height: 1.6;
-      padding: 20px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
     header {
-      background-color: #1fba9c;
-      color: white;
-      padding: 20px;
-      border-radius: 8px;
-      margin-bottom: 30px;
-      text-align: center;
+      background: rgb(31,186,156); /* zelený pruh */
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
-    header img {
-      max-width: 100px;
-      margin-bottom: 10px;
+    nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
-    header nav {
-      margin-top: 10px;
+    nav .logo img {
+      height: 40px;
+      cursor: pointer;
     }
-    header nav a {
-      margin: 0 10px;
-      color: white;
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+    nav ul li a {
       text-decoration: none;
-      font-weight: bold;
+      color: white;
+      font-weight: 600;
+      transition: color 0.3s ease;
+      font-size: 1rem;
     }
+    nav ul li a:hover {
+      color: #004d40;
+    }
+
     main {
-      max-width: 1100px;
-      margin: auto;
-      background-color: white;
-      padding: 30px;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      flex: 1;
+      max-width: 1200px;
+      margin: 2rem auto 3rem;
+      padding: 0 1rem;
     }
+
+    .big-logo-container {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .big-logo-container img {
+      max-width: 200px;
+      height: auto;
+    }
+
     section {
-      margin-bottom: 20px;
-      padding: 20px;
+      margin-bottom: 4rem;
+      background: #fff;
+      padding: 1.5rem 2rem;
       border: 1px solid #ddd;
       border-radius: 8px;
-      background-color: white;
+      box-shadow: 0 0 10px rgb(31 186 156 / 0.15);
+    }
+
+    h1, h2 {
+      color: rgb(31,186,156);
+      margin-bottom: 1rem;
     }
     h1 {
-      color: #1fba9c;
       font-size: 2.5rem;
-      margin-bottom: 10px;
+      text-align: center;
+      margin-bottom: 1.5rem;
     }
     h2 {
-      color: #1fba9c;
-      margin-bottom: 15px;
-    }
-    p.description {
-      color: #000;
-      font-size: 1.1rem;
-      margin-bottom: 25px;
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
-      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 1rem;
     }
     p {
-      margin-bottom: 15px;
+      margin-bottom: 1rem;
+      color: #222;
+      font-size: 1rem;
     }
-    ul {
-      list-style-type: disc;
-      margin-left: 20px;
-    }
-    .btn-container {
-      text-align: center;
-      margin-top: 20px;
-    }
+
     .btn {
-      background-color: #1fba9c;
+      background-color: rgb(31,186,156);
       color: white;
-      padding: 12px 24px;
-      border-radius: 5px;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 600;
       text-decoration: none;
-      font-weight: bold;
-      margin: 5px;
       display: inline-block;
-      transition: background-color 0.3s;
+      transition: background-color 0.3s ease;
+      margin-top: 0.5rem;
     }
     .btn:hover {
-      background-color: #17a68d;
+      background-color: #1eab91;
+    }
+
+    /* Tlačítko Swap a Pool vedle sebe */
+    .button-group {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    /* QR kód */
+    .qr-code-container {
+      text-align: center;
+      margin-top: 3rem;
+      padding: 1rem;
+    }
+    .qr-code-container img {
+      max-width: 150px;
+      height: auto;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgb(31 186 156 / 0.3);
+    }
+    .qr-code-container p {
+      margin-top: 0.5rem;
+      color: #444;
+      font-size: 0.9rem;
+    }
+
+    /* Footer */
+    footer {
+      background: #f1f1f1;
+      text-align: center;
+      padding: 1.5rem 1rem;
+      font-size: 0.9rem;
+      color: #666;
+      margin-top: auto;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      nav {
+        padding: 1rem 1rem;
+      }
+      .big-logo-container img {
+        max-width: 140px;
+      }
+      .button-group {
+        flex-direction: column;
+        gap: 1rem;
+      }
     }
   </style>
 </head>
 <body>
+  <header>
+    <nav>
+      <div class="logo">
+        <a href="index.html"><img src="logo.png" alt="USDt.z Logo" /></a>
+      </div>
+      <ul>
+        <li><a href="#about">O tokenu</a></li>
+        <li><a href="#swap">Swap & DEX</a></li>
+        <li><a href="#usecases">Použití</a></li>
+        <li><a href="#docs">Dokumentace</a></li>
+        <li><a href="#contact">Kontakt</a></li>
+      </ul>
+    </nav>
+  </header>
 
-<header>
-  <img src="logo.png" alt="USDt.z Logo" />
-  <h1>USDt.z – Nové generace</h1>
-  <p class="description">Stabilní, bezpečný a inovativní token navržený pro bankovní i nebankovní sektor.</p>
-  <nav>
-    <a href="index.html">Čeština</a> | <a href="index_en.html">English</a>
-  </nav>
-</header>
-
-<main>
-  <section>
-    <h2>O tokenu USDt.z</h2>
-    <p>USDt.z je stablecoin navržený tak, aby spojoval stabilitu tradičních měn s bezpečností a transparentností blockchainu nové generace.</p>
-    <p>Token nabízí vysokou bezpečnost, rychlé transakce a široké možnosti využití v bankovním i nebankovním sektoru.</p>
-  </section>
-
-  <section>
-    <h2>Výhody a použití</h2>
-    <ul>
-      <li>Stabilita vázaná na USD</li>
-      <li>Okamžité převody 24/7</li>
-      <li>Bezpečné smart kontrakty</li>
-      <li>Výhodné kolaterální půjčky</li>
-      <li>Snadný přístup k likviditě</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>Tržní informace a DEX</h2>
-    <p>Token USDt.z je aktuálně zalistován na PancakeSwap s tržní hodnotou přes 5 miliard USD. Nabízíme stabilitu 1:1 vůči americkému dolaru.</p>
-    <div class="btn-container">
-      <a href="https://pancakeswap.finance/swap?outputCurrency=0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" class="btn" target="_blank">Přejít na PancakeSwap</a>
-      <a href="https://www.geckoterminal.com/bsc/pools/0x553b402b3d6f91ea2208c7df61a6d4aa96ccb6191787c20fedb7ae6c9823b280" class="btn" target="_blank">Zobrazit pool</a>
+  <main>
+    <div class="big-logo-container">
+      <img src="logo.png" alt="USDt.z Velké Logo" />
     </div>
-  </section>
 
-  <section>
-    <h2>Technická dokumentace a audit</h2>
-    <p>Kompletní technická dokumentace a whitepaper jsou k dispozici ke stažení níže.</p>
-    <div class="btn-container">
-      <a href="docs/USDTz_Whitepaper_CS.pdf" class="btn" target="_blank">Stáhnout whitepaper (CZ)</a>
-      <a href="docs/USDTz_Whitepaper_EN.pdf" class="btn" target="_blank">Download whitepaper (EN)</a>
+    <section class="hero" id="hero">
+      <h1>USDt.z – Next Generation Stablecoin</h1>
+      <p style="color: black; max-width: 600px; margin: 0 auto 1rem; font-size: 1.1rem; line-height: 1.4;">
+        Stable, secure, and innovative token designed for banking and non-banking sectors.
+      </p>
+
+      <div class="button-group">
+        <a href="#docs" class="btn">Stáhnout Whitepaper</a>
+        <a href="https://pancakeswap.finance/swap?outputCurrency=0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" target="_blank" rel="noopener" class="btn">Swap na PancakeSwap</a>
+      </div>
+    </section>
+
+    <section id="about">
+      <h2>O tokenu USDt.z</h2>
+      <p>USDt.z je stablecoin, který kombinuje stabilitu tradičních měn s technologií blockchain nové generace.</p>
+      <p>Token nabízí vysokou bezpečnost, transparentnost a široké využití v různých finančních aplikacích.</p>
+      <p>Klienti si mohou zakoupit USDt.z s výhodnou slevou. Token je ideální jako kolaterál pro půjčky a finanční zajištění.</p>
+    </section>
+
+    <section id="swap">
+      <h2>Swap & DEX</h2>
+      <p>Pro rychlé a bezpečné obchodování USDt.z tokenu využijte PancakeSwap. Token je zalistován s tržní kapitalizací přes 5 milionů USD a je 1:1 vázán na USD.</p>
+
+      <div class="button-group">
+        <a href="https://pancakeswap.finance/swap?outputCurrency=0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" target="_blank" rel="noopener" class="btn">Přejít na PancakeSwap</a>
+        <a href="https://www.geckoterminal.com/bsc/pools/0x553b402b3d6f91ea2208c7df61a6d4aa96ccb6191787c20fedb7ae6c9823b280" target="_blank" rel="noopener" class="btn" style="background-color: #007acc;">Zobrazit pool na GeckoTerminal</a>
+      </div>
+    </section>
+
+    <section id="usecases">
+      <h2>Použití a výhody</h2>
+      <p>USDt.z je vhodný pro bankovní kolaterál, půjčky, rychlé swapy mezi kryptoměnami a další finanční aplikace.</p>
+      <p>Díky své stabilitě a důvěře je využíván jak bankami, tak i nebankovními subjekty a investory.</p>
+    </section>
+
+    <section id="docs">
+      <h2>Dokumentace & Whitepaper</h2>
+      <p>Kompletní technická dokumentace a whitepaper USDt.z je k dispozici ke stažení.</p>
+      <a href="docs/USDTz_Whitepaper_CS.pdf" target="_blank" class="btn">Stáhnout PDF (CZ)</a>
+    </section>
+
+    <section id="contact">
+      <h2>Kontakt</h2>
+      <p>Máte otázky? Kontaktujte nás prostřednictvím emailu nebo sociálních sítí.</p>
+      <p>Email: <a href="mailto:sca.sca@centrum.cz">sca.sca@centrum.cz</a></p>
+    </section>
+
+    <div class="qr-code-container">
+      <a href="https://bscscan.com/token/0x913ef7244bed019b95ec5321408ee4ce83e25c01" target="_blank" rel="noopener">
+        <img src="qr_bscscan.png" alt="QR kód na BscScan token USDt.z" />
+      </a>
+      <p>Prozkoumejte token USDt.z na BscScan</p>
     </div>
-  </section>
+  </main>
 
-  <section>
-    <h2>Blockchain Explorer</h2>
-    <p>Pro ověření transakcí a aktuální stav tokenu navštivte BscScan:</p>
-    <div class="btn-container">
-      <a href="https://bscscan.com/token/0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" class="btn" target="_blank">Zobrazit na BscScan</a>
-    </div>
-  </section>
-</main>
-
-<footer>
-  <p style="text-align:center; margin-top: 30px;">&copy; 2025 USDt.z – Všechna práva vyhrazena.</p>
-</footer>
-
+  <footer>
+    &copy; 2025 USDt.z – Next Generation Stablecoin. Všechna práva vyhrazena.
+  </footer>
 </body>
 </html>
