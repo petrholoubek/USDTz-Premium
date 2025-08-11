@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="cs">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -36,7 +36,7 @@
     nav .logo img {
       height: 40px;
       cursor: pointer;
-      filter: drop-shadow(0 0 2px rgba(0,0,0,0.25));
+      filter: drop-shadow(0 0 3px rgba(0,0,0,0.15));
     }
     nav ul {
       list-style: none;
@@ -80,11 +80,11 @@
     .big-logo-container img {
       max-width: 200px;
       height: auto;
-      filter: drop-shadow(0 0 10px rgba(31,186,156,0.6));
+      filter: drop-shadow(0 0 5px rgb(31,186,156));
     }
 
     section {
-      margin-bottom: 1.5rem;
+      margin-bottom: 2rem;
       background: #fff;
       padding: 1.5rem 2rem;
       border: 1px solid #ddd;
@@ -132,7 +132,7 @@
       background-color: #1eab91;
     }
 
-    /* Special audit button */
+    /* Speciální styl modrého tlačítka audit */
     .btn.audit {
       background-color: #007acc;
     }
@@ -140,7 +140,7 @@
       background-color: #005f99;
     }
 
-    /* Button groups */
+    /* Tlačítka v jedné řadě */
     .button-group {
       display: flex;
       gap: 1rem;
@@ -149,32 +149,26 @@
       flex-wrap: wrap;
     }
 
-    /* Contact + token explorer */
+    /* Kontakt + odkaz explore token */
     #contact {
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
       max-width: 900px;
-      margin: 2rem auto 3rem;
-      padding: 1rem 2rem;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgb(31 186 156 / 0.15);
-      background: #fff;
+      margin-left: auto;
+      margin-right: auto;
     }
     #contact div.contact-info {
       max-width: 60%;
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      font-size: 1rem;
-      color: #222;
     }
     #contact div.contact-info svg {
-      fill: rgb(31,186,156);
       width: 20px;
       height: 20px;
+      fill: rgb(31,186,156);
     }
     #contact div.token-explore {
       max-width: 35%;
@@ -195,16 +189,25 @@
       color: white;
     }
 
-    /* Wallet connect section */
+    /* Sekce pro připojení peněženky */
     #wallet-connect {
-      margin-top: 2rem;
+      margin: 1.5rem auto 2rem;
+      max-width: 900px;
+      background: #fff;
+      padding: 1.5rem 2rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgb(31 186 156 / 0.15);
+      text-align: center;
     }
+
     #wallet-connect .wallet-buttons {
       display: flex;
       gap: 1rem;
       justify-content: center;
       flex-wrap: wrap;
     }
+
     #wallet-connect .wallet-buttons button {
       background-color: rgb(31,186,156);
       color: white;
@@ -216,8 +219,16 @@
       min-width: 120px;
       transition: background-color 0.3s ease;
     }
+
     #wallet-connect .wallet-buttons button:hover {
       background-color: #1eab91;
+    }
+
+    #walletStatus {
+      margin-top: 1rem;
+      color: #1eab91;
+      font-weight: 600;
+      min-height: 1.5rem;
     }
 
     /* Responsive */
@@ -235,7 +246,6 @@
       }
       main {
         margin: 1rem auto 2rem;
-        padding: 0 0.5rem;
       }
       #contact {
         flex-direction: column;
@@ -247,42 +257,35 @@
       }
       #wallet-connect .wallet-buttons {
         flex-direction: column;
-        gap: 0.8rem;
       }
       #wallet-connect .wallet-buttons button {
-        min-width: auto;
         width: 100%;
+        min-width: unset;
       }
     }
   </style>
-
-  <!-- WalletConnect & Coinbase SDK CDN scripts -->
-  <script src="https://unpkg.com/@walletconnect/web3-provider@1.7.8/dist/umd/index.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@coinbase/wallet-sdk@3.5.2/dist/CoinbaseWalletSDK.min.js"></script>
-
-  <!-- Your own wallet-connect.js script -->
-  <script src="js/wallet-connect.js" defer></script>
 </head>
 <body>
   <header>
     <nav>
       <div class="logo">
-        <a href="index_en.html"><img src="logo.png" alt="USDt.z Logo" /></a>
+        <a href="index.html"><img src="logo.png" alt="USDt.z Logo" /></a>
       </div>
       <ul>
-        <li><a href="pages/about_en.html">About Token</a></li>
+        <li><a href="#about">O tokenu</a></li>
         <li><a href="#swap">Swap & DEX</a></li>
-        <li><a href="#usecases">Use Cases</a></li>
-        <li><a href="#docs">Documentation</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#usecases">Použití</a></li>
+        <li><a href="#docs">Dokumentace</a></li>
+        <li><a href="#wallet-connect">Připojit peněženku</a></li>
+        <li><a href="#contact">Kontakt</a></li>
         <li>
           <a href="index.html" title="Česky">
-            <img class="flag" src="img/flags/cz.png" alt="Czech Flag" />
+            <img class="flag" src="img/flags/cz.png" alt="Česká vlajka" />
           </a>
         </li>
         <li>
           <a href="index_en.html" title="English">
-            <img class="flag" src="img/flags/en.png" alt="English Flag" />
+            <img class="flag" src="img/flags/en.png" alt="Anglická vlajka" />
           </a>
         </li>
       </ul>
@@ -291,73 +294,79 @@
 
   <main>
     <div class="big-logo-container">
-      <img src="logo.png" alt="USDt.z Large Logo" />
+      <img src="logo.png" alt="USDt.z Velké logo" />
     </div>
 
     <section class="hero" id="hero">
       <h1>USDt.z – Next Generation Stablecoin</h1>
       <p style="color: black; max-width: 600px; margin: 0 auto 1rem; font-size: 1.1rem; line-height: 1.4;">
-        Stable, secure and innovative token designed for banking and non-banking sectors.
+        Stabilní, bezpečný a inovativní token navržený pro bankovní i nebankovní sektor.
       </p>
 
       <div class="button-group">
-        <a href="pages/about_en.html" class="btn">Download Whitepaper</a>
-        <a href="https://pancakeswap.finance/swap?outputCurrency=0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" target="_blank" rel="noopener" class="btn">Swap on PancakeSwap</a>
-        <a href="https://www.geckoterminal.com/bsc/pools/0x553b402b3d6f91ea2208c7df61a6d4aa96ccb6191787c20fedb7ae6c9823b280" target="_blank" rel="noopener" class="btn">Liquidity Pool on GeckoTerminal</a>
+        <a href="#docs" class="btn">Stáhnout Whitepaper</a>
+        <a href="https://pancakeswap.finance/swap?outputCurrency=0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" target="_blank" rel="noopener" class="btn">Swap na PancakeSwap</a>
       </div>
     </section>
 
     <section id="about">
-      <h2>About USDt.z Token</h2>
-      <p>USDt.z is a stablecoin that combines the stability of traditional currencies with cutting-edge blockchain technology.</p>
-      <p>The token offers high security, transparency, and wide usability across various financial applications.</p>
-      <p>Clients can purchase USDt.z at a discount. The token is ideal as collateral for loans and financial guarantees, supporting young people without traditional collateral.</p>
+      <h2>O tokenu USDt.z</h2>
+      <p>USDt.z je stablecoin, který kombinuje stabilitu tradičních měn s technologií blockchain nové generace.</p>
+      <p>Token nabízí vysokou bezpečnost, transparentnost a široké využití v různých finančních aplikacích.</p>
+      <p>Podporujeme mladé, kteří nemají zajištění pro půjčky – USDt.z může sloužit jako kolaterál pro získání finančních prostředků.</p>
+      <p>Klienti si mohou USDt.z koupit se slevou. Token je ideální jako kolaterál pro půjčky a finanční zajištění.</p>
     </section>
 
     <section id="swap">
       <h2>Swap & DEX</h2>
-      <p>For fast and secure trading of the USDt.z token, use PancakeSwap. The token is listed with a market value exceeding 5 million USD and is firmly pegged 1:1 to USD.</p>
-      <a href="https://pancakeswap.finance/swap?outputCurrency=0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" target="_blank" rel="noopener" class="btn">Go to PancakeSwap</a>
+      <p>Pro rychlé a bezpečné obchodování USDt.z tokenu využijte PancakeSwap. Token je zalistován s tržní hodnotou přes 5 milionů USD a je pevně vázán na USD v poměru 1:1.</p>
+      <a href="https://pancakeswap.finance/swap?outputCurrency=0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" target="_blank" rel="noopener" class="btn">Přejít na PancakeSwap</a>
     </section>
 
     <section id="pool">
-      <h2>Liquidity Pool</h2>
-      <p>Check out our liquidity pool and track USDt.z’s market performance on GeckoTerminal.</p>
-      <a href="https://www.geckoterminal.com/bsc/pools/0x553b402b3d6f91ea2208c7df61a6d4aa96ccb6191787c20fedb7ae6c9823b280" target="_blank" rel="noopener" class="btn">View Liquidity Pool</a>
+      <h2>Likviditní pool</h2>
+      <p>Podívejte se na náš likviditní pool a sledujte tržní výkonnost USDt.z na GeckoTerminalu.</p>
+      <a href="https://www.geckoterminal.com/bsc/pools/0x553b402b3d6f91ea2208c7df61a6d4aa96ccb6191787c20fedb7ae6c9823b280" target="_blank" rel="noopener" class="btn">Zobrazit likviditní pool</a>
     </section>
 
     <section id="docs">
-      <h2>Audit & Documentation</h2>
-      <p>Complete technical documentation and audit report are available for download.</p>
-      <a href="docs/USDTz_Whitepaper_EN.pdf" target="_blank" class="btn">Download Whitepaper</a>
-      <a href="docs/Audit_Report_EN.pdf" target="_blank" class="btn audit" style="margin-left: 1rem;">Download Audit</a>
+      <h2>Audit a dokumentace</h2>
+      <p>Kompletní technická dokumentace a auditní zpráva jsou k dispozici ke stažení.</p>
+      <a href="docs/USDTz_Whitepaper_CS.pdf" target="_blank" class="btn">Stáhnout Whitepaper</a>
+      <a href="docs/Audit_Report.pdf" target="_blank" class="btn audit" style="margin-left: 1rem;">Stáhnout Audit</a>
     </section>
 
     <section id="wallet-connect">
-      <h2>Connect Your Wallet</h2>
+      <h2>Připojit peněženku</h2>
       <div class="wallet-buttons">
         <button id="connectMetaMask">MetaMask</button>
         <button id="connectWalletConnect">Trust Wallet (WalletConnect)</button>
         <button id="connectCoinbaseWallet">Coinbase Wallet</button>
       </div>
-      <p id="walletStatus" style="text-align:center; margin-top:1rem; color:#1eab91;"></p>
+      <p id="walletStatus"></p>
     </section>
 
     <section id="contact">
       <div class="contact-info">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 2l-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z"></path>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M2 4h20v16H2z" fill="none"/><path d="M20 4H4v16h16V4zm-2.5 5.5l-5 3-5-3V7l5 3 5-3v2.5z"/>
         </svg>
-        <a href="mailto:sca.sca@centrum.cz" style="color:#222; font-weight:600; text-decoration:none;">sca.sca@centrum.cz</a>
+        <div>
+          <h2>Kontakt</h2>
+          <p>Máte otázky? Kontaktujte nás emailem nebo přes sociální sítě.</p>
+          <p>Email: <a href="mailto:sca.sca@centrum.cz">sca.sca@centrum.cz</a></p>
+        </div>
       </div>
       <div class="token-explore">
-        <a href="https://bscscan.com/token/0x913ef7244bed019b95ec5321408ee4ce83e25c01" target="_blank" rel="noopener">Explore Token on BscScan</a>
+        <a href="https://bscscan.com/token/0x913ef7244bed019b95ec5321408ee4ce83e25c01" target="_blank" rel="noopener">Prozkoumat token na BscScan</a>
       </div>
     </section>
   </main>
 
-  <footer style="text-align:center; padding:1rem 0; border-top:1px solid #ddd; color:#666;">
-    &copy; 2025 USDt.z – Next Generation Stablecoin. All rights reserved.
+  <footer style="text-align:center; padding:1rem; background:#f9f9f9; font-size:0.9rem; color:#666;">
+    &copy; 2025 USDt.z – Next Generation Stablecoin. Všechna práva vyhrazena.
   </footer>
+
+  <script src="js/wallet-connect.js"></script>
 </body>
 </html>
