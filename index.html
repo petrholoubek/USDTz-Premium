@@ -5,124 +5,177 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>USDt.z – Stabilní měna nové generace</title>
   <style>
+    /* Reset */
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: #f8f9fa;
-      color: #333;
-      margin: 0;
-      padding: 0;
-    }
-    header {
-      background-color: rgb(31, 186, 156);
-      color: white;
-      padding: 15px;
-      text-align: center;
-      position: relative;
-    }
-    .lang-switch {
-      position: absolute;
-      top: 15px;
-      right: 15px;
-      background: white;
-      border: none;
-      padding: 8px 12px;
-      cursor: pointer;
-      border-radius: 5px;
-      font-weight: bold;
-      color: rgb(31, 186, 156);
-      transition: background-color 0.3s;
-    }
-    .lang-switch:hover {
-      background-color: #1eab91;
-      color: white;
-    }
-    main {
-      max-width: 900px;
-      margin: auto;
+      color: #222;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       padding: 20px;
     }
+    header {
+      width: 100%;
+      max-width: 1100px;
+      background: white;
+      padding: 20px 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+    header img.logo {
+      height: 60px;
+      cursor: pointer;
+    }
+    nav {
+      display: flex;
+      gap: 15px;
+    }
+    nav a.lang-flag {
+      width: 36px;
+      height: 24px;
+      display: inline-block;
+      border-radius: 4px;
+      overflow: hidden;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: border-color 0.3s ease;
+    }
+    nav a.lang-flag.active,
+    nav a.lang-flag:hover {
+      border-color: rgb(31, 186, 156);
+    }
+    nav a.lang-flag img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    main {
+      width: 100%;
+      max-width: 1100px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
+      padding: 40px 50px;
+      box-sizing: border-box;
+    }
+
+    section {
+      margin-bottom: 40px;
+      padding: 20px 30px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      background-color: #fff;
+    }
+
     h1, h2 {
       color: rgb(31, 186, 156);
+      margin-bottom: 20px;
     }
-    ul {
-      list-style-type: disc;
-      padding-left: 20px;
+    h1 {
+      font-size: 2.8rem;
+      text-align: center;
+    }
+    h2 {
+      font-size: 2rem;
+    }
+    p {
+      margin-bottom: 15px;
+      font-size: 1.1rem;
+      color: #333;
+    }
+    a.btn {
+      background-color: rgb(31, 186, 156);
+      color: white;
+      padding: 12px 26px;
+      border-radius: 5px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-block;
+      transition: background-color 0.3s ease;
+      margin-right: 15px;
+      font-size: 1.1rem;
+    }
+    a.btn:hover {
+      background-color: #1eab91;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 50px;
+      color: #666;
+      font-size: 0.9rem;
+      text-align: center;
+      width: 100%;
+      max-width: 1100px;
     }
   </style>
 </head>
 <body>
 
 <header>
-  <button class="lang-switch" onclick="switchLanguage()">English</button>
-  <h1 id="title">USDt.z – Stabilní měna nové generace</h1>
+  <img src="logo.png" alt="USDt.z logo" class="logo" />
+  <nav>
+    <a href="index.html" class="lang-flag active" title="Čeština">
+      <img src="img/flags/cz.png" alt="Česká vlajka" />
+    </a>
+    <a href="index_en.html" class="lang-flag" title="English">
+      <img src="img/flags/en.png" alt="English flag" />
+    </a>
+  </nav>
 </header>
 
 <main>
+  <h1>USDt.z – Stabilní měna nové generace</h1>
+
   <section>
-    <h2 id="intro-title">Úvod</h2>
-    <p id="intro-text">
-      USDt.z je stabilní digitální měna navržená pro moderní finanční svět, poskytující rychlé transakce, nízké poplatky a maximální bezpečnost.
-    </p>
+    <h2>O tokenu USDt.z</h2>
+    <p>USDt.z je stablecoin navržený tak, aby spojoval stabilitu tradičních měn s bezpečností a transparentností blockchainu nové generace.</p>
+    <p>Token nabízí vysokou bezpečnost, rychlé transakce a široké možnosti využití v bankovním i nebankovním sektoru.</p>
   </section>
 
   <section>
-    <h2 id="benefits-title">Výhody</h2>
-    <ul id="benefits-list">
-      <li>Stabilita vázaná na USD</li>
-      <li>Okamžité převody 24/7</li>
-      <li>Bezpečné smart kontrakty</li>
-    </ul>
+    <h2>Výhody a použití</h2>
+    <p><strong>Koupě USDt.z se slevou:</strong> Na našem portálu můžete token USDt.z zakoupit za zvýhodněných podmínek. Využijte stabilní hodnotu a možnosti rychlého převodu.</p>
+    <p><strong>Kolaterální půjčky:</strong> USDt.z lze použít jako kolaterál pro půjčky, což vám umožňuje využívat výhod stabilní digitální měny při financování.</p>
+    <p><strong>Rychlé swapy:</strong> Snadno a bezpečně směňujte USDt.z na decentralizovaných burzách jako PancakeSwap.</p>
+  </section>
+
+  <section>
+    <h2>Tržní informace a DEX</h2>
+    <p>Token USDt.z je aktuálně zalistován na PancakeSwap s tržní hodnotou přes 5 miliard USD. Nabízíme stabilitu 1:1 vůči americkému dolaru.</p>
+    <p>Pro obchodování využijte PancakeSwap: <a href="https://pancakeswap.finance/swap?outputCurrency=0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" target="_blank" class="btn">Přejít na PancakeSwap</a></p>
+    <p>Pool na GeckoTerminal: <a href="https://www.geckoterminal.com/bsc/pools/0x553b402b3d6f91ea2208c7df61a6d4aa96ccb6191787c20fedb7ae6c9823b280" target="_blank" class="btn">Zobrazit pool</a></p>
+  </section>
+
+  <section>
+    <h2>Technická dokumentace a audit</h2>
+    <p>Kompletní technická dokumentace a whitepaper jsou k dispozici ke stažení níže.</p>
+    <a href="docs/USDTz_Whitepaper_CS.pdf" target="_blank" class="btn">Stáhnout whitepaper (CZ)</a>
+    <a href="docs/USDTz_Whitepaper_EN.pdf" target="_blank" class="btn">Download whitepaper (EN)</a>
+  </section>
+
+  <section>
+    <h2>Blockchain Explorer</h2>
+    <p>Pro ověření transakcí a aktuální stav tokenu navštivte BscScan:</p>
+    <a href="https://bscscan.com/token/0x913ef7244bed019b95ec5321408ee4ce83e25c01" target="_blank" class="btn">Zobrazit na BscScan</a>
   </section>
 </main>
 
-<script>
-  const translations = {
-    cs: {
-      title: "USDt.z – Stabilní měna nové generace",
-      "intro-title": "Úvod",
-      "intro-text": "USDt.z je stabilní digitální měna navržená pro moderní finanční svět, poskytující rychlé transakce, nízké poplatky a maximální bezpečnost.",
-      "benefits-title": "Výhody",
-      "benefits-list": [
-        "Stabilita vázaná na USD",
-        "Okamžité převody 24/7",
-        "Bezpečné smart kontrakty"
-      ],
-      button: "English"
-    },
-    en: {
-      title: "USDt.z – Stablecoin for Next Generation",
-      "intro-title": "Introduction",
-      "intro-text": "USDt.z is a stable digital currency designed for the modern financial world, offering fast transactions, low fees, and maximum security.",
-      "benefits-title": "Benefits",
-      "benefits-list": [
-        "Stability pegged to USD",
-        "Instant transfers 24/7",
-        "Secure smart contracts"
-      ],
-      button: "Čeština"
-    }
-  };
-
-  let currentLang = "cs";
-
-  function switchLanguage() {
-    currentLang = currentLang === "cs" ? "en" : "cs";
-    document.getElementById("title").innerText = translations[currentLang].title;
-    document.getElementById("intro-title").innerText = translations[currentLang]["intro-title"];
-    document.getElementById("intro-text").innerText = translations[currentLang]["intro-text"];
-    document.getElementById("benefits-title").innerText = translations[currentLang]["benefits-title"];
-
-    const list = document.getElementById("benefits-list");
-    list.innerHTML = "";
-    translations[currentLang]["benefits-list"].forEach(item => {
-      const li = document.createElement("li");
-      li.textContent = item;
-      list.appendChild(li);
-    });
-
-    document.querySelector(".lang-switch").innerText = translations[currentLang].button;
-  }
-</script>
+<footer>
+  &copy; 2025 USDt.z – Všechna práva vyhrazena.
+</footer>
 
 </body>
 </html>
