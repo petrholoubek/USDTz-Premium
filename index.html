@@ -16,24 +16,21 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      padding: 0 1rem;
     }
     header {
       background: #fff;
       border-bottom: 2px solid rgb(31,186,156);
-      width: 100%;
-      max-width: 900px;
-      padding: 1rem 1rem;
+      padding: 1rem 2rem;
       position: sticky;
       top: 0;
       z-index: 1000;
-      margin: 0 auto;
     }
     nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
     }
     nav .logo img {
       height: 40px;
@@ -56,9 +53,9 @@
     }
     main {
       flex: 1;
-      max-width: 900px;
-      width: 100%;
+      max-width: 1200px;
       margin: 2rem auto;
+      padding: 0 1rem;
     }
     section {
       margin-bottom: 4rem;
@@ -70,6 +67,7 @@
     h1 {
       font-size: 2.5rem;
       text-align: center;
+      margin-bottom: 2rem;
     }
     h2 {
       font-size: 2rem;
@@ -78,11 +76,6 @@
       margin-bottom: 1rem;
       color: #222;
       font-size: 1rem;
-    }
-    ul {
-      margin-left: 1.25rem;
-      margin-bottom: 1rem;
-      color: #222;
     }
     .btn {
       background-color: rgb(31,186,156);
@@ -99,18 +92,9 @@
     .btn:hover {
       background-color: #1eab91;
     }
-    .big-logo-container {
-      text-align: center;
-      margin: 3rem 0 2rem;
-    }
-    .big-logo-container img {
-      max-width: 200px;
-      height: auto;
-    }
-    /* Hero Section */
     .hero {
       text-align: center;
-      padding: 0 1rem 4rem;
+      padding: 4rem 1rem 5rem; /* více spodního prostoru */
       background: #f9f9f9;
       border-radius: 8px;
       max-width: 700px;
@@ -119,9 +103,8 @@
     .hero p {
       font-size: 1.2rem;
       margin-bottom: 2rem;
-      color: #222;
+      color: #222; /* černá barva textu */
     }
-    /* Footer */
     footer {
       background: #f1f1f1;
       text-align: center;
@@ -129,12 +112,8 @@
       font-size: 0.9rem;
       color: #666;
       margin-top: auto;
-      max-width: 900px;
-      width: 100%;
-      margin-left: auto;
-      margin-right: auto;
     }
-    /* Language flags */
+    /* Language switcher vlajky */
     .lang-switcher {
       display: flex;
       gap: 0.5rem;
@@ -160,13 +139,15 @@
         gap: 1rem;
       }
       nav {
-        padding: 1rem 0;
+        padding: 1rem;
       }
-      .big-logo-container img {
-        max-width: 140px;
+      .lang-switcher {
+        justify-content: center;
+        width: 100%;
       }
-      main {
-        margin: 1rem auto;
+      .hero {
+        max-width: 90%;
+        padding: 3rem 1rem 4rem;
       }
     }
   </style>
@@ -175,7 +156,7 @@
   <header>
     <nav>
       <div class="logo">
-        <img src="logo.png" alt="USDt.z Logo" />
+        <img src="logo.png" alt="USDt.z Malé Logo" />
       </div>
       <ul>
         <li><a href="#about">O tokenu</a></li>
@@ -186,60 +167,48 @@
         <li>
           <div class="lang-switcher">
             <a href="index.html"><img src="img/flags/cz.png" alt="CZ" title="Čeština" class="active" /></a>
-            <a href="index_en.html"><img src="img/flags/uk.png" alt="EN" title="English" /></a>
+            <a href="index_en.html"><img src="img/flags/en.png" alt="EN" title="English" /></a>
           </div>
         </li>
       </ul>
     </nav>
   </header>
   <main>
-    <div class="big-logo-container">
-      <img src="logo.png" alt="USDt.z Velké logo" />
-    </div>
-
-    <section class="hero" id="hero">
+    <div class="hero" id="hero">
       <h1>USDt.z – Next Generation Stablecoin</h1>
-      <p>Stabilní, bezpečný a inovativní token navržený pro bankovní i nebankovní sektor.</p>
+      <p>Stable, secure, and innovative token designed for banking and non-banking sectors.</p>
       <a href="#docs" class="btn">Stáhnout Whitepaper</a>
       <a href="#swap" class="btn" style="margin-left: 1rem;">Swap na PancakeSwap</a>
-    </section>
+    </div>
 
     <section id="about">
       <h2>O tokenu USDt.z</h2>
-      <p>USDt.z je stabilní digitální měna (stablecoin) založená na blockchainové technologii nové generace. Kombinuje stabilitu tradičních fiat měn, zejména amerického dolaru, s vysokou bezpečností a transparentností decentralizovaných technologií. Token je navržen jako spolehlivé platební a hodnotové médium pro bankovní i nebankovní sektor.</p>
-      <p>Díky pokročilému kolaterálnímu mechanismu a decentralizované správě nabízí USDt.z vysokou důvěru, rychlé transakce s nízkými poplatky a snadnou integraci do stávajících finančních systémů. Projekt klade důraz na auditovatelnost, soulady s regulačními standardy a flexibilitu v různých finančních aplikacích.</p>
+      <p>USDt.z je stablecoin, který kombinuje stabilitu tradičních měn s technologií blockchain nové generace.</p>
+      <p>Token nabízí vysokou bezpečnost, transparentnost a široké využití v různých finančních aplikacích.</p>
     </section>
 
     <section id="swap">
       <h2>Swap & DEX</h2>
-      <p>Pro rychlé a bezpečné obchodování tokenu USDt.z využijte PancakeSwap.</p>
+      <p>Pro rychlé a bezpečné obchodování USDt.z tokenu využijte PancakeSwap.</p>
       <a href="https://pancakeswap.finance/swap?outputCurrency=0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" target="_blank" rel="noopener" class="btn">Přejít na PancakeSwap</a>
     </section>
 
     <section id="usecases">
       <h2>Použití a výhody</h2>
-      <p>USDt.z není jen stabilní token, ale i výhodný nástroj pro nákup. Na našem webu můžete USDt.z zakoupit se speciální slevou, díky čemuž získáte více hodnoty za méně peněz.</p>
-      <p>Hlavní výhody USDt.z:</p>
-      <ul>
-        <li><strong>Kolaterální půjčky:</strong> Token slouží jako spolehlivé kolaterální aktivum pro půjčky s transparentními podmínkami a nízkými úroky.</li>
-        <li><strong>Likvidita a rychlost:</strong> Okamžité swapy a nízké transakční poplatky zajišťují efektivní správu kapitálu.</li>
-        <li><strong>Bezpečnost a auditovatelnost:</strong> Projekt je pravidelně auditován a splňuje přísné regulační požadavky.</li>
-        <li><strong>Flexibilní využití:</strong> USDt.z lze použít jak v bankovních, tak nebankovních finančních aplikacích.</li>
-      </ul>
-      <a href="#buy" class="btn" style="margin-top:1rem;">Zakoupit USDt.z se slevou</a>
+      <p>USDt.z je ideální pro bankovní zajištění, půjčky, kolaterál a rychlé swapy mezi kryptoměnami.</p>
+      <p>Díky své stabilitě a důvěře jej mohou využívat i nebankovní subjekty a investoři.</p>
     </section>
 
     <section id="docs">
       <h2>Dokumentace & Whitepaper</h2>
-      <p>Kompletní technická dokumentace a whitepaper USDt.z obsahují podrobný popis architektury tokenu, kolaterálního mechanismu, modelu správy a bezpečnostních opatření. Whitepaper také zahrnuje informace o plánovaných auditech a spolupráci s finančními institucemi.</p>
-      <p>Verze ke stažení v češtině i angličtině jsou k dispozici pro širokou veřejnost i odborníky.</p>
+      <p>Kompletní whitepaper USDt.z je k dispozici ke stažení.</p>
       <a href="docs/USDTz_Whitepaper_CS.pdf" target="_blank" class="btn">Stáhnout PDF (CZ)</a>
       <a href="docs/USDTz_Whitepaper_EN.pdf" target="_blank" class="btn" style="margin-left: 1rem;">Download PDF (EN)</a>
     </section>
 
     <section id="contact">
       <h2>Kontakt</h2>
-      <p>Máte otázky? Kontaktujte nás emailem nebo přes sociální sítě.</p>
+      <p>Máte otázky? Kontaktujte nás prostřednictvím emailu nebo sociálních sítí.</p>
       <p>Email: <a href="mailto:sca.sca@centrum.cz">sca.sca@centrum.cz</a></p>
     </section>
   </main>
