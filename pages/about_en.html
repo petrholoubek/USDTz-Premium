@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>About USDt.z – Next Generation Stablecoin</title>
+  <title>About USDt.z Token – Next Generation Stablecoin</title>
   <style>
     /* Reset */
     * {
@@ -25,12 +25,10 @@
       top: 0;
       z-index: 1000;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      display: flex;
-      justify-content: center;
     }
     nav {
       max-width: 1200px;
-      width: 100%;
+      margin: 0 auto;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -38,7 +36,7 @@
     nav .logo img {
       height: 40px;
       cursor: pointer;
-      filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.3));
+      filter: drop-shadow(0 2px 2px rgba(0,0,0,0.2));
     }
     nav ul {
       list-style: none;
@@ -70,9 +68,19 @@
 
     main {
       flex: 1;
-      max-width: 900px;
+      max-width: 1200px;
       margin: 2rem auto 3rem;
       padding: 0 1rem;
+    }
+
+    section {
+      margin-bottom: 4rem;
+      background: #fff;
+      padding: 1.5rem 2rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgb(31 186 156 / 0.15);
+      min-height: 400px;
     }
 
     h1, h2 {
@@ -82,48 +90,41 @@
     h1 {
       font-size: 2.5rem;
       text-align: center;
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
     }
     h2 {
       font-size: 2rem;
-      margin-top: 1.5rem;
       margin-bottom: 1rem;
     }
     p {
       margin-bottom: 1rem;
       color: #222;
-      font-size: 1.1rem;
-      line-height: 1.5;
-    }
-
-    a {
-      color: rgb(31,186,156);
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
+      font-size: 1rem;
     }
 
     footer {
       text-align: center;
-      padding: 1rem 0;
-      background: #f1f1f1;
-      color: #666;
+      padding: 1rem 2rem;
+      background: #f0f0f0;
       font-size: 0.9rem;
+      color: #555;
     }
 
     /* Responsive */
     @media (max-width: 768px) {
-      main {
-        margin: 1rem 1rem 2rem;
-      }
       nav ul {
         flex-direction: column;
         gap: 0.8rem;
       }
+      nav ul li a {
+        font-size: 1rem;
+      }
       nav ul li a img.flag {
         width: 30px;
         height: 20px;
+      }
+      main {
+        margin: 1rem auto 2rem;
       }
     }
   </style>
@@ -132,14 +133,15 @@
   <header>
     <nav>
       <div class="logo">
-        <a href="../index_en.html"><img src="../img/logo.png" alt="USDt.z Logo" /></a>
+        <a href="../index_en.html"><img src="../logo.png" alt="USDt.z Logo" /></a>
       </div>
       <ul>
-        <li><a href="about.html">About</a></li>
-        <li><a href="swap.html">Swap & DEX</a></li>
-        <li><a href="usecases.html">Use Cases</a></li>
-        <li><a href="docs.html">Documentation</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="../index_en.html">Home</a></li>
+        <li><a href="about_en.html" aria-current="page">About the Token</a></li>
+        <li><a href="../swap_en.html">Swap & DEX</a></li>
+        <li><a href="../usecases_en.html">Use Cases</a></li>
+        <li><a href="../docs_en.html">Documentation</a></li>
+        <li><a href="../contact_en.html">Contact</a></li>
         <li>
           <a href="../index.html" title="Česky">
             <img class="flag" src="../img/flags/cz.png" alt="Czech Flag" />
@@ -155,25 +157,32 @@
   </header>
 
   <main>
-    <h1>About USDt.z – Next Generation Stablecoin</h1>
+    <section>
+      <h1>About USDt.z Token</h1>
 
-    <h2>What is USDt.z?</h2>
-    <p>USDt.z is a next-generation stablecoin that combines the stability of traditional currencies with innovative blockchain technology. It is designed to meet the needs of both banking and non-banking sectors.</p>
-
-    <h2>Why did we create USDt.z?</h2>
-    <p>Our mission is to enable secure and fast financial transactions that are transparent and easy to use. USDt.z offers solutions for underserved market segments, including support for young people who lack traditional collateral for loans.</p>
-
-    <h2>Main advantages of the USDt.z token</h2>
-    <ul>
-      <li><strong>Stability:</strong> The token is firmly pegged to the USD at a 1:1 ratio.</li>
-      <li><strong>Security:</strong> Advanced blockchain technology ensures high security and transparency.</li>
-      <li><strong>Wide usability:</strong> Suitable as collateral for loans, for trading, and for long-term investments.</li>
-      <li><strong>Support for youth:</strong> We offer the possibility to use the token as collateral even for clients without traditional guarantees.</li>
-      <li><strong>Easy accessibility:</strong> The token can be purchased at a discount and used within decentralized exchanges such as PancakeSwap.</li>
-    </ul>
-
-    <h2>Further Information</h2>
-    <p>For detailed technical information and audits, you can download the <a href="../docs/USDTz_Whitepaper_EN.pdf" target="_blank" rel="noopener">Whitepaper</a> and the <a href="../docs/Audit_Report.pdf" target="_blank" rel="noopener">Audit Report</a>.</p>
+      <p><strong>USDt.z</strong> is a next-generation stablecoin combining the stability of traditional currencies with cutting-edge blockchain technology.</p>
+      
+      <h2>Why We Created USDt.z</h2>
+      <p>Our goal was to create a secure, transparent, and reliable token that facilitates the use of cryptocurrencies in both banking and non-banking sectors, offering stability comparable to traditional money.</p>
+      
+      <h2>Key Features of USDt.z</h2>
+      <ul>
+        <li>1:1 fixed USD backing</li>
+        <li>Supports collateral for loans, including for young clients without traditional guarantees</li>
+        <li>High security thanks to next-generation blockchain technology</li>
+        <li>Transparent and auditable system</li>
+        <li>Fast and low-cost transactions</li>
+      </ul>
+      
+      <h2>Use Cases</h2>
+      <p>USDt.z can be used across a broad range of financial applications, from loans and trading to liquidity provisioning and asset stabilization.</p>
+      
+      <h2>Support for Young Clients</h2>
+      <p>The token is ideal for young clients and startups who often lack traditional collateral for loans. USDt.z enables using cryptocurrency collateral as a guarantee, opening new financing opportunities.</p>
+      
+      <h2>Documentation and Audit</h2>
+      <p>The full whitepaper and audit reports are available for download on the main page.</p>
+    </section>
   </main>
 
   <footer>
