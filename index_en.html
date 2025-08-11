@@ -1,241 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>USDt.z – Next Generation Stablecoin</title>
-  <style>
-    * {
-      margin: 0; padding: 0; box-sizing: border-box;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>USDt.z Project</title>
+<style>
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #fff;
-      color: #222;
-      line-height: 1.6;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f5f5f5;
+        color: #333;
     }
     header {
-      background: #fff;
-      border-bottom: 2px solid rgb(31,186,156);
-      padding: 1rem 2rem;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
+        background-color: #1fba9c;
+        color: white;
+        padding: 15px;
+        text-align: center;
     }
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 1200px;
-      margin: 0 auto;
+    header h1 {
+        font-size: 1.5em;
+        margin: 0;
     }
-    nav .logo img {
-      height: 40px;
-      cursor: pointer;
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 1.5rem;
-      align-items: center;
-    }
-    nav ul li a {
-      text-decoration: none;
-      color: #222;
-      font-weight: 600;
-      transition: color 0.3s ease;
-      display: flex;
-      align-items: center;
-    }
-    nav ul li a:hover {
-      color: rgb(31,186,156);
-    }
-    nav ul li img.flag {
-      width: 24px;
-      height: 16px;
-      margin-left: 0.3rem;
-      object-fit: contain;
-    }
-    main {
-      flex: 1;
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
-    .big-logo-container {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
-    .big-logo-container img {
-      max-width: 200px;
-      height: auto;
+    .container {
+        max-width: 900px;
+        margin: auto;
+        padding: 15px;
     }
     section {
-      margin-bottom: 4rem;
-    }
-    h1, h2, h3 {
-      color: rgb(31,186,156);
-      margin-bottom: 1rem;
-    }
-    h1 {
-      font-size: 2.5rem;
-      text-align: center;
-      margin-bottom: 1.5rem;
+        background: white;
+        border-radius: 10px;
+        padding: 15px;
+        margin-bottom: 15px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
     h2 {
-      font-size: 2rem;
+        font-size: 1.2em;
+        color: #1fba9c;
+        margin-top: 0;
     }
     p {
-      margin-bottom: 1rem;
-      color: #222;
-      font-size: 1rem;
+        line-height: 1.5;
+        font-size: 1em;
     }
-    .btn {
-      background-color: rgb(31,186,156);
-      color: white;
-      padding: 0.75rem 1.5rem;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      font-weight: 600;
-      text-decoration: none;
-      display: inline-block;
-      transition: background-color 0.3s ease;
+    img {
+        max-width: 100%;
+        border-radius: 5px;
     }
-    .btn:hover {
-      background-color: #1eab91;
+    @media (max-width: 600px) {
+        header h1 {
+            font-size: 1.2em;
+        }
+        h2 {
+            font-size: 1.1em;
+        }
+        p {
+            font-size: 0.95em;
+        }
     }
-    /* Footer */
-    footer {
-      background: #f1f1f1;
-      text-align: center;
-      padding: 1.5rem 1rem 3rem 1rem;
-      font-size: 0.9rem;
-      color: #666;
-      margin-top: auto;
-    }
-    /* Responsive */
-    @media (max-width: 768px) {
-      nav ul {
-        flex-direction: row;
-        gap: 1rem;
-        justify-content: center;
-      }
-      nav ul li a {
-        font-size: 0.9rem;
-      }
-      nav ul li img.flag {
-        width: 20px;
-        height: 14px;
-      }
-      main {
-        max-width: 95%;
-        margin: 1rem auto;
-      }
-    }
-    /* QR code container */
-    .qr-container {
-      margin-top: 1.5rem;
-      text-align: center;
-    }
-    .qr-container img {
-      width: 120px;
-      height: 120px;
-      margin-top: 0.5rem;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-    }
-  </style>
+</style>
 </head>
 <body>
-  <header>
-    <nav>
-      <div class="logo">
-        <img src="logo.png" alt="USDt.z Logo" />
-      </div>
-      <ul>
-        <li><a href="#about">About Token</a></li>
-        <li><a href="#swap">Swap & DEX</a></li>
-        <li><a href="#trading-info">Trading Info</a></li>
-        <li><a href="#documentation">Documentation & Audit</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a href="index.html" title="Česky"><img src="img/flags/cz.png" alt="CZ" class="flag" /></a></li>
-        <li><a href="index_en.html" title="English"><img src="img/flags/en.png" alt="EN" class="flag" /></a></li>
-      </ul>
-    </nav>
-  </header>
 
-  <main>
-    <div class="big-logo-container">
-      <img src="logo.png" alt="USDt.z Large Logo" />
-    </div>
+<header>
+    <h1>USDt.z — Stablecoin for Next Generation</h1>
+</header>
 
-    <section class="hero" id="hero">
-      <h1>USDt.z – Next Generation Stablecoin</h1>
-      <p style="color: black; max-width: 600px; margin: 0 auto;">
-        Stable, secure, and innovative token designed for banking<br />
-        and non-banking sectors.
-      </p>
-      <p style="margin-top: 1rem;">
-        USDt.z offers benefits for collateral loans, fast swaps, and reliability with 1:1 peg to the US Dollar.
-      </p>
-      <a href="#documentation" class="btn" style="margin-top: 1rem;">Download Whitepaper</a>
-      <a href="#swap" class="btn" style="margin-left: 1rem; margin-top: 1rem;">Swap on PancakeSwap</a>
+<div class="container">
+    <section>
+        <h2>About the Project</h2>
+        <p>USDt.z is a next-generation stablecoin designed to ensure stability, trust, and practical usability. It is pegged to the US dollar and operates on the Binance Smart Chain (BSC) with high transparency and security standards.</p>
     </section>
 
-    <section id="about">
-      <h2>About USDt.z Token</h2>
-      <p>USDt.z is a stablecoin combining the stability of traditional currencies with next-generation blockchain technology.</p>
-      <p>The token provides high security, transparency, and wide usability across various financial applications.</p>
-      <p>The project was created in response to the need for a reliable token with a clear 1:1 peg to the US Dollar, suitable for banking and non-banking sectors.</p>
+    <section>
+        <h2>Advantages</h2>
+        <p>Our stablecoin is designed for both banking and non-banking sectors, enabling secure transactions, liquidity management, and collateralization. USDt.z offers a solution for modern finance with full decentralization and auditability.</p>
     </section>
 
-    <section id="swap">
-      <h2>Swap & DEX</h2>
-      <p>Use PancakeSwap for quick and secure trading of the USDt.z token.</p>
-      <a href="https://pancakeswap.finance/swap?outputCurrency=0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" target="_blank" rel="noopener" class="btn">Go to PancakeSwap</a>
+    <section>
+        <h2>Technical Parameters</h2>
+        <ul>
+            <li><strong>Blockchain:</strong> Binance Smart Chain (BSC)</li>
+            <li><strong>Smart Contract Address:</strong> 0x913ef7244bEd019b95Ec5321408eE4CE83E25c01</li>
+            <li><strong>Token Type:</strong> BEP-20</li>
+            <li><strong>Price:</strong> 1 USD per USDt.z</li>
+        </ul>
     </section>
 
-    <section id="trading-info">
-      <h2>Trading Info & Liquidity Pool</h2>
-      <p>USDt.z token is listed with good market cap and liquidity. Track the current pool status on GeckoTerminal.</p>
-      <a href="https://www.geckoterminal.com/bsc/pools/0x553b402b3d6f91ea2208c7df61a6d4aa96ccb6191787c20fedb7ae6c9823b280" target="_blank" rel="noopener" class="btn">View on GeckoTerminal</a>
-      <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #444;">
-        The token’s market capitalization currently exceeds 5T USDT, USDt.z is pegged 1:1 to the US Dollar.
-      </p>
+    <section>
+        <h2>Contact</h2>
+        <p>For more information, please contact us at: <strong>info@usdtz.com</strong></p>
     </section>
+</div>
 
-    <section id="documentation">
-      <h2>Documentation & Audit</h2>
-      <p>The complete USDt.z project whitepaper is available for download, containing detailed information about the token’s technical parameters, security measures, and audit.</p>
-      <a href="docs/USDTz_Whitepaper_EN.pdf" target="_blank" class="btn">Download Whitepaper (EN)</a>
-      <a href="docs/USDTz_Whitepaper_CS.pdf" target="_blank" class="btn" style="margin-left: 1rem;">Stáhnout Whitepaper (CZ)</a>
-      <p style="margin-top: 1rem;">
-        The project underwent an independent security audit ensuring a high level of protection for users and investors.
-      </p>
-    </section>
-
-    <section id="blockchain">
-      <h2>Blockchain Info & QR Code</h2>
-      <p>Explore USDt.z token details directly on the Binance Smart Chain blockchain.</p>
-      <a href="https://bscscan.com/token/0x913ef7244bed019b95ec5321408ee4ce83e25c01" target="_blank" rel="noopener" class="btn">View on BscScan</a>
-      <div class="qr-container">
-        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://bscscan.com/token/0x913ef7244bed019b95ec5321408ee4ce83e25c01" alt="USDt.z BscScan QR Code" />
-      </div>
-    </section>
-
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>Have questions? Contact us by email or social media.</p>
-      <p>Email: <a href="mailto:sca.sca@centrum.cz">sca.sca@centrum.cz</a></p>
-    </section>
-  </main>
-
-  <footer>
-    &copy; 2025 USDt.z – Next Generation Stablecoin. All rights reserved.
-  </footer>
 </body>
 </html>
