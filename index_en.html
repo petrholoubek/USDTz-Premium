@@ -16,24 +16,21 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      padding: 0 1rem;
     }
     header {
       background: #fff;
       border-bottom: 2px solid rgb(31,186,156);
-      width: 100%;
-      max-width: 900px;
-      padding: 1rem 1rem;
+      padding: 1rem 2rem;
       position: sticky;
       top: 0;
       z-index: 1000;
-      margin: 0 auto;
     }
     nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
     }
     nav .logo img {
       height: 40px;
@@ -56,9 +53,9 @@
     }
     main {
       flex: 1;
-      max-width: 900px;
-      width: 100%;
+      max-width: 1200px;
       margin: 2rem auto;
+      padding: 0 1rem;
     }
     section {
       margin-bottom: 4rem;
@@ -70,6 +67,7 @@
     h1 {
       font-size: 2.5rem;
       text-align: center;
+      margin-bottom: 2rem;
     }
     h2 {
       font-size: 2rem;
@@ -78,11 +76,6 @@
       margin-bottom: 1rem;
       color: #222;
       font-size: 1rem;
-    }
-    ul {
-      margin-left: 1.25rem;
-      margin-bottom: 1rem;
-      color: #222;
     }
     .btn {
       background-color: rgb(31,186,156);
@@ -99,18 +92,9 @@
     .btn:hover {
       background-color: #1eab91;
     }
-    .big-logo-container {
-      text-align: center;
-      margin: 3rem 0 2rem;
-    }
-    .big-logo-container img {
-      max-width: 200px;
-      height: auto;
-    }
-    /* Hero Section */
     .hero {
       text-align: center;
-      padding: 0 1rem 4rem;
+      padding: 4rem 1rem 5rem; /* více spodního prostoru */
       background: #f9f9f9;
       border-radius: 8px;
       max-width: 700px;
@@ -119,9 +103,8 @@
     .hero p {
       font-size: 1.2rem;
       margin-bottom: 2rem;
-      color: #222;
+      color: #222; /* černá barva textu */
     }
-    /* Footer */
     footer {
       background: #f1f1f1;
       text-align: center;
@@ -129,12 +112,8 @@
       font-size: 0.9rem;
       color: #666;
       margin-top: auto;
-      max-width: 900px;
-      width: 100%;
-      margin-left: auto;
-      margin-right: auto;
     }
-    /* Language flags */
+    /* Language switcher vlajky */
     .lang-switcher {
       display: flex;
       gap: 0.5rem;
@@ -160,13 +139,15 @@
         gap: 1rem;
       }
       nav {
-        padding: 1rem 0;
+        padding: 1rem;
       }
-      .big-logo-container img {
-        max-width: 140px;
+      .lang-switcher {
+        justify-content: center;
+        width: 100%;
       }
-      main {
-        margin: 1rem auto;
+      .hero {
+        max-width: 90%;
+        padding: 3rem 1rem 4rem;
       }
     }
   </style>
@@ -186,28 +167,24 @@
         <li>
           <div class="lang-switcher">
             <a href="index.html"><img src="img/flags/cz.png" alt="CZ" title="Čeština" /></a>
-            <a href="index_en.html"><img src="img/flags/uk.png" alt="EN" title="English" class="active" /></a>
+            <a href="index_en.html"><img src="img/flags/en.png" alt="EN" title="English" class="active" /></a>
           </div>
         </li>
       </ul>
     </nav>
   </header>
   <main>
-    <div class="big-logo-container">
-      <img src="logo.png" alt="USDt.z Large Logo" />
-    </div>
-
-    <section class="hero" id="hero">
+    <div class="hero" id="hero">
       <h1>USDt.z – Next Generation Stablecoin</h1>
       <p>Stable, secure, and innovative token designed for banking and non-banking sectors.</p>
       <a href="#docs" class="btn">Download Whitepaper</a>
       <a href="#swap" class="btn" style="margin-left: 1rem;">Swap on PancakeSwap</a>
-    </section>
+    </div>
 
     <section id="about">
       <h2>About USDt.z Token</h2>
-      <p>USDt.z is a stable digital currency built on next-generation blockchain technology. It combines the stability of traditional fiat currencies, especially the US dollar, with high security and transparency of decentralized technologies. The token is designed as a reliable medium of payment and store of value for both banking and non-banking sectors.</p>
-      <p>Thanks to advanced collateral mechanisms and decentralized governance, USDt.z offers high trust, fast transactions with low fees, and easy integration into existing financial systems. The project emphasizes auditability, regulatory compliance, and flexibility in various financial applications.</p>
+      <p>USDt.z is a stablecoin that combines the stability of traditional currencies with next-generation blockchain technology.</p>
+      <p>The token offers high security, transparency, and wide usability across various financial applications.</p>
     </section>
 
     <section id="swap">
@@ -218,21 +195,13 @@
 
     <section id="usecases">
       <h2>Use Cases & Benefits</h2>
-      <p>USDt.z is not just a stable token but also a beneficial tool for purchase. On our site, you can buy USDt.z with a special discount, giving you more value for less money.</p>
-      <p>Main advantages of USDt.z:</p>
-      <ul>
-        <li><strong>Collateral loans:</strong> The token serves as a reliable collateral asset for loans with transparent conditions and low interest rates.</li>
-        <li><strong>Liquidity and speed:</strong> Instant swaps and low transaction fees ensure efficient capital management.</li>
-        <li><strong>Security and auditability:</strong> The project undergoes regular audits and complies with strict regulatory requirements.</li>
-        <li><strong>Flexible use:</strong> USDt.z can be used in both banking and non-banking financial applications.</li>
-      </ul>
-      <a href="#buy" class="btn" style="margin-top:1rem;">Buy USDt.z with Discount</a>
+      <p>USDt.z is ideal for banking collateral, loans, and fast crypto swaps.</p>
+      <p>Thanks to its stability and trust, it is also used by non-banking entities and investors.</p>
     </section>
 
     <section id="docs">
       <h2>Documentation & Whitepaper</h2>
-      <p>The complete technical documentation and whitepaper of USDt.z include a detailed description of the token architecture, collateral mechanism, governance model, and security measures. The whitepaper also covers information about planned audits and cooperation with financial institutions.</p>
-      <p>Downloadable versions in Czech and English are available for the public and professionals alike.</p>
+      <p>The complete USDt.z whitepaper is available for download.</p>
       <a href="docs/USDTz_Whitepaper_EN.pdf" target="_blank" class="btn">Download PDF (EN)</a>
       <a href="docs/USDTz_Whitepaper_CS.pdf" target="_blank" class="btn" style="margin-left: 1rem;">Stáhnout PDF (CZ)</a>
     </section>
