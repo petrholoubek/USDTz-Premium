@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="cs">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -41,6 +41,8 @@
       list-style: none;
       display: flex;
       gap: 1.5rem;
+      margin: 0;
+      padding: 0;
     }
     nav ul li a {
       text-decoration: none;
@@ -54,6 +56,7 @@
     .lang-switcher {
       display: flex;
       align-items: center;
+      gap: 10px;
     }
     .lang-switcher a img {
       cursor: pointer;
@@ -69,16 +72,8 @@
     main {
       flex: 1;
       max-width: 1200px;
-      margin: 0 auto;
+      margin: 2rem auto;
       padding: 0 1rem;
-    }
-    .big-logo-container {
-      text-align: center;
-      margin: 3rem 0 2rem;
-    }
-    .big-logo-container img {
-      max-width: 200px;
-      height: auto;
     }
     section {
       margin-bottom: 4rem;
@@ -90,7 +85,6 @@
     h1 {
       font-size: 2.5rem;
       text-align: center;
-      margin-bottom: 2rem;
     }
     h2 {
       font-size: 2rem;
@@ -99,6 +93,9 @@
       margin-bottom: 1rem;
       color: #222;
       font-size: 1rem;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
     }
     .btn {
       background-color: rgb(31,186,156);
@@ -118,15 +115,9 @@
     /* Hero Section */
     .hero {
       text-align: center;
-      padding: 0 1rem 4rem;
+      padding: 4rem 1rem;
       background: #f9f9f9;
       border-radius: 8px;
-      max-width: 700px;
-      margin: 0 auto 4rem;
-    }
-    .hero p {
-      font-size: 1.2rem;
-      margin-bottom: 2rem;
     }
     /* Footer */
     footer {
@@ -146,9 +137,99 @@
       nav {
         padding: 1rem;
       }
-      .big-logo-container img {
-        max-width: 140px;
-      }
+    }
+
+    /* --- Slidery CSS --- */
+    /* Slider 1 */
+    #slider1 {
+      position: relative;
+      max-width: 600px;
+      margin: 2rem auto;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    #slider1 img {
+      display: none;
+      width: 100%;
+      height: auto;
+    }
+    #slider1 img.active {
+      display: block;
+    }
+    #slider1 button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(31,186,156,0.8);
+      border: none;
+      color: white;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 3px;
+      user-select: none;
+    }
+    #slider1 #prev1 {
+      left: 10px;
+    }
+    #slider1 #next1 {
+      right: 10px;
+    }
+
+    /* Slider 2 */
+    #slider2 {
+      max-width: 600px;
+      margin: 2rem auto;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    #slider2 img {
+      display: none;
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+    #slider2 img.active {
+      display: block;
+    }
+
+    /* Slider 3 */
+    #slider3 {
+      max-width: 600px;
+      margin: 2rem auto;
+      position: relative;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    #slider3 > img {
+      display: none;
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+    #slider3 > img.active {
+      display: block;
+    }
+    #slider3 .thumbnails {
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+      gap: 10px;
+    }
+    #slider3 .thumbnails img {
+      width: 60px;
+      height: auto;
+      cursor: pointer;
+      opacity: 0.6;
+      border-radius: 4px;
+      border: 2px solid transparent;
+      transition: opacity 0.3s ease, border-color 0.3s ease;
+    }
+    #slider3 .thumbnails img.active-thumb {
+      opacity: 1;
+      border-color: rgb(31,186,156);
     }
   </style>
 </head>
@@ -156,71 +237,144 @@
   <header>
     <nav>
       <div class="logo">
-        <img src="logo.png" alt="USDt.z Malé Logo" />
+        <img src="logo.png" alt="USDt.z Logo" />
       </div>
       <ul>
-        <li><a href="#about">O tokenu</a></li>
+        <li><a href="#about">About Token</a></li>
         <li><a href="#swap">Swap & DEX</a></li>
-        <li><a href="#usecases">Použití</a></li>
-        <li><a href="#docs">Dokumentace</a></li>
-        <li><a href="#contact">Kontakt</a></li>
+        <li><a href="#usecases">Use Cases</a></li>
+        <li><a href="#docs">Documentation</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
       <div class="lang-switcher">
         <a href="index.html" title="Čeština">
           <img src="img/flags/cz.png" alt="CZ" />
         </a>
-        <a href="index_en.html" title="English" style="margin-left: 10px;">
+        <a href="index_en.html" title="English" style="border: 2px solid rgb(31,186,156); border-radius: 3px;">
           <img src="img/flags/en.png" alt="EN" />
         </a>
       </div>
     </nav>
   </header>
-  <main>
-    <div class="big-logo-container">
-      <img src="logo.png" alt="USDt.z Velké Logo" />
-    </div>
 
+  <main>
     <section class="hero" id="hero">
       <h1>USDt.z – Next Generation Stablecoin</h1>
-      <p>Stabilní, bezpečný a inovativní token navržený pro bankovní i nebankovní sektor.</p>
-      <a href="#docs" class="btn">Stáhnout Whitepaper</a>
-      <a href="#swap" class="btn" style="margin-left: 1rem;">Swap na PancakeSwap</a>
+      <p>
+        Stable, secure, and innovative token designed for both banking<br />
+        and non-banking sectors.
+      </p>
+      <a href="#docs" class="btn">Download Whitepaper</a>
+      <a href="#swap" class="btn" style="margin-left: 1rem;">Swap on PancakeSwap</a>
     </section>
 
     <section id="about">
-      <h2>O tokenu USDt.z</h2>
-      <p>USDt.z je stablecoin, který kombinuje stabilitu tradičních měn s technologií blockchain nové generace.</p>
-      <p>Token nabízí vysokou bezpečnost, transparentnost a široké využití v různých finančních aplikacích.</p>
+      <h2>About USDt.z Token</h2>
+      <p>USDt.z is a stablecoin that combines the stability of traditional currencies with next-generation blockchain technology.</p>
+      <p>The token offers high security, transparency, and wide usability across various financial applications.</p>
+    </section>
+
+    <section id="slider1-section">
+      <h2>Image Slider with Buttons</h2>
+      <div class="slider" id="slider1">
+        <img src="img/slide1.jpg" alt="Slide 1" class="active" />
+        <img src="img/slide2.jpg" alt="Slide 2" />
+        <img src="img/slide3.jpg" alt="Slide 3" />
+        <button id="prev1">Prev</button>
+        <button id="next1">Next</button>
+      </div>
+    </section>
+
+    <section id="slider2-section">
+      <h2>Autoplay Slider</h2>
+      <div class="slider" id="slider2">
+        <img src="img/slideA.jpg" alt="Slide A" class="active" />
+        <img src="img/slideB.jpg" alt="Slide B" />
+        <img src="img/slideC.jpg" alt="Slide C" />
+      </div>
+    </section>
+
+    <section id="slider3-section">
+      <h2>Slider with Thumbnails</h2>
+      <div class="slider" id="slider3">
+        <img src="img/slideX.jpg" alt="Slide X" class="active" />
+        <img src="img/slideY.jpg" alt="Slide Y" />
+        <img src="img/slideZ.jpg" alt="Slide Z" />
+        <div class="thumbnails">
+          <img src="img/slideX_thumb.jpg" alt="Thumb X" data-index="0" class="active-thumb" />
+          <img src="img/slideY_thumb.jpg" alt="Thumb Y" data-index="1" />
+          <img src="img/slideZ_thumb.jpg" alt="Thumb Z" data-index="2" />
+        </div>
+      </div>
     </section>
 
     <section id="swap">
       <h2>Swap & DEX</h2>
-      <p>Pro rychlé a bezpečné obchodování USDt.z tokenu využijte PancakeSwap.</p>
-      <a href="https://pancakeswap.finance/swap?outputCurrency=0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" target="_blank" rel="noopener" class="btn">Přejít na PancakeSwap</a>
+      <p>Use PancakeSwap for quick and secure trading of the USDt.z token.</p>
+      <a href="https://pancakeswap.finance/swap?outputCurrency=0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" target="_blank" rel="noopener" class="btn">Go to PancakeSwap</a>
     </section>
 
     <section id="usecases">
-      <h2>Použití a výhody</h2>
-      <p>USDt.z je ideální pro bankovní zajištění, půjčky, kolaterál a rychlé swapy mezi kryptoměnami.</p>
-      <p>Díky své stabilitě a důvěře jej mohou využívat i nebankovní subjekty a investoři.</p>
+      <h2>Use Cases & Benefits</h2>
+      <p>USDt.z is ideal for banking collateral, loans, and fast crypto swaps.</p>
+      <p>Thanks to its stability and trust, it is also used by non-banking entities and investors.</p>
     </section>
 
     <section id="docs">
-      <h2>Dokumentace & Whitepaper</h2>
-      <p>Kompletní whitepaper USDt.z je k dispozici ke stažení.</p>
-      <a href="docs/USDTz_Whitepaper_CS.pdf" target="_blank" class="btn">Stáhnout PDF (CZ)</a>
-      <a href="docs/USDTz_Whitepaper_EN.pdf" target="_blank" class="btn" style="margin-left: 1rem;">Download PDF (EN)</a>
+      <h2>Documentation & Whitepaper</h2>
+      <p>The complete USDt.z whitepaper is available for download.</p>
+      <a href="docs/USDTz_Whitepaper_EN.pdf" target="_blank" class="btn">Download PDF (EN)</a>
+      <a href="docs/USDTz_Whitepaper_CS.pdf" target="_blank" class="btn" style="margin-left: 1rem;">Stáhnout PDF (CZ)</a>
     </section>
 
     <section id="contact">
-      <h2>Kontakt</h2>
-      <p>Máte otázky? Kontaktujte nás prostřednictvím emailu nebo sociálních sítí.</p>
+      <h2>Contact</h2>
+      <p>Have questions? Contact us by email or social media.</p>
       <p>Email: <a href="mailto:sca.sca@centrum.cz">sca.sca@centrum.cz</a></p>
     </section>
   </main>
 
   <footer>
-    &copy; 2025 USDt.z – Next Generation Stablecoin. Všechna práva vyhrazena.
+    &copy; 2025 USDt.z – Next Generation Stablecoin. All rights reserved.
   </footer>
+
+  <script>
+    // Slider 1 - buttons
+    const slides1 = document.querySelectorAll('#slider1 img');
+    let current1 = 0;
+    document.getElementById('next1').onclick = () => {
+      slides1[current1].classList.remove('active');
+      current1 = (current1 + 1) % slides1.length;
+      slides1[current1].classList.add('active');
+    };
+    document.getElementById('prev1').onclick = () => {
+      slides1[current1].classList.remove('active');
+      current1 = (current1 - 1 + slides1.length) % slides1.length;
+      slides1[current1].classList.add('active');
+    };
+
+    // Slider 2 - autoplay
+    const slides2 = document.querySelectorAll('#slider2 img');
+    let current2 = 0;
+    setInterval(() => {
+      slides2[current2].classList.remove('active');
+      current2 = (current2 + 1) % slides2.length;
+      slides2[current2].classList.add('active');
+    }, 3000);
+
+    // Slider 3 - thumbnails
+    const slides3 = document.querySelectorAll('#slider3 > img:not(.thumbnails img)');
+    const thumbs = document.querySelectorAll('#slider3 .thumbnails img');
+    let current3 = 0;
+    thumbs.forEach(thumb => {
+      thumb.addEventListener('click', () => {
+        slides3[current3].classList.remove('active');
+        thumbs[current3].classList.remove('active-thumb');
+        current3 = parseInt(thumb.dataset.index);
+        slides3[current3].classList.add('active');
+        thumbs[current3].classList.add('active-thumb');
+      });
+    });
+  </script>
 </body>
 </html>
