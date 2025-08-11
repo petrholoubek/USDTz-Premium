@@ -51,6 +51,21 @@
     nav ul li a:hover {
       color: rgb(31,186,156);
     }
+    .lang-switcher {
+      display: flex;
+      align-items: center;
+    }
+    .lang-switcher a img {
+      cursor: pointer;
+      border: 2px solid transparent;
+      border-radius: 3px;
+      transition: border-color 0.3s ease;
+      width: 24px;
+      height: auto;
+    }
+    .lang-switcher a:hover img {
+      border-color: rgb(31,186,156);
+    }
     main {
       flex: 1;
       max-width: 1200px;
@@ -150,6 +165,14 @@
         <li><a href="#docs">Dokumentace</a></li>
         <li><a href="#contact">Kontakt</a></li>
       </ul>
+      <div class="lang-switcher">
+        <a href="index.html" title="Čeština">
+          <img src="img/flags/cz.png" alt="CZ" />
+        </a>
+        <a href="index_en.html" title="English" style="margin-left: 10px;">
+          <img src="img/flags/en.png" alt="EN" />
+        </a>
+      </div>
     </nav>
   </header>
   <main>
