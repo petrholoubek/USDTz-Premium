@@ -1,86 +1,82 @@
 // wallet-connect.js
 
-// Import nebo načtení Web3Modal, WalletConnectProvider a CoinbaseWalletSDK přes CDN musí být v HTML
-// Tj. v HTML <head> přidej:
-// <script src="https://unpkg.com/web3modal@1.9.12/dist/index.js"></script>
-// <script src="https://unpkg.com/@walletconnect/web3-provider@1.8.0/dist/umd/index.min.js"></script>
-// <script src="https://cdn.jsdelivr.net/npm/@coinbase/wallet-sdk@3.7.0/dist/CoinbaseWalletSDK.min.js"></script>
-
-let web3Modal;
-let provider;
-let selectedAccount;
-
+// Pomocná funkce na zobrazení stavu
 function setStatus(message) {
   const status = document.getElementById('walletStatus');
   if (status) status.textContent = message;
 }
 
-async function onConnect() {
-  try {
-    provider = await web3Modal.connect();
-
-    provider.on("accountsChanged", (accounts) => {
-      selectedAccount = accounts[0];
-      setStatus("Účet změněn: " + selectedAccount);
-    });
-
-    provider.on("chainChanged", (chainId) => {
-      setStatus("Řetězec změněn: " + chainId);
-    });
-
-    provider.on("disconnect", (code, reason) => {
-      setStatus("Odpojeno: " + reason);
-    });
-
-    const accounts = await provider.request({ method: "eth_requestAccounts" });
-    selectedAccount = accounts[0];
-    setStatus("Připojeno: " + selectedAccount);
-  } catch (e) {
-    setStatus("Připojení zrušeno nebo chyba");
-    console.error(e);
-  }
-}
-
-async function onDisconnect() {
-  if (provider && provider.close) {
-    await provider.close();
-  }
-  await web3Modal.clearCachedProvider();
-  provider = null;
-  selectedAccount = null;
-  setStatus("Odpojeno");
-}
-
-window.addEventListener('DOMContentLoaded', () => {
-  const providerOptions = {
-    walletconnect: {
-      package: window.WalletConnectProvider.default,
-      options: {
-        rpc: {
-          56: "https://bsc-dataseed.binance.org/" // BSC mainnet
-        }
-      }
-    },
-    coinbasewallet: {
-      package: window.CoinbaseWalletSDK.default,
-      options: {
-        appName: "USDt.z Stablecoin",
-        rpc: "https://bsc-dataseed.binance.org/",
-        chainId: 56,
-        darkMode: false
-      }
+// Připojení MetaMask
+async function connectMetaMask() {
+  if (window.ethereum && window.ethereum.isMetaMask) {
+    try {
+      const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+      setStatus('MetaMask připojena: ' + accounts[0]);
+    } catch (error) {
+      setStatus('MetaMask připojení zrušeno nebo chyba');
+      console.error(error);
     }
-  };
+  } else {
+    setStatus('MetaMask není nainstalována.');
+  }
+}
 
-  web3Modal = new window.Web3Modal.default({
-    cacheProvider: false,
-    providerOptions,
+// Připojení Trust Wallet přes WalletConnect
+async function connectWalletConnect() {
+  // WalletConnect SDK musí být nahrán v projektu
+  // Pro jednoduchost zde použijeme cdn link (musíš přidat do HTML <script>)
+
+  if (typeof WalletConnectProvider === 'undefined') {
+    setStatus('WalletConnect SDK není dostupné. Přidej jej do HTML.');
+    return;
+  }
+
+  const provider = new WalletConnectProvider.default({
+    rpc: {
+      56: "https://bsc-dataseed.binance.org/" // BSC mainnet RPC URL
+    },
   });
 
-  // Připojit tlačítko (můžeš upravit id v HTML)
-  const btnConnect = document.getElementById('connectWallet');
-  if (btnConnect) btnConnect.addEventListener('click', onConnect);
+  try {
+    await provider.enable();
+    setStatus('Trust Wallet (WalletConnect) připojena: ' + provider.accounts[0]);
+  } catch (error) {
+    setStatus('Chyba při připojení Trust Wallet');
+    console.error(error);
+  }
+}
 
-  const btnDisconnect = document.getElementById('disconnectWallet');
-  if (btnDisconnect) btnDisconnect.addEventListener('click', onDisconnect);
+// Připojení Coinbase Wallet
+async function connectCoinbaseWallet() {
+  if (typeof CoinbaseWalletSDK === 'undefined') {
+    setStatus('Coinbase Wallet SDK není dostupné. Přidej jej do HTML.');
+    return;
+  }
+
+  const coinbaseWallet = new CoinbaseWalletSDK.default({
+    appName: "USDt.z Stablecoin",
+    darkMode: false
+  });
+
+  const provider = coinbaseWallet.makeWeb3Provider("https://bsc-dataseed.binance.org/", 56);
+
+  try {
+    await provider.request({ method: 'eth_requestAccounts' });
+    setStatus('Coinbase Wallet připojena.');
+  } catch (error) {
+    setStatus('Chyba při připojení Coinbase Wallet');
+    console.error(error);
+  }
+}
+
+// Přidáme event listenery na tlačítka po načtení stránky
+window.addEventListener('DOMContentLoaded', () => {
+  const btnMetaMask = document.getElementById('connectMetaMask');
+  if (btnMetaMask) btnMetaMask.addEventListener('click', connectMetaMask);
+
+  const btnWalletConnect = document.getElementById('connectWalletConnect');
+  if (btnWalletConnect) btnWalletConnect.addEventListener('click', connectWalletConnect);
+
+  const btnCoinbaseWallet = document.getElementById('connectCoinbaseWallet');
+  if (btnCoinbaseWallet) btnCoinbaseWallet.addEventListener('click', connectCoinbaseWallet);
 });
