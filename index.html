@@ -36,7 +36,7 @@
     nav .logo img {
       height: 40px;
       cursor: pointer;
-      filter: drop-shadow(0 0 2px rgba(0,0,0,0.2));
+      filter: drop-shadow(1px 1px 1px rgba(0,0,0,0.3));
     }
     nav ul {
       list-style: none;
@@ -68,7 +68,7 @@
 
     main {
       flex: 1;
-      max-width: 1200px;
+      max-width: 1000px;  /* sjednoceno */
       margin: 2rem auto 3rem;
       padding: 0 1rem;
     }
@@ -80,16 +80,18 @@
     .big-logo-container img {
       max-width: 200px;
       height: auto;
-      filter: drop-shadow(0 0 5px rgb(31 186 156 / 0.5));
     }
 
     section {
-      margin-bottom: 1.5rem;
+      margin-bottom: 2rem;       /* méně mezery */
       background: #fff;
-      padding: 1rem 1.5rem;
+      padding: 1.5rem 2rem;
       border: 1px solid #ddd;
       border-radius: 8px;
-      box-shadow: 0 0 5px rgb(31 186 156 / 0.1);
+      box-shadow: 0 0 10px rgb(31 186 156 / 0.15);
+      max-width: 950px;          /* sjednoceno */
+      margin-left: auto;
+      margin-right: auto;
     }
 
     h1, h2 {
@@ -99,7 +101,7 @@
     h1 {
       font-size: 2.5rem;
       text-align: center;
-      margin-bottom: 1rem;
+      margin-bottom: 1.2rem;  /* menší mezera */
     }
     h2 {
       font-size: 2rem;
@@ -114,7 +116,7 @@
     .btn {
       background-color: rgb(31,186,156);
       color: white;
-      padding: 0.5rem 1rem;
+      padding: 0.5rem 1rem;   /* menší tlačítka */
       border: none;
       border-radius: 4px;
       cursor: pointer;
@@ -123,7 +125,8 @@
       display: inline-block;
       transition: background-color 0.3s ease;
       margin-top: 0.5rem;
-      min-width: 110px;
+      text-align: center;
+      min-width: 120px;       /* stejné šířky tlačítek */
       text-align: center;
     }
     .btn:hover {
@@ -141,60 +144,55 @@
     /* Tlačítka v jedné řadě */
     .button-group {
       display: flex;
-      gap: 0.7rem;
+      gap: 1rem;
       justify-content: center;
-      margin-top: 1rem;
+      margin-top: 1rem;       /* mírnější mezera */
       flex-wrap: wrap;
     }
 
-    /* Sekce peněženek - menší tlačítka */
-    #wallet-section {
-      background: #fff;
-      padding: 1rem 1.5rem;
+    /* Sekce pro připojení peněženek */
+    #wallet-connect {
+      max-width: 950px;       /* sjednoceno */
+      margin: 2rem auto 3rem;
+      padding: 1.5rem 2rem;
       border: 1px solid #ddd;
       border-radius: 8px;
-      box-shadow: 0 0 5px rgb(31 186 156 / 0.1);
-      margin-bottom: 1.5rem;
-      text-align: center;
-    }
-    #wallet-section h2 {
-      margin-bottom: 1rem;
-    }
-    .wallet-buttons {
+      box-shadow: 0 0 10px rgb(31 186 156 / 0.15);
+      background: #fff;
       display: flex;
-      gap: 0.5rem;
+      gap: 1rem;
       justify-content: center;
       flex-wrap: wrap;
     }
-    .wallet-buttons button {
-      min-width: 100px;
-      padding: 0.4rem 0.8rem;
-      font-weight: 600;
+    #wallet-connect button {
+      flex: 1 1 120px;        /* menší tlačítka, stejné šířky */
+      max-width: 150px;
       background-color: rgb(31,186,156);
       color: white;
       border: none;
       border-radius: 4px;
       cursor: pointer;
+      font-weight: 600;
+      padding: 0.5rem 0;
       transition: background-color 0.3s ease;
     }
-    .wallet-buttons button:hover {
+    #wallet-connect button:hover {
       background-color: #1eab91;
     }
-    #walletStatus {
-      margin-top: 0.8rem;
-      font-weight: 600;
-      color: #004d40;
-      min-height: 1.4rem;
-      font-size: 1rem;
-    }
 
-    /* Kontakt + odkaz explore token */
+    /* Kontakt */
     #contact {
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      padding-top: 0.5rem;
+      max-width: 950px;
+      margin: 2rem auto 3rem;
+      padding: 1rem 2rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgb(31 186 156 / 0.15);
+      background: #fff;
     }
     #contact div.contact-info {
       max-width: 60%;
@@ -202,21 +200,11 @@
       align-items: center;
       gap: 0.5rem;
       font-size: 1rem;
-      color: #222;
     }
     #contact div.contact-info svg {
       width: 20px;
       height: 20px;
       fill: rgb(31,186,156);
-      flex-shrink: 0;
-    }
-    #contact div.contact-info a {
-      color: rgb(31,186,156);
-      font-weight: 600;
-      text-decoration: none;
-    }
-    #contact div.contact-info a:hover {
-      text-decoration: underline;
     }
     #contact div.token-explore {
       max-width: 35%;
@@ -260,7 +248,13 @@
       #contact div.contact-info, #contact div.token-explore {
         max-width: 100%;
         text-align: center !important;
-        justify-content: center;
+      }
+      #wallet-connect {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      #wallet-connect button {
+        max-width: 100%;
       }
     }
   </style>
@@ -274,8 +268,8 @@
       <ul>
         <li><a href="pages/about.html">O tokenu</a></li>
         <li><a href="#swap">Swap & DEX</a></li>
-        <li><a href="#pool">Likviditní pool</a></li>
-        <li><a href="#docs">Dokumentace</a></li>
+        <li><a href="#usecases">Použití</a></li>
+        <li><a href="pages/docs.html">Dokumentace</a></li>
         <li><a href="#contact">Kontakt</a></li>
         <li>
           <a href="index.html" title="Česky">
@@ -303,21 +297,18 @@
       </p>
 
       <div class="button-group">
-        <a href="pages/about.html" class="btn">Více o tokenu</a>
+        <a href="pages/docs.html" class="btn">Stáhnout Whitepaper</a>
         <a href="https://pancakeswap.finance/swap?outputCurrency=0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" target="_blank" rel="noopener" class="btn">Swap na PancakeSwap</a>
-        <a href="https://www.geckoterminal.com/bsc/pools/0x553b402b3d6f91ea2208c7df61a6d4aa96ccb6191787c20fedb7ae6c9823b280" target="_blank" rel="noopener" class="btn">GeckoTerminal Pool</a>
+        <a href="https://www.geckoterminal.com/bsc/pools/0x553b402b3d6f91ea2208c7df61a6d4aa96ccb6191787c20fedb7ae6c9823b280" target="_blank" rel="noopener" class="btn">Likviditní pool</a>
       </div>
     </section>
 
-    <!-- Samostatná sekce pro připojení peněženek -->
-    <section id="wallet-section">
-      <h2>Připojte svou peněženku</h2>
-      <div class="wallet-buttons">
-        <button id="connectMetaMask" title="Připojit MetaMask">MetaMask</button>
-        <button id="connectWalletConnect" title="Připojit Trust Wallet">Trust Wallet</button>
-        <button id="connectCoinbaseWallet" title="Připojit Coinbase Wallet">Coinbase Wallet</button>
-      </div>
-      <div id="walletStatus"></div>
+    <section id="about">
+      <h2>O tokenu USDt.z</h2>
+      <p>USDt.z je stablecoin, který kombinuje stabilitu tradičních měn s technologií blockchain nové generace.</p>
+      <p>Token nabízí vysokou bezpečnost, transparentnost a široké využití v různých finančních aplikacích.</p>
+      <p>Klienti si mohou USDt.z koupit se slevou. Token je ideální jako kolaterál pro půjčky a finanční zajištění.</p>
+      <p>Podporujeme i mladé lidi, kteří nemají dostatečné zajištění pro půjčky – USDt.z může sloužit jako důvěryhodný kolaterál.</p>
     </section>
 
     <section id="swap">
@@ -326,10 +317,10 @@
       <a href="https://pancakeswap.finance/swap?outputCurrency=0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" target="_blank" rel="noopener" class="btn">Přejít na PancakeSwap</a>
     </section>
 
-    <section id="pool">
-      <h2>Likviditní pool</h2>
-      <p>Podívejte se na náš likviditní pool a sledujte tržní výkonnost USDt.z na GeckoTerminalu.</p>
-      <a href="https://www.geckoterminal.com/bsc/pools/0x553b402b3d6f91ea2208c7df61a6d4aa96ccb6191787c20fedb7ae6c9823b280" target="_blank" rel="noopener" class="btn">Zobrazit likviditní pool</a>
+    <section id="wallet-connect">
+      <button id="connectMetaMask">MetaMask</button>
+      <button id="connectTrustWallet">Trust Wallet</button>
+      <button id="connectCoinbaseWallet">Coinbase Wallet</button>
     </section>
 
     <section id="docs">
@@ -341,10 +332,7 @@
 
     <section id="contact">
       <div class="contact-info">
-        <!-- Ikona e-mailu SVG -->
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-          <path d="M2 4a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4zm2 0v16h16V4H4zm8 7l8-5H4l8 5zm0 2l-8-5v10h16V8l-8 5z"/>
-        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M2.01 6.03a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v11.94a2 2 0 0 1-2 2H4.01a2 2 0 0 1-2-2V6.03zm2 0v11.94h16V6.03h-16zm3.5 5.72l-2.07-2.54L6.9 8.5l2.59 3.14 4.66-3.54 2.1 2.55-6.1 4.48z"/></svg>
         <a href="mailto:sca.sca@centrum.cz">sca.sca@centrum.cz</a>
       </div>
       <div class="token-explore">
@@ -357,7 +345,6 @@
     &copy; 2025 USDt.z – Next Generation Stablecoin. Všechna práva vyhrazena.
   </footer>
 
-  <!-- Připojení tvého JS souboru -->
   <script src="js/wallet-connect.js"></script>
 </body>
 </html>
