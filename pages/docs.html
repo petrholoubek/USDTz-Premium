@@ -2,229 +2,257 @@
 <html lang="cs">
 <head>
   <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    style-src 'self' 'unsafe-inline';
+    script-src 'self' https://cdn.jsdelivr.net;
+    img-src 'self' data:;
+    font-src 'self';
+  " />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Dokumentace USDt.z – Next Generation Stablecoin</title>
   <link rel="stylesheet" href="../style.css" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-<header>
-  <nav>
-    <a href="../index.html" class="logo">
-      <img src="../img/logo.png" alt="USDt.z logo" />
-    </a>
-    <ul>
-      <li><a href="../index.html">Domů</a></li>
-      <li><a href="../pages/usecases.html">O tokenu</a></li>
-      <li><a href="../pages/docs.html" class="active">Dokumentace</a></li>
-      <li><a href="../pages/contact.html">Kontakt</a></li>
-      <li><a href="../index.html"><img class="flag" src="../img/flags/cz.png" alt="Čeština" /></a></li>
-      <li><a href="../en/pages/docs_en.html"><img class="flag" src="../img/flags/uk.png" alt="English" /></a></li>
-    </ul>
-  </nav>
-</header>
+  <header>
+    <nav>
+      <div class="logo">
+        <a href="../index.html"><img src="../logo.png" alt="USDt.z Logo" /></a>
+      </div>
+      <ul>
+        <li><a href="../pages/about.html">O tokenu</a></li>
+        <li><a href="../pages/usecases.html">Použití</a></li>
+        <li><a href="../pages/docs.html" aria-current="page">Dokumentace</a></li>
+        <li><a href="../index.html#wallet-connect">Připojit peněženku</a></li>
+        <li><a href="../index.html#contact">Kontakt</a></li>
+        <li>
+          <a href="../index.html" title="Česky">
+            <img class="flag" src="../img/flags/cz.png" alt="Česká vlajka" />
+          </a>
+        </li>
+        <li>
+          <a href="../pages/docs_en.html" title="English">
+            <img class="flag" src="../img/flags/en.png" alt="Anglická vlajka" />
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
 
-<main>
-  <h1>Dokumentace USDt.z – Next Generation Stablecoin</h1>
+  <main>
+    <section style="max-width:900px; margin: 2rem auto; padding:1.5rem; border:1px solid rgb(31,186,156); border-radius:8px; box-shadow: 0 0 10px rgb(31 186 156 / 0.15); background:#fff;">
+      <h1 style="color: rgb(31,186,156); text-align:center; margin-bottom:1.5rem;">Dokumentace USDt.z – Next Generation Stablecoin</h1>
 
-  <section>
-    <h2>Bezpečnost</h2>
-    <p>USDt.z je založen na robustním a auditovaném smart kontraktu nasazeném na Binance Smart Chain. Bezpečnostní pool zajišťuje dostatečnou likviditu a ochranu proti cenovým výkyvům. Všechny transakce jsou transparentní a ověřitelné na blockchainu, což minimalizuje riziko podvodů.</p>
-    <p>Token prošel nezávislým bezpečnostním auditem, který zahrnuje testování na zranitelnosti, zabezpečení proti reentrancy útokům a správné fungování mechanismů zamykání a odemykání tokenů.</p>
-  </section>
+      <h2 style="color: rgb(31,186,156); margin-bottom:1rem;">Přehled</h2>
+      <p>
+        USDt.z je inovativní stablecoin navržený s důrazem na bezpečnost, stabilitu a jednoduchost využití v bankovním i nebankovním sektoru.
+        Token je založen na Binance Smart Chain (BSC) a využívá vlastní likviditní pool pro zajištění dostatečné likvidity a stability ceny 1 USD za 1 USDt.z.
+      </p>
+      <p>
+        Tato dokumentace nabízí podrobný přehled technických parametrů, bezpečnostních opatření, roadmapy projektu a dalších klíčových prvků.
+      </p>
 
-  <section>
-    <h2>Roadmapa</h2>
-    <p>Naše roadmapa je jasně definována a transparentní. Plánujeme postupné rozšiřování ekosystému USDt.z:</p>
-    <ul>
-      <li><strong>Q3 2025:</strong> Dokončení auditu a uvedení tokenu na vybrané DEX burzy.</li>
-      <li><strong>Q4 2025:</strong> Spuštění mobilní aplikace pro správu tokenů a integrace s hlavními peněženkami.</li>
-      <li><strong>Q1 2026:</strong> Rozšíření partnerství s bankami a nebankovními institucemi v Evropě.</li>
-      <li><strong>Q2 2026:</strong> Vývoj a implementace staking protokolů a dalších DeFi funkcí.</li>
-    </ul>
-  </section>
+      <h2 style="color: rgb(31,186,156); margin-bottom:1rem; margin-top:2rem;">Bezpečnost</h2>
+      <p>
+        Bezpečnost je základním pilířem projektu USDt.z. Token i celý ekosystém jsou pravidelně auditovány nezávislými firmami. 
+        Smart kontrakt je veřejně dostupný a open source, což zvyšuje transparentnost a důvěru uživatelů.
+      </p>
+      <p>
+        Navíc máme vlastní monitoring poolu a aktivní správu likvidity, která zabraňuje manipulaci a výrazným cenovým výkyvům.
+      </p>
 
-  <section>
-    <h2>Technické prvky</h2>
-    <p>USDt.z token je BEP-20 token s pevnou cenou 1 USD, zajištěný kolaterálem a vlastním likviditním pool.</p>
-    <p>Smart kontrakt obsahuje:</p>
-    <ul>
-      <li>Mechanismus automatického vyvažování likvidity</li>
-      <li>Možnost zapojení tokenu jako kolaterálu ve finančních aplikacích</li>
-      <li>Bezpečnostní funkce pro minimalizaci rizik manipulace</li>
-      <li>Funkce pro správu distribuce a transakcí</li>
-    </ul>
-  </section>
+      <h2 style="color: rgb(31,186,156); margin-bottom:1rem; margin-top:2rem;">Roadmapa</h2>
+      <p>
+        Projekt USDt.z má jasně definovanou roadmapu s následujícími milníky:
+      </p>
+      <ul>
+        <li>Q1 2025: Vydání stablecoinu USDt.z a základní infrastruktury</li>
+        <li>Q2 2025: Integrace s hlavními DEX burzami a rozšíření likviditních poolů</li>
+        <li>Q3 2025: Spuštění mobilní peněženky a podpora dalších blockchainů</li>
+        <li>Q4 2025: Partnerství s bankovními institucemi a rozvoj půjčkových produktů</li>
+      </ul>
 
-  <section>
-    <h2>Tokenomika</h2>
-    <p>Celkový počet tokenů je pevně stanoven na 100 milionů USDt.z. Distribuce je rozdělena následujícím způsobem:</p>
-    <ul>
-      <li>60 % pro veřejnou distribuci a obchodování</li>
-      <li>20 % pro likviditní pool a bezpečnostní rezervy</li>
-      <li>10 % pro vývojový tým a marketing</li>
-      <li>10 % pro strategické partnery a poradce</li>
-    </ul>
-    <p>Token podporuje flexibilní mechanismy pro staking, odměny a správu v rámci ekosystému.</p>
-  </section>
+      <h2 style="color: rgb(31,186,156); margin-bottom:1rem; margin-top:2rem;">Technické prvky a tokenomika</h2>
+      <p>
+        USDt.z je BEP-20 token s pevnou cenou 1 USD. Smart kontrakt implementuje bezpečnostní funkce proti běžným útokům, 
+        jako jsou reentrancy útoky, a podporuje transparentní správu likvidity.
+      </p>
+      <p>
+        Tokenomika je navržena tak, aby zajišťovala udržitelnost projektu a motivovala držitele k dlouhodobé spolupráci.
+      </p>
 
-  <section>
-    <h2>Grafy a data</h2>
-    <canvas id="liquidityChart" style="max-width: 900px; margin: 1rem auto;"></canvas>
-    <p style="max-width:900px; margin:auto; margin-bottom:2rem;">
-      Graf ukazuje likviditu USDt.z v čase, což zajišťuje stabilitu a bezpečnost při obchodování.
-    </p>
+      <h2 style="color: rgb(31,186,156); margin-bottom:1rem; margin-top:2rem;">Vizualizace dat</h2>
 
-    <canvas id="roadmapChart" style="max-width: 900px; margin: 1rem auto;"></canvas>
-    <p style="max-width:900px; margin:auto; margin-bottom:2rem;">
-      Vizualizace naší roadmapy představuje plánované milníky a jejich termíny.
-    </p>
+      <canvas id="chartLiquidity" style="max-width: 100%; height: 300px; margin-bottom: 2rem;"></canvas>
+      <canvas id="chartMarketCap" style="max-width: 100%; height: 300px; margin-bottom: 2rem;"></canvas>
+      <canvas id="chartRoadmap" style="max-width: 100%; height: 300px; margin-bottom: 2rem;"></canvas>
 
-    <canvas id="tokenomicsChart" style="max-width: 900px; margin: 1rem auto;"></canvas>
-    <p style="max-width:900px; margin:auto; margin-bottom:2rem;">
-      Distribuce tokenů v procentech podle jednotlivých kategorií.
-    </p>
-  </section>
+      <h2 style="color: rgb(31,186,156); margin-bottom:1rem; margin-top:2rem;">Ke stažení</h2>
+      <div class="button-group" style="justify-content:center;">
+        <a href="../docs/USDTz_Whitepaper_CS.pdf" target="_blank" class="btn">Stáhnout Whitepaper (CZ)</a>
+        <a href="../docs/Audit_Report.pdf" target="_blank" class="btn audit">Stáhnout Audit</a>
+      </div>
+    </section>
+  </main>
 
-  <section>
-    <h2>Ke stažení</h2>
-    <div class="button-group">
-      <a href="../pdf/USDt.z_Dokumentace.pdf" class="btn" download>Příručka ke stažení (PDF)</a>
-      <a href="../pdf/USDt.z_Audit.pdf" class="btn audit" download>Bezpečnostní audit (PDF)</a>
-    </div>
-  </section>
-</main>
+  <footer style="text-align:center; padding:1rem; background:#f9f9f9; font-size:0.9rem; color:#666;">
+    &copy; 2025 USDt.z – Next Generation Stablecoin. Všechna práva vyhrazena.
+  </footer>
 
-<script>
-  // Graf 1: Likvidita v čase (čárový graf)
-  const ctx1 = document.getElementById('liquidityChart').getContext('2d');
-  const liquidityChart = new Chart(ctx1, {
-    type: 'line',
-    data: {
-      labels: ['Leden', 'Únor', 'Březen', 'Duben', 'Květen', 'Červen', 'Červenec'],
-      datasets: [{
-        label: 'Likvidita v milionech USD',
-        data: [5, 6, 7, 8, 9, 9.5, 10],
-        borderColor: 'rgb(31,186,156)',
-        backgroundColor: 'rgba(31,186,156, 0.2)',
-        fill: true,
-        tension: 0.3,
-        pointRadius: 5,
-        pointHoverRadius: 7,
-      }]
-    },
-    options: {
-      responsive: true,
-      plugins: {
-        legend: {
-          labels: {
-            color: '#1fba9c',
-            font: { weight: 'bold' }
+  <script>
+    const ctxLiquidity = document.getElementById('chartLiquidity').getContext('2d');
+    const chartLiquidity = new Chart(ctxLiquidity, {
+      type: 'line',
+      data: {
+        labels: ['Leden', 'Únor', 'Březen', 'Duben', 'Květen', 'Červen', 'Červenec'],
+        datasets: [{
+          label: 'Likviditní pool (v mil. USD)',
+          data: [1.2, 1.5, 2.1, 3.0, 3.5, 4.2, 5.0],
+          borderColor: 'rgb(31,186,156)',
+          backgroundColor: 'rgba(31,186,156,0.3)',
+          fill: true,
+          tension: 0.3,
+          pointRadius: 5,
+          pointHoverRadius: 7,
+          pointBackgroundColor: 'rgb(31,186,156)',
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          title: {
+            display: true,
+            text: 'Růst likviditního poolu v průběhu času',
+            color: 'rgb(31,186,156)',
+            font: { size: 18 }
+          },
+          legend: {
+            display: true,
+            labels: {
+              color: '#222'
+            }
+          },
+          tooltip: {
+            mode: 'index',
+            intersect: false,
           }
         },
-        title: {
-          display: true,
-          text: 'Vývoj likvidity USDt.z (v milionech USD)',
-          color: '#1fba9c',
-          font: { size: 18, weight: 'bold' }
-        }
-      },
-      scales: {
-        y: {
-          beginAtZero: true,
-          grid: { color: '#eee' },
-          ticks: { color: '#222' }
-        },
-        x: {
-          grid: { color: '#eee' },
-          ticks: { color: '#222' }
-        }
-      }
-    }
-  });
-
-  // Graf 2: Roadmapa (bar chart s milníky)
-  const ctx2 = document.getElementById('roadmapChart').getContext('2d');
-  const roadmapChart = new Chart(ctx2, {
-    type: 'bar',
-    data: {
-      labels: ['Q3 2025', 'Q4 2025', 'Q1 2026', 'Q2 2026'],
-      datasets: [{
-        label: 'Milníky',
-        data: [4, 6, 7, 8],
-        backgroundColor: 'rgb(31,186,156)',
-        borderRadius: 6,
-      }]
-    },
-    options: {
-      responsive: true,
-      plugins: {
-        legend: { display: false },
-        title: {
-          display: true,
-          text: 'Plánované milníky USDt.z',
-          color: '#1fba9c',
-          font: { size: 18, weight: 'bold' }
-        },
-        tooltip: {
-          callbacks: {
-            label: function(context) {
-              const milestones = [
-                'Dokončení auditu a uvedení tokenu na DEX',
-                'Spuštění mobilní aplikace',
-                'Rozšíření partnerství v Evropě',
-                'Vývoj staking protokolů'
-              ];
-              return milestones[context.dataIndex];
+        scales: {
+          y: {
+            beginAtZero: true,
+            title: {
+              display: true,
+              text: 'Miliony USD',
+              color: 'rgb(31,186,156)',
+            },
+            grid: {
+              color: '#ddd'
+            }
+          },
+          x: {
+            title: {
+              display: true,
+              text: 'Měsíce',
+              color: 'rgb(31,186,156)',
+            },
+            grid: {
+              color: '#eee'
             }
           }
         }
+      }
+    });
+
+    const ctxMarketCap = document.getElementById('chartMarketCap').getContext('2d');
+    const chartMarketCap = new Chart(ctxMarketCap, {
+      type: 'bar',
+      data: {
+        labels: ['2021', '2022', '2023', '2024', '2025'],
+        datasets: [{
+          label: 'Tržní kapitalizace (v mil. USD)',
+          data: [0, 0.5, 1.8, 3.4, 5.0],
+          backgroundColor: 'rgb(31,186,156)',
+          borderRadius: 5,
+        }]
       },
-      scales: {
-        y: { display: false },
-        x: {
-          grid: { color: '#eee' },
-          ticks: { color: '#222' }
-        }
-      }
-    }
-  });
-
-  // Graf 3: Tokenomika (koláčový graf)
-  const ctx3 = document.getElementById('tokenomicsChart').getContext('2d');
-  const tokenomicsChart = new Chart(ctx3, {
-    type: 'doughnut',
-    data: {
-      labels: ['Veřejná distribuce', 'Likvidita & rezerva', 'Tým & marketing', 'Partneři & poradci'],
-      datasets: [{
-        label: 'Distribuce tokenů',
-        data: [60, 20, 10, 10],
-        backgroundColor: [
-          'rgb(31,186,156)',
-          'rgb(0,123,255)',
-          'rgb(255,193,7)',
-          'rgb(220,53,69)'
-        ],
-        hoverOffset: 30,
-      }]
-    },
-    options: {
-      responsive: true,
-      plugins: {
-        legend: {
-          position: 'bottom',
-          labels: { color: '#222', font: { weight: 'bold' } }
+      options: {
+        responsive: true,
+        plugins: {
+          title: {
+            display: true,
+            text: 'Vývoj tržní kapitalizace USDt.z',
+            color: 'rgb(31,186,156)',
+            font: { size: 18 }
+          },
+          legend: { display: false },
+          tooltip: {
+            mode: 'index',
+            intersect: false,
+          }
         },
-        title: {
-          display: true,
-          text: 'Tokenomika USDt.z',
-          color: '#1fba9c',
-          font: { size: 18, weight: 'bold' }
+        scales: {
+          y: {
+            beginAtZero: true,
+            title: {
+              display: true,
+              text: 'Miliony USD',
+              color: 'rgb(31,186,156)',
+            },
+            grid: { color: '#ddd' }
+          },
+          x: {
+            grid: { color: '#eee' }
+          }
         }
       }
-    }
-  });
-</script>
+    });
 
+    const ctxRoadmap = document.getElementById('chartRoadmap').getContext('2d');
+    const chartRoadmap = new Chart(ctxRoadmap, {
+      type: 'horizontalBar',
+      data: {
+        labels: ['Vydání tokenu', 'Integrace DEX', 'Mobilní peněženka', 'Partnerství s bankami'],
+        datasets: [{
+          label: 'Plán dokončení milníků (%)',
+          data: [100, 70, 40, 10],
+          backgroundColor: 'rgb(31,186,156)',
+          borderRadius: 5,
+        }]
+      },
+      options: {
+        indexAxis: 'y',
+        responsive: true,
+        plugins: {
+          title: {
+            display: true,
+            text: 'Roadmapa projektu USDt.z',
+            color: 'rgb(31,186,156)',
+            font: { size: 18 }
+          },
+          legend: { display: false },
+          tooltip: {
+            mode: 'nearest',
+            intersect: true,
+          }
+        },
+        scales: {
+          x: {
+            max: 100,
+            beginAtZero: true,
+            title: {
+              display: true,
+              text: 'Procenta dokončení',
+              color: 'rgb(31,186,156)',
+            },
+            grid: { color: '#ddd' }
+          },
+          y: {
+            grid: { color: '#eee' }
+          }
+        }
+      }
+    });
+  </script>
 </body>
 </html>
