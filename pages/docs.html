@@ -1,73 +1,53 @@
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Dokumentace USDt.z – Next Generation Stablecoin</title>
-  <link rel="stylesheet" href="../style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dokumentace USDt.z – Next Generation Stablecoin</title>
+    <link rel="stylesheet" href="../style.css" />
 </head>
 <body>
-  <header>
-    <nav>
-      <div class="logo">
-        <a href="../index.html"><img src="../logo.png" alt="USDt.z Logo" /></a>
-      </div>
-      <ul>
-        <li><a href="../pages/about.html">O tokenu</a></li>
-        <li><a href="../pages/usecases.html">Použití</a></li>
-        <li><a href="../pages/docs.html" class="active">Dokumentace</a></li>
-        <li><a href="../index.html#wallet-connect">Připojit peněženku</a></li>
-        <li><a href="../index.html#contact">Kontakt</a></li>
-        <li>
-          <a href="../index.html" title="Česky">
-            <img class="flag" src="../img/flags/cs.png" alt="Česká vlajka" />
-          </a>
-        </li>
-        <li>
-          <a href="../index_en.html" title="English">
-            <img class="flag" src="../img/flags/en.png" alt="Anglická vlajka" />
-          </a>
-        </li>
-      </ul>
-    </nav>
-  </header>
 
-  <main>
-    <h1>Dokumentace USDt.z</h1>
+    <header>
+        <div class="container">
+            <h1>Dokumentace USDt.z</h1>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Domů</a></li>
+                    <li><a href="about.html">O tokenu</a></li>
+                    <li><a href="usecases.html">Využití</a></li>
+                    <li><a href="docs.html" class="active">Dokumentace</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-    <section>
-      <h2>Whitepaper</h2>
-      <p>Kompletní technická dokumentace a popis funkcí tokenu USDt.z. Whitepaper obsahuje detailní informace o architektuře, bezpečnosti a způsobu využití tokenu.</p>
-      <a href="../docs/USDTz_Whitepaper_CS.pdf" target="_blank" class="btn">Stáhnout Whitepaper</a>
-    </section>
+    <main class="container">
+        <section class="card">
+            <h2>Technická dokumentace</h2>
+            <p>USDt.z je moderní stablecoin navržený pro maximální stabilitu, transparentnost a bezpečnost. Tato dokumentace popisuje jeho hlavní funkce, architekturu a možnosti využití.</p>
 
-    <section>
-      <h2>Audit</h2>
-      <p>Nezávislý audit smart kontraktu zajišťující bezpečnost a správnost implementace USDt.z tokenu.</p>
-      <a href="../docs/Audit_Report.pdf" target="_blank" class="btn audit">Stáhnout Audit</a>
-    </section>
+            <h3>Hlavní parametry</h3>
+            <ul>
+                <li>Blockchain: Binance Smart Chain (BSC)</li>
+                <li>Token standard: BEP-20</li>
+                <li>Smart Contract: <a href="https://bscscan.com/token/0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" target="_blank">0x913ef7244bEd019b95Ec5321408eE4CE83E25c01</a></li>
+                <li>Hodnota: 1 USDt.z = 1 USD (fixováno)</li>
+            </ul>
 
-    <section>
-      <h2>Technická dokumentace</h2>
-      <p>Popis technických parametrů, smart kontraktů a instrukce pro integraci USDt.z tokenu do vašich aplikací.</p>
-      <ul>
-        <li>Tokenová adresa: <code>0x913ef7244bEd019b95Ec5321408eE4CE83E25c01</code></li>
-        <li>Standard tokenu: BEP-20 kompatibilní</li>
-        <li>Mechanismus stabilizace: 1:1 pevné krytí USD</li>
-        <li>Protokoly bezpečnosti a auditu</li>
-      </ul>
-    </section>
+            <h3>Bezpečnostní opatření</h3>
+            <p>Token je chráněn vícevrstvou bezpečnostní architekturou, zahrnující smart kontrakt audit, řízení likvidity a ochranu proti manipulaci s cenou.</p>
 
-    <section>
-      <h2>Další zdroje</h2>
-      <p>Prozkoumejte likviditní pool a další důležité zdroje pro sledování a práci s USDt.z tokenem.</p>
-      <a href="https://www.geckoterminal.com/bsc/pools/0x553b402b3d6f91ea2208c7df61a6d4aa96ccb6191787c20fedb7ae6c9823b280" target="_blank" class="btn">Likviditní pool na GeckoTerminal</a>
-      <a href="https://bscscan.com/token/0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" target="_blank" class="btn">Prozkoumat token na BscScan</a>
-    </section>
-  </main>
+            <h3>Whitepaper</h3>
+            <p>Podrobný whitepaper je k dispozici ke stažení: <a href="../docs/USDtz_Whitepaper_CZ.pdf" target="_blank">Stáhnout PDF</a></p>
+        </section>
+    </main>
 
-  <footer style="text-align:center; padding:1rem; background:#f9f9f9; font-size:0.9rem; color:#666;">
-    &copy; 2025 USDt.z – Next Generation Stablecoin. Všechna práva vyhrazena.
-  </footer>
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 USDt.z – Next Generation Stablecoin</p>
+        </div>
+    </footer>
+
 </body>
 </html>
