@@ -43,6 +43,7 @@
       display: flex;
       gap: 1.5rem;
       align-items: center;
+      flex-wrap: wrap;
     }
     nav ul li a {
       text-decoration: none;
@@ -127,12 +128,12 @@
       transition: background-color 0.3s ease;
       margin-top: 0.5rem;
       text-align: center;
-      min-width: 140px;
     }
     .btn:hover {
       background-color: #1eab91;
     }
 
+    /* Speciální styl modrého tlačítka audit */
     .btn.audit {
       background-color: #007acc;
     }
@@ -140,6 +141,7 @@
       background-color: #005f99;
     }
 
+    /* Tlačítka v jedné řadě */
     .button-group {
       display: flex;
       gap: 1rem;
@@ -148,6 +150,7 @@
       flex-wrap: wrap;
     }
 
+    /* Kontakt + odkaz explore token */
     #contact {
       display: flex;
       justify-content: space-between;
@@ -156,25 +159,17 @@
       max-width: 900px;
       margin-left: auto;
       margin-right: auto;
-      padding: 1rem 2rem;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgb(31 186 156 / 0.15);
-      background: #fff;
     }
     #contact div.contact-info {
       max-width: 60%;
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      color: #222;
-      font-size: 1rem;
     }
     #contact div.contact-info svg {
-      width: 24px;
-      height: 24px;
+      width: 20px;
+      height: 20px;
       fill: rgb(31,186,156);
-      flex-shrink: 0;
     }
     #contact div.token-explore {
       max-width: 35%;
@@ -195,6 +190,7 @@
       color: white;
     }
 
+    /* Sekce pro připojení peněženky */
     #wallet-connect {
       margin: 1.5rem auto 2rem;
       max-width: 900px;
@@ -223,8 +219,7 @@
       font-weight: 600;
       min-width: 120px;
       transition: background-color 0.3s ease;
-      flex-grow: 1;
-      max-width: 180px;
+      max-width: 150px;
       white-space: nowrap;
     }
 
@@ -258,7 +253,6 @@
       #contact {
         flex-direction: column;
         gap: 1rem;
-        padding: 1rem;
       }
       #contact div.contact-info, #contact div.token-explore {
         max-width: 100%;
@@ -269,8 +263,8 @@
       }
       #wallet-connect .wallet-buttons button {
         width: 100%;
-        max-width: none;
-        min-width: auto;
+        max-width: unset;
+        min-width: unset;
       }
     }
   </style>
@@ -282,10 +276,10 @@
         <a href="index.html"><img src="logo.png" alt="USDt.z Logo" /></a>
       </div>
       <ul>
-        <li><a href="#about">O tokenu</a></li>
-        <li><a href="#swap">Swap & DEX</a></li>
-        <li><a href="#pool">Likviditní pool</a></li>
-        <li><a href="#docs">Dokumentace</a></li>
+        <li><a href="pages/about.html">O tokenu</a></li>
+        <li><a href="pages/swap.html">Swap & DEX</a></li>
+        <li><a href="pages/usecases.html">Použití</a></li>
+        <li><a href="pages/docs.html">Dokumentace</a></li>
         <li><a href="#wallet-connect">Připojit peněženku</a></li>
         <li><a href="#contact">Kontakt</a></li>
         <li>
@@ -314,7 +308,7 @@
       </p>
 
       <div class="button-group">
-        <a href="#docs" class="btn">Stáhnout Whitepaper</a>
+        <a href="docs/USDTz_Whitepaper_CS.pdf" target="_blank" class="btn">Stáhnout Whitepaper</a>
         <a href="https://pancakeswap.finance/swap?outputCurrency=0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" target="_blank" rel="noopener" class="btn">Swap na PancakeSwap</a>
       </div>
     </section>
@@ -358,9 +352,9 @@
 
     <section id="contact">
       <div class="contact-info">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-          <path d="M2 4h20v16H2z" fill="none"/>
-          <path d="M20 4H4v16h16V4zm-2.5 5.5l-5 3-5-3V7l5 3 5-3v2.5z"/>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path fill="none" d="M0 0h24v24H0z"/>
+          <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
         </svg>
         <div>
           <h2>Kontakt</h2>
