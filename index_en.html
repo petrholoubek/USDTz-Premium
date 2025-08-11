@@ -112,7 +112,7 @@
     footer {
       background: #f1f1f1;
       text-align: center;
-      padding: 1.5rem 1rem;
+      padding: 1.5rem 1rem 3rem 1rem;
       font-size: 0.9rem;
       color: #666;
       margin-top: auto;
@@ -135,6 +135,18 @@
         max-width: 95%;
         margin: 1rem auto;
       }
+    }
+    /* QR code container */
+    .qr-container {
+      margin-top: 1.5rem;
+      text-align: center;
+    }
+    .qr-container img {
+      width: 120px;
+      height: 120px;
+      margin-top: 0.5rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
     }
   </style>
 </head>
@@ -190,7 +202,7 @@
     <section id="trading-info">
       <h2>Trading Info & Liquidity Pool</h2>
       <p>USDt.z token is listed with good market cap and liquidity. Track the current pool status on GeckoTerminal.</p>
-      <a href="https://www.geckoterminal.com/bsc/pools/0x553b402b3d6f91ea2208c7df61a6d4aa96ccb6191787c20fedb7ae6c9823b280" target="_blank" rel="noopener" class="btn" style="background-color:#4CAF50;">View on GeckoTerminal</a>
+      <a href="https://www.geckoterminal.com/bsc/pools/0x553b402b3d6f91ea2208c7df61a6d4aa96ccb6191787c20fedb7ae6c9823b280" target="_blank" rel="noopener" class="btn">View on GeckoTerminal</a>
       <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #444;">
         The token’s market capitalization currently exceeds 5T USDT, USDt.z is pegged 1:1 to the US Dollar.
       </p>
@@ -204,6 +216,15 @@
       <p style="margin-top: 1rem;">
         The project underwent an independent security audit ensuring a high level of protection for users and investors.
       </p>
+    </section>
+
+    <section id="blockchain">
+      <h2>Blockchain Info & QR Code</h2>
+      <p>Explore USDt.z token details directly on the Binance Smart Chain blockchain.</p>
+      <a href="https://bscscan.com/token/0x913ef7244bed019b95ec5321408ee4ce83e25c01" target="_blank" rel="noopener" class="btn">View on BscScan</a>
+      <div class="qr-container">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://bscscan.com/token/0x913ef7244bed019b95ec5321408ee4ce83e25c01" alt="USDt.z BscScan QR Code" />
+      </div>
     </section>
 
     <section id="contact">
