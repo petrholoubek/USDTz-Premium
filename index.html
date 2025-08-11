@@ -25,13 +25,9 @@
       top: 0;
       z-index: 1000;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
     }
     nav {
       max-width: 1200px;
-      width: 100%;
       margin: 0 auto;
       display: flex;
       justify-content: space-between;
@@ -142,6 +138,27 @@
       margin-top: 1.5rem;
       flex-wrap: wrap;
     }
+    /* Wallet buttons smaller with icons only */
+    .wallet-btn {
+      background-color: rgb(31,186,156);
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      padding: 0.5rem;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.3s ease;
+    }
+    .wallet-btn:hover {
+      background-color: #1eab91;
+    }
+    .wallet-btn img {
+      max-width: 28px;
+      max-height: 28px;
+    }
     /* Kontakt + odkaz explore token */
     #contact {
       display: flex;
@@ -201,9 +218,12 @@
         max-width: 100%;
         text-align: center !important;
       }
+      .button-group {
+        justify-content: center;
+      }
     }
   </style>
-  <!-- Přidej WalletConnect a Coinbase SDK knihovny -->
+  <!-- WalletConnect a Coinbase SDK -->
   <script src="https://unpkg.com/@walletconnect/web3-provider@1.7.8/dist/umd/index.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@coinbase/wallet-sdk@3.5.6/dist/coinbase-wallet-sdk.min.js"></script>
 </head>
@@ -247,6 +267,7 @@
       <div class="button-group">
         <a href="pages/about.html" class="btn">Více o tokenu</a>
         <a href="https://pancakeswap.finance/swap?outputCurrency=0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" target="_blank" rel="noopener" class="btn">Swap na PancakeSwap</a>
+        <a href="https://www.geckoterminal.com/bsc/pools/0x553b402b3d6f91ea2208c7df61a6d4aa96ccb6191787c20fedb7ae6c9823b280" target="_blank" rel="noopener" class="btn">Likviditní pool na GeckoTerminal</a>
       </div>
     </section>
 
@@ -257,24 +278,30 @@
     </section>
 
     <section id="usecases">
-      <h2>Použití tokenu</h2>
-      <p>USDt.z lze použít jako kolaterál pro půjčky, finanční zajištění, nebo k rychlým swapům na decentralizovaných burzách.</p>
-      <p>Token je ideální pro mladé uživatele, kteří nemají tradiční zajištění, a přináší nové možnosti financování.</p>
+      <h2>Použití</h2>
+      <p>USDt.z lze využít jako kolaterál pro půjčky, finanční zajištění, nebo pro rychlé swapy na decentralizovaných burzách.</p>
+      <p>Token je ideální pro mladé uživatele bez tradičního zajištění, nabízí nové možnosti financování.</p>
     </section>
 
     <section id="docs">
-      <h2>Dokumentace a audit</h2>
-      <p>Kompletní technická dokumentace a auditní zprávy jsou k dispozici ke stažení.</p>
+      <h2>Audit a dokumentace</h2>
+      <p>Kompletní technická dokumentace a auditní zpráva jsou k dispozici ke stažení.</p>
       <a href="docs/USDTz_Whitepaper_CS.pdf" target="_blank" class="btn">Stáhnout Whitepaper</a>
       <a href="docs/Audit_Report.pdf" target="_blank" class="btn audit" style="margin-left: 1rem;">Stáhnout Audit</a>
     </section>
 
     <section id="walletConnect">
-      <h2>Připojte svoji peněženku</h2>
+      <h2>Připojte svou peněženku</h2>
       <div class="button-group">
-        <button id="connectMetaMask" class="btn">Připojit MetaMask</button>
-        <button id="connectWalletConnect" class="btn">Připojit Trust Wallet (WalletConnect)</button>
-        <button id="connectCoinbaseWallet" class="btn">Připojit Coinbase Wallet</button>
+        <button id="connectMetaMask" class="wallet-btn" title="MetaMask">
+          <img src="img/wallets/metamask.svg" alt="MetaMask" />
+        </button>
+        <button id="connectWalletConnect" class="wallet-btn" title="Trust Wallet (WalletConnect)">
+          <img src="img/wallets/trustwallet.svg" alt="Trust Wallet" />
+        </button>
+        <button id="connectCoinbaseWallet" class="wallet-btn" title="Coinbase Wallet">
+          <img src="img/wallets/coinbase.svg" alt="Coinbase Wallet" />
+        </button>
       </div>
       <div id="walletStatus"></div>
     </section>
@@ -298,3 +325,4 @@
   <script src="js/wallet-connect.js"></script>
 </body>
 </html>
+
