@@ -36,6 +36,7 @@
     nav .logo img {
       height: 40px;
       cursor: pointer;
+      filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.3));
     }
     nav ul {
       list-style: none;
@@ -173,12 +174,12 @@
       color: white;
     }
 
-    /* Status připojení peněženky */
+    /* Status wallet připojení */
     #walletStatus {
-      margin-top: 1rem;
-      color: green;
-      font-weight: 600;
       text-align: center;
+      margin-top: 1rem;
+      font-weight: 600;
+      color: rgb(31,186,156);
     }
 
     /* Responsive */
@@ -207,17 +208,10 @@
       }
       .button-group {
         flex-direction: column;
-        align-items: center;
+        gap: 1rem;
       }
     }
   </style>
-
-  <!-- WalletConnect SDK -->
-  <script src="https://unpkg.com/@walletconnect/web3-provider@1.7.8/dist/umd/index.min.js"></script>
-
-  <!-- Coinbase Wallet SDK -->
-  <script src="https://cdn.jsdelivr.net/npm/@coinbase/wallet-sdk@3.3.1/dist/CoinbaseWalletSDK.min.js"></script>
-
 </head>
 <body>
   <header>
@@ -226,9 +220,9 @@
         <a href="index.html"><img src="logo.png" alt="USDt.z Logo" /></a>
       </div>
       <ul>
-        <li><a href="#about">O tokenu</a></li>
+        <li><a href="pages/about.html">O tokenu</a></li>
         <li><a href="#swap">Swap & DEX</a></li>
-        <li><a href="#usecases">Použití</a></li>
+        <li><a href="#pool">Likviditní pool</a></li>
         <li><a href="#docs">Dokumentace</a></li>
         <li><a href="#contact">Kontakt</a></li>
         <li>
@@ -257,16 +251,17 @@
       </p>
 
       <div class="button-group">
+        <a href="pages/about.html" class="btn">Více o tokenu</a>
         <a href="#docs" class="btn">Stáhnout Whitepaper</a>
         <a href="https://pancakeswap.finance/swap?outputCurrency=0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" target="_blank" rel="noopener" class="btn">Swap na PancakeSwap</a>
       </div>
-    </section>
 
-    <section id="about">
-      <h2>O tokenu USDt.z</h2>
-      <p>USDt.z je stablecoin, který kombinuje stabilitu tradičních měn s technologií blockchain nové generace.</p>
-      <p>Token nabízí vysokou bezpečnost, transparentnost a široké využití v různých finančních aplikacích.</p>
-      <p>Klienti si mohou USDt.z koupit se slevou. Token je ideální jako kolaterál pro půjčky a finanční zajištění.</p>
+      <div id="walletButtons" class="button-group" style="margin-top: 2rem;">
+        <button id="connectMetaMask" class="btn">Připojit MetaMask</button>
+        <button id="connectWalletConnect" class="btn">Připojit Trust Wallet</button>
+        <button id="connectCoinbaseWallet" class="btn">Připojit Coinbase Wallet</button>
+      </div>
+      <div id="walletStatus"></div>
     </section>
 
     <section id="swap">
@@ -279,16 +274,6 @@
       <h2>Likviditní pool</h2>
       <p>Podívejte se na náš likviditní pool a sledujte tržní výkonnost USDt.z na GeckoTerminalu.</p>
       <a href="https://www.geckoterminal.com/bsc/pools/0x553b402b3d6f91ea2208c7df61a6d4aa96ccb6191787c20fedb7ae6c9823b280" target="_blank" rel="noopener" class="btn">Zobrazit likviditní pool</a>
-    </section>
-
-    <section id="wallet-connect">
-      <h2>Připojení peněženek</h2>
-      <div class="button-group">
-        <button id="connectMetaMask" class="btn">Připojit MetaMask</button>
-        <button id="connectWalletConnect" class="btn">Připojit Trust Wallet</button>
-        <button id="connectCoinbaseWallet" class="btn">Připojit Coinbase Wallet</button>
-      </div>
-      <div id="walletStatus"></div>
     </section>
 
     <section id="docs">
@@ -314,7 +299,9 @@
     &copy; 2025 USDt.z – Next Generation Stablecoin. Všechna práva vyhrazena.
   </footer>
 
-  <!-- Tvůj vlastní JavaScript -->
   <script src="js/wallet-connect.js"></script>
+  <!-- Přidej také externí SDK pro WalletConnect a CoinbaseWallet, pokud je používáš -->
+  <script src="https://unpkg.com/@walletconnect/web3-provider@1.7.8/dist/umd/index.min.js"></script>
+  <script src="https://unpkg.com/@coinbase/wallet-sdk@3.6.1/dist/CoinbaseWalletSDK.min.js"></script>
 </body>
 </html>
