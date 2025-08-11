@@ -1,97 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>USDt.z Project</title>
-<style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>USDt.z – Stablecoin for Next Generation</title>
+  <style>
     body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #f5f5f5;
-        color: #333;
+      font-family: Arial, sans-serif;
+      background-color: #f8f9fa;
+      color: #333;
+      margin: 0;
+      padding: 0;
     }
     header {
-        background-color: #1fba9c;
-        color: white;
-        padding: 15px;
-        text-align: center;
+      background-color: rgb(31, 186, 156);
+      color: white;
+      padding: 15px;
+      text-align: center;
+      position: relative;
     }
-    header h1 {
-        font-size: 1.5em;
-        margin: 0;
+    .lang-switch {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: white;
+      border: none;
+      padding: 8px 12px;
+      cursor: pointer;
+      border-radius: 5px;
+      font-weight: bold;
+      color: rgb(31, 186, 156);
+      transition: background-color 0.3s;
     }
-    .container {
-        max-width: 900px;
-        margin: auto;
-        padding: 15px;
+    .lang-switch:hover {
+      background-color: #1eab91;
+      color: white;
     }
-    section {
-        background: white;
-        border-radius: 10px;
-        padding: 15px;
-        margin-bottom: 15px;
-        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    main {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
     }
-    h2 {
-        font-size: 1.2em;
-        color: #1fba9c;
-        margin-top: 0;
+    h1, h2 {
+      color: rgb(31, 186, 156);
     }
-    p {
-        line-height: 1.5;
-        font-size: 1em;
+    ul {
+      list-style-type: disc;
+      padding-left: 20px;
     }
-    img {
-        max-width: 100%;
-        border-radius: 5px;
-    }
-    @media (max-width: 600px) {
-        header h1 {
-            font-size: 1.2em;
-        }
-        h2 {
-            font-size: 1.1em;
-        }
-        p {
-            font-size: 0.95em;
-        }
-    }
-</style>
+  </style>
 </head>
 <body>
 
 <header>
-    <h1>USDt.z — Stablecoin for Next Generation</h1>
+  <button class="lang-switch" onclick="switchLanguage()">Čeština</button>
+  <h1 id="title">USDt.z – Stablecoin for Next Generation</h1>
 </header>
 
-<div class="container">
-    <section>
-        <h2>About the Project</h2>
-        <p>USDt.z is a next-generation stablecoin designed to ensure stability, trust, and practical usability. It is pegged to the US dollar and operates on the Binance Smart Chain (BSC) with high transparency and security standards.</p>
-    </section>
+<main>
+  <section>
+    <h2 id="intro-title">Introduction</h2>
+    <p id="intro-text">
+      USDt.z is a stable digital currency designed for the modern financial world, offering fast transactions, low fees, and maximum security.
+    </p>
+  </section>
 
-    <section>
-        <h2>Advantages</h2>
-        <p>Our stablecoin is designed for both banking and non-banking sectors, enabling secure transactions, liquidity management, and collateralization. USDt.z offers a solution for modern finance with full decentralization and auditability.</p>
-    </section>
+  <section>
+    <h2 id="benefits-title">Benefits</h2>
+    <ul id="benefits-list">
+      <li>Stability pegged to USD</li>
+      <li>Instant transfers 24/7</li>
+      <li>Secure smart contracts</li>
+    </ul>
+  </section>
+</main>
 
-    <section>
-        <h2>Technical Parameters</h2>
-        <ul>
-            <li><strong>Blockchain:</strong> Binance Smart Chain (BSC)</li>
-            <li><strong>Smart Contract Address:</strong> 0x913ef7244bEd019b95Ec5321408eE4CE83E25c01</li>
-            <li><strong>Token Type:</strong> BEP-20</li>
-            <li><strong>Price:</strong> 1 USD per USDt.z</li>
-        </ul>
-    </section>
+<script>
+  const translations = {
+    cs: {
+      title: "USDt.z – Stabilní měna nové generace",
+      "intro-title": "Úvod",
+      "intro-text": "USDt.z je stabilní digitální měna navržená pro moderní finanční svět, poskytující rychlé transakce, nízké poplatky a maximální bezpečnost.",
+      "benefits-title": "Výhody",
+      "benefits-list": [
+        "Stabilita vázaná na USD",
+        "Okamžité převody 24/7",
+        "Bezpečné smart kontrakty"
+      ],
+      button: "English"
+    },
+    en: {
+      title: "USDt.z – Stablecoin for Next Generation",
+      "intro-title": "Introduction",
+      "intro-text": "USDt.z is a stable digital currency designed for the modern financial world, offering fast transactions, low fees, and maximum security.",
+      "benefits-title": "Benefits",
+      "benefits-list": [
+        "Stability pegged to USD",
+        "Instant transfers 24/7",
+        "Secure smart contracts"
+      ],
+      button: "Čeština"
+    }
+  };
 
-    <section>
-        <h2>Contact</h2>
-        <p>For more information, please contact us at: <strong>info@usdtz.com</strong></p>
-    </section>
-</div>
+  let currentLang = "en";
+
+  function switchLanguage() {
+    currentLang = currentLang === "en" ? "cs" : "en";
+    document.getElementById("title").innerText = translations[currentLang].title;
+    document.getElementById("intro-title").innerText = translations[currentLang]["intro-title"];
+    document.getElementById("intro-text").innerText = translations[currentLang]["intro-text"];
+    document.getElementById("benefits-title").innerText = translations[currentLang]["benefits-title"];
+
+    const list = document.getElementById("benefits-list");
+    list.innerHTML = "";
+    translations[currentLang]["benefits-list"].forEach(item => {
+      const li = document.createElement("li");
+      li.textContent = item;
+      list.appendChild(li);
+    });
+
+    document.querySelector(".lang-switch").innerText = translations[currentLang].button;
+  }
+</script>
 
 </body>
 </html>
