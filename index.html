@@ -103,17 +103,22 @@
     /* Hero Section */
     .hero {
       text-align: center;
-      padding: 1rem 1rem 3rem;
+      padding: 3rem 1rem 4.5rem; /* víc nahoře, aby nebyl moc dole */
       background: #f9f9f9;
       border-radius: 8px;
       max-width: 700px;
-      margin: 0 auto 3rem;
+      margin: 0 auto 3.5rem;
+    }
+    .hero h1 {
+      margin-bottom: 1rem;
     }
     .hero p {
-      font-size: 1.2rem;
-      max-width: 400px;
-      margin: 1rem auto 0;
-      line-height: 1.4;
+      font-size: 1.3rem;
+      max-width: 480px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.5;
+      color: rgb(31,186,156);
+      font-weight: 600;
     }
     /* Slider */
     #slider {
@@ -245,6 +250,14 @@
       .slide img {
         max-height: 140px;
       }
+      .hero {
+        max-width: 90vw;
+        padding: 2rem 1rem 4rem;
+      }
+      .hero p {
+        font-size: 1.1rem;
+        max-width: 100%;
+      }
     }
   </style>
 </head>
@@ -270,7 +283,7 @@
 
     <section class="hero" id="hero">
       <h1>USDt.z – Next Generation Stablecoin</h1>
-      <p>Stable, secure,<br>and innovative token designed for banking<br>and non-banking sectors.</p>
+      <p>Stable, secure, and innovative token designed for banking and non-banking sectors.</p>
       <a href="#docs" class="btn">Stáhnout Whitepaper</a>
       <a href="#swap" class="btn" style="margin-left: 1rem;">Swap na PancakeSwap</a>
     </section>
@@ -386,7 +399,7 @@
       slideInterval = setInterval(nextSlide, 6000);
     }
 
-    // Initialize slider
+    // Inicializace slideru
     showSlide(currentIndex);
   </script>
 </body>
