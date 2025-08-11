@@ -25,6 +25,9 @@
       top: 0;
       z-index: 1000;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
     nav {
       max-width: 1200px;
@@ -32,16 +35,13 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      width: 100%;
     }
     nav .logo img {
       height: 40px;
       cursor: pointer;
-      /* Přidán jemný stín pro lepší viditelnost */
-      box-shadow: 0 2px 5px rgba(0,0,0,0.15);
-      transition: transform 0.3s ease;
-    }
-    nav .logo img:hover {
-      transform: scale(1.05);
+      box-shadow: 0 0 8px rgba(0,0,0,0.15);
+      border-radius: 4px;
     }
     nav ul {
       list-style: none;
@@ -204,80 +204,6 @@
         text-align: center !important;
       }
     }
-
-    /* Nové sekce */
-
-    /* Roadmapa seznam */
-    #roadmap ul {
-      list-style: none;
-      padding-left: 1.2rem;
-    }
-    #roadmap ul li {
-      margin-bottom: 0.7rem;
-      position: relative;
-      padding-left: 1.2rem;
-      color: #222;
-      font-weight: 600;
-    }
-    #roadmap ul li::before {
-      content: "•";
-      position: absolute;
-      left: 0;
-      color: rgb(31,186,156);
-      font-size: 1.5rem;
-      line-height: 0;
-      top: 4px;
-    }
-
-    /* FAQ */
-    #faq dl {
-      border-top: 1px solid rgb(31,186,156);
-    }
-    #faq dt {
-      font-weight: 700;
-      color: rgb(31,186,156);
-      padding: 1rem 0 0.3rem 0;
-      cursor: pointer;
-      transition: color 0.3s ease;
-    }
-    #faq dt:hover {
-      color: #1eab91;
-    }
-    #faq dd {
-      margin-bottom: 1rem;
-      padding-left: 1rem;
-      color: #333;
-    }
-
-    /* Tým */
-    #team .member {
-      margin-bottom: 1.5rem;
-      padding-left: 1rem;
-      border-left: 4px solid rgb(31,186,156);
-    }
-    #team .member h3 {
-      color: rgb(31,186,156);
-      margin-bottom: 0.3rem;
-    }
-    #team .member p {
-      color: #222;
-    }
-
-    /* Sociální ikony jednoduché */
-    .social-icons {
-      margin-top: 0.8rem;
-    }
-    .social-icons a {
-      margin-right: 1rem;
-      color: rgb(31,186,156);
-      font-weight: 700;
-      text-decoration: none;
-      font-size: 1.2rem;
-      transition: color 0.3s ease;
-    }
-    .social-icons a:hover {
-      color: #1eab91;
-    }
   </style>
 </head>
 <body>
@@ -291,9 +217,6 @@
         <li><a href="#swap">Swap & DEX</a></li>
         <li><a href="#usecases">Použití</a></li>
         <li><a href="#docs">Dokumentace</a></li>
-        <li><a href="#roadmap">Roadmapa</a></li>
-        <li><a href="#faq">FAQ</a></li>
-        <li><a href="#team">Tým</a></li>
         <li><a href="#contact">Kontakt</a></li>
         <li>
           <a href="index.html" title="Česky">
@@ -339,10 +262,10 @@
       <a href="https://pancakeswap.finance/swap?outputCurrency=0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" target="_blank" rel="noopener" class="btn">Přejít na PancakeSwap</a>
     </section>
 
-    <section id="usecases">
-      <h2>Použití</h2>
-      <p>USDt.z slouží jako spolehlivý stablecoin pro bankovní půjčky, obchodování, a další finanční aplikace.</p>
-      <p>Token může být použit jako kolaterál, pro rychlé swapy nebo stabilní uchování hodnoty.</p>
+    <section id="pool">
+      <h2>Likviditní pool</h2>
+      <p>Podívejte se na náš likviditní pool a sledujte tržní výkonnost USDt.z na GeckoTerminalu.</p>
+      <a href="https://www.geckoterminal.com/bsc/pools/0x553b402b3d6f91ea2208c7df61a6d4aa96ccb6191787c20fedb7ae6c9823b280" target="_blank" rel="noopener" class="btn">Zobrazit likviditní pool</a>
     </section>
 
     <section id="docs">
@@ -352,59 +275,11 @@
       <a href="docs/Audit_Report.pdf" target="_blank" class="btn audit" style="margin-left: 1rem;">Stáhnout Audit</a>
     </section>
 
-    <section id="roadmap">
-      <h2>Roadmapa</h2>
-      <ul>
-        <li>Q3 2025 – Dokončení whitepaperu a právních auditů</li>
-        <li>Q4 2025 – Nasazení tokenu na BSC mainnet a začátek obchodování</li>
-        <li>Q1 2026 – Integrace s bankovními partnery a rozšíření likvidity</li>
-        <li>Q2 2026 – Vývoj mobilní aplikace a multi-wallet podpory</li>
-      </ul>
-    </section>
-
-    <section id="faq">
-      <h2>FAQ – Často kladené otázky</h2>
-      <dl>
-        <dt>Co je USDt.z?</dt>
-        <dd>USDt.z je stablecoin pevně vázaný na americký dolar s technologií nové generace blockchainu.</dd>
-
-        <dt>Jak mohu token koupit?</dt>
-        <dd>Token můžete koupit přes PancakeSwap nebo přímým nákupem od partnerů s bonusovou slevou.</dd>
-
-        <dt>Je token auditován?</dt>
-        <dd>Ano, kompletní auditní zpráva je k dispozici ke stažení v sekci Dokumentace.</dd>
-
-        <dt>Jak mohu použít USDt.z jako kolaterál?</dt>
-        <dd>Token lze použít jako zajištění pro půjčky v bankovním i nebankovním sektoru díky své stabilitě a transparentnosti.</dd>
-      </dl>
-    </section>
-
-    <section id="team">
-      <h2>Tým</h2>
-      <div class="member">
-        <h3>Petr Holoubek</h3>
-        <p>Zakladatel a hlavní stratég projektu, expert na CQB a kickboxing, zkušený ve finančním sektoru.</p>
-      </div>
-      <div class="member">
-        <h3>Jana Nováková</h3>
-        <p>Technická vedoucí vývoje smart kontraktů a bezpečnostního auditu.</p>
-      </div>
-      <div class="member">
-        <h3>Martin Dvořák</h3>
-        <p>Marketingový manažer a komunikace s bankovními partnery.</p>
-      </div>
-    </section>
-
     <section id="contact">
       <div class="contact-info">
         <h2>Kontakt</h2>
         <p>Máte otázky? Kontaktujte nás emailem nebo přes sociální sítě.</p>
         <p>Email: <a href="mailto:sca.sca@centrum.cz">sca.sca@centrum.cz</a></p>
-        <div class="social-icons">
-          <a href="https://twitter.com/usdtz" target="_blank" rel="noopener">Twitter</a>
-          <a href="https://t.me/usdtz" target="_blank" rel="noopener">Telegram</a>
-          <a href="https://linkedin.com/company/usdtz" target="_blank" rel="noopener">LinkedIn</a>
-        </div>
       </div>
       <div class="token-explore">
         <a href="https://bscscan.com/token/0x913ef7244bed019b95ec5321408ee4ce83e25c01" target="_blank" rel="noopener">Prozkoumat token na BscScan</a>
@@ -415,5 +290,8 @@
   <footer>
     &copy; 2025 USDt.z – Next Generation Stablecoin. Všechna práva vyhrazena.
   </footer>
+
+  <!-- Připojení JavaScriptového souboru -->
+  <script src="js/wallet-connect.js"></script>
 </body>
 </html>
