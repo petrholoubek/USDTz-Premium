@@ -67,7 +67,6 @@
     h1 {
       font-size: 2.5rem;
       text-align: center;
-      margin-bottom: 2rem;
     }
     h2 {
       font-size: 2rem;
@@ -92,45 +91,15 @@
     .btn:hover {
       background-color: #1eab91;
     }
-    .hero {
+    /* QR Code Section */
+    #blockchain-link {
       text-align: center;
-      padding: 4rem 1rem 5rem; /* více spodního prostoru */
-      background: #f9f9f9;
-      border-radius: 8px;
-      max-width: 700px;
-      margin: 0 auto 4rem;
+      margin-top: 2rem;
+      margin-bottom: 4rem;
     }
-    .hero p {
-      font-size: 1.2rem;
-      margin-bottom: 2rem;
-      color: #222; /* černá barva textu */
-    }
-    footer {
-      background: #f1f1f1;
-      text-align: center;
-      padding: 1.5rem 1rem;
-      font-size: 0.9rem;
-      color: #666;
-      margin-top: auto;
-    }
-    /* Language switcher vlajky */
-    .lang-switcher {
-      display: flex;
-      gap: 0.5rem;
-      align-items: center;
-    }
-    .lang-switcher img {
-      width: 24px;
-      height: 16px;
-      cursor: pointer;
-      border: 1px solid transparent;
-      border-radius: 2px;
-      transition: border-color 0.3s ease;
-      display: block;
-    }
-    .lang-switcher img:hover,
-    .lang-switcher img.active {
-      border-color: rgb(31,186,156);
+    #blockchain-link img {
+      width: 150px;
+      height: 150px;
     }
     /* Responsive */
     @media (max-width: 768px) {
@@ -141,13 +110,8 @@
       nav {
         padding: 1rem;
       }
-      .lang-switcher {
-        justify-content: center;
-        width: 100%;
-      }
-      .hero {
-        max-width: 90%;
-        padding: 3rem 1rem 4rem;
+      h1 {
+        font-size: 2rem;
       }
     }
   </style>
@@ -159,27 +123,36 @@
         <img src="logo.png" alt="USDt.z Malé Logo" />
       </div>
       <ul>
+        <li><a href="#blockchain-link">Blockchain</a></li>
         <li><a href="#about">O tokenu</a></li>
         <li><a href="#swap">Swap & DEX</a></li>
         <li><a href="#usecases">Použití</a></li>
         <li><a href="#docs">Dokumentace</a></li>
         <li><a href="#contact">Kontakt</a></li>
-        <li>
-          <div class="lang-switcher">
-            <a href="index.html"><img src="img/flags/cz.png" alt="CZ" title="Čeština" class="active" /></a>
-            <a href="index_en.html"><img src="img/flags/en.png" alt="EN" title="English" /></a>
-          </div>
-        </li>
+        <li><a href="index.html"><img src="img/flags/cz.png" alt="Česky" style="width:24px; height:16px;"></a></li>
+        <li><a href="index_en.html"><img src="img/flags/en.png" alt="English" style="width:24px; height:16px;"></a></li>
       </ul>
     </nav>
   </header>
   <main>
-    <div class="hero" id="hero">
+    <section id="blockchain-link">
+      <h2>Prozkoumejte token na blockchainu</h2>
+      <p>Pro rychlý přístup k detailům tokenu USDt.z naskenujte QR kód níže:</p>
+      <a href="https://bscscan.com/token/0x913ef7244bed019b95ec5321408ee4ce83e25c01" target="_blank" rel="noopener">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?data=https://bscscan.com/token/0x913ef7244bed019b95ec5321408ee4ce83e25c01&size=150x150" alt="QR kód na BscScan token USDt.z" />
+      </a>
+      <p><a href="https://bscscan.com/token/0x913ef7244bed019b95ec5321408ee4ce83e25c01" target="_blank" rel="noopener">Zobrazit token USDt.z na BscScan</a></p>
+    </section>
+
+    <section class="hero" id="hero">
       <h1>USDt.z – Next Generation Stablecoin</h1>
-      <p>Stable, secure, and innovative token designed for banking and non-banking sectors.</p>
+      <p style="color:#222; max-width:600px; margin: 0 auto 1rem;">
+        Stable, secure, and innovative token designed for banking<br />
+        and non-banking sectors.
+      </p>
       <a href="#docs" class="btn">Stáhnout Whitepaper</a>
       <a href="#swap" class="btn" style="margin-left: 1rem;">Swap na PancakeSwap</a>
-    </div>
+    </section>
 
     <section id="about">
       <h2>O tokenu USDt.z</h2>
