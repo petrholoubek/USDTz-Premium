@@ -18,6 +18,16 @@
       display: flex;
       flex-direction: column;
     }
+    /* Velké logo nahoře */
+    .big-logo-container {
+      text-align: center;
+      padding: 2rem 0 1rem;
+      background: #f9f9f9;
+    }
+    .big-logo-container img {
+      max-width: 200px;
+      height: auto;
+    }
     header {
       background: #fff;
       border-bottom: 2px solid rgb(31,186,156);
@@ -124,10 +134,13 @@
   </style>
 </head>
 <body>
+  <div class="big-logo-container">
+    <img src="logo.png" alt="USDt.z Velké Logo" />
+  </div>
   <header>
     <nav>
       <div class="logo">
-        <img src="logo.png" alt="USDt.z Logo" />
+        <img src="logo.png" alt="USDt.z Malé Logo" />
       </div>
       <ul>
         <li><a href="#about">O tokenu</a></li>
