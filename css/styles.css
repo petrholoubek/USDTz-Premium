@@ -58,7 +58,8 @@ nav ul li a {
   gap: 0.3rem;
 }
 
-nav ul li a:hover {
+nav ul li a:hover,
+nav ul li a.active {
   color: #004d40;
 }
 
