@@ -112,7 +112,7 @@
     footer {
       background: #f1f1f1;
       text-align: center;
-      padding: 1.5rem 1rem;
+      padding: 1.5rem 1rem 3rem 1rem;
       font-size: 0.9rem;
       color: #666;
       margin-top: auto;
@@ -136,19 +136,31 @@
         margin: 1rem auto;
       }
     }
+    /* QR code container */
+    .qr-container {
+      margin-top: 1.5rem;
+      text-align: center;
+    }
+    .qr-container img {
+      width: 120px;
+      height: 120px;
+      margin-top: 0.5rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+    }
   </style>
 </head>
 <body>
   <header>
     <nav>
       <div class="logo">
-        <img src="logo.png" alt="USDt.z Malé Logo" />
+        <img src="logo.png" alt="USDt.z Logo" />
       </div>
       <ul>
         <li><a href="#about">O tokenu</a></li>
         <li><a href="#swap">Swap & DEX</a></li>
-        <li><a href="#trading-info">Trading Info</a></li>
-        <li><a href="#documentation">Dokumentace & Audit</a></li>
+        <li><a href="#trading-info">Trading info</a></li>
+        <li><a href="#documentation">Dokumentace & audit</a></li>
         <li><a href="#contact">Kontakt</a></li>
         <li><a href="index.html" title="Česky"><img src="img/flags/cz.png" alt="CZ" class="flag" /></a></li>
         <li><a href="index_en.html" title="English"><img src="img/flags/en.png" alt="EN" class="flag" /></a></li>
@@ -158,17 +170,17 @@
 
   <main>
     <div class="big-logo-container">
-      <img src="logo.png" alt="USDt.z Velké Logo" />
+      <img src="logo.png" alt="USDt.z Velké logo" />
     </div>
 
     <section class="hero" id="hero">
       <h1>USDt.z – Next Generation Stablecoin</h1>
       <p style="color: black; max-width: 600px; margin: 0 auto;">
-        Stable, secure, and innovative token designed for banking<br />
-        and non-banking sectors.
+        Stabilní, bezpečný a inovativní token navržený<br />
+        pro bankovní i nebankovní sektor.
       </p>
       <p style="margin-top: 1rem;">
-        USDt.z nabízí výhody při kolaterálních půjčkách, rychlé swapy a spolehlivost díky 1:1 vazbě na americký dolar.
+        USDt.z nabízí výhody pro kolaterální půjčky, rychlé swapy a spolehlivost s kurzem 1:1 vůči americkému dolaru.
       </p>
       <a href="#documentation" class="btn" style="margin-top: 1rem;">Stáhnout Whitepaper</a>
       <a href="#swap" class="btn" style="margin-left: 1rem; margin-top: 1rem;">Swap na PancakeSwap</a>
@@ -176,9 +188,9 @@
 
     <section id="about">
       <h2>O tokenu USDt.z</h2>
-      <p>USDt.z je stablecoin, který kombinuje stabilitu tradičních měn s technologií blockchain nové generace.</p>
+      <p>USDt.z je stablecoin kombinující stabilitu tradičních měn s technologií blockchain nové generace.</p>
       <p>Token nabízí vysokou bezpečnost, transparentnost a široké využití v různých finančních aplikacích.</p>
-      <p>Projekt vznikl jako reakce na potřebu spolehlivého tokenu s jasnou 1:1 vazbou na americký dolar, který je vhodný pro bankovní i nebankovní sektor.</p>
+      <p>Projekt vznikl jako odpověď na potřebu spolehlivého tokenu s jasným kurzem 1:1 vůči americkému dolaru, vhodného pro bankovní i nebankovní sektor.</p>
     </section>
 
     <section id="swap">
@@ -188,22 +200,31 @@
     </section>
 
     <section id="trading-info">
-      <h2>Trading Info & Liquidity Pool</h2>
-      <p>Token USDt.z je zalistován s dobrou tržní hodnotou a likviditou. Sledujte aktuální stav poolu na GeckoTerminal.</p>
-      <a href="https://www.geckoterminal.com/bsc/pools/0x553b402b3d6f91ea2208c7df61a6d4aa96ccb6191787c20fedb7ae6c9823b280" target="_blank" rel="noopener" class="btn" style="background-color:#4CAF50;">Zobrazit na GeckoTerminal</a>
+      <h2>Trading info & likvidita</h2>
+      <p>Token USDt.z je zalistován s dobrou tržní kapitalizací a likviditou. Sledujte aktuální stav poolu na GeckoTerminal.</p>
+      <a href="https://www.geckoterminal.com/bsc/pools/0x553b402b3d6f91ea2208c7df61a6d4aa96ccb6191787c20fedb7ae6c9823b280" target="_blank" rel="noopener" class="btn">Zobrazit na GeckoTerminal</a>
       <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #444;">
-        Tržní kapitalizace tokenu je aktuálně přes 5T USDT, USDt.z je 1:1 vázán na americký dolar.
+        Tržní kapitalizace tokenu přesahuje 5T USDT, USDt.z je v kurzu 1:1 vůči americkému dolaru.
       </p>
     </section>
 
     <section id="documentation">
-      <h2>Technická dokumentace & Audit</h2>
-      <p>Kompletní whitepaper projektu USDt.z je k dispozici ke stažení, obsahuje podrobné informace o technických parametrech tokenu, bezpečnostních opatřeních a auditu.</p>
+      <h2>Dokumentace & audit</h2>
+      <p>Kompletní whitepaper projektu USDt.z je k dispozici ke stažení a obsahuje podrobné informace o technických parametrech tokenu, bezpečnostních opatřeních a auditu.</p>
       <a href="docs/USDTz_Whitepaper_CS.pdf" target="_blank" class="btn">Stáhnout Whitepaper (CZ)</a>
       <a href="docs/USDTz_Whitepaper_EN.pdf" target="_blank" class="btn" style="margin-left: 1rem;">Download Whitepaper (EN)</a>
       <p style="margin-top: 1rem;">
-        Projekt prošel nezávislým bezpečnostním auditem, který zajišťuje vysokou úroveň ochrany pro uživatele i investory.
+        Projekt prošel nezávislým bezpečnostním auditem, který zajišťuje vysokou úroveň ochrany uživatelů a investorů.
       </p>
+    </section>
+
+    <section id="blockchain">
+      <h2>Blockchain info & QR kód</h2>
+      <p>Prohlédněte si detaily tokenu USDt.z přímo na blockchainu Binance Smart Chain.</p>
+      <a href="https://bscscan.com/token/0x913ef7244bed019b95ec5321408ee4ce83e25c01" target="_blank" rel="noopener" class="btn">Zobrazit na BscScan</a>
+      <div class="qr-container">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://bscscan.com/token/0x913ef7244bed019b95ec5321408ee4ce83e25c01" alt="USDt.z BscScan QR kód" />
+      </div>
     </section>
 
     <section id="contact">
