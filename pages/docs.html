@@ -14,17 +14,18 @@
         <a href="../index.html"><img src="../logo.png" alt="USDt.z Logo" /></a>
       </div>
       <ul>
-        <li><a href="../index.html">Domů</a></li>
         <li><a href="../pages/about.html">O tokenu</a></li>
         <li><a href="../pages/usecases.html">Použití</a></li>
         <li><a href="../pages/docs.html" class="active">Dokumentace</a></li>
+        <li><a href="../index.html#wallet-connect">Připojit peněženku</a></li>
+        <li><a href="../index.html#contact">Kontakt</a></li>
         <li>
           <a href="../index.html" title="Česky">
             <img class="flag" src="../img/flags/cz.png" alt="Česká vlajka" />
           </a>
         </li>
         <li>
-          <a href="../index_en.html" title="English">
+          <a href="../pages/docs_en.html" title="English">
             <img class="flag" src="../img/flags/en.png" alt="Anglická vlajka" />
           </a>
         </li>
@@ -33,42 +34,65 @@
   </header>
 
   <main>
+    <!-- Sekce 1: Úvod, bezpečnost a grafy -->
     <section>
-      <h1>Dokumentace a technické informace k USDt.z</h1>
-
+      <h1>Dokumentace USDt.z – Next Generation Stablecoin</h1>
       <p>
-        USDt.z je stabilnícoin navržený tak, aby spojoval výhody bezpečnosti, transparentnosti a rychlosti
-        transakcí. Naše řešení je postavené na blockchainu Binance Smart Chain (BSC), který nabízí nízké poplatky a
-        rychlé potvrzení transakcí.
+        USDt.z je moderní stabilní token navržený s důrazem na bezpečnost, transparentnost a efektivitu. 
+        Naše řešení zahrnuje vlastní likviditní pool, auditované smart kontrakty a jasnou roadmapu vývoje.
+      </p>
+      <p>
+        Níže najdete detailní statistiky, vývoj likvidity a distribuci tokenů v přehledných grafech, které ilustrují sílu a stabilitu našeho ekosystému.
       </p>
 
-      <h2>Vlastní likviditní pool</h2>
+      <h2>Likvidita v čase</h2>
+      <p>Tento graf ukazuje růst likvidity USDt.z tokenu v milionech USD za posledních 7 měsíců, což podtrhuje rostoucí důvěru trhu.</p>
+      <canvas id="liquidityPoolChart" style="max-width: 100%; height: 300px;"></canvas>
+
+      <h2>Distribuce tokenů</h2>
+      <p>Graf ukazuje procentuální rozdělení tokenů mezi jednotlivé skupiny držitelů a fondy, což zajišťuje transparentní přehled o vlastnictví.</p>
+      <canvas id="tokenDistributionChart" style="max-width: 100%; height: 300px; margin-top: 2rem;"></canvas>
+    </section>
+
+    <!-- Sekce 2: Tabulka parametrů a roadmapa -->
+    <section>
+      <h2>Klíčové technické parametry</h2>
+      <table style="width:100%; border-collapse: collapse; margin-bottom: 2rem;">
+        <thead>
+          <tr style="background-color: rgb(31,186,156); color: white;">
+            <th style="padding: 10px; border: 1px solid #ddd;">Parametr</th>
+            <th style="padding: 10px; border: 1px solid #ddd;">Hodnota</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td style="padding: 10px; border: 1px solid #ddd;">Token standard</td><td style="padding: 10px; border: 1px solid #ddd;">BEP-20</td></tr>
+          <tr><td style="padding: 10px; border: 1px solid #ddd;">Fixní cena</td><td style="padding: 10px; border: 1px solid #ddd;">1 USD (pegged 1:1)</td></tr>
+          <tr><td style="padding: 10px; border: 1px solid #ddd;">Maximální zásoba</td><td style="padding: 10px; border: 1px solid #ddd;">Neomezená</td></tr>
+          <tr><td style="padding: 10px; border: 1px solid #ddd;">Smart kontrakty</td><td style="padding: 10px; border: 1px solid #ddd;">Auditované švýcarskou firmou</td></tr>
+          <tr><td style="padding: 10px; border: 1px solid #ddd;">Likviditní pool</td><td style="padding: 10px; border: 1px solid #ddd;">Vlastní pool na PancakeSwap</td></tr>
+          <tr><td style="padding: 10px; border: 1px solid #ddd;">Bezpečnostní mechanismy</td><td style="padding: 10px; border: 1px solid #ddd;">Multisig, časové zámky, monitoring transakcí</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Roadmapa</h2>
       <p>
-        Pro zajištění stability a likvidity tokenu USDt.z provozujeme vlastní likviditní pool na PancakeSwap,
-        který umožňuje uživatelům rychlý a bezpečný swap s minimálními poplatky.
-        Tento pool je pravidelně monitorován a spravován, aby byla zachována jeho optimální funkčnost.
+        Naše roadmapa představuje jasný plán rozvoje USDt.z, který zahrnuje rozšíření likvidity, integraci do bankovních systémů, 
+        uvedení mobilní aplikace pro správu tokenu a rozšíření auditů smart kontraktů.
       </p>
+      <ul>
+        <li><strong>Q1 2025:</strong> Spuštění tokenu, základní likviditní pool, audit smart kontraktů</li>
+        <li><strong>Q2 2025:</strong> Integrace do hlavních DEX a nebankovních platforem</li>
+        <li><strong>Q3 2025:</strong> Spuštění mobilní aplikace a API pro bankovní partnery</li>
+        <li><strong>Q4 2025:</strong> Rozšíření bezpečnostních opatření a nové partnerské integrace</li>
+      </ul>
+    </section>
 
-      <canvas id="liquidityPoolChart" style="max-width:100%; height:300px;"></canvas>
-
-      <h2>Bezpečnost a audit</h2>
-      <p>
-        Bezpečnost je pro nás prioritou. Token a jeho smart kontrakt prošly detailním auditním procesem provedeným
-        nezávislou auditorskou společností. Auditní zpráva je dostupná ke stažení níže.
-        Pro zvýšení důvěryhodnosti provozujeme vícevrstvý bezpečnostní systém, který zahrnuje ochranu proti
-        zneužití a průběžné sledování neobvyklých aktivit.
-      </p>
-
-      <h2>Roadmapa vývoje</h2>
-      <p>
-        Naše roadmapa zahrnuje rozšíření ekosystému USDt.z o nové funkce jako jsou půjčky, staking, rozvoj decentralizovaných aplikací (dApps)
-        a zlepšení uživatelského rozhraní pro snadnější přístup k tokenu.
-        Stálý vývoj a komunikace s komunitou jsou základem pro dlouhodobý úspěch projektu.
-      </p>
-
-      <div class="button-group" style="margin-top: 2rem;">
-        <a href="../docs/USDTz_Whitepaper_CS.pdf" target="_blank" class="btn">Stáhnout Whitepaper (PDF)</a>
-        <a href="../docs/Audit_Report.pdf" target="_blank" class="btn audit">Stáhnout Audit</a>
+    <!-- Sekce 3: Tlačítka ke stažení PDF -->
+    <section style="text-align:center;">
+      <h2>Ke stažení</h2>
+      <div class="button-group" style="justify-content: center; gap: 2rem;">
+        <a href="../docs/USDTz_Whitepaper_CS.pdf" class="btn" target="_blank" rel="noopener noreferrer">Stáhnout Whitepaper (PDF)</a>
+        <a href="../docs/Audit_Report.pdf" class="btn audit" target="_blank" rel="noopener noreferrer">Stáhnout Audit (PDF)</a>
       </div>
     </section>
   </main>
@@ -78,8 +102,9 @@
   </footer>
 
   <script>
-    const ctx = document.getElementById('liquidityPoolChart').getContext('2d');
-    const liquidityPoolChart = new Chart(ctx, {
+    // Graf 1 – Likvidita v čase
+    const ctxLiquidity = document.getElementById('liquidityPoolChart').getContext('2d');
+    const liquidityPoolChart = new Chart(ctxLiquidity, {
       type: 'line',
       data: {
         labels: ['Leden', 'Únor', 'Březen', 'Duben', 'Květen', 'Červen', 'Červenec'],
@@ -99,9 +124,34 @@
           tooltip: { enabled: true }
         },
         scales: {
-          y: {
-            beginAtZero: true
-          }
+          y: { beginAtZero: true }
+        }
+      }
+    });
+
+    // Graf 2 – Distribuce tokenů
+    const ctxTokenDist = document.getElementById('tokenDistributionChart').getContext('2d');
+    const tokenDistributionChart = new Chart(ctxTokenDist, {
+      type: 'doughnut',
+      data: {
+        labels: ['Veřejnost', 'Tým', 'Rezervy', 'Partneři'],
+        datasets: [{
+          label: 'Distribuce tokenů',
+          data: [50, 20, 20, 10],
+          backgroundColor: [
+            'rgb(31,186,156)',
+            'rgb(0,123,255)',
+            'rgb(255,193,7)',
+            'rgb(220,53,69)'
+          ],
+          hoverOffset: 30
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { position: 'right' },
+          tooltip: { enabled: true }
         }
       }
     });
