@@ -147,17 +147,28 @@
       flex-wrap: wrap;
     }
 
-    /* Připojení peněženek tlačítka */
+    /* Sekce peněženek - menší tlačítka */
+    #wallet-section {
+      background: #fff;
+      padding: 1rem 1.5rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 0 5px rgb(31 186 156 / 0.1);
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+    #wallet-section h2 {
+      margin-bottom: 1rem;
+    }
     .wallet-buttons {
       display: flex;
-      gap: 0.7rem;
+      gap: 0.5rem;
       justify-content: center;
-      margin: 1rem 0 1.5rem 0;
       flex-wrap: wrap;
     }
     .wallet-buttons button {
-      min-width: 130px;
-      padding: 0.45rem 1rem;
+      min-width: 100px;
+      padding: 0.4rem 0.8rem;
       font-weight: 600;
       background-color: rgb(31,186,156);
       color: white;
@@ -169,14 +180,11 @@
     .wallet-buttons button:hover {
       background-color: #1eab91;
     }
-
-    /* Status text */
     #walletStatus {
-      text-align: center;
+      margin-top: 0.8rem;
       font-weight: 600;
       color: #004d40;
-      min-height: 1.5rem;
-      margin-top: 0.5rem;
+      min-height: 1.4rem;
       font-size: 1rem;
     }
 
@@ -299,12 +307,15 @@
         <a href="https://pancakeswap.finance/swap?outputCurrency=0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" target="_blank" rel="noopener" class="btn">Swap na PancakeSwap</a>
         <a href="https://www.geckoterminal.com/bsc/pools/0x553b402b3d6f91ea2208c7df61a6d4aa96ccb6191787c20fedb7ae6c9823b280" target="_blank" rel="noopener" class="btn">GeckoTerminal Pool</a>
       </div>
+    </section>
 
-      <!-- Tlačítka pro připojení peněženek -->
+    <!-- Samostatná sekce pro připojení peněženek -->
+    <section id="wallet-section">
+      <h2>Připojte svou peněženku</h2>
       <div class="wallet-buttons">
-        <button id="connectMetaMask">MetaMask</button>
-        <button id="connectWalletConnect">Trust Wallet</button>
-        <button id="connectCoinbaseWallet">Coinbase Wallet</button>
+        <button id="connectMetaMask" title="Připojit MetaMask">MetaMask</button>
+        <button id="connectWalletConnect" title="Připojit Trust Wallet">Trust Wallet</button>
+        <button id="connectCoinbaseWallet" title="Připojit Coinbase Wallet">Coinbase Wallet</button>
       </div>
       <div id="walletStatus"></div>
     </section>
@@ -346,7 +357,7 @@
     &copy; 2025 USDt.z – Next Generation Stablecoin. Všechna práva vyhrazena.
   </footer>
 
-  <!-- Připojení tvého JS souboru se skripty pro peněženky -->
+  <!-- Připojení tvého JS souboru -->
   <script src="js/wallet-connect.js"></script>
 </body>
 </html>
