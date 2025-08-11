@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>USDt.z – Next Generation Stablecoin</title>
   <style>
-    /* Reset */
     * {
       margin: 0; padding: 0; box-sizing: border-box;
     }
@@ -48,59 +47,15 @@
       color: #222;
       font-weight: 600;
       transition: color 0.3s ease;
-      display: flex;
-      align-items: center;
     }
     nav ul li a:hover {
       color: rgb(31,186,156);
     }
-    nav ul li.lang-switch {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      border-left: 1px solid #ccc;
-      padding-left: 1rem;
-    }
-    nav ul li.lang-switch a {
-      display: inline-block;
-    }
-    nav ul li.lang-switch a img {
-      width: 28px;
-      height: 18px;
-      border-radius: 3px;
-      box-shadow: 0 0 3px rgba(0,0,0,0.2);
-      display: block;
-    }
-    /* Responsive */
-    @media (max-width: 768px) {
-      nav ul {
-        flex-direction: column;
-        gap: 1rem;
-      }
-      nav ul li.lang-switch {
-        border-left: none;
-        padding-left: 0;
-        margin-top: 1rem;
-        gap: 15px;
-      }
-      nav {
-        padding: 1rem;
-      }
-    }
-
     main {
       flex: 1;
       max-width: 1200px;
       margin: 2rem auto;
       padding: 0 1rem;
-    }
-    .big-logo-container {
-      text-align: center;
-      margin: 3rem 0 2rem;
-    }
-    .big-logo-container img {
-      max-width: 200px;
-      height: auto;
     }
     section {
       margin-bottom: 4rem;
@@ -112,7 +67,6 @@
     h1 {
       font-size: 2.5rem;
       text-align: center;
-      margin-bottom: 1rem;
     }
     h2 {
       font-size: 2rem;
@@ -121,25 +75,6 @@
       margin-bottom: 1rem;
       color: #222;
       font-size: 1rem;
-    }
-    .hero {
-      text-align: center;
-      padding: 3rem 1rem 4.5rem;
-      background: #f9f9f9;
-      border-radius: 8px;
-      max-width: 700px;
-      margin: 0 auto 3.5rem;
-    }
-    .hero h1 {
-      margin-bottom: 1rem;
-    }
-    .hero p {
-      font-size: 1.3rem;
-      max-width: 480px;
-      margin: 0 auto 2.5rem;
-      line-height: 1.5;
-      font-weight: 600;
-      color: #222;
     }
     .btn {
       background-color: rgb(31,186,156);
@@ -156,6 +91,29 @@
     .btn:hover {
       background-color: #1eab91;
     }
+    .big-logo-container {
+      text-align: center;
+      margin: 3rem 0 2rem;
+    }
+    .big-logo-container img {
+      max-width: 200px;
+      height: auto;
+    }
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 0 1rem 4rem;
+      background: #f9f9f9;
+      border-radius: 8px;
+      max-width: 700px;
+      margin: 0 auto 4rem;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      color: #222;
+    }
+    /* Footer */
     footer {
       background: #f1f1f1;
       text-align: center;
@@ -163,6 +121,37 @@
       font-size: 0.9rem;
       color: #666;
       margin-top: auto;
+    }
+    /* Flags */
+    .lang-switcher {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+    }
+    .lang-switcher img {
+      width: 24px;
+      height: 16px;
+      cursor: pointer;
+      border: 1px solid transparent;
+      border-radius: 2px;
+      transition: border-color 0.3s ease;
+    }
+    .lang-switcher img:hover,
+    .lang-switcher img.active {
+      border-color: rgb(31,186,156);
+    }
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      nav {
+        padding: 1rem;
+      }
+      .big-logo-container img {
+        max-width: 140px;
+      }
     }
   </style>
 </head>
@@ -178,18 +167,15 @@
         <li><a href="#usecases">Use Cases</a></li>
         <li><a href="#docs">Documentation</a></li>
         <li><a href="#contact">Contact</a></li>
-        <li class="lang-switch">
-          <a href="index.html" title="Česky">
-            <img src="img/flags/cz.png" alt="CZ" />
-          </a>
-          <a href="index_en.html" title="English">
-            <img src="img/flags/en.png" alt="EN" />
-          </a>
+        <li>
+          <div class="lang-switcher">
+            <a href="index.html"><img src="img/flags/cz.png" alt="CZ" title="Čeština" /></a>
+            <a href="index_en.html"><img src="img/flags/uk.png" alt="EN" title="English" class="active" /></a>
+          </div>
         </li>
       </ul>
     </nav>
   </header>
-
   <main>
     <div class="big-logo-container">
       <img src="logo.png" alt="USDt.z Large Logo" />
@@ -204,8 +190,8 @@
 
     <section id="about">
       <h2>About USDt.z Token</h2>
-      <p>USDt.z is a stablecoin that combines the stability of traditional currencies with next-generation blockchain technology.</p>
-      <p>The token offers high security, transparency, and wide usability across various financial applications.</p>
+      <p>USDt.z is a stable digital currency (stablecoin) built on next-generation blockchain technology. It combines the stability of traditional fiat currencies, especially the US dollar, with the high security and transparency of decentralized technologies. The token is designed to serve as a reliable medium of exchange and store of value for both banking and non-banking sectors.</p>
+      <p>Thanks to its advanced collateral mechanism and decentralized governance, USDt.z offers a high degree of trust, fast transactions with low fees, and easy integration into existing financial systems. The project emphasizes auditability, compliance with regulatory standards, and flexibility in various financial applications.</p>
     </section>
 
     <section id="swap">
@@ -216,20 +202,28 @@
 
     <section id="usecases">
       <h2>Use Cases & Benefits</h2>
-      <p>USDt.z is ideal for banking collateral, loans, and fast crypto swaps.</p>
-      <p>Thanks to its stability and trust, it is also used by non-banking entities and investors.</p>
+      <p>USDt.z is not just a stable token but also a beneficial purchase tool. On our website, you can buy USDt.z at a special discount, allowing you to get more value for less money.</p>
+      <p>Key benefits of USDt.z include:</p>
+      <ul>
+        <li><strong>Collateral loans:</strong> The token serves as a reliable collateral asset for loans with transparent terms and low interest rates.</li>
+        <li><strong>Liquidity and speed:</strong> Instant swaps and low transaction fees ensure efficient capital management.</li>
+        <li><strong>Security and auditability:</strong> The project is regularly audited and complies with strict regulatory requirements.</li>
+        <li><strong>Flexible use:</strong> USDt.z can be used in both banking and non-banking financial applications.</li>
+      </ul>
+      <a href="#buy" class="btn" style="margin-top:1rem;">Buy USDt.z with Discount</a>
     </section>
 
     <section id="docs">
       <h2>Documentation & Whitepaper</h2>
-      <p>The complete USDt.z whitepaper is available for download.</p>
+      <p>The complete technical documentation and whitepaper of USDt.z provide detailed descriptions of the token architecture, collateral mechanism, governance model, and security measures. The whitepaper also includes information about planned audits and partnerships with financial institutions.</p>
+      <p>Downloadable versions in Czech and English are available for the general public and industry professionals alike.</p>
       <a href="docs/USDTz_Whitepaper_EN.pdf" target="_blank" class="btn">Download PDF (EN)</a>
       <a href="docs/USDTz_Whitepaper_CS.pdf" target="_blank" class="btn" style="margin-left: 1rem;">Stáhnout PDF (CZ)</a>
     </section>
 
     <section id="contact">
       <h2>Contact</h2>
-      <p>Have questions? Contact us by email or social media.</p>
+      <p>Have questions? Contact us via email or social media.</p>
       <p>Email: <a href="mailto:sca.sca@centrum.cz">sca.sca@centrum.cz</a></p>
     </section>
   </main>
