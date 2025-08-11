@@ -5,70 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>O tokenu USDt.z – Next Generation Stablecoin</title>
   <style>
-    /* Reset a základní styly, stejné jako v hlavní stránce */
-    * {
-      margin: 0; padding: 0; box-sizing: border-box;
-    }
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: #fff;
       color: #222;
       line-height: 1.6;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-    header {
-      background: rgb(31,186,156);
-      padding: 1rem 2rem;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    nav {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    nav .logo img {
-      height: 40px;
-      cursor: pointer;
-      filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.3));
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 1.5rem;
-      align-items: center;
-    }
-    nav ul li a {
-      text-decoration: none;
-      color: white;
-      font-weight: 600;
-      transition: color 0.3s ease;
-      font-size: 1rem;
-      display: flex;
-      align-items: center;
-      gap: 0.3rem;
-    }
-    nav ul li a:hover {
-      color: #004d40;
-    }
-    nav ul li img.flag {
-      width: 24px;
-      height: 16px;
-      object-fit: cover;
-      border: 1px solid #ddd;
-      border-radius: 3px;
-      vertical-align: middle;
-    }
-    main {
-      flex: 1;
-      max-width: 1200px;
-      margin: 2rem auto 3rem;
+      max-width: 900px;
+      margin: 2rem auto;
       padding: 0 1rem;
     }
     h1, h2 {
@@ -78,90 +21,54 @@
     h1 {
       font-size: 2.5rem;
       text-align: center;
-      margin-bottom: 1.5rem;
+      margin-bottom: 2rem;
     }
     h2 {
       font-size: 2rem;
+      margin-top: 2rem;
       margin-bottom: 1rem;
     }
     p {
       margin-bottom: 1rem;
-      color: #222;
-      font-size: 1rem;
+      font-size: 1.1rem;
     }
-    /* Responsive */
-    @media (max-width: 768px) {
-      nav ul {
-        flex-direction: column;
-        gap: 0.8rem;
-      }
-      nav ul li a {
-        font-size: 1rem;
-      }
-      nav ul li a img.flag {
-        width: 30px;
-        height: 20px;
-      }
-      main {
-        margin: 1rem auto 2rem;
-      }
+    ul {
+      margin-left: 1.2rem;
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+    ul li {
+      margin-bottom: 0.5rem;
     }
   </style>
 </head>
 <body>
-  <header>
-    <nav>
-      <div class="logo">
-        <a href="../index.html"><img src="../logo.png" alt="USDt.z Logo" /></a>
-      </div>
-      <ul>
-        <li><a href="../pages/about.html">O tokenu</a></li>
-        <li><a href="../index.html#swap">Swap & DEX</a></li>
-        <li><a href="../index.html#pool">Likviditní pool</a></li>
-        <li><a href="../index.html#docs">Dokumentace</a></li>
-        <li><a href="../index.html#contact">Kontakt</a></li>
-        <li>
-          <a href="../index.html" title="Česky">
-            <img class="flag" src="../img/flags/cz.png" alt="Česká vlajka" />
-          </a>
-        </li>
-        <li>
-          <a href="../index_en.html" title="English">
-            <img class="flag" src="../img/flags/en.png" alt="Anglická vlajka" />
-          </a>
-        </li>
-      </ul>
-    </nav>
-  </header>
+  <h1>O tokenu USDt.z</h1>
 
-  <main>
-    <h1>O tokenu USDt.z</h1>
+  <p><strong>USDt.z</strong> je stablecoin nové generace, navržený tak, aby kombinoval stabilitu tradičních měn s výhodami blockchain technologie. Cílem je vytvořit bezpečný, transparentní a univerzálně použitelný digitální token, který může sloužit jako základní stavební kámen pro moderní finanční služby.</p>
 
-    <p>USDt.z je stablecoin nové generace, který jsme vyvinuli pro maximální bezpečnost, stabilitu a využitelnost v bankovním i nebankovním sektoru.</p>
+  <h2>Proč jsme USDt.z vytvořili</h2>
+  <p>Tradiční finanční systémy často komplikují přístup k půjčkám a dalším finančním produktům zejména pro mladé nebo osoby bez dostatečného zajištění. USDt.z nabízí řešení, které umožňuje jednoduchý, rychlý a bezpečný přístup k digitálním financím bez zbytečných byrokratických překážek.</p>
 
-    <h2>Proč jsme USDt.z vytvořili</h2>
-    <p>Trh potřebuje spolehlivý, transparentní a technologicky pokročilý token, který nabídne bankám i jednotlivcům jednoduchý přístup ke stabilním digitálním aktivům.</p>
+  <h2>Technologie a bezpečnost</h2>
+  <p>Token je postaven na Binance Smart Chainu (BSC), což zaručuje rychlé a levné transakce. Smart kontrakty jsou navrženy s důrazem na bezpečnost a pravidelně auditovány nezávislými odborníky. Veškeré transakce a zásoby tokenů jsou plně transparentní a dostupné ke kontrole na BscScan.</p>
 
-    <h2>Hlavní výhody USDt.z</h2>
-    <ul>
-      <li><strong>Stabilita:</strong> Token je pevně vázán na USD v poměru 1:1, což zajišťuje minimální volatilitu.</li>
-      <li><strong>Bezpečnost:</strong> Vysoce zabezpečené smart kontrakty a pravidelné audity.</li>
-      <li><strong>Praktičnost:</strong> Vhodný jako kolaterál pro půjčky, podpora mladých, kteří nemají jinou možnost zajištění.</li>
-      <li><strong>Transparentnost:</strong> Veškeré transakce a zásoby jsou veřejně dostupné a auditovatelné.</li>
-      <li><strong>Široké využití:</strong> Podpora DEX, swapů, půjček i dalších finančních produktů.</li>
-    </ul>
+  <h2>Klíčové vlastnosti USDt.z</h2>
+  <ul>
+    <li><strong>Stabilita 1:1:</strong> USDt.z je pevně vázán na americký dolar, což minimalizuje volatilitu a riziko ztráty hodnoty.</li>
+    <li><strong>Vysoká likvidita:</strong> Token je aktivně zalistován na decentralizovaných burzách jako PancakeSwap s dostatečnou likviditou pro rychlé swapy.</li>
+    <li><strong>Podpora kolaterálu:</strong> USDt.z lze využít jako zajištění pro půjčky, což pomáhá klientům bez tradičního majetkového zajištění získat přístup k úvěrům.</li>
+    <li><strong>Široké využití:</strong> Vhodný pro platby, půjčky, investice i integraci do DeFi protokolů.</li>
+    <li><strong>Ekologická odpovědnost:</strong> Díky využití BSC jsou transakce energeticky úsporné ve srovnání s některými staršími blockchainy.</li>
+  </ul>
 
-    <h2>Podpora jako kolaterál</h2>
-    <p>USDt.z je speciálně navržen tak, aby pomáhal mladým lidem a klientům bez tradičního zajištění získat přístup k půjčkám a finančním službám s minimálními překážkami.</p>
+  <h2>Podpora mladých a zajištění půjček</h2>
+  <p>Jednou z hlavních motivací pro vznik USDt.z byla podpora mladých a klientů, kteří nemají dostatečné zajištění tradičních půjček. Díky využití tokenu jako kolaterálu lze přístup k půjčkám výrazně zjednodušit a zrychlit.</p>
 
-    <p>Více informací najdete také v našem <a href="../docs/USDTz_Whitepaper_CS.pdf" target="_blank">Whitepaperu</a>.</p>
+  <h2>Transparentnost a důvěra</h2>
+  <p>Veškeré informace o tokenu, transakcích a likviditních poolech jsou veřejně přístupné. Naše audity a technická dokumentace jsou volně ke stažení a pravidelně aktualizované, abychom zajistili maximální důvěru uživatelů.</p>
 
-  </main>
-
-  <footer>
-    <p style="text-align:center; padding:1rem 0; background:#f5f5f5; color:#666;">
-      &copy; 2025 USDt.z – Next Generation Stablecoin. Všechna práva vyhrazena.
-    </p>
-  </footer>
+  <h2>Jak začít s USDt.z</h2>
+  <p>Token si můžete jednoduše zakoupit přes decentralizované burzy (DEX) jako PancakeSwap, nebo si stáhnout naši technickou dokumentaci a auditní zprávy, které jsou k dispozici níže.</p>
 </body>
 </html>
