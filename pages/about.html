@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>O tokenu USDt.z – Next Generation Stablecoin</title>
+  <title>USDt.z – O tokenu</title>
   <style>
     /* Reset */
     * {
@@ -36,7 +36,7 @@
     nav .logo img {
       height: 40px;
       cursor: pointer;
-      filter: drop-shadow(0 0 3px rgba(0,0,0,0.3));
+      filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.3));
     }
     nav ul {
       list-style: none;
@@ -65,37 +65,67 @@
       border-radius: 3px;
       vertical-align: middle;
     }
+
     main {
       flex: 1;
-      max-width: 1200px;
+      max-width: 900px;
       margin: 2rem auto 3rem;
       padding: 0 1rem;
     }
+
     section {
-      margin-bottom: 4rem;
       background: #fff;
       padding: 1.5rem 2rem;
       border: 1px solid #ddd;
       border-radius: 8px;
       box-shadow: 0 0 10px rgb(31 186 156 / 0.15);
+      margin-bottom: 3rem;
     }
+
     h1, h2 {
       color: rgb(31,186,156);
       margin-bottom: 1rem;
     }
     h1 {
-      font-size: 2.5rem;
+      font-size: 2.2rem;
       text-align: center;
-      margin-bottom: 1.5rem;
+      margin-bottom: 2rem;
     }
     h2 {
-      font-size: 2rem;
+      font-size: 1.8rem;
       margin-bottom: 1rem;
     }
     p {
       margin-bottom: 1rem;
       color: #222;
       font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem 0;
+      background: #f4f4f4;
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        gap: 0.8rem;
+      }
+      nav ul li a {
+        font-size: 1rem;
+      }
+      nav ul li img.flag {
+        width: 30px;
+        height: 20px;
+      }
+      main {
+        margin: 1rem auto 2rem;
+      }
     }
   </style>
 </head>
@@ -103,22 +133,22 @@
   <header>
     <nav>
       <div class="logo">
-        <a href="index.html"><img src="logo.png" alt="USDt.z Logo" /></a>
+        <a href="../index.html"><img src="../logo.png" alt="USDt.z Logo" /></a>
       </div>
       <ul>
-        <li><a href="about.html" style="color:#004d40; font-weight: 700;">O tokenu</a></li>
+        <li><a href="index.html">O tokenu</a></li>
         <li><a href="swap.html">Swap & DEX</a></li>
         <li><a href="usecases.html">Použití</a></li>
         <li><a href="docs.html">Dokumentace</a></li>
         <li><a href="contact.html">Kontakt</a></li>
         <li>
-          <a href="index.html" title="Česky">
-            <img class="flag" src="img/flags/cs.png" alt="Česká vlajka" />
+          <a href="../index.html" title="Česky">
+            <img class="flag" src="../img/flags/cs.png" alt="Česká vlajka" />
           </a>
         </li>
         <li>
-          <a href="index_en.html" title="English">
-            <img class="flag" src="img/flags/en.png" alt="Anglická vlajka" />
+          <a href="../index_en.html" title="English">
+            <img class="flag" src="../img/flags/en.png" alt="Anglická vlajka" />
           </a>
         </li>
       </ul>
@@ -126,32 +156,35 @@
   </header>
 
   <main>
+    <h1>O tokenu USDt.z – Next Generation Stablecoin</h1>
+
     <section>
-      <h1>O tokenu USDt.z – Next Generation Stablecoin</h1>
+      <h2>Proč jsme USDt.z vytvořili</h2>
+      <p>USDt.z je navržen jako moderní stablecoin, který přináší kombinaci tradiční stability měn s inovativní technologií blockchainu nové generace.</p>
+      <p>Naším cílem bylo vytvořit token, který bude nejen bezpečný a transparentní, ale zároveň praktický pro širokou škálu finančních aplikací v bankovním i nebankovním sektoru.</p>
+    </section>
 
-      <h2>Proč jsme vytvořili USDt.z?</h2>
-      <p>USDt.z je navržen jako stabilní a bezpečný token, který přináší novou generaci stablecoinů, 
-      jež spojuje tradiční hodnotu USD s inovacemi blockchainu.</p>
-
-      <h2>Hlavní výhody tokenu</h2>
+    <section>
+      <h2>Vlastnosti tokenu</h2>
       <ul>
-        <li>Stabilita v poměru 1:1 vůči americkému dolaru</li>
-        <li>Vysoká bezpečnost a transparentnost díky blockchainové technologii</li>
-        <li>Možnost použití jako kolaterál pro půjčky, zejména pro mladé a klienty bez tradičního zajištění</li>
-        <li>Rychlé a levné transakce na Binance Smart Chain</li>
-        <li>Podpora pro bankovní i nebankovní sektor</li>
+        <li>Stabilita vázaná 1:1 na americký dolar</li>
+        <li>Vysoká bezpečnost díky auditu a pečlivému vývoji smart kontraktů</li>
+        <li>Transparentnost transakcí díky veřejnému blockchainu Binance Smart Chain</li>
+        <li>Možnost využití jako kolaterálu pro půjčky, zejména pro mladé a klienty bez tradičního zajištění</li>
+        <li>Podpora rychlých a levných transakcí díky síti BSC</li>
+        <li>Snadná integrace s populárními peněženkami jako MetaMask, Trust Wallet nebo Coinbase Wallet</li>
       </ul>
+    </section>
 
-      <h2>Kdo může token využít?</h2>
-      <p>USDt.z je vhodný pro všechny, kdo hledají stabilní digitální aktivum, 
-      zejména pro mladé klienty bez zajištění, malé a střední podniky a finanční instituce.</p>
+    <section>
+      <h2>Podpora jako kolaterál pro mladé</h2>
+      <p>USDt.z je speciálně navržen tak, aby pomáhal mladým lidem a klientům, kteří nemají tradiční zajištění pro půjčku. Díky stabilitě tokenu a jeho využití jako kolaterálu mohou získat finanční prostředky s větší důvěrou a lepšími podmínkami.</p>
+      <p>Naším cílem je přispět k větší finanční inkluzi a podpořit nové příležitosti v oblasti půjček a investic.</p>
+    </section>
 
-      <h2>Kde token koupit?</h2>
-      <p>Token USDt.z je dostupný na PancakeSwap, kde jej lze snadno a bezpečně směnit. 
-      Pro více informací si stáhněte náš <a href="docs/USDTz_Whitepaper_CS.pdf" target="_blank">whitepaper</a>.</p>
-
-      <h2>Podpora a další informace</h2>
-      <p>Pokud máte dotazy, kontaktujte nás na <a href="mailto:sca.sca@centrum.cz">sca.sca@centrum.cz</a>.</p>
+    <section>
+      <h2>Více informací</h2>
+      <p>Kompletní technické informace, auditní zprávy a whitepaper jsou k dispozici ke stažení na hlavní stránce nebo přímo v sekci <a href="docs.html">Dokumentace</a>.</p>
     </section>
   </main>
 
