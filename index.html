@@ -170,6 +170,13 @@
       background-color: rgb(31,186,156);
       color: white;
     }
+    /* Status připojení peněženky */
+    #walletStatus {
+      text-align: center;
+      margin-top: 1rem;
+      font-weight: 600;
+      color: rgb(31,186,156);
+    }
     /* Responsive */
     @media (max-width: 768px) {
       nav ul {
@@ -196,6 +203,9 @@
       }
     }
   </style>
+  <!-- Přidej WalletConnect a Coinbase SDK knihovny -->
+  <script src="https://unpkg.com/@walletconnect/web3-provider@1.7.8/dist/umd/index.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@coinbase/wallet-sdk@3.5.6/dist/coinbase-wallet-sdk.min.js"></script>
 </head>
 <body>
   <header>
@@ -257,6 +267,16 @@
       <p>Kompletní technická dokumentace a auditní zprávy jsou k dispozici ke stažení.</p>
       <a href="docs/USDTz_Whitepaper_CS.pdf" target="_blank" class="btn">Stáhnout Whitepaper</a>
       <a href="docs/Audit_Report.pdf" target="_blank" class="btn audit" style="margin-left: 1rem;">Stáhnout Audit</a>
+    </section>
+
+    <section id="walletConnect">
+      <h2>Připojte svoji peněženku</h2>
+      <div class="button-group">
+        <button id="connectMetaMask" class="btn">Připojit MetaMask</button>
+        <button id="connectWalletConnect" class="btn">Připojit Trust Wallet (WalletConnect)</button>
+        <button id="connectCoinbaseWallet" class="btn">Připojit Coinbase Wallet</button>
+      </div>
+      <div id="walletStatus"></div>
     </section>
 
     <section id="contact">
