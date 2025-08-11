@@ -1,91 +1,199 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>USDt.z - Project Documentation</title>
-    <link rel="stylesheet" href="../css/styles.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f8f9fa;
-            color: #333;
-            line-height: 1.6;
-            padding: 20px;
-        }
-        h1, h2 {
-            color: #1FBA9C;
-        }
-        .container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-        .box {
-            flex: 1;
-            min-width: 300px;
-            background: white;
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
-        }
-        .download-box {
-            text-align: center;
-        }
-        .download-btn {
-            display: inline-block;
-            padding: 12px 20px;
-            background-color: #1FBA9C;
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 8px;
-            transition: 0.3s;
-        }
-        .download-btn:hover {
-            background-color: #17a589;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>USDt.z Documentation – Next Generation Stablecoin</title>
+  <link rel="stylesheet" href="../style.css" />
+  <!-- Chart.js without CSP issues -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js" defer></script>
 </head>
 <body>
+  <header>
+    <nav>
+      <div class="logo">
+        <a href="../index_en.html"><img src="../logo.png" alt="USDt.z Logo" /></a>
+      </div>
+      <ul>
+        <li><a href="../pages/about_en.html">About Token</a></li>
+        <li><a href="../pages/usecases_en.html">Use Cases</a></li>
+        <li><a href="../pages/docs_en.html" class="active">Documentation</a></li>
+        <li><a href="../index_en.html#wallet-connect">Connect Wallet</a></li>
+        <li>
+          <a href="../index_en.html" title="English">
+            <img class="flag" src="../img/flags/en.png" alt="English Flag" />
+          </a>
+        </li>
+        <li>
+          <a href="../index.html" title="Čeština">
+            <img class="flag" src="../img/flags/cz.png" alt="Czech Flag" />
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
 
-    <h1>USDt.z – Project Documentation</h1>
+  <main>
+    <section class="hero" style="max-width: 900px; margin: 2rem auto;">
+      <h1>USDt.z Documentation</h1>
+      <p>
+        USDt.z is an innovative next-generation stablecoin designed for both banking and non-banking sectors. Below you will find detailed information about security, technical features, roadmap, and tokenomics.
+      </p>
+    </section>
 
-    <div class="container">
-        
-        <!-- Information Section -->
-        <div class="box">
-            <h2>About the Project</h2>
-            <p>
-                USDt.z is a next-generation stablecoin project designed with security, transparency, and practical usability at its core.
-                Our ecosystem operates with its own liquidity pool, which provides complete control over token circulation and liquidity management.  
-            </p>
-            <p>
-                The project offers <strong>full decentralization</strong>, combined with a security-first approach.
-                All transactions are verified on the blockchain, and smart contract audits ensure maximum protection for all participants.  
-            </p>
-            <p>
-                <strong>Key Features:</strong>
-                <ul>
-                    <li>Own liquidity pool for price stability and liquidity control</li>
-                    <li>Decentralized governance with clear rules</li>
-                    <li>Security measures including contract audits and anti-fraud systems</li>
-                    <li>Roadmap with planned expansions into the banking and DeFi sectors</li>
-                </ul>
-            </p>
-            <p>
-                Our roadmap outlines long-term goals including wider adoption, strategic partnerships, and expanding use-cases for USDt.z in both banking and non-banking sectors.  
-            </p>
-        </div>
+    <section style="max-width: 900px; margin: 0 auto 3rem; border: 1px solid #ddd; border-radius: 8px; padding: 1.5rem; box-shadow: 0 0 10px rgb(31 186 156 / 0.15); background: #fff;">
+      <h2 style="color: rgb(31,186,156); margin-bottom: 1rem;">Security</h2>
+      <p>
+        Security is our top priority. USDt.z is built on the robust Binance Smart Chain (BSC) blockchain with decentralized transaction validation.
+      </p>
+      <p>
+        The token undergoes regular audits by independent security firms ensuring smart contracts remain tamper-proof.
+      </p>
+      <p>
+        Our proprietary liquidity pool ensures stability and immediate trading volume, minimizing pump and dump risks while maintaining transparency.
+      </p>
 
-        <!-- PDF Download Section -->
-        <div class="box download-box">
-            <h2>Download Whitepaper</h2>
-            <p>You can download the full project documentation (Whitepaper) as a PDF file:</p>
-            <a href="../docs/USDtz-Whitepaper-EN.pdf" class="download-btn" target="_blank">📄 Download PDF</a>
-        </div>
+      <canvas id="securityChart" width="400" height="250" style="max-width: 100%;"></canvas>
+      <p style="font-size: 0.9rem; color: #555; margin-top: 0.3rem;">
+        Chart: Security features rating of USDt.z by auditors and community.
+      </p>
+    </section>
 
-    </div>
+    <section style="max-width: 900px; margin: 0 auto 3rem; border: 1px solid #ddd; border-radius: 8px; padding: 1.5rem; box-shadow: 0 0 10px rgb(31 186 156 / 0.15); background: #fff;">
+      <h2 style="color: rgb(31,186,156); margin-bottom: 1rem;">Roadmap</h2>
+      <p>
+        The USDt.z development plan includes continuous ecosystem expansion, new feature implementation, and increased adoption in the banking sector.
+      </p>
+      <p>
+        Key milestones:
+      </p>
+      <ul>
+        <li>Q3 2025: Integration with leading non-bank financial institutions</li>
+        <li>Q4 2025: Launch of smart contracts for loans and credits</li>
+        <li>Q1 2026: Expansion of liquidity pools and cross-chain interoperability</li>
+        <li>Q2 2026: Launch of proprietary DEX and governance model</li>
+      </ul>
 
+      <canvas id="roadmapChart" width="400" height="250" style="max-width: 100%;"></canvas>
+      <p style="font-size: 0.9rem; color: #555; margin-top: 0.3rem;">
+        Chart: USDt.z roadmap implementation progress.
+      </p>
+    </section>
+
+    <section style="max-width: 900px; margin: 0 auto 3rem; border: 1px solid #ddd; border-radius: 8px; padding: 1.5rem; box-shadow: 0 0 10px rgb(31 186 156 / 0.15); background: #fff;">
+      <h2 style="color: rgb(31,186,156); margin-bottom: 1rem;">Technical Features and Tokenomics</h2>
+      <p>
+        USDt.z is an ERC-20 token fully compatible with Binance Smart Chain, ensuring low fees and fast transactions.
+      </p>
+      <p>
+        The tokenomics are designed to support stability, liquidity, and user trust:
+      </p>
+      <ul>
+        <li>Fixed 1:1 peg to the US Dollar</li>
+        <li>Regular audits and transparent reporting</li>
+        <li>Own liquidity pool on PancakeSwap</li>
+        <li>Staking and governance options</li>
+      </ul>
+
+      <canvas id="tokenomicsChart" width="400" height="250" style="max-width: 100%;"></canvas>
+      <p style="font-size: 0.9rem; color: #555; margin-top: 0.3rem;">
+        Chart: Token distribution and usage within the USDt.z ecosystem.
+      </p>
+    </section>
+
+    <section style="max-width: 900px; margin: 0 auto 4rem; border: 1px solid #ddd; border-radius: 8px; padding: 1.5rem; box-shadow: 0 0 10px rgb(31 186 156 / 0.15); background: #fff;">
+      <h2 style="color: rgb(31,186,156); margin-bottom: 1rem;">Download Documents</h2>
+      <div class="button-group">
+        <a href="../docs/USDTz_Whitepaper_EN.pdf" class="btn" target="_blank" rel="noopener">Download Whitepaper (PDF)</a>
+        <a href="../docs/Audit_Report.pdf" class="btn audit" target="_blank" rel="noopener">Download Audit (PDF)</a>
+      </div>
+    </section>
+  </main>
+
+  <footer style="text-align:center; padding:1rem; background:#f9f9f9; font-size:0.9rem; color:#666;">
+    &copy; 2025 USDt.z – Next Generation Stablecoin. All rights reserved.
+  </footer>
+
+  <script defer>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Security chart
+      const ctx1 = document.getElementById('securityChart').getContext('2d');
+      new Chart(ctx1, {
+        type: 'bar',
+        data: {
+          labels: ['Smart Contracts', 'Audits', 'Liquidity', 'Decentralization', 'Security Team'],
+          datasets: [{
+            label: 'Rating',
+            data: [95, 90, 85, 80, 88],
+            backgroundColor: 'rgba(31,186,156,0.7)',
+            borderColor: 'rgba(31,186,156,1)',
+            borderWidth: 1
+          }]
+        },
+        options: {
+          responsive: true,
+          scales: {
+            y: { beginAtZero: true, max: 100 }
+          },
+          plugins: {
+            legend: { display: false }
+          }
+        }
+      });
+
+      // Roadmap chart
+      const ctx2 = document.getElementById('roadmapChart').getContext('2d');
+      new Chart(ctx2, {
+        type: 'line',
+        data: {
+          labels: ['Q1 2025', 'Q2 2025', 'Q3 2025', 'Q4 2025', 'Q1 2026', 'Q2 2026'],
+          datasets: [{
+            label: 'Progress',
+            data: [10, 30, 55, 70, 90, 100],
+            fill: false,
+            borderColor: 'rgba(31,186,156,1)',
+            tension: 0.3
+          }]
+        },
+        options: {
+          responsive: true,
+          scales: {
+            y: { beginAtZero: true, max: 100 }
+          },
+          plugins: {
+            legend: { display: false }
+          }
+        }
+      });
+
+      // Tokenomics chart
+      const ctx3 = document.getElementById('tokenomicsChart').getContext('2d');
+      new Chart(ctx3, {
+        type: 'doughnut',
+        data: {
+          labels: ['Staking', 'Liquidity Pool', 'Reserve', 'Team', 'Marketing'],
+          datasets: [{
+            label: 'Token Distribution',
+            data: [30, 25, 20, 15, 10],
+            backgroundColor: [
+              'rgba(31,186,156,0.8)',
+              'rgba(0,123,255,0.7)',
+              'rgba(255,193,7,0.7)',
+              'rgba(220,53,69,0.7)',
+              'rgba(108,117,125,0.7)'
+            ],
+            borderColor: 'white',
+            borderWidth: 2
+          }]
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: { position: 'right' }
+          }
+        }
+      });
+    });
+  </script>
 </body>
 </html>
