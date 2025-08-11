@@ -3,126 +3,161 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>USDt.z – Stablecoin for Next Generation</title>
+  <title>USDt.z – Next Generation</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f8f9fa;
-      color: #333;
+    /* Reset */
+    * {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
-    header {
-      background-color: rgb(31, 186, 156);
-      color: white;
-      padding: 15px;
-      text-align: center;
-      position: relative;
-    }
-    .lang-switch {
-      position: absolute;
-      top: 15px;
-      right: 15px;
-      background: white;
-      border: none;
-      padding: 8px 12px;
-      cursor: pointer;
-      border-radius: 5px;
-      font-weight: bold;
-      color: rgb(31, 186, 156);
-      transition: background-color 0.3s;
-    }
-    .lang-switch:hover {
-      background-color: #1eab91;
-      color: white;
-    }
-    main {
-      max-width: 900px;
-      margin: auto;
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f8f9fa;
+      color: #333;
+      line-height: 1.6;
       padding: 20px;
     }
-    h1, h2 {
-      color: rgb(31, 186, 156);
+    header {
+      background-color: #1fba9c;
+      color: white;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+    header img {
+      max-width: 100px;
+      margin-bottom: 10px;
+    }
+    header nav {
+      margin-top: 10px;
+    }
+    header nav a {
+      margin: 0 10px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    main {
+      max-width: 1100px;
+      margin: auto;
+      background-color: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+    section {
+      margin-bottom: 20px;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      background-color: white;
+    }
+    h1 {
+      color: #1fba9c;
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+    h2 {
+      color: #1fba9c;
+      margin-bottom: 15px;
+    }
+    p.description {
+      color: #000;
+      font-size: 1.1rem;
+      margin-bottom: 25px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+    p {
+      margin-bottom: 15px;
     }
     ul {
       list-style-type: disc;
-      padding-left: 20px;
+      margin-left: 20px;
+    }
+    .btn-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .btn {
+      background-color: #1fba9c;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      margin: 5px;
+      display: inline-block;
+      transition: background-color 0.3s;
+    }
+    .btn:hover {
+      background-color: #17a68d;
     }
   </style>
 </head>
 <body>
 
 <header>
-  <button class="lang-switch" onclick="switchLanguage()">Čeština</button>
-  <h1 id="title">USDt.z – Stablecoin for Next Generation</h1>
+  <img src="logo.png" alt="USDt.z Logo" />
+  <h1>USDt.z – Next Generation</h1>
+  <p class="description">Stable, secure, and innovative token designed for banking and non-banking sectors.</p>
+  <nav>
+    <a href="index.html">Čeština</a> | <a href="index_en.html">English</a>
+  </nav>
 </header>
 
 <main>
   <section>
-    <h2 id="intro-title">Introduction</h2>
-    <p id="intro-text">
-      USDt.z is a stable digital currency designed for the modern financial world, offering fast transactions, low fees, and maximum security.
-    </p>
+    <h2>About USDt.z Token</h2>
+    <p>USDt.z is a stablecoin designed to combine the stability of traditional currencies with the security and transparency of next-generation blockchain technology.</p>
+    <p>The token offers high security, fast transactions, and broad usability in both banking and non-banking sectors.</p>
   </section>
 
   <section>
-    <h2 id="benefits-title">Benefits</h2>
-    <ul id="benefits-list">
-      <li>Stability pegged to USD</li>
-      <li>Instant transfers 24/7</li>
+    <h2>Benefits and Use Cases</h2>
+    <ul>
+      <li>USD-pegged stability</li>
+      <li>Instant 24/7 transfers</li>
       <li>Secure smart contracts</li>
+      <li>Advantageous collateral loans</li>
+      <li>Easy access to liquidity</li>
     </ul>
+  </section>
+
+  <section>
+    <h2>Market Info and DEX</h2>
+    <p>The USDt.z token is currently listed on PancakeSwap with a market cap exceeding 5 billion USD. We offer a stable 1:1 peg to the US dollar.</p>
+    <div class="btn-container">
+      <a href="https://pancakeswap.finance/swap?outputCurrency=0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" class="btn" target="_blank">Go to PancakeSwap</a>
+      <a href="https://www.geckoterminal.com/bsc/pools/0x553b402b3d6f91ea2208c7df61a6d4aa96ccb6191787c20fedb7ae6c9823b280" class="btn" target="_blank">View Pool</a>
+    </div>
+  </section>
+
+  <section>
+    <h2>Technical Documentation and Audit</h2>
+    <p>The full technical documentation and whitepaper are available for download below.</p>
+    <div class="btn-container">
+      <a href="docs/USDTz_Whitepaper_EN.pdf" class="btn" target="_blank">Download Whitepaper (EN)</a>
+      <a href="docs/USDTz_Whitepaper_CS.pdf" class="btn" target="_blank">Stáhnout Whitepaper (CZ)</a>
+    </div>
+  </section>
+
+  <section>
+    <h2>Blockchain Explorer</h2>
+    <p>Verify transactions and check the current token status on BscScan:</p>
+    <div class="btn-container">
+      <a href="https://bscscan.com/token/0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" class="btn" target="_blank">View on BscScan</a>
+    </div>
   </section>
 </main>
 
-<script>
-  const translations = {
-    cs: {
-      title: "USDt.z – Stabilní měna nové generace",
-      "intro-title": "Úvod",
-      "intro-text": "USDt.z je stabilní digitální měna navržená pro moderní finanční svět, poskytující rychlé transakce, nízké poplatky a maximální bezpečnost.",
-      "benefits-title": "Výhody",
-      "benefits-list": [
-        "Stabilita vázaná na USD",
-        "Okamžité převody 24/7",
-        "Bezpečné smart kontrakty"
-      ],
-      button: "English"
-    },
-    en: {
-      title: "USDt.z – Stablecoin for Next Generation",
-      "intro-title": "Introduction",
-      "intro-text": "USDt.z is a stable digital currency designed for the modern financial world, offering fast transactions, low fees, and maximum security.",
-      "benefits-title": "Benefits",
-      "benefits-list": [
-        "Stability pegged to USD",
-        "Instant transfers 24/7",
-        "Secure smart contracts"
-      ],
-      button: "Čeština"
-    }
-  };
-
-  let currentLang = "en";
-
-  function switchLanguage() {
-    currentLang = currentLang === "en" ? "cs" : "en";
-    document.getElementById("title").innerText = translations[currentLang].title;
-    document.getElementById("intro-title").innerText = translations[currentLang]["intro-title"];
-    document.getElementById("intro-text").innerText = translations[currentLang]["intro-text"];
-    document.getElementById("benefits-title").innerText = translations[currentLang]["benefits-title"];
-
-    const list = document.getElementById("benefits-list");
-    list.innerHTML = "";
-    translations[currentLang]["benefits-list"].forEach(item => {
-      const li = document.createElement("li");
-      li.textContent = item;
-      list.appendChild(li);
-    });
-
-    document.querySelector(".lang-switch").innerText = translations[currentLang].button;
-  }
-</script>
+<footer>
+  <p style="text-align:center; margin-top: 30px;">&copy; 2025 USDt.z – All rights reserved.</p>
+</footer>
 
 </body>
 </html>
