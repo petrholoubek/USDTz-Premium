@@ -235,29 +235,6 @@
       min-height: 1.5rem;
     }
 
-    /* Grafy a rámečky pro ně */
-    .chart-container {
-      max-width: 900px;
-      margin: 1rem auto 2rem;
-      padding: 1rem 2rem;
-      background: #fff;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgb(31 186 156 / 0.15);
-    }
-    .chart-title {
-      color: rgb(31,186,156);
-      text-align: center;
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-    }
-    canvas {
-      display: block;
-      margin: 0 auto;
-      max-width: 100%;
-      height: auto !important;
-    }
-
     /* Responsive */
     @media (max-width: 768px) {
       nav ul {
@@ -334,12 +311,6 @@
         <a href="pages/about.html" class="btn">Více o tokenu</a>
         <a href="https://pancakeswap.finance/swap?outputCurrency=0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" target="_blank" rel="noopener" class="btn">Swap na PancakeSwap</a>
       </div>
-
-      <!-- Barevný koláčový graf -->
-      <div class="chart-container" style="margin-top:2rem;">
-        <div class="chart-title">Tokenomika</div>
-        <canvas id="tokenomicsChart" width="400" height="300"></canvas>
-      </div>
     </section>
 
     <section id="swap">
@@ -398,12 +369,6 @@
       <h2>Likviditní pool</h2>
       <p>Podívejte se na náš likviditní pool a sledujte tržní výkonnost USDt.z na GeckoTerminalu.</p>
       <a href="https://www.geckoterminal.com/bsc/pools/0x553b402b3d6f91ea2208c7df61a6d4aa96ccb6191787c20fedb7ae6c9823b280" target="_blank" rel="noopener" class="btn">Zobrazit likviditní pool</a>
-
-      <!-- Druhý barevný graf -->
-      <div class="chart-container" style="margin-top:2rem;">
-        <div class="chart-title">Tržní vývoj tokenu USDt.z</div>
-        <canvas id="marketChart" width="400" height="300"></canvas>
-      </div>
     </section>
 
     <section id="docs">
@@ -445,117 +410,31 @@
     &copy; 2025 USDt.z – Next Generation Stablecoin. Všechna práva vyhrazena.
   </footer>
 
-  <!-- Chart.js knihovna -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
   <script src="js/wallet-connect.js"></script>
 
   <script>
-    // Data pro tokenomiku (barevný koláč)
-    const tokenomicsData = {
-      labels: ['Držitelé', 'Rezerva', 'Tým', 'Marketing', 'Likvidita'],
-      datasets: [{
-        data: [50, 20, 10, 10, 10],
-        backgroundColor: [
-          '#1fba9c',
-          '#00b894',
-          '#0984e3',
-          '#fd79a8',
-          '#d63031'
-        ],
-        hoverOffset: 20
-      }]
-    };
-
-    const tokenomicsConfig = {
-      type: 'doughnut',
-      data: tokenomicsData,
-      options: {
-        responsive: true,
-        plugins: {
-          legend: {
-            position: 'bottom',
-            labels: {
-              font: { size: 14 }
-            }
-          },
-          tooltip: {
-            enabled: true
-          }
-        }
-      },
-    };
-
-    const tokenomicsChart = new Chart(
-      document.getElementById('tokenomicsChart'),
-      tokenomicsConfig
-    );
-
-    // Data pro tržní vývoj (sloupcový graf)
-    const marketData = {
-      labels: ['Leden', 'Únor', 'Březen', 'Duben', 'Květen', 'Červen', 'Červenec'],
-      datasets: [{
-        label: 'Tržní kapitalizace (v milionech USD)',
-        data: [3.2, 3.8, 4.0, 4.5, 4.8, 5.2, 5.5],
-        backgroundColor: 'rgba(31, 186, 156, 0.7)',
-        borderColor: 'rgba(31, 186, 156, 1)',
-        borderWidth: 1,
-        borderRadius: 5,
-        barPercentage: 0.6
-      }]
-    };
-
-    const marketConfig = {
-      type: 'bar',
-      data: marketData,
-      options: {
-        responsive: true,
-        scales: {
-          y: {
-            beginAtZero: true,
-            ticks: { stepSize: 0.5 }
-          }
-        },
-        plugins: {
-          legend: {
-            display: false
-          },
-          tooltip: {
-            enabled: true
-          }
-        }
-      }
-    };
-
-    const marketChart = new Chart(
-      document.getElementById('marketChart'),
-      marketConfig
-    );
-
-    // --- Kurzovní kalkulačka ---
+    // Ceny tokenů a kurzů (po načtení budou aktualizované)
     const prices = {
-      czk: 22.5,    // Příklad, později lze aktualizovat dynamicky
-      eur: 0.93,
+      usdtz: 1, // pevný kurz USDt.z
+      bnb: null,
       usd: 1,
-      usdtz: 1,
-      bnb: 300
+      czk: null,
+      eur: null,
     };
 
-    // Funkce pro načtení kurzů z API CoinGecko (pokud chceš)
+    // Načtení kurzů z CoinGecko
     async function fetchPrices() {
       try {
-        const response = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=binancecoin,usd-coin,tether&vs_currencies=czk,eur,usd');
+        const response = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=binancecoin&vs_currencies=usd,czk,eur');
         const data = await response.json();
 
         prices.bnb = data.binancecoin.usd;
-        prices.czk = data.binancecoin.czk || 22.5;
-        prices.eur = data.binancecoin.eur || 0.93;
-        prices.usd = 1;
-        prices.usdtz = 1;  // protože USDt.z je stablecoin 1:1 k USD
+        prices.czk = 1 / data.binancecoin.czk;
+        prices.eur = 1 / data.binancecoin.eur;
 
-        document.getElementById('rate-czk').textContent = prices.czk.toFixed(4) + ' CZK / BNB';
-        document.getElementById('rate-eur').textContent = prices.eur.toFixed(4) + ' EUR / BNB';
-        document.getElementById('rate-usd').textContent = prices.usd.toFixed(4) + ' USD / BNB';
+        document.getElementById('rate-czk').textContent = prices.czk.toFixed(4) + ' CZK / USD';
+        document.getElementById('rate-eur').textContent = prices.eur.toFixed(4) + ' EUR / USD';
+        document.getElementById('rate-usd').textContent = '1 USD';
 
         calculate();
       } catch (error) {
