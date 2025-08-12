@@ -5,290 +5,488 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>USDt.z – Next Generation Stablecoin</title>
 <style>
-  /* Reset */
-  * {
-    margin: 0; padding: 0; box-sizing: border-box;
+/* --- TVÉ CSS --- */
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body a základní font */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #fff;
+  color: #222;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header + navigace */
+header {
+  background: rgb(31,186,156);
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 40px; /* posun pod price bar */
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+nav {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav .logo img {
+  height: 40px;
+  cursor: pointer;
+  filter: none; /* Bílé logo bez stínu */
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  transition: color 0.3s ease;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+  color: #004d40;
+}
+
+nav ul li img.flag {
+  width: 24px;
+  height: 16px;
+  object-fit: cover;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  vertical-align: middle;
+}
+
+/* Hlavní obsah */
+main {
+  flex: 1;
+  max-width: 1200px;
+  margin: 2rem auto 3rem;
+  padding: 0 1rem;
+}
+
+/* Velké logo na úvod */
+.big-logo-container {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.big-logo-container img {
+  max-width: 200px;
+  height: auto;
+  filter: drop-shadow(0 0 5px rgb(31,186,156));
+}
+
+/* Sekce */
+section {
+  margin-bottom: 2rem;
+  background: #fff;
+  padding: 1.5rem 2rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgb(31 186 156 / 0.15);
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Nadpisy */
+h1, h2 {
+  color: rgb(31,186,156);
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* Odstavce */
+p {
+  margin-bottom: 1rem;
+  color: #222;
+  font-size: 1rem;
+}
+
+/* Tlačítka */
+.btn {
+  background-color: rgb(31,186,156);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+.btn:hover {
+  background-color: #1eab91;
+}
+
+/* Speciální modré tlačítko audit */
+.btn.audit {
+  background-color: #007acc;
+}
+
+.btn.audit:hover {
+  background-color: #005f99;
+}
+
+/* Skupina tlačítek v jedné řadě */
+.button-group {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+/* Kontakt a odkaz na prozkoumání tokenu */
+#contact {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#contact div.contact-info {
+  max-width: 60%;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+#contact div.contact-info svg {
+  width: 20px;
+  height: 20px;
+  fill: rgb(31,186,156);
+}
+
+#contact div.token-explore {
+  max-width: 35%;
+  text-align: right;
+}
+
+#contact div.token-explore a {
+  color: rgb(31,186,156);
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid rgb(31,186,156);
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+#contact div.token-explore a:hover {
+  background-color: rgb(31,186,156);
+  color: white;
+}
+
+/* Sekce připojení peněženky */
+#wallet-connect {
+  margin: 1.5rem auto 2rem;
+  max-width: 900px;
+  background: #fff;
+  padding: 1.5rem 2rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgb(31 186 156 / 0.15);
+  text-align: center;
+}
+
+#wallet-connect .wallet-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+#wallet-connect .wallet-buttons button {
+  background-color: rgb(31,186,156);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-weight: 600;
+  min-width: 120px;
+  transition: background-color 0.3s ease;
+}
+
+#wallet-connect .wallet-buttons button:hover {
+  background-color: #1eab91;
+}
+
+#walletStatus {
+  margin-top: 1rem;
+  color: #1eab91;
+  font-weight: 600;
+  min-height: 1.5rem;
+}
+
+/* Price bar nahoře, nalepená a horizontálně scrollující z prava doleva */
+#price-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background: rgb(31,186,156);
+  color: white;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  z-index: 1100;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+#price-bar .ticker-wrapper {
+  white-space: nowrap;
+  display: inline-block;
+  will-change: transform;
+  padding-left: 100%;
+  animation: ticker-scroll 20s linear infinite;
+}
+
+@keyframes ticker-scroll {
+  0% {
+    transform: translateX(0%);
   }
-  body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #f8f9fa;
-    color: #222;
-    min-height: 100vh;
-    display: flex;
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Flex container pro tabulky bankovních/nebankovních výhod */
+#benefits-container {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 900px;
+  margin: 0 auto 2rem;
+}
+
+/* Jednotlivé tabulky */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 430px;
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0 0 10px rgb(31 186 156 / 0.1);
+  overflow: hidden;
+}
+
+table th, table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #ddd;
+  font-size: 1rem;
+  text-align: left;
+}
+
+table th {
+  background-color: rgb(31,186,156);
+  color: white;
+  font-weight: 600;
+}
+
+table tbody tr:hover {
+  background-color: #e0f2f1;
+}
+
+/* Flex row (grafy + kalkulačka) */
+.flex-row {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 900px;
+  margin: 0 auto 2rem;
+}
+
+/* Kalkulačka */
+.calculator {
+  background: #f4f9f8;
+  padding: 1.6rem 2rem;
+  border-radius: 10px;
+  box-shadow: inset 0 0 10px rgb(31 186 156 / 0.1);
+  max-width: 480px;
+  flex: 1;
+}
+
+.calculator label {
+  font-weight: 600;
+  margin-top: 1rem;
+  display: block;
+}
+
+.calculator input, .calculator select {
+  width: 100%;
+  padding: 0.5rem 0.7rem;
+  margin-top: 0.3rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.calculator output {
+  display: block;
+  margin-top: 0.6rem;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: rgb(31,186,156);
+}
+
+/* Grafy */
+canvas {
+  max-width: 100%;
+  margin-top: 1rem;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1rem 1.5rem;
+  background: #f1f3f4;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* Responsivita */
+@media (max-width: 768px) {
+  nav ul {
     flex-direction: column;
+    gap: 0.8rem;
   }
-  header {
-    /* Menu načítáme externě */
+
+  nav ul li a {
+    font-size: 1rem;
+  }
+
+  nav ul li a img.flag {
+    width: 30px;
+    height: 20px;
   }
 
   main {
-    flex: 1;
-    max-width: 1200px;
-    margin: 2rem auto 3rem;
-    padding: 0 1rem;
+    margin: 1rem auto 2rem;
+    padding: 0 0.5rem;
   }
 
-  section {
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    box-shadow: 0 0 12px rgb(31 186 156 / 0.15);
-    padding: 2rem 2.5rem;
-    margin-bottom: 2.5rem;
-    max-width: 900px;
-    margin-left: auto;
-    margin-right: auto;
+  #contact {
+    flex-direction: column;
+    gap: 1rem;
   }
 
-  h1, h2 {
-    color: rgb(31,186,156);
-    margin-bottom: 1rem;
-  }
-  h1 {
-    font-size: 2.8rem;
-    text-align: center;
-  }
-  h2 {
-    font-size: 2rem;
-  }
-  p {
-    font-size: 1.1rem;
-    line-height: 1.5;
-    margin-bottom: 1.25rem;
+  #contact div.contact-info,
+  #contact div.token-explore {
+    max-width: 100%;
+    text-align: center !important;
   }
 
-  /* Tlačítka */
-  .btn {
-    background-color: rgb(31,186,156);
-    color: white;
-    padding: 0.85rem 1.7rem;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: 700;
-    text-decoration: none;
-    display: inline-block;
-    transition: background-color 0.3s ease;
-  }
-  .btn:hover {
-    background-color: #1eab91;
-  }
-  .btn-alt {
-    background-color: #0056b3; /* Modrá barva pro Gecko tlačítko */
-  }
-  .btn-alt:hover {
-    background-color: #003d80;
+  #wallet-connect .wallet-buttons {
+    flex-direction: column;
   }
 
-  .button-group {
-    display: flex;
-    gap: 1.3rem;
-    flex-wrap: wrap;
-    justify-content: center;
+  #wallet-connect .wallet-buttons button {
+    width: 100%;
+    min-width: unset;
+  }
+
+  #benefits-container {
+    flex-direction: column;
+    gap: 1.5rem;
   }
 
   .flex-row {
-    display: flex;
-    gap: 3rem;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-
-  table {
-    border-collapse: collapse;
-    width: 100%;
-    max-width: 400px;
-  }
-  table th, table td {
-    padding: 0.75rem 1rem;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-    font-size: 1rem;
-  }
-  table th {
-    background-color: rgb(31,186,156);
-    color: white;
-    font-weight: 600;
-  }
-  table tbody tr:hover {
-    background-color: #e0f2f1;
+    flex-direction: column;
+    gap: 1.5rem;
   }
 
   .calculator {
-    background: #f4f9f8;
-    padding: 1.6rem 2rem;
-    border-radius: 10px;
-    box-shadow: inset 0 0 10px rgb(31 186 156 / 0.1);
-    max-width: 480px;
-    flex: 1;
-  }
-  .calculator label {
-    font-weight: 600;
-    margin-top: 1rem;
-    display: block;
-  }
-  .calculator input, .calculator select {
-    width: 100%;
-    padding: 0.5rem 0.7rem;
-    margin-top: 0.3rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 1rem;
-  }
-  .calculator output {
-    display: block;
-    margin-top: 0.6rem;
-    font-weight: 700;
-    font-size: 1.25rem;
-    color: rgb(31,186,156);
-  }
-
-  canvas {
     max-width: 100%;
-    margin-top: 1rem;
   }
-
-  footer {
-    text-align: center;
-    padding: 1rem 1.5rem;
-    background: #f1f3f4;
-    font-size: 0.9rem;
-    color: #555;
-  }
-
-  @media (max-width: 960px) {
-    .flex-row {
-      flex-direction: column;
-      gap: 2rem;
-    }
-    table {
-      max-width: 100%;
-    }
-    .calculator {
-      max-width: 100%;
-    }
-  }
-
-  #token-links {
-    max-width: 900px;
-    margin: 0 auto 3rem;
-    padding: 1.5rem 2rem;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    box-shadow: 0 0 12px rgb(31 186 156 / 0.15);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: #fff;
-  }
-  #token-links div.left {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-  #token-links div.left img {
-    height: 50px;
-    object-fit: contain;
-  }
-  #token-links div.left span {
-    font-weight: 600;
-    font-size: 1.2rem;
-    color: rgb(31,186,156);
-  }
-  #token-links div.right {
-    display: flex;
-    gap: 1rem;
-  }
-
-  /* Oprava menu - přes celou šířku i na mobilech */
-  nav {
-    background: rgb(31,186,156);
-    padding: 1rem 2rem;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    width: 100vw;
-    left: 0;
-  }
-  nav ul li a:hover {
-    color: #004d40 !important;
-  }
-  @media (max-width: 768px) {
-    nav div.logo, nav ul {
-      width: 100% !important;
-      justify-content: center !important;
-    }
-    nav ul {
-      flex-wrap: wrap !important;
-      gap: 1rem !important;
-      margin-top: 0.75rem;
-    }
-  }
-
-  /* Ticker - plynulý pás s kurzy zprava doleva */
-  #price-ticker {
-    position: sticky;
-    top: 56px; /* pod menu */
-    background: #1fba9c;
-    color: white;
-    font-weight: 600;
-    font-size: 0.9rem;
-    padding: 0.5rem 0;
-    overflow: hidden;
-    white-space: nowrap;
-    z-index: 1100;
-  }
-  #price-ticker .ticker-content {
-    display: inline-block;
-    padding-left: 100%;
-    animation: ticker-scroll 20s linear infinite;
-  }
-  #price-ticker span {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    margin-right: 3rem;
-  }
-  @keyframes ticker-scroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-100%); }
-  }
+}
 </style>
-
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js" defer></script>
 </head>
 <body>
 
-<header id="header-placeholder">
-  <!-- menu načteme přes JS -->
-</header>
-
-<!-- Pás s kurzy -->
-<div id="price-ticker" aria-label="Aktuální kurzy tokenu USDt.z">
-  <div class="ticker-content" id="ticker-content"></div>
+<!-- Price bar nahoře, nalepený -->
+<div id="price-bar" aria-label="Aktuální ceny tokenů a měn">
+  <div class="ticker-wrapper" id="price-ticker">
+    <!-- JS vloží ceny -->
+  </div>
 </div>
 
+<header id="header-placeholder">
+  <!-- Načteme menu_cs.html přes JS -->
+</header>
+
 <main>
-  <section class="hero" style="max-width: 900px; margin: 2rem auto;">
+
+  <section class="big-logo-container" aria-label="Logo USDt.z">
+    <img src="https://raw.githubusercontent.com/petrholoubek/USDTz-Premium/main/logo.png" alt="USDt.z Logo" />
+  </section>
+
+  <section aria-label="Úvodní informace o tokenu">
     <h1>USDt.z – Next Generation Stablecoin</h1>
-    <p style="text-align:center; font-size:1.15rem; max-width:600px; margin: 0 auto 1rem;">
-      Stabilní, bezpečný a inovativní token navržený pro bankovní i nebankovní sektor.<br />
-      Navrženo s důrazem na bezpečnost, transparentnost a dlouhodobou stabilitu.
-    </p>
+    <p>Stabilní, bezpečný a inovativní token navržený pro bankovní i nebankovní sektor.</p>
+    <p>Navržen s důrazem na bezpečnost, transparentnost a dlouhodobou stabilitu.</p>
     <div class="button-group">
-      <a href="/USDTz-Premium/pages/about.html" class="btn">Více o tokenu</a>
-      <a href="https://pancakeswap.finance/swap?outputCurrency=0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" target="_blank" rel="noopener" class="btn">Swap na PancakeSwap</a>
+      <a href="/USDTz-Premium/pages/about.html" class="btn" tabindex="0">Více o tokenu</a>
+      <a href="https://pancakeswap.finance/swap?outputCurrency=0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" target="_blank" rel="noopener" class="btn" tabindex="0">Swap na PancakeSwap</a>
     </div>
   </section>
 
-  <section>
+  <section aria-label="Tokenomika">
     <h2>Tokenomika</h2>
-    <p>Rozložení tokenů USDt.z podporuje dlouhodobou stabilitu a růst ekosystému.</p>
+    <p>Celková zásoba tokenů je 5 bilionů (5 000 000 000 000 USDt.z).</p>
     <canvas id="tokenomicsChart" width="400" height="250" aria-label="Graf rozložení tokenů USDt.z" role="img"></canvas>
   </section>
 
-  <section>
+  <section aria-label="Kurzovní pás a kalkulačka">
     <h2>Aktuální kurz měn a kalkulačka</h2>
     <div class="flex-row">
       <table aria-label="Tabulka aktuálních kurzů">
@@ -322,152 +520,195 @@
     </div>
   </section>
 
-  <section>
-    <h2>Finanční vývoj tokenu USDt.z</h2>
-    <p>Vývoj likvidity a objemu obchodů USDt.z na Binance Smart Chain.</p>
-    <canvas id="financeChart" width="400" height="250" aria-label="Graf finančního vývoje USDt.z" role="img"></canvas>
+  <section aria-label="Tabulky bankovních a nebankovních výhod">
+    <h2>Výhody pro bankovní a nebankovní sektor</h2>
+    <div id="benefits-container">
+      <table aria-label="Výhody bankovního sektoru">
+        <thead><tr><th>Bankovní sektor</th><th>Výhody</th></tr></thead>
+        <tbody>
+          <tr><td>Stabilita</td><td>Ochrana proti inflaci a kolísání trhů</td></tr>
+          <tr><td>Transparentnost</td><td>Auditovatelné rezervy a bezpečné transakce</td></tr>
+          <tr><td>Likvidita</td><td>Snadná integrace s finančními produkty</td></tr>
+          <tr><td>Bezpečnost</td><td>Moderní kryptografické standardy</td></tr>
+          <tr><td>Regulace</td><td>Splnění požadavků EU a lokálních zákonů</td></tr>
+        </tbody>
+      </table>
+
+      <table aria-label="Výhody nebankovního sektoru">
+        <thead><tr><th>Nebankovní sektor</th><th>Výhody</th></tr></thead>
+        <tbody>
+          <tr><td>Rychlost</td><td>Bleskové transakce s nízkými poplatky</td></tr>
+          <tr><td>Dostupnost</td><td>Otevřený přístup bez bankovního účtu</td></tr>
+          <tr><td>Decentralizace</td><td>Bez závislosti na třetích stranách</td></tr>
+          <tr><td>Flexibilita</td><td>Snadná integrace s různými platformami</td></tr>
+          <tr><td>Komunita</td><td>Podpora a rozvoj ekosystému</td></tr>
+        </tbody>
+      </table>
+    </div>
   </section>
 
-  <section id="token-links" role="region" aria-label="Odkazy na token">
-    <div class="left">
-      <img src="https://raw.githubusercontent.com/petrholoubek/USDTz-Premium/main/logo.png" alt="USDt.z Logo" />
-      <span>Prozkoumej token</span>
-    </div>
-    <div class="right">
-      <a href="https://bscscan.com/token/0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" target="_blank" rel="noopener" class="btn">BSC Scan</a>
-      <a href="https://www.geckoterminal.com/bsc/pools/0x553b402b3d6f91ea2208c7df61a6d4aa96ccb6191787c20fedb7ae6c9823b280" target="_blank" rel="noopener" class="btn btn-alt">Gecko Terminal</a>
-    </div>
+  <section aria-label="Finanční vývoj tokenu USDt.z">
+    <h2>Finanční vývoj</h2>
+    <canvas id="priceChart" width="400" height="250" aria-label="Graf cenového vývoje USDt.z" role="img"></canvas>
   </section>
+
+  <section id="wallet-connect" aria-label="Připojení peněženky">
+    <h2>Připojte svou peněženku</h2>
+    <div class="wallet-buttons">
+      <button id="connectWalletBtn" aria-label="Připojit peněženku">Připojit peněženku</button>
+    </div>
+    <div id="walletStatus" aria-live="polite"></div>
+  </section>
+
 </main>
 
 <footer>
-  &copy; 2025 USDt.z – Next Generation Stablecoin. Všechna práva vyhrazena.
+  <a href="https://www.geckoterminal.com/bsc/pools/0x553b402b3d6f91ea2208c7df61a6d4aa96ccb6191787c20fedb7ae6c9823b280" target="_blank" rel="noopener" class="btn audit" style="background-color:#0057b8;">Gecko Terminal</a>
+  <p>© 2025 USDt.z Stablecoin</p>
 </footer>
 
 <script>
-  // Načtení menu_cs.html do header
+  // Nahrání menu z externího souboru
   fetch('/USDTz-Premium/menu_cs.html')
     .then(response => response.text())
     .then(html => {
       document.getElementById('header-placeholder').innerHTML = html;
-    });
+      // Označí aktivní menu (index)
+      const links = document.querySelectorAll('nav ul li a');
+      links.forEach(a => {
+        if(a.href === window.location.href) a.classList.add('active');
+      });
+    })
+    .catch(console.error);
 
-  // Data a vykreslení tickeru
-  const exchangeRates = {
-    USDTz: 1,
-    BNB: 350,
-    USD: 1,
-    EUR: 0.92,
-    CZK: 22.3
-  };
+  // Příklad aktuálních cen (v praxi by byly z API)
+  const prices = [
+    {symbol: 'USDt.z', price: 1.00},
+    {symbol: 'BNB', price: 320.25},
+    {symbol: 'USD', price: 1.00},
+    {symbol: 'EUR', price: 1.07},
+    {symbol: 'CZK', price: 22.05}
+  ];
 
-  function renderPriceTicker() {
-    const tickerContent = document.getElementById('ticker-content');
-    tickerContent.innerHTML = '';
+  // Naplnění pásu s kurzy (ticker)
+  const tickerEl = document.getElementById('price-ticker');
+  function buildTicker() {
     let content = '';
-    for (const [currency, rate] of Object.entries(exchangeRates)) {
-      content += `<span>${currency}: ${rate.toLocaleString()}</span>`;
-    }
-    tickerContent.innerHTML = content + content; // duplikace pro plynulost
+    prices.forEach(p => {
+      content += ` <span style="margin: 0 1.5rem;">${p.symbol}: ${p.price.toFixed(4)}</span> `;
+    });
+    tickerEl.innerHTML = content + content; // zdvojíme pro plynulost scrollu
   }
-  renderPriceTicker();
+  buildTicker();
 
-  document.addEventListener('DOMContentLoaded', () => {
-    // Tokenomics graf
-    const tokenomicsCtx = document.getElementById('tokenomicsChart').getContext('2d');
-    new Chart(tokenomicsCtx, {
+  // Naplnění tabulky kurzů
+  const ratesBody = document.getElementById('exchangeRates');
+  function buildRates() {
+    let rows = '';
+    prices.forEach(p => {
+      rows += `<tr><td>${p.symbol}</td><td>${p.price.toFixed(4)}</td></tr>`;
+    });
+    ratesBody.innerHTML = rows;
+  }
+  buildRates();
+
+  // Kalkulačka převodu mezi měnami
+  const amountInput = document.getElementById('amountInput');
+  const currencyFrom = document.getElementById('currencyFrom');
+  const currencyTo = document.getElementById('currencyTo');
+  const resultOutput = document.getElementById('resultOutput');
+
+  function convert() {
+    const amount = parseFloat(amountInput.value);
+    if (isNaN(amount) || amount < 0) {
+      resultOutput.textContent = "Zadejte platnou částku.";
+      return;
+    }
+    const from = prices.find(p => p.symbol === currencyFrom.value);
+    const to = prices.find(p => p.symbol === currencyTo.value);
+    if(!from || !to) {
+      resultOutput.textContent = "Neznámá měna.";
+      return;
+    }
+    // Převod na USDt.z a pak na cílovou měnu
+    const inUSDt = amount / from.price;
+    const converted = inUSDt * to.price;
+    resultOutput.textContent = `${amount} ${currencyFrom.value} = ${converted.toFixed(4)} ${currencyTo.value}`;
+  }
+
+  amountInput.addEventListener('input', convert);
+  currencyFrom.addEventListener('change', convert);
+  currencyTo.addEventListener('change', convert);
+  window.addEventListener('load', convert);
+
+  // Chart tokenomiky
+  window.addEventListener('load', () => {
+    const ctx = document.getElementById('tokenomicsChart').getContext('2d');
+    new Chart(ctx, {
       type: 'doughnut',
       data: {
-        labels: ['Staking', 'Likviditní pool', 'Rezerva', 'Tým', 'Marketing'],
+        labels: ['Rezervy', 'Distribuce', 'Tým', 'Rezerva pro vývoj', 'Marketing'],
         datasets: [{
-          label: 'Distribuce tokenů',
-          data: [30, 25, 20, 15, 10],
+          data: [50, 25, 10, 10, 5],
           backgroundColor: [
-            'rgba(31,186,156,0.85)',
-            'rgba(0,123,255,0.75)',
-            'rgba(255,193,7,0.75)',
-            'rgba(220,53,69,0.75)',
-            'rgba(108,117,125,0.75)'
+            'rgba(31,186,156,0.8)',
+            'rgba(31,186,156,0.5)',
+            'rgba(31,186,156,0.3)',
+            'rgba(31,186,156,0.2)',
+            'rgba(31,186,156,0.1)'
           ],
-          borderColor: 'white',
-          borderWidth: 2,
-          hoverOffset: 20
+          borderWidth: 1,
+          borderColor: '#fff'
         }]
       },
       options: {
         responsive: true,
         plugins: {
           legend: {
-            position: 'right',
-            labels: { font: { size: 14 }, padding: 20 }
+            position: 'right'
           },
-          tooltip: { enabled: true }
+          tooltip: {
+            enabled: true
+          }
         }
       }
     });
+  });
 
-    // Finanční vývoj - line chart
-    const financeCtx = document.getElementById('financeChart').getContext('2d');
-    new Chart(financeCtx, {
+  // Chart finančního vývoje (dummy data)
+  window.addEventListener('load', () => {
+    const ctx = document.getElementById('priceChart').getContext('2d');
+    new Chart(ctx, {
       type: 'line',
       data: {
-        labels: ['Leden', 'Únor', 'Březen', 'Duben', 'Květen', 'Červen'],
+        labels: ['Leden', 'Únor', 'Březen', 'Duben', 'Květen', 'Červen', 'Červenec'],
         datasets: [{
-          label: 'Likvidita (mil. USD)',
-          data: [2.5, 3.2, 4.1, 5.0, 5.5, 6.3],
-          borderColor: 'rgba(31,186,156,1)',
-          backgroundColor: 'rgba(31,186,156,0.3)',
-          fill: true,
+          label: 'Cena USDt.z v USD',
+          data: [1, 1.01, 0.99, 1.02, 1.03, 1.01, 1.04],
+          borderColor: 'rgb(31,186,156)',
+          backgroundColor: 'rgba(31,186,156,0.2)',
           tension: 0.3,
-          pointRadius: 5,
-          pointHoverRadius: 7,
-          borderWidth: 3
+          fill: true,
+          pointRadius: 3
         }]
       },
       options: {
         responsive: true,
         scales: {
-          y: { beginAtZero: true, max: 7 }
-        },
-        plugins: {
-          legend: { labels: { font: { size: 14 } } }
+          y: {
+            beginAtZero: false
+          }
         }
       }
     });
+  });
 
-    // Kurzovní tabulka
-    const exchangeRatesTbody = document.getElementById('exchangeRates');
-    for (const [currency, rate] of Object.entries(exchangeRates)) {
-      const tr = document.createElement('tr');
-      tr.innerHTML = `<td>${currency}</td><td>${rate.toLocaleString()}</td>`;
-      exchangeRatesTbody.appendChild(tr);
-    }
-
-    // Kalkulačka převodu
-    const amountInput = document.getElementById('amountInput');
-    const currencyFrom = document.getElementById('currencyFrom');
-    const currencyTo = document.getElementById('currencyTo');
-    const resultOutput = document.getElementById('resultOutput');
-
-    function calculateConversion() {
-      const amount = parseFloat(amountInput.value);
-      const from = currencyFrom.value;
-      const to = currencyTo.value;
-      if (isNaN(amount) || amount < 0) {
-        resultOutput.textContent = 'Zadejte platnou částku.';
-        return;
-      }
-      let amountInUSDTz = amount / exchangeRates[from];
-      let converted = amountInUSDTz * exchangeRates[to];
-      resultOutput.textContent = `${amount.toLocaleString()} ${from} = ${converted.toFixed(4)} ${to}`;
-    }
-
-    amountInput.addEventListener('input', calculateConversion);
-    currencyFrom.addEventListener('change', calculateConversion);
-    currencyTo.addEventListener('change', calculateConversion);
-    calculateConversion();
+  // Wallet connect tlačítko - jen demo
+  document.getElementById('connectWalletBtn').addEventListener('click', () => {
+    const status = document.getElementById('walletStatus');
+    status.textContent = 'Připojeno k peněžence (demo)';
+    status.style.color = 'green';
   });
 </script>
-
 </body>
 </html>
