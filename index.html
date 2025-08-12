@@ -263,16 +263,16 @@
   }
   .calculator output {
     display: block;
-    margin-top: 0.6rem;
+    margin-top: 0.8rem;
     font-weight: 700;
     font-size: 1.25rem;
     color: rgb(31,186,156);
   }
 
-  /* Charts */
-  canvas {
-    max-width: 100%;
-    margin-top: 1rem;
+  /* Charts container to center canvas nicely */
+  .chart-container {
+    max-width: 450px;
+    margin: 0 auto 2.5rem;
   }
 
   /* Bottom box */
@@ -341,7 +341,6 @@
 </style>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js" defer></script>
-<!-- Feather icons CDN for SVG icons -->
 <script src="https://unpkg.com/feather-icons"></script>
 </head>
 <body>
@@ -395,7 +394,9 @@
   <section>
     <h2>Tokenomika</h2>
     <p>Rozložení tokenů USDt.z podporuje dlouhodobou stabilitu a růst ekosystému.</p>
-    <canvas id="tokenomicsChart" width="400" height="250" aria-label="Graf rozložení tokenů USDt.z" role="img"></canvas>
+    <div class="chart-container">
+      <canvas id="tokenomicsChart" width="400" height="400" aria-label="Graf rozložení tokenů USDt.z" role="img"></canvas>
+    </div>
   </section>
 
   <section class="sector-container" aria-label="Bankovní a nebankovní sektor">
@@ -469,10 +470,8 @@
 </footer>
 
 <script>
-  // Feather icons activation
   feather.replace();
 
-  // Tokenomics chart data and config
   const ctx = document.getElementById('tokenomicsChart').getContext('2d');
   const tokenomicsChart = new Chart(ctx, {
     type: 'doughnut',
@@ -519,7 +518,6 @@
     }
   });
 
-  // Exchange rates mock data (replace with API call if needed)
   const rates = {
     USDTz: 1,
     BNB: 300,
