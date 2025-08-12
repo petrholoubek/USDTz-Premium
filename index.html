@@ -239,6 +239,74 @@
       max-width: 100%;
     }
   }
+
+  /* Online podpora plovoucí box */
+  #online-support {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgb(31 186 156 / 0.4);
+    padding: 1rem 1.5rem;
+    width: 250px;
+    font-size: 0.95rem;
+    color: #222;
+    z-index: 1200;
+    font-weight: 600;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease;
+  }
+  #online-support:hover {
+    box-shadow: 0 0 25px rgb(31 186 156 / 0.7);
+  }
+  #online-support a {
+    color: rgb(31,186,156);
+    text-decoration: none;
+    font-weight: 700;
+  }
+
+  /* Nakup a Prodej sekce */
+  #buy-sell {
+    max-width: 900px;
+    margin: 0 auto 2.5rem;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 12px rgb(31 186 156 / 0.15);
+    padding: 2rem 2.5rem;
+    text-align: center;
+  }
+  #buy-sell h2 {
+    color: rgb(31,186,156);
+    margin-bottom: 1rem;
+  }
+  #buy-sell p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+  }
+  #buy-sell .btn-buy,
+  #buy-sell .btn-sell {
+    background-color: rgb(31,186,156);
+    color: white;
+    border: none;
+    padding: 0.85rem 1.7rem;
+    border-radius: 6px;
+    font-weight: 700;
+    cursor: pointer;
+    margin: 0 0.7rem;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    min-width: 120px;
+  }
+  #buy-sell .btn-buy:hover {
+    background-color: #1eab91;
+  }
+  #buy-sell .btn-sell:hover {
+    background-color: #187b70;
+  }
 </style>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js" defer></script>
 </head>
@@ -269,7 +337,7 @@
   </nav>
 </header>
 
-<!-- Živý ticker kurzů pod navigací -->
+<!-- Živý ticker pod navigací -->
 <div id="live-ticker" aria-label="Živá data kurzů" role="region" tabindex="0">
   <div class="ticker-content" aria-live="off">
     <!-- Dynamicky naplněno JS -->
@@ -339,6 +407,14 @@
     <canvas id="financeChart" width="400" height="250" aria-label="Graf finančního vývoje USDt.z" role="img"></canvas>
   </section>
 
+  <!-- Nová sekce Nakup & Prodej -->
+  <section id="buy-sell">
+    <h2>Nakup & Prodej</h2>
+    <p>Snadný způsob, jak koupit nebo prodat USDt.z přímo zde.</p>
+    <a href="https://pancakeswap.finance/swap?outputCurrency=0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" target="_blank" class="btn-buy">Nakoupit USDt.z</a>
+    <a href="https://pancakeswap.finance/swap?inputCurrency=0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" target="_blank" class="btn-sell">Prodat USDt.z</a>
+  </section>
+
   <section id="docs" style="text-align:center;">
     <h2>Dokumentace a audit</h2>
     <p>Kompletní technická dokumentace a nezávislá auditní zpráva.</p>
@@ -352,6 +428,11 @@
 <footer>
   &copy; 2025 USDt.z – Next Generation Stablecoin. Všechna práva vyhrazena.
 </footer>
+
+<!-- Online podpora -->
+<div id="online-support" role="complementary" aria-label="Online podpora">
+  Potřebujete pomoc? <a href="mailto:support@usdtz.cz">Kontaktujte nás</a>
+</div>
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
@@ -447,7 +528,6 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
     // Přepočet přes USDt.z jako základ
-    // Kurz k USDt.z ve slovníku exchangeRates
     let amountInUSDTz = amount / exchangeRates[from];
     let converted = amountInUSDTz * exchangeRates[to];
     resultOutput.textContent = `${amount.toLocaleString()} ${from} = ${converted.toFixed(4)} ${to}`;
@@ -482,6 +562,5 @@ document.addEventListener('DOMContentLoaded', () => {
   tickerContent.innerHTML = buildTickerItems(liveData) + buildTickerItems(liveData);
 });
 </script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js"></script>
 </body>
 </html>
