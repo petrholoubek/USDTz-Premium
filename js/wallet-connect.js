@@ -1,5 +1,3 @@
-// wallet-connect.js
-
 // Pomocná funkce na zobrazení stavu
 function setStatus(message) {
   const status = document.getElementById('walletStatus');
@@ -23,9 +21,6 @@ async function connectMetaMask() {
 
 // Připojení Trust Wallet přes WalletConnect
 async function connectWalletConnect() {
-  // WalletConnect SDK musí být nahrán v projektu
-  // Pro jednoduchost zde použijeme cdn link (musíš přidat do HTML <script>)
-
   if (typeof WalletConnectProvider === 'undefined') {
     setStatus('WalletConnect SDK není dostupné. Přidej jej do HTML.');
     return;
