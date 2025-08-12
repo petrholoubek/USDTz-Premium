@@ -172,6 +172,15 @@ p {
   background-color: #005f99;
 }
 
+/* Modré tlačítko pro Gecko a audit */
+.btn.gecko {
+  background-color: #007acc;
+}
+
+.btn.gecko:hover {
+  background-color: #005f99;
+}
+
 /* Flex box pro tlačítka */
 .button-group {
   display: flex;
