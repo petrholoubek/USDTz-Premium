@@ -22,7 +22,7 @@
     padding: 1rem 2rem;
     position: sticky;
     top: 0;
-    z-index: 1100;
+    z-index: 1000;
     box-shadow: 0 2px 6px rgba(0,0,0,0.15);
   }
   nav {
@@ -31,6 +31,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
   }
   nav .logo img {
     height: 45px;
@@ -42,6 +44,7 @@
     display: flex;
     gap: 2rem;
     align-items: center;
+    flex-wrap: wrap;
   }
   nav ul li a {
     text-decoration: none;
@@ -65,30 +68,25 @@
     border-radius: 3px;
   }
 
-  /* Živý ticker pod navigací */
-  #live-ticker {
-    background-color: rgba(31,186,156,0.9);
+  /* Ticker container */
+  #liveTicker {
+    background: rgba(255 255 255 / 0.15);
+    border-radius: 6px;
     color: white;
-    overflow: hidden;
+    font-weight: 700;
+    font-size: 0.9rem;
     white-space: nowrap;
-    border-bottom: 2px solid #004d40;
-    font-weight: 600;
-    font-size: 1rem;
-    padding: 0.4rem 0;
-    user-select: none;
+    overflow: hidden;
+    max-width: 450px;
+    padding: 0.3rem 0.8rem;
     position: relative;
-    z-index: 1050;
   }
-  .ticker-content {
+  #tickerContent {
     display: inline-block;
     padding-left: 100%;
-    animation: ticker-scroll 25s linear infinite;
+    animation: tickerAnim 25s linear infinite;
   }
-  .ticker-item {
-    display: inline-block;
-    margin-right: 3rem;
-  }
-  @keyframes ticker-scroll {
+  @keyframes tickerAnim {
     0% { transform: translateX(0); }
     100% { transform: translateX(-100%); }
   }
@@ -155,7 +153,6 @@
     display: flex;
     gap: 1.3rem;
     flex-wrap: wrap;
-    justify-content: center;
   }
   /* Sekce kurzů a kalkulačky */
   .flex-row {
@@ -210,7 +207,7 @@
     display: block;
     margin-top: 0.6rem;
     font-weight: 700;
-    font-size: 1.25rem;
+    font-size: 1.3rem;
     color: rgb(31,186,156);
   }
   /* Grafy */
@@ -239,74 +236,6 @@
       max-width: 100%;
     }
   }
-
-  /* Online podpora plovoucí box */
-  #online-support {
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
-    background: white;
-    border: 1px solid #ddd;
-    border-radius: 12px;
-    box-shadow: 0 0 15px rgb(31 186 156 / 0.4);
-    padding: 1rem 1.5rem;
-    width: 250px;
-    font-size: 0.95rem;
-    color: #222;
-    z-index: 1200;
-    font-weight: 600;
-    cursor: pointer;
-    transition: box-shadow 0.3s ease;
-  }
-  #online-support:hover {
-    box-shadow: 0 0 25px rgb(31 186 156 / 0.7);
-  }
-  #online-support a {
-    color: rgb(31,186,156);
-    text-decoration: none;
-    font-weight: 700;
-  }
-
-  /* Nakup a Prodej sekce */
-  #buy-sell {
-    max-width: 900px;
-    margin: 0 auto 2.5rem;
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    box-shadow: 0 0 12px rgb(31 186 156 / 0.15);
-    padding: 2rem 2.5rem;
-    text-align: center;
-  }
-  #buy-sell h2 {
-    color: rgb(31,186,156);
-    margin-bottom: 1rem;
-  }
-  #buy-sell p {
-    font-size: 1.1rem;
-    margin-bottom: 1.5rem;
-  }
-  #buy-sell .btn-buy,
-  #buy-sell .btn-sell {
-    background-color: rgb(31,186,156);
-    color: white;
-    border: none;
-    padding: 0.85rem 1.7rem;
-    border-radius: 6px;
-    font-weight: 700;
-    cursor: pointer;
-    margin: 0 0.7rem;
-    transition: background-color 0.3s ease;
-    text-decoration: none;
-    display: inline-block;
-    min-width: 120px;
-  }
-  #buy-sell .btn-buy:hover {
-    background-color: #1eab91;
-  }
-  #buy-sell .btn-sell:hover {
-    background-color: #187b70;
-  }
 </style>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js" defer></script>
 </head>
@@ -334,15 +263,13 @@
         </a>
       </li>
     </ul>
+    <div id="liveTicker" aria-label="Živé kurzy">
+      <div id="tickerContent" aria-live="polite" aria-atomic="true" role="marquee" tabindex="0">
+        Načítám kurzy...
+      </div>
+    </div>
   </nav>
 </header>
-
-<!-- Živý ticker pod navigací -->
-<div id="live-ticker" aria-label="Živá data kurzů" role="region" tabindex="0">
-  <div class="ticker-content" aria-live="off">
-    <!-- Dynamicky naplněno JS -->
-  </div>
-</div>
 
 <main>
   <section class="hero" style="max-width: 900px; margin: 2rem auto;">
@@ -351,7 +278,7 @@
       Stabilní, bezpečný a inovativní token navržený pro bankovní i nebankovní sektor.  
       Navrženo s důrazem na bezpečnost, transparentnost a dlouhodobou stabilitu.
     </p>
-    <div class="button-group">
+    <div class="button-group" style="justify-content:center;">
       <a href="pages/about.html" class="btn">Více o tokenu</a>
       <a href="https://pancakeswap.finance/swap?outputCurrency=0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" target="_blank" rel="noopener" class="btn">Swap na PancakeSwap</a>
     </div>
@@ -407,160 +334,299 @@
     <canvas id="financeChart" width="400" height="250" aria-label="Graf finančního vývoje USDt.z" role="img"></canvas>
   </section>
 
-  <!-- Nová sekce Nakup & Prodej -->
   <section id="buy-sell">
-    <h2>Nakup & Prodej</h2>
-    <p>Snadný způsob, jak koupit nebo prodat USDt.z přímo zde.</p>
-    <a href="https://pancakeswap.finance/swap?outputCurrency=0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" target="_blank" class="btn-buy">Nakoupit USDt.z</a>
-    <a href="https://pancakeswap.finance/swap?inputCurrency=0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" target="_blank" class="btn-sell">Prodat USDt.z</a>
+    <h2>Nákup & Prodej</h2>
+    <p>Pro nákup a prodej USDt.z využijte PancakeSwap, nebo připojte svou peněženku a obchodujte přímo zde.</p>
+    <div class="button-group" style="justify-content:center;">
+      <a href="https://pancakeswap.finance/swap?outputCurrency=0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" target="_blank" rel="noopener" class="btn">Nakupte na PancakeSwap</a>
+      <a href="#wallet-connect" class="btn">Připojit peněženku</a>
+    </div>
   </section>
 
   <section id="docs" style="text-align:center;">
     <h2>Dokumentace a audit</h2>
     <p>Kompletní technická dokumentace a nezávislá auditní zpráva.</p>
-    <div class="button-group">
+    <div class="button-group" style="justify-content:center;">
       <a href="docs/USDTz_Whitepaper_CS.pdf" target="_blank" class="btn">Stáhnout Whitepaper (PDF)</a>
       <a href="docs/Audit_Report.pdf" target="_blank" class="btn audit">Stáhnout Audit (PDF)</a>
     </div>
   </section>
+
+  <section id="wallet-connect" style="text-align:center;">
+    <h2>Připojit peněženku</h2>
+    <div class="button-group" style="justify-content:center;">
+      <button id="connectMetaMask" class="btn">MetaMask</button>
+      <button id="connectWalletConnect" class="btn">Trust Wallet (WalletConnect)</button>
+      <button id="connectCoinbaseWallet" class="btn">Coinbase Wallet</button>
+    </div>
+    <p id="walletStatus" style="margin-top:1rem; color:#1eab91; font-weight:700; min-height: 1.5rem;"></p>
+  </section>
+
+  <section id="contact" style="text-align:center;">
+    <h2>Kontakt</h2>
+    <p>Máte otázky? Kontaktujte nás emailem nebo přes sociální sítě.</p>
+    <p>Email: <a href="mailto:sca.sca@centrum.cz">sca.sca@centrum.cz</a></p>
+  </section>
+
 </main>
 
 <footer>
   &copy; 2025 USDt.z – Next Generation Stablecoin. Všechna práva vyhrazena.
 </footer>
 
-<!-- Online podpora -->
-<div id="online-support" role="complementary" aria-label="Online podpora">
-  Potřebujete pomoc? <a href="mailto:support@usdtz.cz">Kontaktujte nás</a>
-</div>
+<!-- Tawk.to online chat -->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+  var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+  s1.async=true;
+  s1.src='https://embed.tawk.to/64ca145b0cc26f26fbd81d60/1h35jmc6g';
+  s1.charset='UTF-8';
+  s1.setAttribute('crossorigin','*');
+  s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
 
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-  // Tokenomics doughnut chart
-  const tokenomicsCtx = document.getElementById('tokenomicsChart').getContext('2d');
-  new Chart(tokenomicsCtx, {
-    type: 'doughnut',
-    data: {
-      labels: ['Staking', 'Likviditní pool', 'Rezerva', 'Tým', 'Marketing'],
-      datasets: [{
-        label: 'Distribuce tokenů',
-        data: [30, 25, 20, 15, 10],
-        backgroundColor: [
-          'rgba(31,186,156,0.85)',
-          'rgba(0,123,255,0.75)',
-          'rgba(255,193,7,0.75)',
-          'rgba(220,53,69,0.75)',
-          'rgba(108,117,125,0.75)'
-        ],
-        borderColor: 'white',
-        borderWidth: 2,
-        hoverOffset: 20
-      }]
-    },
-    options: {
-      responsive: true,
-      plugins: {
-        legend: {
-          position: 'right',
-          labels: { font: { size: 14 }, padding: 20 }
-        },
-        tooltip: { enabled: true }
-      }
-    }
-  });
-
-  // Finance line chart
-  const financeCtx = document.getElementById('financeChart').getContext('2d');
-  new Chart(financeCtx, {
-    type: 'line',
-    data: {
-      labels: ['Leden', 'Únor', 'Březen', 'Duben', 'Květen', 'Červen'],
-      datasets: [{
-        label: 'Likvidita (mil. USD)',
-        data: [2.5, 3.2, 4.1, 5.0, 5.5, 6.3],
-        borderColor: 'rgba(31,186,156,1)',
-        backgroundColor: 'rgba(31,186,156,0.3)',
-        fill: true,
-        tension: 0.3,
-        pointRadius: 5,
-        pointHoverRadius: 7,
-        borderWidth: 3
-      }]
-    },
-    options: {
-      responsive: true,
-      scales: {
-        y: { beginAtZero: true, max: 7 }
+  document.addEventListener('DOMContentLoaded', () => {
+    // Tokenomics doughnut chart
+    const tokenomicsCtx = document.getElementById('tokenomicsChart').getContext('2d');
+    new Chart(tokenomicsCtx, {
+      type: 'doughnut',
+      data: {
+        labels: ['Staking', 'Likviditní pool', 'Rezerva', 'Tým', 'Marketing'],
+        datasets: [{
+          label: 'Distribuce tokenů',
+          data: [30, 25, 20, 15, 10],
+          backgroundColor: [
+            'rgba(31,186,156,0.85)',
+            'rgba(0,123,255,0.75)',
+            'rgba(255,193,7,0.75)',
+            'rgba(220,53,69,0.75)',
+            'rgba(108,117,125,0.75)'
+          ],
+          borderColor: 'white',
+          borderWidth: 2,
+          hoverOffset: 20
+        }]
       },
-      plugins: {
-        legend: { labels: { font: { size: 14 } } }
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'right',
+            labels: { font: { size: 14 }, padding: 20 }
+          },
+          tooltip: { enabled: true }
+        }
+      }
+    });
+
+    // Finance line chart
+    const financeCtx = document.getElementById('financeChart').getContext('2d');
+    new Chart(financeCtx, {
+      type: 'line',
+      data: {
+        labels: ['Leden', 'Únor', 'Březen', 'Duben', 'Květen', 'Červen'],
+        datasets: [{
+          label: 'Likvidita (mil. USD)',
+          data: [2.5, 3.2, 4.1, 5.0, 5.5, 6.3],
+          borderColor: 'rgba(31,186,156,1)',
+          backgroundColor: 'rgba(31,186,156,0.3)',
+          fill: true,
+          tension: 0.3,
+          pointRadius: 5,
+          pointHoverRadius: 7,
+          borderWidth: 3
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: { beginAtZero: true, max: 7 }
+        },
+        plugins: {
+          legend: { labels: { font: { size: 16 } } }
+        }
+      }
+    });
+
+    // Live prices ticker and table
+    const ticker = document.getElementById('tickerContent');
+    const exchangeRatesBody = document.getElementById('exchangeRates');
+
+    // Základní měny a CoinGecko IDs (pro stablecoin používáme cenu ~1 USD)
+    const coins = [
+      { symbol: 'USDTz', id: 'usd-coin', display: 'USDt.z' },  // substitute with stablecoin proxy
+      { symbol: 'BNB', id: 'binancecoin', display: 'BNB' },
+      { symbol: 'USD', id: null, display: 'USD' },
+      { symbol: 'EUR', id: null, display: 'EUR' },
+      { symbol: 'CZK', id: null, display: 'CZK' }
+    ];
+
+    // Získání kurzů z CoinGecko (BNB + stablecoiny, pak kurz CZK, EUR přes Fixer.io (API key není zdarma, použijeme mock))
+    async function fetchPrices() {
+      try {
+        // fetch BNB price in USD
+        const cgResponse = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=binancecoin%2Cusd-coin&vs_currencies=usd');
+        const cgData = await cgResponse.json();
+
+        // Fixní kurz pro USDt.z = 1 USD (stablecoin)
+        const usdPrice = 1;
+
+        // Pro CZK, EUR použijeme fixní mock data (nahraď za vlastní API)
+        // 1 USD = 0.92 EUR, 1 USD = 24.4 CZK (aktuální přibližně)
+        const rates = {
+          USDt: usdPrice,
+          BNB: cgData.binancecoin.usd,
+          USD: 1,
+          EUR: 0.92,
+          CZK: 24.4
+        };
+
+        // Aktualizace tabulky kurzů (vztah k USDt.z)
+        exchangeRatesBody.innerHTML = '';
+        let tickerText = '';
+
+        coins.forEach(coin => {
+          let priceInUSDTz = 0;
+          if(coin.symbol === 'USDTz') priceInUSDTz = 1;
+          else if(coin.symbol === 'BNB') priceInUSDTz = rates.USD / rates.BNB; // 1 USD = x BNB, takže BNB = USD / BNB price?
+          else if(coin.symbol === 'USD') priceInUSDTz = 1;
+          else if(coin.symbol === 'EUR') priceInUSDTz = rates.USD / rates.EUR;
+          else if(coin.symbol === 'CZK') priceInUSDTz = rates.USD / rates.CZK;
+
+          // Zaokrouhlení a formát
+          let displayPrice = 0;
+          if(coin.symbol === 'BNB') {
+            displayPrice = rates.BNB.toFixed(3) + ' USD';
+          } else if(coin.symbol === 'USDTz' || coin.symbol === 'USD') {
+            displayPrice = '1.000';
+          } else if(coin.symbol === 'EUR') {
+            displayPrice = rates.EUR.toFixed(3) + ' USD';
+          } else if(coin.symbol === 'CZK') {
+            displayPrice = rates.CZK.toFixed(2) + ' CZK';
+          } else {
+            displayPrice = priceInUSDTz.toFixed(5);
+          }
+
+          // Tabulka
+          let tr = document.createElement('tr');
+          let tdName = document.createElement('td');
+          tdName.textContent = coin.display;
+          let tdPrice = document.createElement('td');
+          tdPrice.textContent = displayPrice;
+          tr.appendChild(tdName);
+          tr.appendChild(tdPrice);
+          exchangeRatesBody.appendChild(tr);
+
+          // Ticker: zobrazit symbol a cenu USD (pro BNB a USDT.z)
+          if(coin.symbol === 'BNB' || coin.symbol === 'USDTz') {
+            tickerText += `${coin.display}: ${displayPrice}  —  `;
+          }
+        });
+        ticker.textContent = tickerText || 'Žádná data';
+      } catch (err) {
+        console.error('Chyba při načítání kurzů:', err);
+        ticker.textContent = 'Chyba načtení kurzů';
       }
     }
-  });
 
-  // Kurzovní tabulka data (statické - můžeš nahradit fetch API)
-  const exchangeRates = {
-    USDTz: 1,
-    BNB: 350,
-    USD: 1,
-    EUR: 0.92,
-    CZK: 22.3
-  };
-  const exchangeRatesTbody = document.getElementById('exchangeRates');
-  for (const [currency, rate] of Object.entries(exchangeRates)) {
-    const tr = document.createElement('tr');
-    tr.innerHTML = `<td>${currency}</td><td>${rate.toLocaleString()}</td>`;
-    exchangeRatesTbody.appendChild(tr);
-  }
+    // Spustit načtení a opakovat každých 30 sekund
+    fetchPrices();
+    setInterval(fetchPrices, 30000);
 
-  // Kalkulačka převodu
-  const amountInput = document.getElementById('amountInput');
-  const currencyFrom = document.getElementById('currencyFrom');
-  const currencyTo = document.getElementById('currencyTo');
-  const resultOutput = document.getElementById('resultOutput');
+    // Kalkulačka
+    const amountInput = document.getElementById('amountInput');
+    const currencyFrom = document.getElementById('currencyFrom');
+    const currencyTo = document.getElementById('currencyTo');
+    const resultOutput = document.getElementById('resultOutput');
 
-  function calculateConversion() {
-    const amount = parseFloat(amountInput.value);
-    const from = currencyFrom.value;
-    const to = currencyTo.value;
-    if (isNaN(amount) || amount < 0) {
-      resultOutput.textContent = 'Zadejte platnou částku.';
-      return;
+    function convert() {
+      let amount = parseFloat(amountInput.value);
+      if(isNaN(amount) || amount < 0) {
+        resultOutput.textContent = 'Zadejte platnou částku.';
+        return;
+      }
+
+      // Použij stejná mock data jako výše
+      const mockRates = {
+        USDTz: 1,
+        BNB: 310,     // přibližná cena 1 BNB v USD (aktuálně dle fetch)
+        USD: 1,
+        EUR: 0.92,
+        CZK: 24.4
+      };
+
+      // Přepočet vstupní měny na USD
+      let fromRate = mockRates[currencyFrom.value] || 1;
+      let toRate = mockRates[currencyTo.value] || 1;
+
+      // Pokud vstupní měna je BNB, invertujeme kurz (cena BNB v USD je 310)
+      // Ale protože mockRates BNB je cena v USD, abych dostal hodnotu USDt.z, musím to přepočítat přes USD
+      // V tomto mocku bude konverze = amount * (fromRate / toRate)
+      // Ale musíme ošetřit, že BNB je cena v USD (např. 310 USD)
+      // Takže částka ve vstupní měně převedeme na USD a pak USD na výstupní měnu.
+
+      // Nejprve částka ve vstupní měně na USD:
+      let amountInUSD = 0;
+      if(currencyFrom.value === 'BNB') {
+        amountInUSD = amount * fromRate; // BNB * 310 = USD
+      } else if(currencyFrom.value === 'CZK') {
+        amountInUSD = amount / fromRate; // CZK / 24.4 = USD
+      } else if(currencyFrom.value === 'EUR') {
+        amountInUSD = amount / fromRate; // EUR / 0.92 = USD
+      } else {
+        amountInUSD = amount; // USD nebo USDTz jsou 1:1 USD
+      }
+
+      // Pak USD na cílovou měnu
+      let result = 0;
+      if(currencyTo.value === 'BNB') {
+        result = amountInUSD / toRate; // USD / 310 = BNB
+      } else if(currencyTo.value === 'CZK') {
+        result = amountInUSD * toRate; // USD * 24.4 = CZK
+      } else if(currencyTo.value === 'EUR') {
+        result = amountInUSD * toRate; // USD * 0.92 = EUR
+      } else {
+        result = amountInUSD; // USD nebo USDTz 1:1
+      }
+
+      // Výsledek na 5 desetinných míst
+      resultOutput.textContent = `${amount} ${currencyFrom.value} = ${result.toFixed(5)} ${currencyTo.value}`;
     }
-    // Přepočet přes USDt.z jako základ
-    let amountInUSDTz = amount / exchangeRates[from];
-    let converted = amountInUSDTz * exchangeRates[to];
-    resultOutput.textContent = `${amount.toLocaleString()} ${from} = ${converted.toFixed(4)} ${to}`;
-  }
 
-  amountInput.addEventListener('input', calculateConversion);
-  currencyFrom.addEventListener('change', calculateConversion);
-  currencyTo.addEventListener('change', calculateConversion);
+    amountInput.addEventListener('input', convert);
+    currencyFrom.addEventListener('change', convert);
+    currencyTo.addEventListener('change', convert);
+    convert();
 
-  // Inicializace výpočtu
-  calculateConversion();
+    // Peněženka (základní ukázka)
+    const walletStatus = document.getElementById('walletStatus');
+    const btnMetaMask = document.getElementById('connectMetaMask');
 
-  // --- Ticker živých dat ---
-  const tickerContent = document.querySelector('.ticker-content');
-  const liveData = [
-    { symbol: 'USDt.z', price: 1.00, change: '+0.00%' },
-    { symbol: 'BNB', price: 350.25, change: '+1.15%' },
-    { symbol: 'BTC', price: 27000, change: '-0.85%' },
-    { symbol: 'ETH', price: 1800.50, change: '+0.35%' },
-    { symbol: 'EUR', price: 0.92, change: '+0.10%' },
-    { symbol: 'CZK', price: 22.30, change: '+0.05%' }
-  ];
+    btnMetaMask.addEventListener('click', async () => {
+      if(typeof window.ethereum !== 'undefined') {
+        try {
+          const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+          walletStatus.textContent = `Připojeno: ${accounts[0].slice(0,6)}...${accounts[0].slice(-4)}`;
+        } catch(err) {
+          walletStatus.textContent = 'Připojení peněženky zrušeno.';
+        }
+      } else {
+        walletStatus.textContent = 'MetaMask není nainstalován.';
+      }
+    });
 
-  // Vytvoříme obsah tickeru a vložíme jej 2x pro plynulost smyčky
-  function buildTickerItems(data) {
-    return data.map(item => {
-      const color = item.change.startsWith('+') ? '#a6f1a6' : '#f1a6a6';
-      return `<span class="ticker-item">${item.symbol}: ${item.price.toLocaleString()} <span style="color:${color}">${item.change}</span></span>`;
-    }).join('');
-  }
-
-  tickerContent.innerHTML = buildTickerItems(liveData) + buildTickerItems(liveData);
-});
+    // WalletConnect a Coinbase Wallet by vyžadovaly knihovny, nechávám prázdné eventy
+    document.getElementById('connectWalletConnect').addEventListener('click', () => {
+      alert('WalletConnect funkce bude doplněna.');
+    });
+    document.getElementById('connectCoinbaseWallet').addEventListener('click', () => {
+      alert('Coinbase Wallet funkce bude doplněna.');
+    });
+  });
 </script>
+
 </body>
 </html>
