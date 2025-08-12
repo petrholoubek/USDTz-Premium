@@ -18,7 +18,7 @@
     flex-direction: column;
   }
   header {
-    /* Menu bude načteno externě, takže bez stylů zde */
+    /* Menu načteno externě */
   }
 
   main {
@@ -39,6 +39,14 @@
     max-width: 900px;
     margin-left: auto;
     margin-right: auto;
+
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  section.visible {
+    opacity: 1;
+    transform: translateY(0);
   }
 
   h1, h2 {
@@ -69,16 +77,20 @@
     font-weight: 700;
     text-decoration: none;
     display: inline-block;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.25s ease, box-shadow 0.25s ease;
   }
   .btn:hover {
     background-color: #1eab91;
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(31,186,156,0.5);
   }
   .btn-alt {
     background-color: #004d40;
   }
   .btn-alt:hover {
     background-color: #00332a;
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0,77,64,0.6);
   }
 
   /* Flex box pro tlačítka */
@@ -215,11 +227,11 @@
 <body>
 
 <header id="header-placeholder">
-  <!-- Zde načteme menu_cs.html přes JS -->
+  <!-- Menu načteno přes JS -->
 </header>
 
 <main>
-  <section class="hero" style="max-width: 900px; margin: 2rem auto;">
+  <section class="hero">
     <h1>USDt.z – Next Generation Stablecoin</h1>
     <p style="text-align:center; font-size:1.15rem; max-width:600px; margin: 0 auto 1rem;">
       Stabilní, bezpečný a inovativní token navržený pro bankovní i nebankovní sektor.<br />
@@ -277,7 +289,7 @@
     <canvas id="financeChart" width="400" height="250" aria-label="Graf finančního vývoje USDt.z" role="img"></canvas>
   </section>
 
-  <!-- Nová sekce s logem a odkazy -->
+  <!-- Sekce s logem a odkazy -->
   <section id="token-links" role="region" aria-label="Odkazy na token">
     <div class="left">
       <img src="https://raw.githubusercontent.com/petrholoubek/USDTz-Premium/main/logo.png" alt="USDt.z Logo" />
@@ -304,6 +316,14 @@
     });
 
   document.addEventListener('DOMContentLoaded', () => {
+    // Animace sekcí - přidání třídy visible postupně
+    const sections = document.querySelectorAll('main section');
+    sections.forEach((sec, i) => {
+      setTimeout(() => {
+        sec.classList.add('visible');
+      }, i * 300); // postupně po 300ms
+    });
+
     // Tokenomics doughnut chart
     const tokenomicsCtx = document.getElementById('tokenomicsChart').getContext('2d');
     new Chart(tokenomicsCtx, {
