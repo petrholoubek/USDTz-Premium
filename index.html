@@ -301,7 +301,7 @@
   /* Spodní rámeček - prozkoumej token */
   #bottom-box {
     max-width: 900px;
-    margin: 0 auto 2.5rem;
+    margin: 2rem auto 2.5rem;
     background: #fff;
     border: 1px solid #ddd;
     border-radius: 10px;
@@ -311,6 +311,7 @@
     align-items: center;
     gap: 1.5rem;
     justify-content: space-between;
+    flex-wrap: wrap;
   }
   #bottom-box .logo {
     flex-shrink: 0;
@@ -319,23 +320,26 @@
     height: 40px;
   }
   #bottom-box .text {
-    flex: 1;
+    flex: 1 1 300px;
     font-weight: 600;
     color: rgb(31,186,156);
     font-size: 1.1rem;
+    min-width: 220px;
   }
   #bottom-box .btn-group {
     display: flex;
     gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    min-width: 160px;
   }
   #bottom-box .btn-group a {
     padding: 0.5rem 1.2rem;
     border-radius: 6px;
     font-weight: 700;
     text-decoration: none;
-    display: inline-block;
-    cursor: pointer;
     color: white;
+    cursor: pointer;
     transition: background-color 0.3s ease;
     white-space: nowrap;
   }
@@ -352,35 +356,8 @@
     background-color: #1669bb;
   }
 
-  /* Footer */
-  footer {
-    text-align: center;
-    padding: 1rem 1.5rem;
-    background: #f1f3f4;
-    font-size: 0.9rem;
-    color: #555;
-  }
-
   /* Responsivita */
   @media (max-width: 960px) {
-    .flex-row {
-      flex-direction: column;
-      gap: 2rem;
-    }
-    table {
-      max-width: 100%;
-    }
-    .calculator {
-      max-width: 100%;
-    }
-    .sectors {
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-    .sector-box {
-      min-width: auto;
-      width: 100%;
-    }
     #bottom-box {
       flex-direction: column;
       gap: 1rem;
@@ -388,7 +365,10 @@
     }
     #bottom-box .btn-group {
       justify-content: center;
-      width: 100%;
+      min-width: auto;
+    }
+    #bottom-box .text {
+      min-width: auto;
     }
   }
 </style>
@@ -518,101 +498,129 @@
   <section style="text-align:center;">
     <div class="button-group">
       <a href="/USDTz-Premium/docs/whitepaper.pdf" target="_blank" rel="noopener" class="btn">Stáhnout Whitepaper</a>
-      <a href="/USDTz-Premium/docs/audit-report.pdf" target="_blank" rel="noopener" class="btn audit">Audit Smart Contractu</a>
+      <a href="/USDTz-Premium/docs/audit-report.pdf" target="_blank" rel="noopener" class="btn audit">Stáhnout Audit</a>
     </div>
   </section>
 
-  <!-- Spodní rámeček - prozkoumej token -->
-  <section id="bottom-box" aria-label="Prozkoumej token">
+  <!-- Spodní box pro prozkoumání tokenu -->
+  <section id="bottom-box" aria-label="Prozkoumejte token USDt.z">
     <div class="logo">
       <img src="/USDTz-Premium/logo.png" alt="USDt.z Logo" />
     </div>
     <div class="text">Prozkoumejte token USDt.z na platformách:</div>
     <div class="btn-group">
       <a href="https://bscscan.com/token/0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" target="_blank" rel="noopener" class="btn-bsc" aria-label="BscScan token USDt.z">BscScan</a>
-      <a href="https://www.coingecko.com/en/coins/usdt-z" target="_blank" rel="noopener" class="btn-gecko" aria-label="CoinGecko USDt.z">CoinGecko</a>
+      <a href="https://www.coingecko.com/cs/coins/usdt-z" target="_blank" rel="noopener" class="btn-gecko" aria-label="CoinGecko USDt.z">CoinGecko</a>
     </div>
   </section>
 </main>
 
-<footer>
-  &copy; 2025 USDt.z. Všechna práva vyhrazena.
+<footer style="text-align:center; padding:1rem 0; color:#555; font-size:0.9rem;">
+  &copy; 2025 USDt.z – Next Generation Stablecoin. Všechna práva vyhrazena.
 </footer>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    // Data pro tokenomics graf
-    const ctx = document.getElementById('tokenomicsChart').getContext('2d');
-    const tokenomicsChart = new Chart(ctx, {
-      type: 'doughnut',
-      data: {
-        labels: ['Vývojový fond', 'Likvidita', 'Marketing', 'Rezerva', 'Tým'],
-        datasets: [{
-          data: [25, 35, 15, 15, 10],
-          backgroundColor: [
-            'rgb(31,186,156)',
-            'rgb(50,168,145)',
-            'rgb(33,150,83)',
-            'rgb(139,195,74)',
-            'rgb(205,220,57)'
-          ],
-          hoverOffset: 10
-        }]
-      },
-      options: {
-        responsive: true,
-        plugins: {
-          legend: { position: 'bottom', labels: { color: '#222', font: {size: 14} } }
+// Data pro tokenomiku (příklad)
+const tokenomicsData = {
+  labels: ['Rezerva', 'Likvidita', 'Tým', 'Marketing', 'Vývoj'],
+  datasets: [{
+    label: 'Rozložení tokenů',
+    data: [40, 25, 15, 10, 10],
+    backgroundColor: [
+      'rgba(31,186,156,0.7)',
+      'rgba(0,123,255,0.7)',
+      'rgba(255,193,7,0.7)',
+      'rgba(220,53,69,0.7)',
+      'rgba(108,117,125,0.7)'
+    ],
+    borderWidth: 1,
+    borderColor: '#fff'
+  }]
+};
+
+// Vykreslení tokenomického grafu
+document.addEventListener('DOMContentLoaded', () => {
+  const ctx = document.getElementById('tokenomicsChart').getContext('2d');
+  new Chart(ctx, {
+    type: 'doughnut',
+    data: tokenomicsData,
+    options: {
+      responsive: true,
+      plugins: {
+        legend: {
+          position: 'bottom',
+          labels: {
+            color: '#222',
+            font: {weight: '600', size: 14}
+          }
+        },
+        tooltip: {
+          enabled: true,
+          callbacks: {
+            label: ctx => `${ctx.label}: ${ctx.parsed}%`
+          }
         }
       }
-    });
-
-    // Fiktivní data kurzů - můžeš nahradit API
-    const exchangeRates = {
-      USDTz: 1,
-      BNB: 300,
-      USD: 1,
-      EUR: 0.92,
-      CZK: 23.5
-    };
-
-    // Naplnění tabulky kurzů
-    const tbody = document.getElementById('exchangeRates');
-    for (const [currency, rate] of Object.entries(exchangeRates)) {
-      const tr = document.createElement('tr');
-      tr.innerHTML = `<td>${currency}</td><td>${rate}</td>`;
-      tbody.appendChild(tr);
     }
-
-    // Kalkulačka převodu
-    const amountInput = document.getElementById('amountInput');
-    const currencyFrom = document.getElementById('currencyFrom');
-    const currencyTo = document.getElementById('currencyTo');
-    const resultOutput = document.getElementById('result');
-
-    function calculate() {
-      const amount = parseFloat(amountInput.value);
-      if (isNaN(amount) || amount < 0) {
-        resultOutput.textContent = "Zadejte platnou částku";
-        return;
-      }
-      const fromRate = exchangeRates[currencyFrom.value];
-      const toRate = exchangeRates[currencyTo.value];
-      if (!fromRate || !toRate) {
-        resultOutput.textContent = "Kurz není k dispozici";
-        return;
-      }
-      const converted = (amount * fromRate) / toRate;
-      resultOutput.textContent = `${amount} ${currencyFrom.value} = ${converted.toFixed(4)} ${currencyTo.value}`;
-    }
-
-    amountInput.addEventListener('input', calculate);
-    currencyFrom.addEventListener('change', calculate);
-    currencyTo.addEventListener('change', calculate);
-
-    // Inicializace
-    calculate();
   });
+});
+
+// Kurzovní tabulka - příklad dat (v reálu by se dotazovalo API)
+const rates = {
+  USDTz: 1,
+  BNB: 350,
+  USD: 1,
+  EUR: 0.93,
+  CZK: 22.5
+};
+
+function fillExchangeRates() {
+  const tbody = document.getElementById('exchangeRates');
+  tbody.innerHTML = '';
+  for (const [currency, rate] of Object.entries(rates)) {
+    const tr = document.createElement('tr');
+    const tdCur = document.createElement('td');
+    tdCur.textContent = currency;
+    const tdRate = document.createElement('td');
+    tdRate.textContent = rate;
+    tr.appendChild(tdCur);
+    tr.appendChild(tdRate);
+    tbody.appendChild(tr);
+  }
+}
+
+function convertCurrency(amount, from, to) {
+  if (!rates[from] || !rates[to]) return 0;
+  // Převod přes USDt.z jako referenci
+  return (amount / rates[from]) * rates[to];
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  fillExchangeRates();
+
+  const amountInput = document.getElementById('amountInput');
+  const currencyFrom = document.getElementById('currencyFrom');
+  const currencyTo = document.getElementById('currencyTo');
+  const resultOutput = document.getElementById('result');
+
+  function updateResult() {
+    const amount = parseFloat(amountInput.value);
+    if (isNaN(amount) || amount < 0) {
+      resultOutput.textContent = 'Zadejte platnou částku.';
+      return;
+    }
+    const from = currencyFrom.value;
+    const to = currencyTo.value;
+    const result = convertCurrency(amount, from, to);
+    resultOutput.textContent = `${amount} ${from} = ${result.toFixed(4)} ${to}`;
+  }
+
+  amountInput.addEventListener('input', updateResult);
+  currencyFrom.addEventListener('change', updateResult);
+  currencyTo.addEventListener('change', updateResult);
+
+  updateResult();
+});
 </script>
 </body>
 </html>
