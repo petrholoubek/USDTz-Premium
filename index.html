@@ -18,32 +18,34 @@
     flex-direction: column;
   }
   header {
-    /* Menu bude načteno externě */
+    /* menu se načte přes JS */
   }
-
-  /* Ticker nahoře */
+  
+  /* Lepicí pás s kurzy nahoře */
   #price-ticker {
-    background: #1fba9c;
-    color: white;
-    padding: 0.3rem 1rem;
-    font-weight: 600;
-    font-family: monospace;
-    overflow: hidden;
-    white-space: nowrap;
     position: sticky;
-    top: 56px; /* pod menu */
+    top: 0;
+    background: #1fba9c; /* zelená */
+    color: white;
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+    display: flex;
+    gap: 2rem;
+    overflow-x: auto;
+    white-space: nowrap;
     z-index: 1100;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   }
-  #ticker-content {
-    display: inline-block;
-    will-change: transform;
+  #price-ticker span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
   }
-
+  
   main {
     flex: 1;
     max-width: 1200px;
-    margin: 2rem auto 3rem;
+    margin: 1rem auto 3rem;
     padding: 0 1rem;
   }
 
@@ -94,17 +96,10 @@
     background-color: #1eab91;
   }
   .btn-alt {
-    background-color: #004d40;
+    background-color: #004dff;
   }
   .btn-alt:hover {
-    background-color: #00332a;
-  }
-  /* Gecko button modrý */
-  .btn-gecko {
-    background-color: #007bff;
-  }
-  .btn-gecko:hover {
-    background-color: #0056b3;
+    background-color: #0033cc;
   }
 
   /* Flex box pro tlačítka */
@@ -115,7 +110,7 @@
     justify-content: center;
   }
 
-  /* Sekce kurzů a kalkulačky */
+  /* Flex pro sekce grafů a tabulek */
   .flex-row {
     display: flex;
     gap: 3rem;
@@ -189,20 +184,6 @@
     color: #555;
   }
 
-  /* Responsivita */
-  @media (max-width: 960px) {
-    .flex-row {
-      flex-direction: column;
-      gap: 2rem;
-    }
-    table {
-      max-width: 100%;
-    }
-    .calculator {
-      max-width: 100%;
-    }
-  }
-
   /* Sekce s odkazem pod obsahem */
   #token-links {
     max-width: 900px;
@@ -216,23 +197,71 @@
     justify-content: space-between;
     background: #fff;
   }
-  #token-links div.left {
+  #token-links .left {
     display: flex;
     align-items: center;
     gap: 1rem;
   }
-  #token-links div.left img {
+  #token-links .left img {
     height: 50px;
     object-fit: contain;
   }
-  #token-links div.left span {
+  #token-links .left span {
     font-weight: 600;
     font-size: 1.2rem;
     color: rgb(31,186,156);
   }
-  #token-links div.right {
+  #token-links .right {
     display: flex;
     gap: 1rem;
+  }
+
+  /* Proč USDt.z (odrážky) */
+  #why-usdtz ul {
+    list-style: none;
+    padding-left: 0;
+    font-size: 1.1rem;
+    color: #222;
+    max-width: 650px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+    gap: 1rem;
+  }
+  #why-usdtz ul li {
+    background: #e6f5f3;
+    border-radius: 8px;
+    padding: 1rem 1.2rem;
+    box-shadow: 0 2px 6px rgb(31 186 156 / 0.2);
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+  }
+  #why-usdtz ul li span.emoji {
+    font-size: 1.8rem;
+  }
+
+  /* Tabulka klíčových parametrů */
+  #key-params table {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  /* Responsivita */
+  @media (max-width: 960px) {
+    .flex-row {
+      flex-direction: column;
+      gap: 2rem;
+    }
+    table {
+      max-width: 100%;
+    }
+    .calculator {
+      max-width: 100%;
+    }
+    #why-usdtz ul {
+      grid-template-columns: 1fr;
+    }
   }
 </style>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js" defer></script>
@@ -240,16 +269,17 @@
 <body>
 
 <header id="header-placeholder">
-  <!-- Menu se načte JS -->
+  <!-- menu_cs.html se načte přes JS -->
 </header>
 
-<!-- Ticker aktuálních cen -->
-<div id="price-ticker" aria-live="polite" aria-label="Aktuální ceny tokenů a měn">
-  <span id="ticker-content"></span>
+<!-- Lepicí pás s aktuálními kurzy -->
+<div id="price-ticker" aria-label="Aktuální kurzy tokenu USDt.z">
+  <!-- dynamicky doplněno JS -->
 </div>
 
 <main>
-  <section class="hero" style="max-width: 900px; margin: 2rem auto;">
+
+  <section class="hero" style="max-width: 900px; margin: 1rem auto 2rem;">
     <h1>USDt.z – Next Generation Stablecoin</h1>
     <p style="text-align:center; font-size:1.15rem; max-width:600px; margin: 0 auto 1rem;">
       Stabilní, bezpečný a inovativní token navržený pro bankovní i nebankovní sektor.<br />
@@ -259,6 +289,30 @@
       <a href="/USDTz-Premium/pages/about.html" class="btn">Více o tokenu</a>
       <a href="https://pancakeswap.finance/swap?outputCurrency=0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" target="_blank" rel="noopener" class="btn">Swap na PancakeSwap</a>
     </div>
+  </section>
+
+  <section id="why-usdtz" aria-label="Proč zvolit USDt.z?">
+    <h2>Proč USDt.z?</h2>
+    <ul>
+      <li><span class="emoji">🔒</span> Garantovaná bezpečnost díky blockchain technologii</li>
+      <li><span class="emoji">⚡</span> Rychlé transakce s nízkými poplatky</li>
+      <li><span class="emoji">🌱</span> Udržitelný a transparentní ekosystém</li>
+      <li><span class="emoji">🤝</span> Podpora bankovního i nebankovního sektoru</li>
+    </ul>
+  </section>
+
+  <section id="key-params" aria-label="Klíčové parametry tokenu USDt.z">
+    <h2>Klíčové parametry tokenu</h2>
+    <table>
+      <tbody>
+        <tr><th>Maximální zásoba</th><td>1 000 000 000 USDt.z</td></tr>
+        <tr><th>Staking APY</th><td>12 % ročně</td></tr>
+        <tr><th>Likvidita v poolu</th><td>5 milionů USD</td></tr>
+        <tr><th>Počet držitelů</th><td>4 500+</td></tr>
+        <tr><th>Blockchain</th><td>Binance Smart Chain (BSC)</td></tr>
+        <tr><th>Smart Contract Adresa</th><td>0x913ef7244bEd019b95Ec5321408eE4CE83E25c01</td></tr>
+      </tbody>
+    </table>
   </section>
 
   <section>
@@ -315,9 +369,10 @@
     </div>
     <div class="right">
       <a href="https://bscscan.com/token/0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" target="_blank" rel="noopener" class="btn">BSC Scan</a>
-      <a href="https://www.geckoterminal.com/bsc/pools/0x553b402b3d6f91ea2208c7df61a6d4aa96ccb6191787c20fedb7ae6c9823b280" target="_blank" rel="noopener" class="btn btn-gecko">Gecko Terminal</a>
+      <a href="https://www.geckoterminal.com/bsc/pools/0x553b402b3d6f91ea2208c7df61a6d4aa96ccb6191787c20fedb7ae6c9823b280" target="_blank" rel="noopener" class="btn btn-alt">Gecko Terminal</a>
     </div>
   </section>
+
 </main>
 
 <footer>
@@ -332,6 +387,27 @@
     .then(html => {
       document.getElementById('header-placeholder').innerHTML = html;
     });
+
+  // Data pro pás s kurzy tokenu
+  const exchangeRates = {
+    USDTz: 1,
+    BNB: 350,
+    USD: 1,
+    EUR: 0.92,
+    CZK: 22.3
+  };
+
+  // Dynamické doplnění pásku s kurzy
+  function renderPriceTicker() {
+    const ticker = document.getElementById('price-ticker');
+    ticker.innerHTML = '';
+    for (const [currency, rate] of Object.entries(exchangeRates)) {
+      const span = document.createElement('span');
+      span.textContent = `${currency}: ${rate.toLocaleString()}`;
+      ticker.appendChild(span);
+    }
+  }
+  renderPriceTicker();
 
   document.addEventListener('DOMContentLoaded', () => {
     // Tokenomics doughnut chart
@@ -397,13 +473,6 @@
     });
 
     // Kurzovní tabulka data
-    const exchangeRates = {
-      USDTz: 1,
-      BNB: 350,
-      USD: 1,
-      EUR: 0.92,
-      CZK: 22.3
-    };
     const exchangeRatesTbody = document.getElementById('exchangeRates');
     for (const [currency, rate] of Object.entries(exchangeRates)) {
       const tr = document.createElement('tr');
@@ -434,37 +503,6 @@
     currencyFrom.addEventListener('change', calculateConversion);
     currencyTo.addEventListener('change', calculateConversion);
     calculateConversion();
-
-    // --- Ticker ---
-
-    const tickerContent = document.getElementById('ticker-content');
-
-    async function updateTicker() {
-      try {
-        const res = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=binancecoin,tether&vs_currencies=usd');
-        const data = await res.json();
-
-        const bnbPrice = data.binancecoin.usd.toFixed(3);
-        const usdtPrice = data.tether.usd.toFixed(3);
-
-        tickerContent.textContent = `BNB: $${bnbPrice}    |    USDT: $${usdtPrice}    |    USDt.z: $1.000 (fixní)    `;
-      } catch (e) {
-        tickerContent.textContent = `BNB: ---    |    USDT: ---    |    USDt.z: $1.000 (fixní)    `;
-      }
-    }
-
-    updateTicker();
-    setInterval(updateTicker, 30000);
-
-    // Animace posunu tickeru
-    let offset = 0;
-    function animateTicker() {
-      offset -= 1;
-      if (offset < -tickerContent.offsetWidth) offset = window.innerWidth;
-      tickerContent.style.transform = `translateX(${offset}px)`;
-      requestAnimationFrame(animateTicker);
-    }
-    animateTicker();
 
   });
 </script>
