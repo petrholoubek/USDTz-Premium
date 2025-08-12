@@ -220,74 +220,7 @@
     max-width: 100%;
     margin-top: 1rem;
   }
-  /* Footer */
-  footer {
-    text-align: center;
-    padding: 1rem 1.5rem;
-    background: #f1f3f4;
-    font-size: 0.9rem;
-    color: #555;
-  }
-  /* Responsivita */
-  @media (max-width: 960px) {
-    .flex-row {
-      flex-direction: column;
-      gap: 2rem;
-    }
-    table {
-      max-width: 100%;
-    }
-    .calculator {
-      max-width: 100%;
-    }
-  }
-
-  @media (max-width: 768px) {
-    nav ul {
-      flex-direction: column;
-      gap: 1rem;
-    }
-    nav .logo {
-      margin-bottom: 0.75rem;
-    }
-    #token-links {
-      flex-direction: column;
-      gap: 1rem;
-      text-align: center;
-    }
-    #token-links .btn-group {
-      justify-content: center;
-    }
-  }
-
-  /* Online podpora plovoucí box */
-  #online-support {
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
-    background: white;
-    border: 1px solid #ddd;
-    border-radius: 12px;
-    box-shadow: 0 0 15px rgb(31 186 156 / 0.4);
-    padding: 1rem 1.5rem;
-    width: 250px;
-    font-size: 0.95rem;
-    color: #222;
-    z-index: 1200;
-    font-weight: 600;
-    cursor: pointer;
-    transition: box-shadow 0.3s ease;
-  }
-  #online-support:hover {
-    box-shadow: 0 0 25px rgb(31 186 156 / 0.7);
-  }
-  #online-support a {
-    color: rgb(31,186,156);
-    text-decoration: none;
-    font-weight: 700;
-  }
-
-  /* Nakup a Prodej sekce */
+  /* Sekce Nakup & Prodej */
   #buy-sell {
     max-width: 900px;
     margin: 0 auto 2.5rem;
@@ -327,20 +260,59 @@
   #buy-sell .btn-sell:hover {
     background-color: #187b70;
   }
-
-  /* Sekce token odkazy - logo zelené a tlačítka */
-  #token-links {
+  /* Sekce bankovní a nebankovní sektor */
+  section.bank-nonbank {
     max-width: 900px;
     margin: 0 auto 2.5rem;
-    background: #fff;
+  }
+  section.bank-nonbank ul {
+    list-style: none;
+    padding-left: 0;
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  section.bank-nonbank li {
+    flex: 1 1 250px;
+    background: #e0f2f1;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 0 8px rgb(31 186 156 / 0.3);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  section.bank-nonbank li:nth-child(2) {
+    background: #e3f2fd;
+    box-shadow: 0 0 8px rgb(2 136 209 / 0.3);
+  }
+  section.bank-nonbank img.icon {
+    width: 60px;
+    margin-bottom: 0.7rem;
+  }
+  section.bank-nonbank h3 {
+    margin-bottom: 0.5rem;
+  }
+  section.bank-nonbank h3:first-child {
+    color: #1b5e20;
+  }
+  section.bank-nonbank li:nth-child(2) h3 {
+    color: #0d47a1;
+  }
+  /* Rámeček s logem a tlačítky */
+  #token-links {
+    max-width: 900px;
+    margin: 0 auto 3rem;
+    padding: 1.5rem 2rem;
     border: 1px solid #ddd;
     border-radius: 10px;
     box-shadow: 0 0 12px rgb(31 186 156 / 0.15);
-    padding: 1.5rem 2rem;
+    background: #fff;
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 2rem;
+    justify-content: space-between;
     flex-wrap: wrap;
   }
   #token-links .logo-box img {
@@ -350,6 +322,89 @@
     display: flex;
     gap: 1.5rem;
     flex-wrap: wrap;
+  }
+  /* Sekce Dokumentace a audit */
+  #docs {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto 3rem;
+  }
+  #docs .button-group {
+    justify-content: center;
+  }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 1rem 1.5rem;
+    background: #f1f3f4;
+    font-size: 0.9rem;
+    color: #555;
+  }
+
+  /* Responsivita */
+  @media (max-width: 960px) {
+    .flex-row {
+      flex-direction: column;
+      gap: 2rem;
+    }
+    table {
+      max-width: 100%;
+    }
+    .calculator {
+      max-width: 100%;
+    }
+  }
+  @media (max-width: 768px) {
+    nav ul {
+      flex-direction: column;
+      gap: 1rem;
+    }
+    nav .logo {
+      margin-bottom: 0.75rem;
+    }
+    #token-links {
+      flex-direction: column;
+      gap: 1rem;
+      text-align: center;
+    }
+    #token-links .btn-group {
+      justify-content: center;
+    }
+    section.bank-nonbank ul {
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    section.bank-nonbank li {
+      flex: unset;
+    }
+  }
+
+  /* Online podpora plovoucí box */
+  #online-support {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgb(31 186 156 / 0.4);
+    padding: 1rem 1.5rem;
+    width: 250px;
+    font-size: 0.95rem;
+    color: #222;
+    z-index: 1200;
+    font-weight: 600;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease;
+  }
+  #online-support:hover {
+    box-shadow: 0 0 25px rgb(31 186 156 / 0.7);
+  }
+  #online-support a {
+    color: rgb(31,186,156);
+    text-decoration: none;
+    font-weight: 700;
   }
 </style>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js" defer></script>
@@ -445,20 +500,139 @@
     </div>
   </section>
 
-  <section>
-    <h2>Finanční vývoj tokenu USDt.z</h2>
-    <p>Vývoj likvidity a objemu obchodů USDt.z na Binance Smart Chain.</p>
-    <canvas id="financeChart" width="400" height="250" aria-label="Graf finančního vývoje USDt.z" role="img"></canvas>
-  </section>
-
-  <!-- Nová sekce Nakup & Prodej -->
   <section id="buy-sell">
-    <h2>Nakup & Prodej</h2>
-    <p>Snadný způsob, jak koupit nebo prodat USDt.z přímo zde.</p>
-    <a href="https://pancakeswap.finance/swap?outputCurrency=0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" target="_blank" class="btn-buy btn">Nakoupit USDt.z</a>
-    <a href="https://pancakeswap.finance/swap?inputCurrency=0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" target="_blank" class="btn-sell btn">Prodat USDt.z</a>
+    <h2>Nákup a prodej tokenu USDt.z</h2>
+    <p>Token můžete koupit a prodat na několika decentralizovaných burzách a přes přímé nabídky.</p>
+    <a href="https://pancakeswap.finance/swap?outputCurrency=0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" target="_blank" rel="noopener" class="btn btn-buy">Koupit</a>
+    <a href="https://pancakeswap.finance/swap?inputCurrency=0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" target="_blank" rel="noopener" class="btn btn-sell">Prodat</a>
   </section>
 
-  <!-- Sekce bankovní a nebankovní sektor, s piktogramy -->
-  <section>
-    <h2
+  <section class="bank-nonbank" aria-label="Bankovní a nebankovní sektor">
+    <h2>Bankovní a nebankovní sektor</h2>
+    <ul>
+      <li>
+        <img src="img/icons/bank.svg" alt="Ikona banky" class="icon" />
+        <h3>Bankovní sektor</h3>
+        <p>USDt.z přináší bankám moderní a bezpečný stablecoin s transparentním řízením a likviditou.</p>
+      </li>
+      <li>
+        <img src="img/icons/nonbank.svg" alt="Ikona nebankovního sektoru" class="icon" />
+        <h3>Nebankovní sektor</h3>
+        <p>Pro nebankovní instituce a projekty je USDt.z ideálním nástrojem pro rychlé a bezpečné transakce.</p>
+      </li>
+    </ul>
+  </section>
+
+  <section id="token-links">
+    <div class="logo-box" aria-label="Logo USDt.z">
+      <img src="img/flags/logo-green.png" alt="Zelené logo USDt.z" />
+    </div>
+    <div class="btn-group">
+      <a href="docs/whitepaper.pdf" class="btn" target="_blank" rel="noopener" aria-label="Whitepaper USDt.z">Whitepaper</a>
+      <a href="docs/audit.pdf" class="btn audit" target="_blank" rel="noopener" aria-label="Audit USDt.z">Audit</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2025 USDt.z – Všechny práva vyhrazena</p>
+</footer>
+
+<!-- Online podpora vpravo dole -->
+<div id="online-support" role="region" aria-label="Online podpora">
+  Máte otázky? <a href="mailto:support@usdtz.com">Napište nám</a>
+</div>
+
+<script>
+  // Data kurzů, simulace (můžeš nahradit reálnými API)
+  const exchangeRates = {
+    USDTz: 1,
+    BNB: 230,
+    USD: 1,
+    EUR: 1.10,
+    CZK: 23.5
+  };
+
+  // Naplnění tabulky kurzů
+  const tbodyRates = document.getElementById('exchangeRates');
+  for (const [currency, rate] of Object.entries(exchangeRates)) {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td>${currency}</td><td>${rate.toFixed(4)}</td>`;
+    tbodyRates.appendChild(tr);
+  }
+
+  // Kalkulačka
+  const amountInput = document.getElementById('amountInput');
+  const currencyFrom = document.getElementById('currencyFrom');
+  const currencyTo = document.getElementById('currencyTo');
+  const resultOutput = document.getElementById('resultOutput');
+
+  function calculateConversion() {
+    const amount = parseFloat(amountInput.value);
+    if (isNaN(amount) || amount < 0) {
+      resultOutput.textContent = 'Zadejte platnou částku';
+      return;
+    }
+    const fromRate = exchangeRates[currencyFrom.value];
+    const toRate = exchangeRates[currencyTo.value];
+    const converted = (amount * fromRate) / toRate;
+    resultOutput.textContent = `${amount} ${currencyFrom.value} = ${converted.toFixed(4)} ${currencyTo.value}`;
+  }
+  amountInput.addEventListener('input', calculateConversion);
+  currencyFrom.addEventListener('change', calculateConversion);
+  currencyTo.addEventListener('change', calculateConversion);
+  calculateConversion();
+
+  // Živý ticker simulace dat (ukázka)
+  const tickerData = [
+    "USDt.z: 1.0000 USD",
+    "BNB: 230.45 USD",
+    "EUR/USDt.z: 1.10",
+    "CZK/USDt.z: 23.50",
+    "Swap volume: 12345 USDt.z",
+    "Liquidity pool: 987654 USDt.z"
+  ];
+  const tickerContent = document.querySelector('.ticker-content');
+  tickerContent.textContent = tickerData.join('   •   ');
+
+  // Tokenomika graf (Chart.js)
+  document.addEventListener('DOMContentLoaded', () => {
+    const ctx = document.getElementById('tokenomicsChart').getContext('2d');
+    const tokenomicsChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+        labels: ['Rezerva', 'Likvidita', 'Tým', 'Marketing', 'Ekosystém'],
+        datasets: [{
+          label: 'Rozložení tokenů',
+          data: [40, 25, 15, 10, 10],
+          backgroundColor: [
+            '#1b5e20',
+            '#4caf50',
+            '#81c784',
+            '#a5d6a7',
+            '#c8e6c9'
+          ],
+          hoverOffset: 20
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'bottom',
+            labels: {
+              color: '#004d40',
+              font: {
+                size: 14
+              }
+            }
+          }
+        }
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
