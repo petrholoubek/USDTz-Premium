@@ -1,199 +1,188 @@
 /* Reset */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  margin: 0; padding: 0; box-sizing: border-box;
 }
-
-/* Body a základní font */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #fff;
+  background: #f8f9fa;
   color: #222;
-  line-height: 1.6;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
-
-/* Header + navigace */
 header {
   background: rgb(31,186,156);
   padding: 1rem 2rem;
   position: sticky;
   top: 0;
-  z-index: 1000;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  z-index: 1100;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
 }
-
 nav {
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
 }
-
 nav .logo img {
-  height: 40px;
+  height: 45px;
   cursor: pointer;
-  filter: none; /* Bílé logo bez stínu */
+  filter: drop-shadow(0 0 5px rgba(0,0,0,0.15));
+  margin-right: 1rem; /* odsazení loga od menu */
 }
-
 nav ul {
   list-style: none;
   display: flex;
-  gap: 1.5rem;
+  gap: 2rem;
   align-items: center;
-  flex-wrap: wrap;
 }
-
 nav ul li a {
   text-decoration: none;
   color: white;
   font-weight: 600;
-  transition: color 0.3s ease;
   font-size: 1rem;
+  transition: color 0.3s ease;
   display: flex;
   align-items: center;
   gap: 0.3rem;
 }
-
-nav ul li a:hover,
-nav ul li a.active {
+nav ul li a:hover, nav ul li a.active {
   color: #004d40;
+  font-weight: 700;
 }
-
 nav ul li img.flag {
-  width: 24px;
-  height: 16px;
+  width: 26px;
+  height: 18px;
   object-fit: cover;
   border: 1px solid #ddd;
   border-radius: 3px;
-  vertical-align: middle;
 }
 
-/* Hlavní obsah */
+/* Živý ticker pod navigací */
+#live-ticker {
+  background-color: rgba(31,186,156,0.9);
+  color: white;
+  overflow: hidden;
+  white-space: nowrap;
+  border-bottom: 2px solid #004d40;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.4rem 0;
+  user-select: none;
+  position: relative;
+  z-index: 1050;
+}
+.ticker-content {
+  display: inline-block;
+  padding-left: 100%;
+  animation: ticker-scroll 25s linear infinite;
+}
+.ticker-item {
+  display: inline-block;
+  margin-right: 3rem;
+}
+@keyframes ticker-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
 main {
   flex: 1;
   max-width: 1200px;
   margin: 2rem auto 3rem;
   padding: 0 1rem;
 }
-
-/* Velké logo na úvod */
-.big-logo-container {
-  text-align: center;
-  margin-bottom: 2rem;
-}
-
-.big-logo-container img {
-  max-width: 200px;
-  height: auto;
-  filter: drop-shadow(0 0 5px rgb(31,186,156));
-}
-
-/* Sekce */
+/* Rámečky sekcí */
 section {
-  margin-bottom: 2rem;
   background: #fff;
-  padding: 1.5rem 2rem;
   border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgb(31 186 156 / 0.15);
+  border-radius: 10px;
+  box-shadow: 0 0 12px rgb(31 186 156 / 0.15);
+  padding: 2rem 2.5rem;
+  margin-bottom: 2.5rem;
   max-width: 900px;
   margin-left: auto;
   margin-right: auto;
 }
-
-/* Nadpisy */
 h1, h2 {
   color: rgb(31,186,156);
   margin-bottom: 1rem;
 }
-
 h1 {
-  font-size: 2.5rem;
+  font-size: 2.8rem;
   text-align: center;
-  margin-bottom: 1.5rem;
 }
-
 h2 {
   font-size: 2rem;
-  margin-bottom: 1rem;
 }
-
-/* Odstavce */
 p {
-  margin-bottom: 1rem;
-  color: #222;
-  font-size: 1rem;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  margin-bottom: 1.25rem;
 }
-
 /* Tlačítka */
 .btn {
   background-color: rgb(31,186,156);
   color: white;
-  padding: 0.75rem 1.5rem;
+  padding: 0.85rem 1.7rem;
   border: none;
-  border-radius: 4px;
+  border-radius: 6px;
   cursor: pointer;
-  font-weight: 600;
+  font-weight: 700;
   text-decoration: none;
   display: inline-block;
   transition: background-color 0.3s ease;
-  margin-top: 0.5rem;
-  text-align: center;
-  white-space: nowrap;
+  margin-top: 1rem;
+  user-select: none;
 }
-
-.btn:hover {
+.btn:hover, .btn:focus {
   background-color: #1eab91;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(31,186,156,0.6);
 }
-
-/* Speciální modré tlačítko pro footer odkazy */
 .btn.audit {
   background-color: #007acc;
 }
-
-.btn.audit:hover {
+.btn.audit:hover, .btn.audit:focus {
   background-color: #005f99;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0,122,204,0.6);
 }
-
-/* Skupina tlačítek v jedné řadě */
+/* Flex box pro tlačítka */
 .button-group {
   display: flex;
-  gap: 1rem;
-  justify-content: center;
-  margin-top: 1.5rem;
+  gap: 1.3rem;
   flex-wrap: wrap;
+  justify-content: center;
 }
-
-/* Tabulka */
+/* Sekce kurzů a kalkulačky */
+.flex-row {
+  display: flex;
+  gap: 3rem;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+/* Tabulka kurzů */
 table {
   border-collapse: collapse;
   width: 100%;
   max-width: 400px;
 }
-
 table th, table td {
   padding: 0.75rem 1rem;
   text-align: left;
   border-bottom: 1px solid #ddd;
   font-size: 1rem;
 }
-
 table th {
   background-color: rgb(31,186,156);
   color: white;
   font-weight: 600;
 }
-
 table tbody tr:hover {
   background-color: #e0f2f1;
 }
-
 /* Kalkulačka */
 .calculator {
   background: #f4f9f8;
@@ -202,15 +191,12 @@ table tbody tr:hover {
   box-shadow: inset 0 0 10px rgb(31 186 156 / 0.1);
   max-width: 480px;
   flex: 1;
-  min-width: 280px;
 }
-
 .calculator label {
   font-weight: 600;
   margin-top: 1rem;
   display: block;
 }
-
 .calculator input, .calculator select {
   width: 100%;
   padding: 0.5rem 0.7rem;
@@ -219,7 +205,10 @@ table tbody tr:hover {
   border-radius: 5px;
   font-size: 1rem;
 }
-
+.calculator input:focus, .calculator select:focus {
+  outline: 2px solid rgb(31,186,156);
+  outline-offset: 2px;
+}
 .calculator output {
   display: block;
   margin-top: 0.6rem;
@@ -227,150 +216,201 @@ table tbody tr:hover {
   font-size: 1.25rem;
   color: rgb(31,186,156);
 }
-
 /* Grafy */
 canvas {
   max-width: 100%;
   margin-top: 1rem;
 }
-
-/* Responsivita */
-@media (max-width: 768px) {
-  nav ul {
-    flex-direction: column;
-    gap: 0.8rem;
-  }
-
-  nav ul li a {
-    font-size: 1rem;
-  }
-
-  nav ul li img.flag {
-    width: 30px;
-    height: 20px;
-  }
-
-  main {
-    margin: 1rem auto 2rem;
-  }
-}
-
-/* Rámeček s logem a odkazy (footer-like) */
-#token-links {
-  max-width: 900px;
-  margin: 0 auto 3rem;
-  padding: 1.5rem 2rem;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  box-shadow: 0 0 12px rgb(31 186 156 / 0.15);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: #fff;
-  flex-wrap: wrap;
-}
-
-#token-links div.left {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-
-#token-links div.left img {
-  height: 50px;
-  object-fit: contain;
-}
-
-#token-links div.left span {
-  font-weight: 600;
-  font-size: 1.2rem;
-  color: rgb(31,186,156);
-}
-
-#token-links div.right {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-
-#token-links div.right a {
-  white-space: nowrap;
-}
-
-/* Fix footer at bottom of page if content is short */
-body > footer {
+/* Footer */
+footer {
   text-align: center;
   padding: 1rem 1.5rem;
   background: #f1f3f4;
   font-size: 0.9rem;
   color: #555;
-  margin-top: auto;
-  box-shadow: inset 0 1px 3px rgb(0 0 0 / 0.1);
-  user-select: none;
-  -webkit-user-select: none;
 }
-
-/* Marquee s kurzy nahoře */
-#ticker-container {
-  background-color: rgb(31,186,156);
-  color: white;
-  overflow: hidden;
-  white-space: nowrap;
-  position: sticky;
-  top: 0;
-  z-index: 1100;
-  padding: 0.4rem 0;
-  font-weight: 700;
-  font-size: 1rem;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
-}
-
-#ticker {
-  display: inline-block;
-  padding-left: 100%;
-  animation: ticker-scroll 30s linear infinite;
-}
-
-@keyframes ticker-scroll {
-  0% {
-    transform: translateX(0%);
+/* Responsivita */
+@media (max-width: 960px) {
+  .flex-row {
+    flex-direction: column;
+    gap: 2rem;
   }
-  100% {
-    transform: translateX(-100%);
+  table {
+    max-width: 100%;
+  }
+  .calculator {
+    max-width: 100%;
   }
 }
 
-/* Odstavec nad kurzovní tabulkou */
-#exchange-description {
-  max-width: 900px;
-  margin: 1rem auto 0;
+/* Online podpora plovoucí box */
+#online-support {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgb(31 186 156 / 0.4);
+  padding: 1rem 1.5rem;
+  width: 250px;
   font-size: 0.95rem;
-  color: #444;
+  color: #222;
+  z-index: 1200;
+  font-weight: 600;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease;
+}
+#online-support:hover, #online-support:focus {
+  box-shadow: 0 0 25px rgb(31 186 156 / 0.7);
+  outline: none;
+}
+#online-support a {
+  color: rgb(31,186,156);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+/* Nakup a Prodej sekce */
+#buy-sell {
+  max-width: 900px;
+  margin: 0 auto 2.5rem;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 12px rgb(31 186 156 / 0.15);
+  padding: 2rem 2.5rem;
   text-align: center;
 }
+#buy-sell h2 {
+  color: rgb(31,186,156);
+  margin-bottom: 1rem;
+}
+#buy-sell p {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+#buy-sell .btn-buy,
+#buy-sell .btn-sell {
+  background-color: rgb(31,186,156);
+  color: white;
+  border: none;
+  padding: 0.85rem 1.7rem;
+  border-radius: 6px;
+  font-weight: 700;
+  cursor: pointer;
+  margin: 0 0.7rem;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  min-width: 120px;
+  user-select: none;
+}
+#buy-sell .btn-buy:hover, #buy-sell .btn-buy:focus {
+  background-color: #1eab91;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(31,186,156,0.6);
+}
+#buy-sell .btn-sell:hover, #buy-sell .btn-sell:focus {
+  background-color: #187b70;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(24,123,112,0.6);
+}
 
-/* Flexbox pro tabulku a kalkulačku */
-.flex-row {
+/* Sekce bankovní/nebankovní sektor s ikonami */
+#sector-info {
+  max-width: 900px;
+  margin: 2rem auto 3rem;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 12px rgb(31 186 156 / 0.15);
+  padding: 2rem 2.5rem;
+}
+#sector-info h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: rgb(31,186,156);
+}
+#sector-info > div {
   display: flex;
-  gap: 3rem;
+  gap: 2rem;
   flex-wrap: wrap;
+  justify-content: center;
+}
+#sector-info > div > div {
+  flex: 1 1 250px;
+  text-align: center;
+}
+#sector-info img {
+  width: 60px;
+  margin-bottom: 1rem;
+  filter: drop-shadow(0 0 3px rgba(0,0,0,0.1));
+}
+
+/* Závěrečná sekce logo + tlačítka */
+#explore-token {
+  display: flex;
+  align-items: center;
   justify-content: space-between;
   max-width: 900px;
-  margin: 1rem auto 2rem;
+  margin: 2rem auto 3rem;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 12px rgb(31 186 156 / 0.15);
+  padding: 1rem 2rem;
+}
+#explore-token > div:first-child {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+#explore-token > div:first-child img {
+  height: 50px;
+}
+#explore-token > div:first-child span {
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: rgb(31,186,156);
+}
+#explore-token > div:last-child {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+#explore-token .btn {
+  user-select: none;
+  padding: 0.6rem 1.3rem;
+  font-size: 1rem;
 }
 
-/* Kalkulačka */
-.calculator {
-  flex: 1 1 300px;
+/* Fokusové styly na všechny interaktivní prvky */
+a:focus, button:focus, input:focus, select:focus {
+  outline: 3px solid rgba(31,186,156,0.8);
+  outline-offset: 2px;
 }
 
-/* Tabulka */
-table {
-  flex: 1 1 280px;
-}
-
-/* Zabránění horizontálnímu scrollu */
-body, html {
-  overflow-x: hidden;
+/* Responsivita */
+@media (max-width: 768px) {
+  nav {
+    flex-wrap: wrap;
+  }
+  nav .logo, nav ul {
+    width: 100%;
+    justify-content: center;
+  }
+  nav ul {
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 0.75rem;
+  }
+  #explore-token {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+  #explore-token > div:first-child {
+    justify-content: center;
+  }
 }
