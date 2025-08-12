@@ -5,35 +5,16 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>USDt.z – Next Generation Stablecoin</title>
 
-  <!-- Styl -->
+  <!-- CSS styl -->
   <link rel="stylesheet" href="css/style.css" />
-  
-  <!-- Chart.js (UMD build) -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js" defer></script>
 
-  <!-- Script pro načtení menu -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      fetch('menu_cs.html')
-        .then(response => response.text())
-        .then(data => {
-          document.getElementById('menu-placeholder').innerHTML = data;
-        })
-        .catch(err => console.error('Chyba načtení menu:', err));
-    });
-  </script>
 </head>
 <body>
-  <header id="menu-placeholder">
-    <!-- Zde se načte menu_cs.html -->
-  </header>
-
-  <!-- Živý ticker (pod menu) -->
-  <div id="live-ticker" role="region" aria-label="Živý ticker kurzů" style="background:rgba(31,186,156,0.95);color:white;overflow:hidden;white-space:nowrap;border-bottom:2px solid #004d40;font-weight:600;font-size:0.98rem;padding:0.45rem 0;position:relative;z-index:1050">
-    <div class="ticker-content" aria-hidden="true"></div>
-  </div>
+  <!-- Menu načítáme přes JavaScript (nebo serverově, pokud to umožňuje GitHub Pages) -->
+  <div id="menu-container"></div>
 
   <main>
+    <!-- Hero -->
     <section class="card">
       <h1>USDt.z – Next Generation Stablecoin</h1>
       <p style="text-align:center;max-width:760px;margin:0 auto 1rem;">
@@ -45,209 +26,44 @@
       </div>
     </section>
 
-    <section class="card">
-      <h2>Tokenomika</h2>
-      <p>Rozložení tokenů USDt.z navrženo pro stabilitu, motivaci stakingu a likviditu.</p>
-      <canvas id="tokenomicsChart" width="400" height="250" aria-label="Tokenomika - rozdělení tokenů"></canvas>
-    </section>
+    <!-- Ostatní sekce... -->
 
-    <section class="card">
-      <h2>Aktuální kurz měn a kalkulačka</h2>
-      <div class="flex-row" style="display:flex;gap:2.4rem;flex-wrap:wrap;justify-content:space-between;max-width:900px;margin:0 auto">
-        <table aria-label="Kurzy" style="border-collapse:collapse;width:100%;max-width:420px;">
-          <thead>
-            <tr><th>Měna</th><th>Kurz k USDt.z</th></tr>
-          </thead>
-          <tbody id="exchangeRates">
-            <!-- Naplní JS -->
-          </tbody>
-        </table>
-
-        <div class="calculator" aria-label="Kalkulačka převodu" style="background:#f4f9f8;padding:1.2rem;border-radius:10px;box-shadow:inset 0 0 10px rgba(31,186,156,0.06);max-width:480px;flex:1;">
-          <label for="amountInput">Zadejte částku</label>
-          <input id="amountInput" type="number" min="0" step="any" value="1" />
-          <label for="currencyFrom">Z měny</label>
-          <select id="currencyFrom">
-            <option value="USDTz">USDt.z</option>
-            <option value="BNB">BNB</option>
-            <option value="USD">USD</option>
-            <option value="EUR">EUR</option>
-            <option value="CZK">CZK</option>
-          </select>
-          <label for="currencyTo">Na měnu</label>
-          <select id="currencyTo">
-            <option value="USDTz">USDt.z</option>
-            <option value="BNB">BNB</option>
-            <option value="USD">USD</option>
-            <option value="EUR">EUR</option>
-            <option value="CZK">CZK</option>
-          </select>
-          <output id="resultOutput" aria-live="polite" style="font-size:1.1rem;margin-top:0.6rem;display:block;font-weight:700;color:rgb(31,186,156)"></output>
-        </div>
-      </div>
-    </section>
-
-    <section class="card">
-      <h2>Finanční vývoj tokenu USDt.z</h2>
-      <p>Vývoj likvidity a objemu obchodů (historická ukázka).</p>
-      <canvas id="financeChart" width="400" height="250" aria-label="Finanční vývoj USDt.z"></canvas>
-
-      <div style="text-align:center;margin-top:1rem">
-        <a class="btn" href="https://www.geckoterminal.com/bsc/pools/0x553b402b3d6f91ea2208c7df61a6d4aa96ccb6191787c20fedb7ae6c9823b280" target="_blank" rel="noopener">
-          Otevřít na GeckoTerminal
-        </a>
-      </div>
-    </section>
-
-    <section id="buy-sell" class="card" style="text-align:center">
-      <h2>Nákup &amp; Prodej</h2>
-      <p>Rychlý swap tokenu – otevře PancakeSwap v novém okně nebo použijte náš widget.</p>
-      <div style="margin-top:1rem">
-        <a class="btn" href="https://pancakeswap.finance/swap?outputCurrency=0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" target="_blank" rel="noopener">Nakoupit USDt.z</a>
-        <a class="btn" href="https://pancakeswap.finance/swap?inputCurrency=0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" target="_blank" rel="noopener">Prodat USDt.z</a>
-      </div>
-    </section>
-
-    <section id="docs" class="card" style="text-align:center">
-      <h2>Dokumentace a audit</h2>
-      <p>Kompletní technický whitepaper a nezávislá auditní zpráva (ke stažení).</p>
-      <div class="button-group" style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:1rem">
-        <a class="btn" href="pages/docs.html" target="_blank" rel="noopener">Zobrazit Dokumentaci</a>
-        <a class="btn audit" href="docs/Audit_Report.pdf" target="_blank" rel="noopener">Stáhnout Audit (PDF)</a>
-      </div>
-    </section>
-
-    <section id="wallet-connect" class="card" style="text-align:center">
-      <h2>Připojit peněženku</h2>
-      <div class="wallet-buttons" style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:0.6rem">
-        <button id="connectMetaMask" class="btn">MetaMask</button>
-        <button id="connectWalletConnect" class="btn">Trust Wallet (WalletConnect)</button>
-        <button id="connectCoinbaseWallet" class="btn">Coinbase Wallet</button>
-      </div>
-      <p id="walletStatus" style="margin-top:1rem;font-weight:700;color:rgb(31,186,156);min-height:1.2rem"></p>
-    </section>
-
-    <section id="contact" class="card" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;max-width:900px;margin-left:auto;margin-right:auto">
-      <div class="contact-info" style="max-width:60%;display:flex;align-items:center;gap:0.5rem">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="rgb(31,186,156)" viewBox="0 0 24 24" width="20" height="20"><path d="M2 3h20v18H2z" fill="none"/><path d="M22 3H2v18h20V3zm-2 16H4v-2h16v2zm0-4H4v-2h16v2zm0-4H4V9h16v2z"/></svg>
+    <!-- Kontakt + Prozkoumej token vedle sebe -->
+    <section class="card" aria-label="Kontakt a prozkoumej token" style="display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;max-width:900px;margin:2rem auto;">
+      <div style="flex:1 1 320px; min-width:280px; border:1px solid #ddd; border-radius:8px; padding:1.5rem; box-shadow:0 0 10px rgb(31 186 156 / 0.15); text-align:center;">
+        <h2>Kontakt</h2>
         <p>Máte otázky? Kontaktujte nás emailem nebo přes sociální sítě.</p>
-        <a href="mailto:sca.sca@centrum.cz" class="btn" style="background:#fff;color:rgb(31,186,156);border:1px solid rgb(31,186,156);margin-left:1rem">sca.sca@centrum.cz</a>
+        <a href="mailto:sca.sca@centrum.cz" class="btn" style="background:#fff;color:rgb(31,186,156);border:1px solid rgb(31,186,156);display:inline-block;margin-top:0.5rem;">sca.sca@centrum.cz</a>
       </div>
-      <div class="token-explore" style="max-width:35%;text-align:right">
-        <a href="https://bscscan.com/token/0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" target="_blank" rel="noopener">Prozkoumej token na BscScan</a>
+
+      <div style="flex:1 1 320px; min-width:280px; border:1px solid #ddd; border-radius:8px; padding:1.5rem; box-shadow:0 0 10px rgb(31 186 156 / 0.15); text-align:center;">
+        <h2>Prozkoumej token</h2>
+        <p>Podívejte se na náš token přímo na Binance Smart Chain Exploreru (BscScan).</p>
+        <a href="https://bscscan.com/token/0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" target="_blank" rel="noopener" class="btn" style="background:#fff;color:rgb(31,186,156);border:1px solid rgb(31,186,156);display:inline-block;margin-top:0.5rem;">Zobrazit na BscScan</a>
       </div>
     </section>
+
   </main>
 
-  <footer style="text-align:center;padding:1rem 1.5rem;background:#f1f3f4;font-size:0.9rem;color:#555">
-    &copy; 2025 USDt.z – Next Generation Stablecoin. Všechna práva vyhrazena.
-  </footer>
+  <footer>&copy; 2025 USDt.z – Next Generation Stablecoin. Všechna práva vyhrazena.</footer>
 
-  <!-- Online podpora -->
-  <div id="online-support" aria-label="Online podpora" style="position:fixed;bottom:22px;right:22px;background:#fff;border:1px solid #ddd;border-radius:12px;box-shadow:0 0 15px rgba(31,186,156,0.25);padding:0.9rem 1.1rem;font-weight:700;z-index:1200">
-    Potřebujete pomoc? <a href="mailto:sca.sca@centrum.cz" style="color:rgb(31,186,156);text-decoration:none">Napište nám</a>
-  </div>
-
-  <!-- Hlavní JS -->
-  <script src="js/wallet-connect.js" defer></script>
+  <!-- Načtení menu přes JS -->
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      // Tokenomika doughnut chart
-      const ctxTokenomics = document.getElementById('tokenomicsChart').getContext('2d');
-      new Chart(ctxTokenomics, {
-        type: 'doughnut',
-        data: {
-          labels: ['Staking','Likviditní pool','Rezerva','Tým','Marketing'],
-          datasets: [{
-            data: [30,25,20,15,10],
-            backgroundColor: [
-              'rgba(31,186,156,0.9)',
-              'rgba(0,123,255,0.8)',
-              'rgba(255,193,7,0.8)',
-              'rgba(220,53,69,0.8)',
-              'rgba(108,117,125,0.8)'
-            ],
-            borderColor: 'white',
-            borderWidth: 2,
-            hoverOffset: 18
-          }]
-        },
-        options: {
-          responsive: true,
-          plugins: { legend: { position: 'right' } }
-        }
-      });
-
-      // Finance line chart
-      const ctxFinance = document.getElementById('financeChart').getContext('2d');
-      new Chart(ctxFinance, {
-        type: 'line',
-        data: {
-          labels: ['Leden','Únor','Březen','Duben','Květen','Červen'],
-          datasets: [{
-            label: 'Likvidita (mil. USD)',
-            data: [2.5,3.2,4.1,5.0,5.5,6.3],
-            borderColor: 'rgba(31,186,156,1)',
-            backgroundColor: 'rgba(31,186,156,0.25)',
-            fill: true,
-            tension: 0.25,
-            borderWidth: 3,
-            pointRadius: 4
-          }]
-        },
-        options: {
-          responsive: true,
-          scales: { y: { beginAtZero: true } }
-        }
-      });
-
-      // Kurzy
-      const exchangeRates = {USDTz:1, BNB:350, USD:1, EUR:0.92, CZK:22.3};
-      const tbody = document.getElementById('exchangeRates');
-      for(const [k,v] of Object.entries(exchangeRates)){
-        const tr=document.createElement('tr');
-        tr.innerHTML=`<td>${k}</td><td>${Number(v).toLocaleString()}</td>`;
-        tbody.appendChild(tr);
+    async function loadMenu() {
+      try {
+        const resp = await fetch('menu_cs.html');
+        if (!resp.ok) throw new Error('Menu se nepodařilo načíst');
+        const html = await resp.text();
+        document.getElementById('menu-container').innerHTML = html;
+      } catch(e) {
+        console.error(e);
+        document.getElementById('menu-container').innerHTML = '<p>Menu se nepodařilo načíst.</p>';
       }
-
-      // Kalkulačka převodu
-      const amountInput=document.getElementById('amountInput');
-      const currencyFrom=document.getElementById('currencyFrom');
-      const currencyTo=document.getElementById('currencyTo');
-      const resultOutput=document.getElementById('resultOutput');
-
-      function calculate(){
-        const amt=parseFloat(amountInput.value);
-        if(isNaN(amt) || amt < 0){
-          resultOutput.textContent='Zadejte platnou částku.';
-          return;
-        }
-        const from=currencyFrom.value;
-        const to=currencyTo.value;
-        const inUSDTz = amt / exchangeRates[from];
-        const converted = inUSDTz * exchangeRates[to];
-        resultOutput.textContent = `${amt.toLocaleString()} ${from} = ${converted.toFixed(4)} ${to}`;
-      }
-      amountInput.addEventListener('input', calculate);
-      currencyFrom.addEventListener('change', calculate);
-      currencyTo.addEventListener('change', calculate);
-      calculate();
-
-      // Živý ticker (statická ukázka)
-      const tickerEl = document.querySelector('.ticker-content');
-      const liveData = [
-        {symbol:'USDt.z',price:1.0000,change:'+0.00%'},
-        {symbol:'BNB',price:350.25,change:'+1.15%'},
-        {symbol:'BTC',price:27000,change:'-0.85%'},
-        {symbol:'ETH',price:1800.50,change:'+0.35%'},
-        {symbol:'EUR',price:0.92,change:'+0.10%'},
-        {symbol:'CZK',price:22.30,change:'+0.05%'}
-      ];
-      function buildTicker(data){
-        return data.map(item=>`<span class="ticker-item">${item.symbol}: ${Number(item.price).toLocaleString()} <span style="color:${item.change.startsWith('+')?'#c8ffd1':'#ffd1d1'}">${item.change}</span></span>`).join('');
-      }
-      if(tickerEl){ tickerEl.innerHTML = buildTicker(liveData) + buildTicker(liveData); }
-    });
+    }
+    loadMenu();
   </script>
+
+  <!-- Wallet connect JS -->
+  <script src="js/wallet-connect.js"></script>
 </body>
 </html>
