@@ -37,7 +37,7 @@ nav {
 nav .logo img {
   height: 40px;
   cursor: pointer;
-  filter: none; /* odstraněný stín, aby bílé logo bylo čisté */
+  filter: none; /* Bílé logo bez stínu */
 }
 
 nav ul {
