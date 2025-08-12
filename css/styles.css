@@ -176,7 +176,6 @@ p {
   max-width: 900px;
   margin-left: auto;
   margin-right: auto;
-  padding: 0.5rem 1rem;
 }
 
 #contact div.contact-info {
@@ -184,7 +183,6 @@ p {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  word-break: break-word;
 }
 
 #contact div.contact-info svg {
@@ -207,7 +205,6 @@ p {
   border-radius: 6px;
   display: inline-block;
   transition: background-color 0.3s ease;
-  white-space: nowrap;
 }
 
 #contact div.token-explore a:hover {
@@ -255,45 +252,20 @@ p {
   color: #1eab91;
   font-weight: 600;
   min-height: 1.5rem;
-  word-break: break-word;
 }
 
 /* Responzivita */
-
-/* Tablet a malé notebooky */
-@media (max-width: 992px) {
-  nav {
-    padding: 0 1rem;
-  }
-
-  nav ul {
-    gap: 1rem;
-  }
-}
-
-/* Tablety a menší mobily */
 @media (max-width: 768px) {
   nav ul {
     flex-direction: column;
     gap: 0.8rem;
-    background: rgb(31,186,156);
-    padding: 1rem;
-    border-radius: 8px;
-    position: absolute;
-    top: 60px;
-    right: 2rem;
-    width: 200px;
-    display: none;
-  }
-  nav ul.show {
-    display: flex;
   }
 
   nav ul li a {
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
 
-  nav ul li img.flag {
+  nav ul li a img.flag {
     width: 30px;
     height: 20px;
   }
@@ -320,55 +292,5 @@ p {
   #wallet-connect .wallet-buttons button {
     width: 100%;
     min-width: unset;
-  }
-}
-
-/* Malé mobily */
-@media (max-width: 480px) {
-  h1 {
-    font-size: 1.8rem;
-  }
-
-  h2 {
-    font-size: 1.5rem;
-  }
-
-  nav ul {
-    width: 180px !important;
-    right: 1rem !important;
-    top: 55px !important;
-    padding: 0.8rem !important;
-  }
-
-  nav ul li a {
-    font-size: 1rem !important;
-  }
-
-  nav .logo img {
-    height: 35px;
-  }
-}
-
-/* Tlačítko hamburger menu pro mobil */
-.hamburger {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-  gap: 5px;
-  margin-left: 1rem;
-}
-
-.hamburger div {
-  width: 25px;
-  height: 3px;
-  background-color: white;
-  border-radius: 2px;
-  transition: all 0.3s ease;
-}
-
-/* Zobraz hamburger na mobilech */
-@media (max-width: 768px) {
-  .hamburger {
-    display: flex;
   }
 }
