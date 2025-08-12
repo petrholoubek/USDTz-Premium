@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>USDt.z – Next Generation Stablecoin</title>
 <style>
-  /* Reset */
+  /* Reset a základní styly */
   * {
     margin: 0; padding: 0; box-sizing: border-box;
   }
@@ -17,151 +17,314 @@
     display: flex;
     flex-direction: column;
   }
-
   header {
     background: rgb(31,186,156);
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 1rem 2rem;
     position: sticky;
     top: 0;
     z-index: 1100;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
   }
   nav {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 1rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
   }
-
-  .logo img {
-    height: 40px;
+  nav .logo img {
+    height: 45px;
     cursor: pointer;
     filter: drop-shadow(0 0 5px rgba(0,0,0,0.15));
   }
-
-  /* Menu - desktop */
-  ul.menu {
+  nav ul {
     list-style: none;
     display: flex;
-    gap: 1.5rem;
+    gap: 2rem;
     align-items: center;
   }
-  ul.menu li a {
+  nav ul li a {
+    text-decoration: none;
     color: white;
     font-weight: 600;
     font-size: 1rem;
-    text-decoration: none;
     transition: color 0.3s ease;
     display: flex;
     align-items: center;
     gap: 0.3rem;
   }
-  ul.menu li a:hover,
-  ul.menu li a.active {
+  nav ul li a:hover, nav ul li a.active {
     color: #004d40;
     font-weight: 700;
   }
-  img.flag {
-    width: 24px;
-    height: 16px;
+  nav ul li img.flag {
+    width: 26px;
+    height: 18px;
     object-fit: cover;
+    border: 1px solid #ddd;
     border-radius: 3px;
-    border: 1px solid rgba(255,255,255,0.6);
   }
-
-  /* Hamburger button - mobile */
-  #menu-toggle {
-    display: none;
+  /* Živý ticker pod navigací */
+  #live-ticker {
+    background-color: rgba(31,186,156,0.9);
+    color: white;
+    overflow: hidden;
+    white-space: nowrap;
+    border-bottom: 2px solid #004d40;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.4rem 0;
+    user-select: none;
+    position: relative;
+    z-index: 1050;
   }
-  label[for="menu-toggle"] {
-    display: none;
-    cursor: pointer;
-    width: 30px;
-    height: 25px;
-    flex-direction: column;
-    justify-content: space-between;
+  .ticker-content {
+    display: inline-block;
+    padding-left: 100%;
+    animation: ticker-scroll 25s linear infinite;
   }
-  label[for="menu-toggle"] span {
-    display: block;
-    height: 3px;
-    background: white;
-    border-radius: 2px;
+  .ticker-item {
+    display: inline-block;
+    margin-right: 3rem;
   }
-
-  /* Responsive styles */
-  @media (max-width: 768px) {
-    label[for="menu-toggle"] {
-      display: flex;
-    }
-    ul.menu {
-      display: none;
-      flex-direction: column;
-      width: 100%;
-      margin-top: 1rem;
-      gap: 1rem;
-      background: rgb(31,186,156);
-      border-radius: 8px;
-      padding: 1rem 2rem;
-    }
-    ul.menu li {
-      width: 100%;
-    }
-    ul.menu li a {
-      display: block;
-      width: 100%;
-      font-size: 1.1rem;
-      padding: 0.5rem 0;
-    }
-    #menu-toggle:checked + label + ul.menu {
-      display: flex;
-    }
+  @keyframes ticker-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
   }
 </style>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js" defer></script>
 </head>
 <body>
 <header>
   <nav>
-    <a href="/USDTz-Premium/index.html" class="logo">
-      <img src="/USDTz-Premium/img/flags/logo-white.png" alt="USDt.z Logo" />
-    </a>
-
-    <input type="checkbox" id="menu-toggle" />
-    <label for="menu-toggle" aria-label="Otevřít menu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </label>
-
-    <ul class="menu" role="menubar" aria-label="Hlavní navigace">
-      <li role="none"><a href="/USDTz-Premium/pages/about.html" role="menuitem">O tokenu</a></li>
-      <li role="none"><a href="/USDTz-Premium/pages/usecases.html" role="menuitem">Použití</a></li>
-      <li role="none"><a href="/USDTz-Premium/pages/programs.html" role="menuitem">Programy</a></li>
-      <li role="none"><a href="/USDTz-Premium/pages/docs.html" role="menuitem">Dokumentace</a></li>
-      <li role="none"><a href="/USDTz-Premium/pages/contact.html" role="menuitem">Kontakt</a></li>
-
-      <li role="none">
-        <a href="/USDTz-Premium/index.html" title="Česky" role="menuitem" aria-label="Česká verze">
-          <img src="/USDTz-Premium/img/flags/cz.png" alt="Česká vlajka" class="flag" />
+    <div class="logo">
+      <a href="index.html"><img src="img/flags/logo-white.png" alt="USDt.z Logo" /></a>
+    </div>
+    <ul>
+      <li><a href="pages/about.html">O tokenu</a></li>
+      <li><a href="pages/usecases.html">Použití</a></li>
+      <li><a href="#buy-sell">Swap & DEX</a></li>
+      <li><a href="pages/docs.html" class="active">Dokumentace</a></li>
+      <li><a href="#wallet-connect">Připojit peněženku</a></li>
+      <li><a href="#contact">Kontakt</a></li>
+      <li>
+        <a href="index.html" title="Česky">
+          <img class="flag" src="img/flags/cz.png" alt="Česká vlajka" />
         </a>
       </li>
-      <li role="none">
-        <a href="/USDTz-Premium/index_en.html" title="English" role="menuitem" aria-label="Anglická verze">
-          <img src="/USDTz-Premium/img/flags/en.png" alt="Anglická vlajka" class="flag" />
+      <li>
+        <a href="index_en.html" title="English">
+          <img class="flag" src="img/flags/en.png" alt="Anglická vlajka" />
         </a>
       </li>
     </ul>
   </nav>
 </header>
 
+<div id="live-ticker" aria-label="Živá data kurzů" role="region" tabindex="0">
+  <div class="ticker-content" aria-live="off">
+    <span class="ticker-item">USDt.z: 1.00 USD</span>
+    <span class="ticker-item">BNB: 320 USD</span>
+    <span class="ticker-item">BTC: 30000 USD</span>
+    <span class="ticker-item">ETH: 1800 USD</span>
+    <!-- můžeš to nahradit dynamickým JS později -->
+  </div>
+</div>
+
 <main>
-  <h1>Vítejte na stránkách USDt.z</h1>
-  <p>Obsah webu ...</p>
+<section class="hero" style="max-width: 900px; margin: 2rem auto;">
+  <h1>USDt.z – Next Generation Stablecoin</h1>
+  <p style="text-align:center; font-size:1.15rem; max-width:600px; margin: 0 auto 1rem;">
+    Stabilní, bezpečný a inovativní token navržený pro bankovní i nebankovní sektor.  
+    Navrženo s důrazem na bezpečnost, transparentnost a dlouhodobou stabilitu.
+  </p>
+  <div style="text-align:center; margin-top:1.5rem;">
+    <a href="pages/about.html" class="btn" style="background:rgb(31,186,156);color:#fff;padding:0.75rem 1.6rem; border-radius:8px; text-decoration:none; font-weight:700; margin-right: 1rem;">Více o tokenu</a>
+    <a href="https://pancakeswap.finance/swap?outputCurrency=0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" target="_blank" rel="noopener" class="btn" style="background:#004d40;color:#fff;padding:0.75rem 1.6rem; border-radius:8px; text-decoration:none; font-weight:700;">Swap na PancakeSwap</a>
+  </div>
+</section>
+  <section>
+    <h2>Tokenomika</h2>
+    <p>Rozložení tokenů USDt.z podporuje dlouhodobou stabilitu a růst ekosystému.</p>
+    <canvas id="tokenomicsChart" width="400" height="250" aria-label="Graf rozložení tokenů USDt.z" role="img"></canvas>
+  </section>
+
+  <section>
+    <h2>Aktuální kurz měn a kalkulačka</h2>
+    <div style="display:flex; gap: 3rem; flex-wrap: wrap; justify-content: space-between; max-width: 900px; margin: 0 auto;">
+      <table aria-label="Tabulka aktuálních kurzů" style="border-collapse: collapse; width: 100%; max-width: 400px;">
+        <thead>
+          <tr><th style="background-color: rgb(31,186,156); color: white; padding: 0.75rem 1rem; text-align: left;">Měna</th><th style="background-color: rgb(31,186,156); color: white; padding: 0.75rem 1rem; text-align: left;">Kurz k USDt.z</th></tr>
+        </thead>
+        <tbody id="exchangeRates">
+          <!-- Naplněno JS -->
+        </tbody>
+      </table>
+
+      <div class="calculator" aria-label="Kalkulačka převodu měn" style="background: #f4f9f8; padding: 1.6rem 2rem; border-radius: 10px; box-shadow: inset 0 0 10px rgb(31 186 156 / 0.1); max-width: 480px; flex: 1;">
+        <label for="amountInput" style="font-weight:600; margin-top:1rem; display:block;">Zadejte částku:</label>
+        <input type="number" id="amountInput" min="0" step="any" value="1" style="width: 100%; padding: 0.5rem 0.7rem; margin-top: 0.3rem; border: 1px solid #ccc; border-radius: 5px; font-size: 1rem;" aria-describedby="amountHelp" />
+        
+        <label for="currencyFrom" style="font-weight:600; margin-top:1rem; display:block;">Z měny:</label>
+        <select id="currencyFrom" style="width: 100%; padding: 0.5rem 0.7rem; margin-top: 0.3rem; border: 1px solid #ccc; border-radius: 5px; font-size: 1rem;" aria-describedby="fromHelp">
+          <option value="USDTz">USDt.z</option>
+          <option value="BNB">BNB</option>
+          <option value="USD">USD</option>
+          <option value="EUR">EUR</option>
+          <option value="CZK">CZK</option>
+        </select>
+
+        <label for="currencyTo" style="font-weight:600; margin-top:1rem; display:block;">Na měnu:</label>
+        <select id="currencyTo" style="width: 100%; padding: 0.5rem 0.7rem; margin-top: 0.3rem; border: 1px solid #ccc; border-radius: 5px; font-size: 1rem;" aria-describedby="toHelp">
+          <option value="USDTz">USDt.z</option>
+          <option value="BNB">BNB</option>
+          <option value="USD">USD</option>
+          <option value="EUR">EUR</option>
+          <option value="CZK">CZK</option>
+        </select>
+
+        <output id="resultOutput" aria-live="polite" style="margin-top:1rem; display:block; font-weight:700; font-size:1.25rem; color:rgb(31,186,156);"></output>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Finanční vývoj tokenu USDt.z</h2>
+    <p>Vývoj likvidity a objemu obchodů USDt.z na Binance Smart Chain.</p>
+    <canvas id="financeChart" width="400" height="250" aria-label="Graf finančního vývoje USDt.z" role="img"></canvas>
+  </section>
+
+  <!-- Sekce Nakup & Prodej -->
+  <section id="buy-sell" style="max-width: 900px; margin: 2.5rem auto; background: #fff; border: 1px solid #ddd; border-radius: 10px; box-shadow: 0 0 12px rgb(31 186 156 / 0.15); padding: 2rem 2.5rem; text-align: center;">
+    <h2>Nakup & Prodej</h2>
+    <p>Snadný způsob, jak koupit nebo prodat USDt.z přímo zde.</p>
+    <a href="https://pancakeswap.finance/swap?outputCurrency=0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" target="_blank" rel="noopener" style="background-color: rgb(31,186,156); color: white; border: none; padding: 0.85rem 1.7rem; border-radius: 6px; font-weight: 700; cursor: pointer; margin: 0 0.7rem; text-decoration: none; min-width: 120px; display: inline-block;">Nakoupit USDt.z</a>
+    <a href="https://pancakeswap.finance/swap?inputCurrency=0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" target="_blank" rel="noopener" style="background-color: #004d40; color: white; border: none; padding: 0.85rem 1.7rem; border-radius: 6px; font-weight: 700; cursor: pointer; margin: 0 0.7rem; text-decoration: none; min-width: 120px; display: inline-block;">Prodat USDt.z</a>
+  </section>
+
+  <section id="docs" style="text-align:center; max-width: 900px; margin: 2rem auto;">
+    <h2>Dokumentace a audit</h2>
+    <p>Kompletní technická dokumentace a nezávislá auditní zpráva.</p>
+    <div style="display:flex; gap: 1.3rem; flex-wrap: wrap; justify-content: center;">
+      <a href="docs/USDTz_Whitepaper_CS.pdf" target="_blank" rel="noopener" style="background-color: rgb(31,186,156); color: white; padding: 0.85rem 1.7rem; border-radius: 6px; font-weight: 700; text-decoration: none;">Stáhnout Whitepaper (PDF)</a>
+      <a href="docs/Audit_Report.pdf" target="_blank" rel="noopener" style="background-color: #007acc; color: white; padding: 0.85rem 1.7rem; border-radius: 6px; font-weight: 700; text-decoration: none;">Stáhnout Audit (PDF)</a>
+    </div>
+  </section>
 </main>
 
-<footer style="text-align:center; padding:1rem; background:#f1f3f4; color:#555;">
+<footer style="text-align: center; padding: 1rem 1.5rem; background: #f1f3f4; font-size: 0.9rem; color: #555;">
   &copy; 2025 USDt.z – Next Generation Stablecoin. Všechna práva vyhrazena.
 </footer>
+
+<!-- Online podpora -->
+<div id="online-support" role="complementary" aria-label="Online podpora" style="position: fixed; bottom: 25px; right: 25px; background: white; border: 1px solid #ddd; border-radius: 12px; box-shadow: 0 0 15px rgb(31 186 156 / 0.4); padding: 1rem 1.5rem; width: 250px; font-size: 0.95rem; color: #222; z-index: 1200; font-weight: 600; cursor: pointer; transition: box-shadow 0.3s ease;">
+  Potřebujete pomoc? <a href="mailto:support@usdtz.cz" style="color: rgb(31,186,156); text-decoration: none; font-weight: 700;">Kontaktujte nás</a>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // Tokenomics doughnut chart
+  const tokenomicsCtx = document.getElementById('tokenomicsChart').getContext('2d');
+  new Chart(tokenomicsCtx, {
+    type: 'doughnut',
+    data: {
+      labels: ['Staking', 'Likviditní pool', 'Rezerva', 'Tým', 'Marketing'],
+      datasets: [{
+        label: 'Distribuce tokenů',
+        data: [30, 25, 20, 15, 10],
+        backgroundColor: [
+          'rgba(31,186,156,0.85)',
+          'rgba(0,123,255,0.75)',
+          'rgba(255,193,7,0.75)',
+          'rgba(220,53,69,0.75)',
+          'rgba(108,117,125,0.75)'
+        ],
+        borderColor: 'white',
+        borderWidth: 2,
+        hoverOffset: 20
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: {
+          position: 'right',
+          labels: { font: { size: 14 }, padding: 20 }
+        },
+        tooltip: { enabled: true }
+      }
+    }
+  });
+
+  // Finance line chart
+  const financeCtx = document.getElementById('financeChart').getContext('2d');
+  new Chart(financeCtx, {
+    type: 'line',
+    data: {
+      labels: ['Leden', 'Únor', 'Březen', 'Duben', 'Květen', 'Červen'],
+      datasets: [{
+        label: 'Likvidita (mil. USD)',
+        data: [2.5, 3.2, 4.1, 5.0, 5.5, 6.3],
+        borderColor: 'rgba(31,186,156,1)',
+        backgroundColor: 'rgba(31,186,156,0.3)',
+        fill: true,
+        tension: 0.3,
+        pointRadius: 5,
+        pointHoverRadius: 7,
+        borderWidth: 3
+      }]
+    },
+    options: {
+      responsive: true,
+      scales: {
+        y: { beginAtZero: true, max: 7 }
+      },
+      plugins: {
+        legend: { labels: { font: { size: 14 } } }
+      }
+    }
+  });
+
+  // Kurzovní tabulka data (statické - můžeš nahradit fetch API)
+  const exchangeRates = {
+    USDTz: 1,
+    BNB: 320,
+    USD: 1,
+    EUR: 0.92,
+    CZK: 22.3
+  };
+  const exchangeRatesTbody = document.getElementById('exchangeRates');
+  for (const [currency, rate] of Object.entries(exchangeRates)) {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td>${currency}</td><td>${rate.toLocaleString()}</td>`;
+    exchangeRatesTbody.appendChild(tr);
+  }
+
+  // Kalkulačka převodu
+  const amountInput = document.getElementById('amountInput');
+  const currencyFrom = document.getElementById('currencyFrom');
+  const currencyTo = document.getElementById('currencyTo');
+  const resultOutput = document.getElementById('resultOutput');
+
+  function calculateConversion() {
+    const amount = parseFloat(amountInput.value);
+    const from = currencyFrom.value;
+    const to = currencyTo.value;
+    if (isNaN(amount) || amount < 0) {
+      resultOutput.textContent = 'Zadejte platnou částku.';
+      return;
+    }
+    let amountInUSDTz = amount / exchangeRates[from];
+    let converted = amountInUSDTz * exchangeRates[to];
+    resultOutput.textContent = `${amount.toLocaleString()} ${from} = ${converted.toFixed(4)} ${to}`;
+  }
+
+  amountInput.addEventListener('input', calculateConversion);
+  currencyFrom.addEventListener('change', calculateConversion);
+  currencyTo.addEventListener('change', calculateConversion);
+
+  calculateConversion();
+});
+</script>
 </body>
 </html>
