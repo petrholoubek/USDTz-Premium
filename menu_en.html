@@ -1,26 +1,26 @@
-<nav>
-  <div class="container">
-    <div class="logo">
-      <a href="/index_en.html">
-        <img src="/img/flags/logo-white.png" alt="USDt.z Logo" />
+<nav style="background: rgb(31,186,156); padding: 1rem 2rem; box-shadow: 0 2px 5px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000;">
+  <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+    <div class="logo" style="flex-shrink: 0;">
+      <a href="index_en.html" style="display: inline-block;">
+        <img src="img/flags/logo-white.png" alt="USDt.z Logo" style="height: 40px; cursor: pointer;" />
       </a>
     </div>
 
-    <ul>
-      <li><a href="/pages/about_en.html">About Token</a></li>
-      <li><a href="/pages/usecases_en.html">Use Cases</a></li>
-      <li><a href="/pages/programs_en.html">Programs</a></li>
-      <li><a href="/pages/docs_en.html">Documentation</a></li>
-      <li><a href="/pages/contact_en.html">Contact</a></li>
+    <ul style="list-style: none; display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap; margin: 0; padding: 0;">
+      <li><a href="pages/about_en.html" style="color: white; font-weight: 600; text-decoration: none; font-size: 1rem; transition: color 0.3s ease;">About Token</a></li>
+      <li><a href="pages/usecases_en.html" style="color: white; font-weight: 600; text-decoration: none; font-size: 1rem; transition: color 0.3s ease;">Use Cases</a></li>
+      <li><a href="pages/programs_en.html" style="color: white; font-weight: 600; text-decoration: none; font-size: 1rem; transition: color 0.3s ease;">Programs</a></li>
+      <li><a href="pages/docs_en.html" style="color: white; font-weight: 600; text-decoration: none; font-size: 1rem; transition: color 0.3s ease;">Documentation</a></li>
+      <li><a href="pages/contact_en.html" style="color: white; font-weight: 600; text-decoration: none; font-size: 1rem; transition: color 0.3s ease;">Contact</a></li>
 
       <li>
-        <a href="/index.html" title="Česky" class="lang-switch">
-          <img src="/img/flags/cz.png" alt="Česky" class="flag" />
+        <a href="index.html" title="Česky" style="display: inline-flex; align-items: center; border: 1px solid rgba(255,255,255,0.6); border-radius: 4px; padding: 2px;">
+          <img src="img/flags/cz.png" alt="Česky" style="width: 24px; height: 16px; object-fit: cover; border-radius: 3px;" />
         </a>
       </li>
       <li>
-        <a href="/index_en.html" title="English" class="lang-switch">
-          <img src="/img/flags/uk.png" alt="English" class="flag" />
+        <a href="index_en.html" title="English" style="display: inline-flex; align-items: center; border: 1px solid rgba(255,255,255,0.6); border-radius: 4px; padding: 2px;">
+          <img src="img/flags/uk.png" alt="English" style="width: 24px; height: 16px; object-fit: cover; border-radius: 3px;" />
         </a>
       </li>
     </ul>
@@ -28,81 +28,18 @@
 </nav>
 
 <style>
-  nav {
-    background: rgb(31,186,156);
-    padding: 1rem 2rem;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-  }
-
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-
-  nav .logo img {
-    height: 40px;
-    cursor: pointer;
-    filter: none;
-  }
-
-  nav ul {
-    list-style: none;
-    display: flex;
-    gap: 1.5rem;
-    align-items: center;
-    margin: 0;
-    padding: 0;
-  }
-
-  nav ul li a {
-    color: white;
-    font-weight: 600;
-    text-decoration: none;
-    font-size: 1rem;
-    transition: color 0.3s ease;
-    display: flex;
-    align-items: center;
-    gap: 0.3rem;
-    border: none;
-    padding: 0.15rem 0.4rem;
-    border-radius: 4px;
-  }
-
-  nav ul li a:hover,
-  nav ul li a.active {
-    color: #004d40;
-    background: rgba(0, 77, 64, 0.1);
-  }
-
-  nav ul li a.lang-switch {
-    border: 1px solid rgba(255,255,255,0.6);
-  }
-
-  nav ul li a.lang-switch:hover {
-    background: white;
-  }
-
-  nav ul li img.flag {
-    width: 24px;
-    height: 16px;
-    object-fit: cover;
-    border-radius: 3px;
+  nav ul li a:hover {
+    color: #004d40 !important;
   }
 
   @media (max-width: 768px) {
-    .container {
-      justify-content: center;
+    nav div.logo, nav ul {
+      width: 100% !important;
+      justify-content: center !important;
     }
     nav ul {
-      flex-wrap: wrap;
-      gap: 1rem;
+      flex-wrap: wrap !important;
+      gap: 1rem !important;
       margin-top: 0.75rem;
     }
   }
