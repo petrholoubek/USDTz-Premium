@@ -1,10 +1,10 @@
-// Pomocná funkce na zobrazení stavu
+// wallet-connect.js - jednoduché připojení pouze MetaMask bez dalších SDK
+
 function setStatus(message) {
   const status = document.getElementById('walletStatus');
   if (status) status.textContent = message;
 }
 
-// Připojení MetaMask
 async function connectMetaMask() {
   if (window.ethereum && window.ethereum.isMetaMask) {
     try {
@@ -19,59 +19,17 @@ async function connectMetaMask() {
   }
 }
 
-// Připojení Trust Wallet přes WalletConnect
-async function connectWalletConnect() {
-  if (typeof WalletConnectProvider === 'undefined') {
-    setStatus('WalletConnect SDK není dostupné. Přidej jej do HTML.');
-    return;
-  }
-
-  const provider = new WalletConnectProvider.default({
-    rpc: {
-      56: "https://bsc-dataseed.binance.org/" // BSC mainnet RPC URL
-    },
-  });
-
-  try {
-    await provider.enable();
-    setStatus('Trust Wallet (WalletConnect) připojena: ' + provider.accounts[0]);
-  } catch (error) {
-    setStatus('Chyba při připojení Trust Wallet');
-    console.error(error);
-  }
-}
-
-// Připojení Coinbase Wallet
-async function connectCoinbaseWallet() {
-  if (typeof CoinbaseWalletSDK === 'undefined') {
-    setStatus('Coinbase Wallet SDK není dostupné. Přidej jej do HTML.');
-    return;
-  }
-
-  const coinbaseWallet = new CoinbaseWalletSDK.default({
-    appName: "USDt.z Stablecoin",
-    darkMode: false
-  });
-
-  const provider = coinbaseWallet.makeWeb3Provider("https://bsc-dataseed.binance.org/", 56);
-
-  try {
-    await provider.request({ method: 'eth_requestAccounts' });
-    setStatus('Coinbase Wallet připojena.');
-  } catch (error) {
-    setStatus('Chyba při připojení Coinbase Wallet');
-    console.error(error);
-  }
-}
-
-// Přidáme event listenery na tlačítka po načtení stránky
 window.addEventListener('DOMContentLoaded', () => {
   const btnMetaMask = document.getElementById('connectMetaMask');
   if (btnMetaMask) btnMetaMask.addEventListener('click', connectMetaMask);
 
+  // ostatní tlačítka skryjeme nebo deaktivujeme, protože nejsou podporována bez SDK
   const btnWalletConnect = document.getElementById('connectWalletConnect');
-  if (btnWalletConnect) btnWalletConnect.addEventListener('click', connectWalletConnect);
-
+  if (btnWalletConnect) {
+    btnWalletConnect.style.display = 'none'; // nebo btnWalletConnect.disabled = true;
+  }
   const btnCoinbaseWallet = document.getElementById('connectCoinbaseWallet');
-  if (btnCoinbaseWallet) btnCoinbaseWallet.addEventListener('click', connectCoinbaseWallet);
+  if (btnCoinbaseWallet) {
+    btnCoinbaseWallet.style.display = 'none'; // nebo btnCoinbaseWallet.disabled = true;
+  }
 });
