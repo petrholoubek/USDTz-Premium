@@ -126,7 +126,7 @@
     padding: 0 1rem;
   }
 
-  /* Section boxes */
+  /* Rámečky sekcí */
   section {
     background: #fff;
     border: 1px solid #ddd;
@@ -155,7 +155,7 @@
     margin-bottom: 1.25rem;
   }
 
-  /* Buttons */
+  /* Tlačítka */
   .btn {
     background-color: rgb(31,186,156);
     color: white;
@@ -178,7 +178,7 @@
   .btn.audit:hover {
     background-color: #005f99;
   }
-  /* Flex box for buttons */
+  /* Flex box pro tlačítka */
   .button-group {
     display: flex;
     gap: 1.3rem;
@@ -186,7 +186,7 @@
     justify-content: center;
   }
 
-  /* Courses and calculator section */
+  /* Sekce kurzů a kalkulačky */
   .flex-row {
     display: flex;
     gap: 3rem;
@@ -194,7 +194,7 @@
     justify-content: space-between;
   }
 
-  /* Exchange rates table */
+  /* Tabulka kurzů */
   table {
     border-collapse: collapse;
     width: 100%;
@@ -215,7 +215,7 @@
     background-color: #e0f2f1;
   }
 
-  /* Calculator */
+  /* Kalkulačka */
   .calculator {
     background: #f4f9f8;
     padding: 1.6rem 2rem;
@@ -245,13 +245,13 @@
     color: rgb(31,186,156);
   }
 
-  /* Charts */
+  /* Grafy */
   canvas {
     max-width: 100%;
     margin-top: 1rem;
   }
 
-  /* Banking and non-banking sectors side by side */
+  /* Bankovní a nebankovní sektor - vedle sebe */
   .sectors {
     display: flex;
     gap: 2rem;
@@ -298,25 +298,32 @@
     color: rgb(31,186,156);
   }
 
-  /* Documentation box - pre-last box */
-  #documentation-box {
-    max-width: 900px;
-    margin: 0 auto 2.5rem;
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    box-shadow: 0 0 12px rgb(31 186 156 / 0.15);
-    padding: 1.5rem 2rem;
-    text-align: center;
+  /* Scrollující kurzovní lišta */
+  #ticker {
+    background-color: rgb(31,186,156);
+    color: white;
+    padding: 0.4rem 0;
+    overflow: hidden;
+    white-space: nowrap;
+    font-weight: 600;
+    font-size: 1.1rem;
+    user-select: none;
   }
-  #documentation-box .btn-group {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    margin-top: 1rem;
+  #ticker span {
+    display: inline-block;
+    padding-left: 100%;
+    animation: tickerMove 15s linear infinite;
+  }
+  @keyframes tickerMove {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
   }
 
-  /* Bottom box - always same */
+  /* Spodní rámeček - prozkoumej token */
   #bottom-box {
     max-width: 900px;
     margin: 0 auto 2.5rem;
@@ -379,7 +386,7 @@
     color: #555;
   }
 
-  /* Responsiveness */
+  /* Responsivita */
   @media (max-width: 960px) {
     .flex-row {
       flex-direction: column;
@@ -398,9 +405,6 @@
     .sector-box {
       min-width: auto;
       width: 100%;
-    }
-    #documentation-box {
-      padding: 1rem 1.5rem;
     }
     #bottom-box {
       flex-direction: column;
@@ -437,22 +441,24 @@
       <li role="none"><a href="/USDTz-Premium/pages/contact_en.html" role="menuitem">Contact</a></li>
 
       <li role="none">
-        <a href="/USDTz-Premium/index.html" title="Czech" role="menuitem" aria-label="Czech version">
-          <img src="/USDTz-Premium/img/flags/cz.png" alt="Czech flag" class="flag" />
+        <a href="/USDTz-Premium/index.html" title="Česky" role="menuitem" aria-label="Czech version">
+          <img src="/USDTz-Premium/img/flags/cz.png" alt="Czech Flag" class="flag" />
         </a>
       </li>
       <li role="none">
         <a href="/USDTz-Premium/index_en.html" title="English" role="menuitem" aria-label="English version">
-          <img src="/USDTz-Premium/img/flags/en.png" alt="English flag" class="flag" />
+          <img src="/USDTz-Premium/img/flags/en.png" alt="English Flag" class="flag" />
         </a>
       </li>
     </ul>
   </nav>
 </header>
 
-<!-- Exchange ticker bar under menu -->
-<div style="background: #1fba9c; color: white; padding: 0.4rem 1rem; font-weight: 700; white-space: nowrap; overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none; user-select:none;">
-  <div id="exchangeTicker" style="display:flex; gap:2rem;"></div>
+<!-- Scrollující kurzovní lišta pod menu -->
+<div id="ticker" aria-live="polite" aria-label="Current exchange rates">
+  <span>
+    USDt.z 1.0000 &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; BNB 300.0000 &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; USD 1.0000 &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; EUR 1.1000 &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; CZK 23.0000
+  </span>
 </div>
 
 <main>
@@ -460,30 +466,30 @@
   <section>
     <h1>USDt.z – Next Generation Stablecoin</h1>
     <p style="text-align:center; font-size:1.15rem; max-width:600px; margin: 0 auto 1rem;">
-      Stable, secure, and innovative token designed for both banking and non-banking sectors.<br />
-      Built with a focus on security, transparency, and long-term stability.
+      A stable, secure, and innovative token designed for both banking and non-banking sectors.<br />
+      Focused on security, transparency, and long-term stability.
     </p>
     <div style="text-align:center;">
-      <a href="/USDTz-Premium/pages/about_en.html" class="btn">Learn More About the Token</a>
+      <a href="/USDTz-Premium/pages/about_en.html" class="btn">More About Token</a>
     </div>
   </section>
 
-  <!-- Tokenomics with colorful donut chart -->
+  <!-- Tokenomics with colored donut chart -->
   <section>
     <h2>Tokenomics</h2>
-    <p>The USDt.z token distribution supports ecosystem growth and long-term stability.</p>
+    <p>The distribution of USDt.z tokens supports long-term stability and ecosystem growth.</p>
     <canvas id="tokenomicsChart" width="400" height="250" aria-label="USDt.z token distribution chart" role="img"></canvas>
   </section>
 
-  <!-- Roadmap - line chart with 2 curves -->
+  <!-- Roadmap - line chart with two curves -->
   <section>
     <h2>Token Development (Roadmap)</h2>
-    <p>See the project growth over months: number of users and liquidity in millions.</p>
+    <p>Here you can see the project growth over the months: user count and liquidity in millions.</p>
     <canvas id="roadmapChart" width="600" height="300" aria-label="Token development chart" role="img"></canvas>
   </section>
 
-  <!-- Banking and non-banking sectors side by side with icons -->
-  <section class="sectors" aria-label="Banking and non-banking sectors">
+  <!-- Banking and Non-banking sector side by side with icons -->
+  <section class="sectors" aria-label="Banking and Non-banking sector">
     <div class="sector-box" role="region" aria-labelledby="bank-sector-title">
       <div class="sector-icon" aria-hidden="true">🤝</div>
       <div class="sector-content">
@@ -499,227 +505,195 @@
     <div class="sector-box" role="region" aria-labelledby="nonbank-sector-title">
       <div class="sector-icon" aria-hidden="true">🏦</div>
       <div class="sector-content">
-        <h3 id="nonbank-sector-title">Non-Banking Sector</h3>
+        <h3 id="nonbank-sector-title">Non-banking Sector</h3>
         <ul>
           <li>Fast swaps and liquidity access</li>
           <li>Decentralized finance (DeFi)</li>
           <li>Transparency and auditability</li>
-          <li>Support for non-bank loans</li>
+          <li>Community driven growth</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <!-- Exchange rates table and calculator -->
-  <section>
-    <h2>Current Exchange Rates & Calculator</h2>
-    <div class="flex-row">
-      <table aria-label="Current exchange rates table">
+  <!-- Current exchange rates + calculator side by side -->
+  <section class="flex-row" aria-label="Current exchange rates and calculator">
+    <div>
+      <h2>Current Exchange Rates</h2>
+      <table aria-label="Current exchange rates">
         <thead>
-          <tr><th>Currency</th><th>Rate to USDt.z</th></tr>
+          <tr><th>Currency</th><th>Rate</th></tr>
         </thead>
-        <tbody id="exchangeRates">
-          <!-- Data filled by JS -->
+        <tbody>
+          <tr><td>USDt.z</td><td>1.0000</td></tr>
+          <tr><td>BNB</td><td>300.0000</td></tr>
+          <tr><td>USD</td><td>1.0000</td></tr>
+          <tr><td>EUR</td><td>1.1000</td></tr>
+          <tr><td>CZK</td><td>23.0000</td></tr>
         </tbody>
       </table>
-
-      <div class="calculator" aria-label="Currency conversion calculator">
-        <label for="amountInput">Enter Amount:</label>
-        <input type="number" id="amountInput" min="0" step="any" value="1" aria-describedby="amountHelp" />
-        <label for="currencyFrom">From Currency:</label>
-        <select id="currencyFrom" aria-describedby="fromHelp">
-          <option value="usd">USD</option>
-          <option value="usdtz">USDt.z</option>
-          <option value="eur">EUR</option>
-          <option value="btc">BTC</option>
-        </select>
-        <label for="currencyTo">To Currency:</label>
-        <select id="currencyTo" aria-describedby="toHelp">
-          <option value="usd">USD</option>
-          <option value="usdtz">USDt.z</option>
-          <option value="eur">EUR</option>
-          <option value="btc">BTC</option>
-        </select>
-        <output id="calcResult" aria-live="polite" style="margin-top:1rem; display:block; font-weight:bold; font-size:1.2rem; color: rgb(31,186,156);"></output>
-      </div>
+    </div>
+    <div class="calculator" aria-label="Simple currency calculator">
+      <h2>Calculator</h2>
+      <label for="inputAmount">Amount:</label>
+      <input type="number" id="inputAmount" min="0" step="0.01" value="100" />
+      <label for="selectCurrency">Convert to:</label>
+      <select id="selectCurrency" aria-describedby="conversion-rate"></select>
+      <output id="resultOutput" aria-live="polite" aria-atomic="true"></output>
     </div>
   </section>
 
-  <!-- Documentation box (pre-last) -->
-  <section id="documentation-box" aria-label="Documentation and audit">
+  <!-- Documentation section with two buttons -->
+  <section aria-label="Documentation">
     <h2>Documentation</h2>
-    <p>Access full project documentation and audit details.</p>
+    <p>Download or view our official documents and audits.</p>
     <div class="button-group">
-      <a href="/USDTz-Premium/docs/USDTz_Whitepaper_EN.pdf" target="_blank" rel="noopener noreferrer" class="btn" aria-label="Open whitepaper PDF in a new tab">Whitepaper (PDF)</a>
-      <a href="/USDTz-Premium/docs/audit_report_EN.pdf" target="_blank" rel="noopener noreferrer" class="btn audit" aria-label="Open audit report PDF in a new tab">Audit Report</a>
+      <a href="docs/USDTz_Whitepaper_EN.pdf" target="_blank" rel="noopener" class="btn" id="btnWhitepaper">Whitepaper (PDF)</a>
+      <a href="docs/audit_report_EN.pdf" target="_blank" rel="noopener" class="btn audit" id="btnAudit">Audit Report</a>
     </div>
   </section>
 
-  <!-- Bottom box - always the same -->
-  <section id="bottom-box" aria-label="Project links and logo">
+  <!-- Bottom frame: Explore the token -->
+  <section id="bottom-box" role="contentinfo" aria-label="Explore the token">
     <div class="logo">
-      <img src="/USDTz-Premium/logo.png" alt="USDt.z logo" />
+      <img src="/USDTz-Premium/img/flags/logo.png" alt="USDt.z Logo" />
     </div>
-    <div class="text">USDt.z – The future of stablecoins</div>
+    <div class="text">Explore USDt.z token on BscScan and GeckoTerminal</div>
     <div class="btn-group">
-      <a href="https://bscscan.com/token/0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" target="_blank" rel="noopener noreferrer" class="btn btn-bsc" aria-label="View token on BSCScan">BSCScan</a>
-      <a href="https://www.coingecko.com/en/coins/usdt-z" target="_blank" rel="noopener noreferrer" class="btn btn-gecko" aria-label="View token on CoinGecko">CoinGecko</a>
+      <a href="https://bscscan.com/token/0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" target="_blank" rel="noopener" class="btn btn-bsc">BscScan</a>
+      <a href="https://www.geckoterminal.com/bsc/pools/0x553b402b3d6f91ea2208c7df61a6d4aa96ccb6191787c20fedb7ae6c9823b280" target="_blank" rel="noopener" class="btn btn-gecko">GeckoTerminal</a>
     </div>
   </section>
 </main>
 
 <footer>
-  &copy; 2025 USDt.z | All rights reserved
+  © 2025 USDt.z – All rights reserved.
 </footer>
 
 <script>
-  // Exchange ticker sample data (can be replaced with API calls)
-  const exchangeData = [
-    { symbol: 'USDt.z/USD', rate: '1.00' },
-    { symbol: 'USDt.z/EUR', rate: '0.92' },
-    { symbol: 'USDt.z/BTC', rate: '0.000042' },
-    { symbol: 'USDt.z/ETH', rate: '0.00058' },
-    { symbol: 'USDt.z/USDT', rate: '1.00' }
-  ];
-
-  const tickerDiv = document.getElementById('exchangeTicker');
-  exchangeData.forEach(item => {
-    const span = document.createElement('span');
-    span.textContent = `${item.symbol}: ${item.rate}`;
-    tickerDiv.appendChild(span);
-  });
-
-  // Tokenomics donut chart
-  const ctxTokenomics = document.getElementById('tokenomicsChart').getContext('2d');
-  const tokenomicsChart = new Chart(ctxTokenomics, {
-    type: 'doughnut',
-    data: {
-      labels: ['Liquidity Pool', 'Team & Advisors', 'Development', 'Marketing', 'Reserve'],
-      datasets: [{
-        data: [40, 20, 15, 15, 10],
-        backgroundColor: ['#1fba9c', '#19796b', '#a6d1cd', '#4bbf9c', '#80cbc4']
-      }]
-    },
-    options: {
-      responsive: true,
-      plugins: {
-        legend: {
-          position: 'bottom'
-        },
-        tooltip: {
-          enabled: true
-        }
-      }
-    }
-  });
-
-  // Roadmap line chart
-  const ctxRoadmap = document.getElementById('roadmapChart').getContext('2d');
-  const roadmapChart = new Chart(ctxRoadmap, {
-    type: 'line',
-    data: {
-      labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'],
-      datasets: [
-        {
-          label: 'Users (thousands)',
-          data: [10, 25, 40, 60, 90, 120, 160, 210, 260],
-          borderColor: '#1fba9c',
-          backgroundColor: 'rgba(31,186,156,0.2)',
-          fill: true,
-          tension: 0.3,
-          pointRadius: 4,
-          yAxisID: 'y'
-        },
-        {
-          label: 'Liquidity (millions USD)',
-          data: [0.5, 1, 2, 3.5, 5, 7, 9, 12, 15],
-          borderColor: '#004d40',
-          backgroundColor: 'rgba(0,77,64,0.3)',
-          fill: true,
-          tension: 0.3,
-          pointRadius: 4,
-          yAxisID: 'y1'
-        }
-      ]
-    },
-    options: {
-      responsive: true,
-      interaction: {
-        mode: 'nearest',
-        intersect: false
-      },
-      stacked: false,
-      scales: {
-        y: {
-          type: 'linear',
-          position: 'left',
-          title: {
-            display: true,
-            text: 'Users (thousands)'
-          },
-          beginAtZero: true
-        },
-        y1: {
-          type: 'linear',
-          position: 'right',
-          title: {
-            display: true,
-            text: 'Liquidity (millions USD)'
-          },
-          grid: {
-            drawOnChartArea: false
-          },
-          beginAtZero: true
-        }
-      }
-    }
-  });
-
-  // Exchange rates data for table and calculator
-  const exchangeRates = {
-    usd: 1.0,
-    usdtz: 1.0,
-    eur: 0.92,
-    btc: 0.000042
+  // Data for charts
+  const tokenomicsData = {
+    labels: ['Liquidity', 'Reserve', 'Team', 'Marketing', 'Community'],
+    datasets: [{
+      label: 'Tokenomics Distribution',
+      data: [40, 30, 15, 10, 5],
+      backgroundColor: [
+        'rgb(31,186,156)',
+        'rgb(21,133,108)',
+        'rgb(88,176,170)',
+        'rgb(144,204,192)',
+        'rgb(198,233,229)'
+      ],
+      hoverOffset: 20
+    }]
   };
 
-  // Fill exchange rates table
-  const exchangeRatesBody = document.getElementById('exchangeRates');
-  for (const [currency, rate] of Object.entries(exchangeRates)) {
-    const tr = document.createElement('tr');
-    const tdCurrency = document.createElement('td');
-    tdCurrency.textContent = currency.toUpperCase();
-    const tdRate = document.createElement('td');
-    tdRate.textContent = rate.toFixed(6);
-    tr.appendChild(tdCurrency);
-    tr.appendChild(tdRate);
-    exchangeRatesBody.appendChild(tr);
-  }
+  const roadmapData = {
+    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug'],
+    datasets: [
+      {
+        label: 'User Count (thousands)',
+        data: [20, 40, 70, 90, 130, 160, 200, 230],
+        borderColor: 'rgb(31,186,156)',
+        backgroundColor: 'rgba(31,186,156,0.2)',
+        fill: true,
+        tension: 0.3,
+        yAxisID: 'y',
+      },
+      {
+        label: 'Liquidity (million $)',
+        data: [5, 10, 25, 35, 50, 70, 95, 110],
+        borderColor: 'rgb(0,123,255)',
+        backgroundColor: 'rgba(0,123,255,0.2)',
+        fill: true,
+        tension: 0.3,
+        yAxisID: 'y1',
+      }
+    ]
+  };
 
-  // Calculator logic
-  const amountInput = document.getElementById('amountInput');
-  const currencyFrom = document.getElementById('currencyFrom');
-  const currencyTo = document.getElementById('currencyTo');
-  const calcResult = document.getElementById('calcResult');
+  // Once document loaded
+  document.addEventListener('DOMContentLoaded', () => {
+    // Create donut chart
+    const ctxTokenomics = document.getElementById('tokenomicsChart').getContext('2d');
+    new Chart(ctxTokenomics, {
+      type: 'doughnut',
+      data: tokenomicsData,
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { position: 'bottom' },
+          tooltip: { enabled: true }
+        }
+      }
+    });
 
-  function calculateConversion() {
-    const amount = parseFloat(amountInput.value);
-    if (isNaN(amount) || amount < 0) {
-      calcResult.textContent = 'Please enter a valid amount.';
-      return;
+    // Create roadmap line chart with dual y-axis
+    const ctxRoadmap = document.getElementById('roadmapChart').getContext('2d');
+    new Chart(ctxRoadmap, {
+      type: 'line',
+      data: roadmapData,
+      options: {
+        responsive: true,
+        scales: {
+          y: {
+            type: 'linear',
+            position: 'left',
+            title: { display: true, text: 'User Count (thousands)' },
+            beginAtZero: true
+          },
+          y1: {
+            type: 'linear',
+            position: 'right',
+            title: { display: true, text: 'Liquidity (million $)' },
+            beginAtZero: true,
+            grid: { drawOnChartArea: false }
+          }
+        },
+        plugins: {
+          legend: { position: 'top' },
+          tooltip: { enabled: true }
+        }
+      }
+    });
+
+    // Populate calculator dropdown with currencies
+    const rates = {
+      USDt: 1.0,
+      BNB: 300.0,
+      USD: 1.0,
+      EUR: 1.1,
+      CZK: 23.0
+    };
+
+    const selectCurrency = document.getElementById('selectCurrency');
+    for (const [code, rate] of Object.entries(rates)) {
+      const option = document.createElement('option');
+      option.value = code;
+      option.textContent = code;
+      selectCurrency.appendChild(option);
     }
-    const fromRate = exchangeRates[currencyFrom.value];
-    const toRate = exchangeRates[currencyTo.value];
-    const converted = (amount * fromRate) / toRate;
-    calcResult.textContent = `${amount} ${currencyFrom.value.toUpperCase()} = ${converted.toFixed(6)} ${currencyTo.value.toUpperCase()}`;
-  }
+    selectCurrency.value = 'USDt';
 
-  amountInput.addEventListener('input', calculateConversion);
-  currencyFrom.addEventListener('change', calculateConversion);
-  currencyTo.addEventListener('change', calculateConversion);
+    // Calculator logic
+    const inputAmount = document.getElementById('inputAmount');
+    const resultOutput = document.getElementById('resultOutput');
 
-  // Initialize calculator output
-  calculateConversion();
+    function updateConversion() {
+      const amount = parseFloat(inputAmount.value);
+      const target = selectCurrency.value;
+      if (isNaN(amount) || amount < 0) {
+        resultOutput.textContent = '';
+        return;
+      }
+      const result = amount * rates[target];
+      resultOutput.textContent = `${amount.toFixed(2)} USDt.z = ${result.toFixed(4)} ${target}`;
+    }
+
+    inputAmount.addEventListener('input', updateConversion);
+    selectCurrency.addEventListener('change', updateConversion);
+    updateConversion();
+  });
 </script>
 </body>
 </html>
