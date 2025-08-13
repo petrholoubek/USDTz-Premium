@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>About USDt.z Token – Next Generation Stablecoin</title>
+
   <style>
     /* Reset */
     * {
@@ -13,73 +14,123 @@
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: #fff;
       color: #222;
-      line-height: 1.6;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
     }
+
     header {
       background: rgb(31,186,156);
-      padding: 1rem 2rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       position: sticky;
       top: 0;
-      z-index: 1000;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      z-index: 1100;
     }
     nav {
       max-width: 1200px;
       margin: 0 auto;
+      padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
     }
-    nav .logo img {
+
+    .logo img {
       height: 40px;
       cursor: pointer;
-      filter: drop-shadow(0 2px 2px rgba(0,0,0,0.2));
+      filter: drop-shadow(0 0 5px rgba(0,0,0,0.15));
     }
-    nav ul {
+
+    ul.menu {
       list-style: none;
       display: flex;
       gap: 1.5rem;
       align-items: center;
     }
-    nav ul li a {
-      text-decoration: none;
+    ul.menu li a {
       color: white;
       font-weight: 600;
-      transition: color 0.3s ease;
       font-size: 1rem;
+      text-decoration: none;
+      transition: color 0.3s ease;
       display: flex;
       align-items: center;
       gap: 0.3rem;
     }
-    nav ul li a:hover {
+    ul.menu li a:hover,
+    ul.menu li a.active {
       color: #004d40;
+      font-weight: 700;
     }
-    nav ul li img.flag {
+    img.flag {
       width: 24px;
       height: 16px;
       object-fit: cover;
-      border: 1px solid #ddd;
       border-radius: 3px;
-      vertical-align: middle;
+      border: 1px solid rgba(255,255,255,0.6);
+    }
+
+    #menu-toggle {
+      display: none;
+    }
+    label[for="menu-toggle"] {
+      display: none;
+      cursor: pointer;
+      width: 30px;
+      height: 25px;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    label[for="menu-toggle"] span {
+      display: block;
+      height: 3px;
+      background: white;
+      border-radius: 2px;
+    }
+
+    @media (max-width: 768px) {
+      label[for="menu-toggle"] {
+        display: flex;
+      }
+      ul.menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 1rem;
+        gap: 1rem;
+        background: rgb(31,186,156);
+        border-radius: 8px;
+        padding: 1rem 2rem;
+      }
+      ul.menu li {
+        width: 100%;
+      }
+      ul.menu li a {
+        display: block;
+        width: 100%;
+        font-size: 1.1rem;
+        padding: 0.5rem 0;
+      }
+      #menu-toggle:checked + label + ul.menu {
+        display: flex;
+      }
     }
 
     main {
       flex: 1;
-      max-width: 1200px;
+      max-width: 900px;
       margin: 2rem auto 3rem;
       padding: 0 1rem;
     }
 
-    section {
-      margin-bottom: 4rem;
+    section.content-box {
       background: #fff;
-      padding: 1.5rem 2rem;
       border: 1px solid #ddd;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgb(31 186 156 / 0.15);
+      border-radius: 10px;
+      box-shadow: 0 0 12px rgb(31 186 156 / 0.15);
+      padding: 2rem 2.5rem;
+      margin-bottom: 2.5rem;
       min-height: 400px;
     }
 
@@ -98,7 +149,6 @@
     }
     p {
       margin-bottom: 1rem;
-      color: #222;
       font-size: 1rem;
     }
     ul {
@@ -171,22 +221,7 @@
       color: #555;
     }
 
-    /* Responsive */
-    @media (max-width: 768px) {
-      nav ul {
-        flex-direction: column;
-        gap: 0.8rem;
-      }
-      nav ul li a {
-        font-size: 1rem;
-      }
-      nav ul li a img.flag {
-        width: 30px;
-        height: 20px;
-      }
-      main {
-        margin: 1rem auto 2rem;
-      }
+    @media (max-width: 960px) {
       #bottom-box {
         flex-direction: column;
         gap: 1rem;
@@ -200,75 +235,86 @@
   </style>
 </head>
 <body>
-  <header>
-    <nav>
-      <div class="logo">
-        <a href="../index_en.html"><img src="../img/flags/logo.png" alt="USDt.z Logo" /></a>
-      </div>
-      <ul>
-        <li><a href="../index_en.html">Home</a></li>
-        <li><a href="about_en.html" aria-current="page">About Token</a></li>
-        <li><a href="../swap.html">Swap & DEX</a></li>
-        <li><a href="../usecases_en.html">Use Cases</a></li>
-        <li><a href="../docs_en.html">Documentation</a></li>
-        <li><a href="../contact_en.html">Contact</a></li>
-        <li>
-          <a href="../index.html" title="Česky">
-            <img class="flag" src="../img/flags/cz.png" alt="Czech Flag" />
-          </a>
-        </li>
-        <li>
-          <a href="../index_en.html" title="English">
-            <img class="flag" src="../img/flags/en.png" alt="English Flag" />
-          </a>
-        </li>
-      </ul>
-    </nav>
-  </header>
 
-  <main>
-    <section>
-      <h1>About USDt.z Token</h1>
+<header>
+  <nav>
+    <a href="../index_en.html" class="logo" aria-label="Go to homepage">
+      <img src="../img/flags/logo-white.png" alt="USDt.z Logo" />
+    </a>
 
-      <p><strong>USDt.z</strong> is a next-generation stablecoin that combines the stability of traditional currencies with cutting-edge blockchain technology.</p>
-      
-      <h2>Why We Created USDt.z</h2>
-      <p>Our goal was to develop a secure, transparent, and reliable token that facilitates cryptocurrency usage in both banking and non-banking sectors, offering stability comparable to traditional currencies.</p>
-      
-      <h2>Key Features of USDt.z</h2>
-      <ul>
-        <li>1:1 fixed USD backing</li>
-        <li>Support as collateral for loans, including for young and emerging clients without traditional guarantees</li>
-        <li>High security thanks to next-generation blockchain technology</li>
-        <li>Transparent and auditable system</li>
-        <li>Fast and low-cost transactions</li>
-      </ul>
-      
-      <h2>Use Cases</h2>
-      <p>USDt.z can be utilized in a wide range of financial applications, from lending and trading to liquidity provisioning and asset stabilization.</p>
-      
-      <h2>Supporting Young Clients</h2>
-      <p>The token is ideal for young clients and startups who often lack traditional loan collateral. USDt.z enables the use of crypto collateral as security, opening new financing possibilities.</p>
-      
-      <h2>Documentation and Audit</h2>
-      <p>The complete whitepaper and audit reports are available for download on the main page.</p>
-    </section>
+    <input type="checkbox" id="menu-toggle" />
+    <label for="menu-toggle" aria-label="Open menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
 
-    <!-- Bottom box from index -->
-    <section id="bottom-box" role="contentinfo" aria-label="Explore the token">
-      <div class="logo">
-        <img src="../img/flags/logo.png" alt="USDt.z Logo" />
-      </div>
-      <div class="text">Explore USDt.z token on BscScan and GeckoTerminal</div>
-      <div class="btn-group">
-        <a href="https://bscscan.com/token/0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" target="_blank" rel="noopener" class="btn btn-bsc">BscScan</a>
-        <a href="https://www.geckoterminal.com/bsc/pools/0x553b402b3d6f91ea2208c7df61a6d4aa96ccb6191787c20fedb7ae6c9823b280" target="_blank" rel="noopener" class="btn btn-gecko">GeckoTerminal</a>
-      </div>
-    </section>
-  </main>
+    <ul class="menu" role="menubar" aria-label="Main navigation">
+      <li role="none"><a href="../index_en.html" role="menuitem">Home</a></li>
+      <li role="none"><a href="about_en.html" role="menuitem" aria-current="page" class="active">About Token</a></li>
+      <li role="none"><a href="../swap.html" role="menuitem">Swap &amp; DEX</a></li>
+      <li role="none"><a href="../usecases.html" role="menuitem">Use Cases</a></li>
+      <li role="none"><a href="../docs.html" role="menuitem">Documentation</a></li>
+      <li role="none"><a href="../contact.html" role="menuitem">Contact</a></li>
 
-  <footer>
-    &copy; 2025 USDt.z – Next Generation Stablecoin. All rights reserved.
-  </footer>
+      <li role="none">
+        <a href="../index.html" title="Česky" role="menuitem" aria-label="Czech version">
+          <img src="../img/flags/cz.png" alt="Czech flag" class="flag" />
+        </a>
+      </li>
+      <li role="none">
+        <a href="../index_en.html" title="English" role="menuitem" aria-label="English version">
+          <img src="../img/flags/en.png" alt="English flag" class="flag" />
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section class="content-box" role="main">
+    <h1>About USDt.z Token</h1>
+
+    <p><strong>USDt.z</strong> is a next-generation stablecoin that combines the stability of traditional currencies with cutting-edge blockchain technology.</p>
+    
+    <h2>Why We Created USDt.z</h2>
+    <p>Our goal was to develop a secure, transparent, and reliable token that facilitates the use of cryptocurrencies in both banking and non-banking sectors while offering stability comparable to traditional currencies.</p>
+    
+    <h2>Key Features of USDt.z</h2>
+    <ul>
+      <li>1:1 fixed USD backing</li>
+      <li>Support as collateral for loans, including young and emerging clients without traditional guarantees</li>
+      <li>High security thanks to next-generation blockchain technology</li>
+      <li>Transparent and auditable system</li>
+      <li>Fast and low-cost transactions</li>
+    </ul>
+    
+    <h2>Use Cases</h2>
+    <p>USDt.z can be used in a wide range of financial applications, from loans and trading to liquidity provisioning and asset stabilization.</p>
+    
+    <h2>Supporting Young Clients</h2>
+    <p>The token is ideal for young clients and startups who often lack traditional collateral for loans. USDt.z allows the use of cryptocurrency collateral as security, opening new financing opportunities.</p>
+    
+    <h2>Documentation and Audit</h2>
+    <p>The complete whitepaper and audit reports are available for download on the main page.</p>
+  </section>
+
+  <!-- Bottom box -->
+  <section id="bottom-box" role="contentinfo" aria-label="Explore USDt.z token">
+    <div class="logo">
+      <img src="../img/flags/logo.png" alt="USDt.z Logo" />
+    </div>
+    <div class="text">Explore the USDt.z token on BscScan and GeckoTerminal</div>
+    <div class="btn-group">
+      <a href="https://bscscan.com/token/0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" target="_blank" rel="noopener" class="btn btn-bsc">BscScan</a>
+      <a href="https://www.geckoterminal.com/bsc/pools/0x553b402b3d6f91ea2208c7df61a6d4aa96ccb6191787c20fedb7ae6c9823b280" target="_blank" rel="noopener" class="btn btn-gecko">GeckoTerminal</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  &copy; 2025 USDt.z – Next Generation Stablecoin. All rights reserved.
+</footer>
+
 </body>
 </html>
