@@ -1,162 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>Programs - USDt.z</title>
- <link rel="stylesheet" href="../css/style.css">
- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-</head>
-<body>
-
- 
- <header>
-   <nav>
-     <div class="logo">
-       <a href="../index.html"><img src="../img/logo-white.png" alt="USDt.z"></a>
-     </div>
-     <ul>
-       <li><a href="../index.html">Home</a></li>
-       <li><a href="programs_en.html" class="active">Programs</a></li>
-       <li><a href="docs_en.html">Documentation</a></li>
-       <li><a href="contact_en.html">Contact</a></li>
-       <li><a href="../index.html"><img src="../img/en.png" class="flag" alt="EN"></a></li>
-     </ul>
-   </nav>
- </header>
-
- 
- <main>
-   <section>
-     <h1>Banking & Non-Banking Programs</h1>
-     <p>USDt.z provides innovative solutions for the banking and non-banking sectors. Explore opportunities to collaborate, leverage our stablecoin infrastructure, and benefit from next-generation financial products.</p>
-   </section>
-
-   <section>
-     <h2>Banking Sector</h2>
-     <p>Our banking partners gain access to seamless stablecoin integration, liquidity management tools, and advanced analytics to optimize their operations and expand their digital financial services.</p>
-
-     <div class="flex-row">
-       <div class="calculator">
-         <label for="bank-investment">Example Investment (USD):</label>
-         <input type="number" id="bank-investment" value="1000000">
-         <output id="bank-return">Projected Return: $0</output>
-       </div>
-
-       <canvas id="bank-chart" width="400" height="200"></canvas>
-     </div>
-   </section>
-
-   <section>
-     <h2>Non-Banking Sector</h2>
-     <p>Non-bank financial institutions, fintech startups, and other enterprises can collaborate with USDt.z to leverage tokenization, efficient cross-border payments, and real-time liquidity solutions.</p>
-
-     <table>
-       <thead>
-         <tr>
-           <th>Program</th>
-           <th>Benefits</th>
-           <th>Example ROI</th>
-         </tr>
-       </thead>
-       <tbody>
-         <tr>
-           <td>Payment Integration</td>
-           <td>Fast, secure transfers</td>
-           <td>5% monthly</td>
-         </tr>
-         <tr>
-           <td>Liquidity Pool</td>
-           <td>Earn fees and yield</td>
-           <td>7% monthly</td>
-         </tr>
-         <tr>
-           <td>Token Collateral</td>
-           <td>Secure lending & borrowing</td>
-           <td>6% monthly</td>
-         </tr>
-       </tbody>
-     </table>
-
-     <canvas id="nonbank-chart" width="400" height="200"></canvas>
-   </section>
-
-   <section id="our-services">
-     <h2>Our Services</h2>
-     <p>We offer a full suite of solutions to partners including liquidity management, tokenized assets, and integration support. Engage with us to unlock your potential in the digital finance ecosystem.</p>
-
-     <div class="button-group">
-       <a href="Pages/pitch_en.html" class="btn gecko">Pitch Deck</a>
-       <a href="contact_en.html" class="btn">Contact Us</a>
-     </div>
-   </section>
- </main>
-
- 
- <section id="token-links">
-   <div class="left">
-     <img src="../img/logo.png" alt="USDt.z">
-     <span>USDt.z Stablecoin</span>
+<header>
+ <nav>
+   <div class="logo">
+     <a href="../index.html"><img src="../img/logo-white.png" alt="Logo"></a>
    </div>
-   <div class="right">
-     <a href="https://geckoterminal.com" class="btn gecko" target="_blank">View on GeckoTerminal</a>
-     <a href="audit_en.html" class="btn audit">Audit Report</a>
-   </div>
- </section>
+   <ul>
+     <li><a href="../index.html">Home</a></li>
+     <li><a href="programs_en.html" class="active">Programs</a></li>
+     <li><a href="pages/pitch_en.html">Pitch Deck</a></li>
+     <li><a href="pages/docs_en.html">Docs</a></li>
+     <li>
+       <a href="programs.html"><img class="flag" src="../img/cz.png" alt="CZ"></a>
+     </li>
+     <li>
+       <a href="programs_en.html"><img class="flag" src="../img/en.png" alt="EN"></a>
+     </li>
+   </ul>
+ </nav>
+</header>
 
- <footer>
-   &copy; 2025 USDt.z. All rights reserved.
- </footer>
 
- 
- <script>
-   const bankCtx = document.getElementById('bank-chart').getContext('2d');
-   new Chart(bankCtx, {
-     type: 'bar',
-     data: {
-       labels: ['Q1', 'Q2', 'Q3', 'Q4'],
-       datasets: [{
-         label: 'Projected Revenue ($M)',
-         data: [1, 1.5, 2, 2.5],
-         backgroundColor: 'rgba(31, 186, 156, 0.6)',
-         borderColor: 'rgb(31, 186, 156)',
-         borderWidth: 1
-       }]
-     },
-     options: {
-       responsive: true,
-       maintainAspectRatio: false
-     }
-   });
-
-   const nonbankCtx = document.getElementById('nonbank-chart').getContext('2d');
-   new Chart(nonbankCtx, {
-     type: 'line',
-     data: {
-       labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
-       datasets: [{
-         label: 'Example ROI (%)',
-         data: [5, 5.5, 6, 6.5, 7, 7.5],
-         fill: false,
-         borderColor: 'rgb(31, 186, 156)',
-         tension: 0.1
-       }]
-     },
-     options: {
-       responsive: true,
-       maintainAspectRatio: false
-     }
-   });
-
-   // Simple bank return calculator
-   const bankInput = document.getElementById('bank-investment');
-   const bankOutput = document.getElementById('bank-return');
-
-   bankInput.addEventListener('input', () => {
-     const val = parseFloat(bankInput.value) || 0;
-     const projected = val * 0.05; // Example 5% return
-     bankOutput.textContent = `Projected Return: $${projected.toLocaleString()}`;
-   });
- </script>
-</body>
-</html>
+<div id="token-links">
+ <div class="left">
+   <img src="../img/logo.png" alt="Logo">
+   <span>USDt.z Token</span>
+ </div>
+ <div class="right">
+   <a href="https://dex.coinmarketcap.com/token/BSC/0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" target="_blank" class="btn gecko">Gecko</a>
+   <a href="pages/pitch_en.html" class="btn audit">Pitch Deck</a>
+ </div>
+</div>
