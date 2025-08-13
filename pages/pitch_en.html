@@ -1,14 +1,13 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
  <meta charset="UTF-8" />
  <meta name="viewport" content="width=device-width, initial-scale=1" />
- <title>Programs & Pitch Deck – USDt.z Stablecoin</title>
+ <title>Pitch Deck – USDt.z</title>
  <style>
-   /* Reset and global font */
    * { margin: 0; padding: 0; box-sizing: border-box; }
    #msg_body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #fff; color: #222; min-height: 100vh; display: flex; flex-direction: column; }
-   
    header { background: rgb(31,186,156); box-shadow: 0 2px 5px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1100; }
    nav { max-width: 1200px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
    .logo img { height: 40px; cursor: pointer; filter: drop-shadow(0 0 5px rgba(0,0,0,0.15)); }
@@ -26,42 +25,26 @@
      ul.menu li a { display: block; width: 100%; font-size: 1.1rem; padding: 0.5rem 0; }
      #menu-toggle:checked + label + ul.menu { display: flex; }
    }
-
-   main { flex: 1; max-width: 1000px; margin: 2rem auto 3rem; padding: 0 1rem; display: flex; flex-direction: column; gap: 2.5rem; }
-
-   section.content-box { background: #fff; border: 1px solid #ddd; border-radius: 10px; box-shadow: 0 0 12px rgb(31 186 156 / 0.15); padding: 2rem 2.5rem; }
+   main { flex: 1; max-width: 900px; margin: 2rem auto 3rem; padding: 0 1rem; }
+   section.content-box { background: #fff; border: 1px solid #ddd; border-radius: 10px; box-shadow: 0 0 12px rgb(31 186 156 / 0.15); padding: 2rem 2.5rem; margin-bottom: 2.5rem; min-height: 400px; }
    h1, h2 { color: rgb(31,186,156); margin-bottom: 1rem; }
    h1 { font-size: 2.5rem; text-align: center; margin-bottom: 1.5rem; }
    h2 { font-size: 2rem; margin-bottom: 1rem; }
-   p, ul li { font-size: 1rem; margin-bottom: 0.8rem; }
+   p { margin-bottom: 1rem; font-size: 1rem; }
    ul { margin-left: 1.5rem; margin-bottom: 1rem; }
-
-   /* Bottom box */
-   #bottom-box { max-width: 1000px; margin: 0 auto 2.5rem; background: #fff; border: 1px solid #ddd; border-radius: 10px; box-shadow: 0 0 12px rgb(31 186 156 / 0.15); padding: 1rem 2rem; display: flex; align-items: center; gap: 1.5rem; justify-content: space-between; }
+   ul li { margin-bottom: 0.5rem; font-size: 1rem; }
+   .btn-group { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; }
+   .btn-group a { padding: 0.5rem 1.2rem; border-radius: 6px; font-weight: 700; text-decoration: none; display: inline-block; cursor: pointer; color: white; transition: background-color 0.3s ease; white-space: nowrap; }
+   .btn-main { background-color: #1e88e5; }
+   .btn-main:hover { background-color: #1669bb; }
+   #bottom-box { max-width: 900px; margin: 0 auto 2.5rem; background: #fff; border: 1px solid #ddd; border-radius: 10px; box-shadow: 0 0 12px rgb(31 186 156 / 0.15); padding: 1rem 2rem; display: flex; align-items: center; gap: 1.5rem; justify-content: space-between; }
    #bottom-box .logo { flex-shrink: 0; }
    #bottom-box .logo img { height: 40px; }
    #bottom-box .text { flex: 1; font-weight: 600; color: rgb(31,186,156); font-size: 1.1rem; }
-   #bottom-box .btn-group { display: flex; gap: 1rem; }
-   #bottom-box .btn-group a { padding: 0.5rem 1.2rem; border-radius: 6px; font-weight: 700; text-decoration: none; display: inline-block; cursor: pointer; color: white; transition: background-color 0.3s ease; white-space: nowrap; }
-   #bottom-box .btn-bsc { background-color: #f0b90b; }
-   #bottom-box .btn-bsc:hover { background-color: #d9a200; }
-   #bottom-box .btn-gecko { background-color: #1e88e5; }
-   #bottom-box .btn-gecko:hover { background-color: #1669bb; }
-
-   footer { text-align: center; padding: 1rem 2rem; background: #f0f0f0; font-size: 0.9rem; color: #555; }
-
    @media (max-width: 960px) {
      #bottom-box { flex-direction: column; gap: 1rem; text-align: center; }
      #bottom-box .btn-group { justify-content: center; width: 100%; }
    }
-
-   /* Program specific */
-   .program-section { display: flex; flex-direction: column; gap: 2rem; }
-   .program-box { border: 1px solid #ddd; border-radius: 10px; padding: 1.5rem; background: #f9f9f9; box-shadow: 0 0 8px rgb(31 186 156 / 0.1); }
-   .program-box h3 { color: rgb(31,186,156); margin-bottom: 0.8rem; }
-   .program-box p, .program-box ul { margin-bottom: 0.5rem; font-size: 1rem; }
-   .pitch-btn { margin-top: 1rem; display: inline-block; padding: 0.7rem 1.5rem; background: #1e88e5; color: white; font-weight: 700; border-radius: 6px; text-decoration: none; transition: background 0.3s ease; }
-   .pitch-btn:hover { background: #1669bb; }
  </style>
 </head>
 <body>
@@ -70,28 +53,26 @@
      <a href="index_en.html" class="logo" aria-label="Go to homepage">
        <img src="../img/flags/logo-white.png" alt="USDt.z Logo" />
      </a>
-
      <input type="checkbox" id="menu-toggle" />
      <label for="menu-toggle" aria-label="Open menu">
        <span></span>
        <span></span>
        <span></span>
      </label>
-
      <ul class="menu" role="menubar" aria-label="Main navigation">
        <li><a href="index_en.html">Home</a></li>
        <li><a href="about_en.html">About</a></li>
-       <li><a href="programs_en.html" class="active">Programs</a></li>
+       <li><a href="program_en.html">Program</a></li>
        <li><a href="usecases_en.html">Use Cases</a></li>
        <li><a href="docs_en.html">Documentation</a></li>
        <li><a href="contact_en.html">Contact</a></li>
        <li>
-         <a href="index.html" title="Czech" aria-label="Czech version">
+         <a href="index.html" title="Czech">
            <img src="../img/flags/cz.png" alt="Czech flag" class="flag" />
          </a>
        </li>
        <li>
-         <a href="index_en.html" title="English" aria-label="English version">
+         <a href="index_en.html" title="English">
            <img src="../img/flags/en.png" alt="English flag" class="flag" />
          </a>
        </li>
@@ -100,74 +81,52 @@
  </header>
 
  <main>
-   <h1>Programs, Collaborations & Pitch Deck</h1>
+   <section class="content-box" role="main">
+     <h1>USDt.z Pitch Deck</h1>
+     <p>This Pitch Deck presents USDt.z as the next-generation stablecoin, highlighting key advantages and investment opportunities.</p>
 
-   <div class="program-section">
-     
-     <div class="program-box">
-       <h3>Banking Collaboration</h3>
-       <p>We partner with banks to provide secure, regulated solutions using USDt.z stablecoin. Key offerings include:</p>
-       <ul>
-         <li>Collateral for loans with over $5B in backed assets.</li>
-         <li>Liquidity pools with proven stability metrics.</li>
-         <li>Market integration to facilitate institutional adoption.</li>
-       </ul>
+     <h2>Core Highlights</h2>
+     <ul>
+       <li>Next-Generation Stablecoin Technology</li>
+       <li>Banking & Non-Banking Integration Opportunities</li>
+       <li>Secure and Transparent Smart Contract Architecture</li>
+       <li>Liquidity Provision & Market Stabilization</li>
+       <li>Global Partnerships and Expansion Plans</li>
+     </ul>
+
+     <h2>Market & Financial Metrics</h2>
+     <ul>
+       <li>Market Capitalization Potential: $5 Trillion</li>
+       <li>High Liquidity Pools Across BSC and DEX Platforms</li>
+       <li>Revenue Streams from Collateralized Loans & Trading Fees</li>
+       <li>Stablecoin-backed Financial Products for Retail & Institutional Clients</li>
+     </ul>
+
+     <h2>Strategic Initiatives</h2>
+     <ul>
+       <li>Workshops, Trainings & Onboarding Programs</li>
+       <li>Banking Sector Collaborations & Non-Banking Projects</li>
+       <li>Pitch Events & Investor Engagements</li>
+       <li>Innovative Pilot Projects and Technology Integrations</li>
+     </ul>
+
+     <div class="btn-group">
+       <a href="pages/program_en.html" class="btn-main">Back to Programs</a>
+       <a href="#" class="btn-main">Download PDF</a>
+       <a href="#" class="btn-main">Investor Info</a>
      </div>
+   </section>
 
-     
-     <div class="program-box">
-       <h3>Non-Banking Collaboration</h3>
-       <p>USDt.z enables partnerships beyond traditional banks:</p>
-       <ul>
-         <li>Fintech startups and innovation hubs.</li>
-         <li>DeFi protocols for liquidity and swapping.</li>
-         <li>Token staking and rewards programs for community growth.</li>
-       </ul>
-     </div>
-
-     
-     <div class="program-box">
-       <h3>Training Programs & Workshops</h3>
-       <p>Our programs are designed to educate and onboard partners:</p>
-       <ul>
-         <li>Close Quarters Battle (CQB) and security protocols.</li>
-         <li>Financial product workshops for banking and fintech.</li>
-         <li>DeFi and crypto training for institutional teams.</li>
-       </ul>
-     </div>
-
-     
-     <div class="program-box">
-       <h3>Pitch Deck & Presentations</h3>
-       <p>Access our full pitch deck and detailed project information:</p>
-       <a href="pages/pitch_en.html" class="pitch-btn">View Pitch Deck</a>
-     </div>
-
-     
-     <div class="program-box">
-       <h3>Market Metrics & Liquidity</h3>
-       <p>USDt.z key market statistics:</p>
-       <ul>
-         <li>Market capitalization: $5B+</li>
-         <li>Liquidity pools on major DEX platforms</li>
-         <li>Stable returns for liquidity providers</li>
-       </ul>
-       <p>[Graph placeholder: Liquidity vs Market Value]</p>
-     </div>
-   </div>
-
-   
    <section id="bottom-box" role="contentinfo" aria-label="Explore the USDt.z token">
      <div class="logo">
        <img src="../img/flags/logo.png" alt="USDt.z Logo" />
      </div>
      <div class="text">Explore the USDt.z token on BscScan and GeckoTerminal</div>
      <div class="btn-group">
-       <a href="https://bscscan.com/token/0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" target="_blank" rel="noopener" class="btn btn-bsc">BscScan</a>
-       <a href="https://www.geckoterminal.com/bsc/pools/0x553b402b3d6f91ea2208c7df61a6d4aa96ccb6191787c20fedb7ae6c9823b280" target="_blank" rel="noopener" class="btn btn-gecko">GeckoTerminal</a>
+       <a href="https://bscscan.com/token/0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" target="_blank" rel="noopener" class="btn-main">BscScan</a>
+       <a href="https://www.geckoterminal.com/bsc/pools/0x553b402b3d6f91ea2208c7df61a6d4aa96ccb6191787c20fedb7ae6c9823b280" target="_blank" rel="noopener" class="btn-main">GeckoTerminal</a>
      </div>
    </section>
-
  </main>
 
  <footer>
