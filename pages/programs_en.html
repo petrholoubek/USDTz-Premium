@@ -4,185 +4,144 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>USDt.z – Programs</title>
-<style>
-/* --- Reset a základní font --- */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-#msg_body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f8f9fa; color: #222; min-height: 100vh; display: flex; flex-direction: column; }
-
-/* --- Header a navigace (přesně jako index) --- */
-header { background: rgb(31,186,156); padding: 1rem 2rem; position: sticky; top: 0; z-index: 1100; box-shadow: 0 2px 6px rgba(0,0,0,0.15); }
-nav { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
-nav .logo img { height: 40px; cursor: pointer; filter: drop-shadow(0 0 5px rgba(0,0,0,0.15)); }
-nav ul { list-style: none; display: flex; gap: 2rem; align-items: center; flex-wrap: wrap; }
-nav ul li a { text-decoration: none; color: white; font-weight: 600; font-size: 1rem; transition: color 0.3s ease; display: flex; align-items: center; gap: 0.3rem; }
-nav ul li a:hover, nav ul li a.active { color: #004d40; font-weight: 700; }
-nav ul li img.flag { width: 26px; height: 18px; object-fit: cover; border: 1px solid #ddd; border-radius: 3px; }
-
-/* --- Hlavní obsah --- */
-main { flex: 1; max-width: 1200px; margin: 2rem auto 3rem; padding: 0 1rem; }
-
-/* --- Rámečky sekcí --- */
-section { background: #fff; border: 1px solid #ddd; border-radius: 10px; box-shadow: 0 0 12px rgb(31 186 156 / 0.15); padding: 2rem 2.5rem; margin-bottom: 2.5rem; max-width: 900px; margin-left: auto; margin-right: auto; }
-h1, h2 { color: rgb(31,186,156); margin-bottom: 1rem; }
-h1 { font-size: 2.8rem; text-align: center; }
-h2 { font-size: 2rem; }
-p { font-size: 1.1rem; line-height: 1.5; margin-bottom: 1.25rem; }
-
-/* --- Tlačítka --- */
-.btn { background-color: rgb(31,186,156); color: white; padding: 0.85rem 1.7rem; border: none; border-radius: 6px; cursor: pointer; font-weight: 700; text-decoration: none; display: inline-block; transition: background-color 0.3s ease; margin-top: 1rem; }
-.btn:hover { background-color: #1eab91; }
-.btn.pitch { background-color: #007acc; }
-.btn.pitch:hover { background-color: #005f99; }
-
-/* --- Flex box pro tlačítka --- */
-.button-group { display: flex; gap: 1.3rem; flex-wrap: wrap; justify-content: center; }
-
-/* --- Tabulky --- */
-xtable { border-collapse: collapse; width: 100%; max-width: 100%; margin-top: 1rem; }
-table th, table td { padding: 0.75rem 1rem; text-align: left; border-bottom: 1px solid #ddd; font-size: 1rem; }
-table th { background-color: rgb(31,186,156); color: white; font-weight: 600; }
-table tbody tr:hover { background-color: #e0f2f1; }
-
-/* --- Grafy --- */
-canvas { max-width: 100%; margin-top: 1rem; }
-
-/* --- Sekce bankovní a nebankovní sektor --- */
-.sectors { display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; max-width: 900px; margin: 0 auto 2rem; }
-.sector-box { flex: 1 1 45%; background: white; border: 1px solid #ddd; border-radius: 10px; box-shadow: 0 0 12px rgb(31 186 156 / 0.15); padding: 1.5rem 2rem; display: flex; gap: 1rem; align-items: flex-start; min-width: 280px; }
-.sector-icon { font-size: 3rem; color: rgb(31,186,156); min-width: 60px; text-align: center; }
-.sector-content h3 { margin-bottom: 0.5rem; color: rgb(31,186,156); }
-.sector-content ul { list-style: none; padding-left: 0; }
-.sector-content ul li { margin-bottom: 0.3rem; padding-left: 1.2rem; position: relative; }
-.sector-content ul li::before { content: "✔"; position: absolute; left: 0; color: rgb(31,186,156); }
-
-/* --- Dolní rámeček --- */
-#bottom-box { max-width: 900px; margin: 0 auto 2.5rem; background: #fff; border: 1px solid #ddd; border-radius: 10px; box-shadow: 0 0 12px rgb(31 186 156 / 0.15); padding: 1rem 2rem; display: flex; align-items: center; gap: 1.5rem; justify-content: space-between; flex-wrap: wrap; }
-#bottom-box .logo img { height: 40px; }
-#bottom-box .text { flex: 1; font-weight: 600; color: rgb(31,186,156); font-size: 1.1rem; }
-#bottom-box .btn-group { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
-#bottom-box .btn-group a { padding: 0.5rem 1.2rem; border-radius: 6px; font-weight: 700; text-decoration: none; display: inline-block; cursor: pointer; color: white; transition: background-color 0.3s ease; white-space: nowrap; }
-#bottom-box .btn-bsc { background-color: #f0b90b; }
-#bottom-box .btn-bsc:hover { background-color: #d9a200; }
-#bottom-box .btn-gecko { background-color: #1e88e5; }
-#bottom-box .btn-gecko:hover { background-color: #1669bb; }
-
-/* --- Footer --- */
-footer { text-align: center; padding: 1rem 1.5rem; background: #f1f3f4; font-size: 0.9rem; color: #555; }
-
-/* --- Responsivita --- */
-@media (max-width: 960px) { .flex-row { flex-direction: column; gap: 2rem; } xtable { max-width: 100%; } }
-@media (max-width: 768px) { nav ul { flex-direction: column; gap: 1rem; } nav .logo { margin-bottom: 0.75rem; } #bottom-box { flex-direction: column; gap: 1rem; text-align: center; } #bottom-box .btn-group { justify-content: center; width: 100%; } }
-</style>
+<link rel="stylesheet" href="../css/index.css">
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js" defer></script>
 </head>
 <body>
 
+
 <header>
  <nav>
-   <a href="../index.html" class="logo"><img src="../img/flags/logo-white.png" alt="USDt.z Logo"></a>
-   <ul>
+   <a href="../index.html" class="logo" aria-label="Home">
+     <img src="../img/logo-white.png" alt="USDt.z Logo">
+   </a>
+   <ul class="menu">
      <li><a href="../pages/programs_en.html" class="active">Programs</a></li>
-     <li><a href="../pages/about_en.html">About</a></li>
-     <li><a href="../pages/contact_en.html">Contact</a></li>
      <li><a href="../pages/pitch_en.html">Pitch Deck</a></li>
-     <li><a href="../index.html"><img src="../img/flags/en.png" alt="English Flag" class="flag"></a></li>
+     <li><a href="../pages/contact_en.html">Contact</a></li>
+     <li><a href="../index.html"><img class="flag" src="../img/en.png" alt="English"></a></li>
    </ul>
  </nav>
 </header>
 
 <main>
- <h1>USDt.z Programs</h1>
-
- <section>
-   <h2>Banking Sector Collaboration</h2>
-   <p>We offer partnerships with banks for liquidity management, cross-border payments, and next-generation stablecoin adoption.</p>
-   <div class="flex-row">
-     <div class="calculator">
-       <label>Example Table:</label>
-       <table>
-         <thead>
-           <tr><th>Bank</th><th>Volume (USD)</th><th>Partnership</th></tr>
-         </thead>
-         <tbody>
-           <tr><td>Bank A</td><td>1,200,000,000</td><td>Liquidity</td></tr>
-           <tr><td>Bank B</td><td>900,000,000</td><td>Cross-Border</td></tr>
-           <tr><td>Bank C</td><td>2,500,000,000</td><td>Stablecoin Adoption</td></tr>
-         </tbody>
-       </table>
+ 
+ <section id="sectors">
+   <h2>Banking & Non-Banking Sectors</h2>
+   <div class="sectors">
+     <div class="sector-box">
+       <div class="sector-icon">🏦</div>
+       <div class="sector-content">
+         <h3>Banking Sector</h3>
+         <ul>
+           <li>Secure stablecoin integration</li>
+           <li>Instant cross-border settlements</li>
+           <li>Liquidity management tools</li>
+           <li>Custom reporting & analytics</li>
+         </ul>
+       </div>
      </div>
-     <div>
-       <canvas id="bankChart"></canvas>
-     </div>
-   </div>
- </section>
-
- <section>
-   <h2>Non-Banking Sector Collaboration</h2>
-   <p>We provide solutions for fintechs, payment processors, and corporates for fast, transparent, and secure transactions.</p>
-   <div class="flex-row">
-     <div class="calculator">
-       <label>Example Table:</label>
-       <table>
-         <thead>
-           <tr><th>Company</th><th>USD Volume</th><th>Service</th></tr>
-         </thead>
-         <tbody>
-           <tr><td>FinTech X</td><td>500,000,000</td><td>Integration</td></tr>
-           <tr><td>Payment Y</td><td>750,000,000</td><td>Settlement</td></tr>
-           <tr><td>Corporate Z</td><td>1,200,000,000</td><td>Wallet Services</td></tr>
-         </tbody>
-       </table>
-     </div>
-     <div>
-       <canvas id="nonBankChart"></canvas>
+     <div class="sector-box">
+       <div class="sector-icon">💼</div>
+       <div class="sector-content">
+         <h3>Non-Banking Sector</h3>
+         <ul>
+           <li>Payment processing solutions</li>
+           <li>Merchant integrations</li>
+           <li>Decentralized finance opportunities</li>
+           <li>Partnership programs</li>
+         </ul>
+       </div>
      </div>
    </div>
  </section>
 
- <section>
+ 
+ <section id="analytics">
+   <h2>Market Analytics</h2>
+   <div class="flex-row">
+     <div class="calculator">
+       <h3>Exchange Calculator</h3>
+       <label for="usd-input">USD Amount</label>
+       <input type="number" id="usd-input" placeholder="Enter USD">
+       <label for="usdtz-output">USDt.z Result</label>
+       <output id="usdtz-output">0</output>
+     </div>
+     <div class="chart-box">
+       <canvas id="marketChart"></canvas>
+     </div>
+   </div>
+   <table>
+     <thead>
+       <tr>
+         <th>Pair</th>
+         <th>Price</th>
+         <th>24h Volume</th>
+       </tr>
+     </thead>
+     <tbody>
+       <tr><td>USDt.z / USD</td><td>$1.00</td><td>$5B</td></tr>
+       <tr><td>USDt.z / BNB</td><td>0.003</td><td>$2B</td></tr>
+     </tbody>
+   </table>
+ </section>
+
+ 
+ <section id="our-services">
    <h2>Our Services</h2>
-   <p>We provide a full range of services including audits, token integration, liquidity management, and partnership consultation.</p>
+   <p>We provide a full suite of services for banks, non-banks, and merchants to integrate USDt.z and optimize liquidity, payments, and analytics.</p>
    <div class="button-group">
-     <a href="../pages/pitch_en.html" class="btn pitch">Pitch Deck</a>
-     <a href="../pages/contact_en.html" class="btn">Contact Us</a>
+     <a class="btn" href="../pages/pitch_en.html">Pitch Deck</a>
+     <a class="btn audit" href="#">Audit Report</a>
+     <a class="btn gecko" href="#">Gecko Terminal</a>
    </div>
  </section>
+
 </main>
 
-<div id="bottom-box">
- <div class="logo"><img src="../img/flags/logo-green.png" alt="USDt.z Logo"></div>
+
+<section id="bottom-box">
+ <div class="logo">
+   <img src="../img/logo.png" alt="USDt.z Logo">
+ </div>
  <div class="text">Explore USDt.z – Next Generation Stablecoin</div>
  <div class="btn-group">
-   <a href="https://bscscan.com/token/0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" class="btn-bsc">BSC</a>
-   <a href="https://www.geckoterminal.com/bsc/pools/0x553b402b3d6f91ea2208c7df61a6d4aa96ccb619" class="btn-gecko">Gecko</a>
+   <a href="#" class="btn btn-bsc">BSC Pair</a>
+   <a href="#" class="btn btn-gecko">Gecko Terminal</a>
  </div>
-</div>
+</section>
 
 <footer>
- &copy; 2025 USDt.z – All rights reserved.
+ &copy; 2025 USDt.z. All rights reserved.
 </footer>
 
 <script>
-document.addEventListener('DOMContentLoaded', () => {
- const ctxBank = document.getElementById('bankChart').getContext('2d');
- new Chart(ctxBank, {
-   type: 'bar',
-   data: {
-     labels: ['Bank A', 'Bank B', 'Bank C'],
-     datasets: [{ label: 'USD Volume', data: [1200000000, 900000000, 2500000000], backgroundColor: 'rgb(31,186,156)' }]
-   },
-   options: { responsive: true, plugins: { legend: { display: false } } }
- });
+const usdInput = document.getElementById('usd-input');
+const usdtzOutput = document.getElementById('usdtz-output');
+usdInput.addEventListener('input', () => {
+ const val = parseFloat(usdInput.value) || 0;
+ usdtzOutput.value = (val * 1).toFixed(2);
+});
 
- const ctxNonBank = document.getElementById('nonBankChart').getContext('2d');
- new Chart(ctxNonBank, {
-   type: 'bar',
+// Chart.js example
+const ctx = document.getElementById('marketChart').getContext('2d');
+const marketChart = new Chart(ctx, {
+   type: 'line',
    data: {
-     labels: ['FinTech X', 'Payment Y', 'Corporate Z'],
-     datasets: [{ label: 'USD Volume', data: [500000000, 750000000, 1200000000], backgroundColor: 'rgb(31,186,156)' }]
+       labels: ['Jan','Feb','Mar','Apr','May','Jun'],
+       datasets: [{
+           label: 'USDt.z Price',
+           data: [1,1.01,0.99,1.02,1,1.01],
+           borderColor: 'rgb(31,186,156)',
+           backgroundColor: 'rgba(31,186,156,0.1)',
+           tension: 0.3
+       }]
    },
-   options: { responsive: true, plugins: { legend: { display: false } } }
- });
+   options: {
+       responsive:true,
+       plugins: { legend:{ display:true } },
+       scales: { y: { beginAtZero:false } }
+   }
 });
 </script>
 
