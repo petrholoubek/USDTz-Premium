@@ -18,7 +18,6 @@
       display: flex;
       flex-direction: column;
     }
-
     header {
       background: rgb(31,186,156);
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -35,14 +34,11 @@
       align-items: center;
       flex-wrap: wrap;
     }
-
     .logo img {
       height: 40px;
       cursor: pointer;
       filter: drop-shadow(0 0 5px rgba(0,0,0,0.15));
     }
-
-    /* Menu - desktop */
     ul.menu {
       list-style: none;
       display: flex;
@@ -71,8 +67,6 @@
       border-radius: 3px;
       border: 1px solid rgba(255,255,255,0.6);
     }
-
-    /* Hamburger button - mobile */
     #menu-toggle {
       display: none;
     }
@@ -90,9 +84,10 @@
       background: white;
       border-radius: 2px;
     }
-
     @media (max-width: 768px) {
-      label[for="menu-toggle"] { display: flex; }
+      label[for="menu-toggle"] {
+        display: flex;
+      }
       ul.menu {
         display: none;
         flex-direction: column;
@@ -103,23 +98,25 @@
         border-radius: 8px;
         padding: 1rem 2rem;
       }
-      ul.menu li { width: 100%; }
+      ul.menu li {
+        width: 100%;
+      }
       ul.menu li a {
         display: block;
         width: 100%;
         font-size: 1.1rem;
         padding: 0.5rem 0;
       }
-      #menu-toggle:checked + label + ul.menu { display: flex; }
+      #menu-toggle:checked + label + ul.menu {
+        display: flex;
+      }
     }
-
     main {
       flex: 1;
       max-width: 900px;
       margin: 2rem auto 3rem;
       padding: 0 1rem;
     }
-
     section.content-box {
       background: #fff;
       border: 1px solid #ddd;
@@ -128,14 +125,31 @@
       padding: 1.5rem 2rem;
       margin-bottom: 2.5rem;
     }
-
-    h1, h2 { color: rgb(31,186,156); margin-bottom: 1rem; }
-    h1 { font-size: 2.5rem; text-align: center; margin-bottom: 1.5rem; }
-    h2 { font-size: 2rem; margin-bottom: 1rem; }
-    p { margin-bottom: 1rem; font-size: 1rem; }
-    ul { margin-left: 1.5rem; margin-bottom: 1rem; }
-    ul li { margin-bottom: 0.5rem; font-size: 1rem; }
-
+    h1, h2 {
+      color: rgb(31,186,156);
+      margin-bottom: 1rem;
+    }
+    h1 {
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    p {
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    ul {
+      margin-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    ul li {
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+    }
     #bottom-box {
       max-width: 900px;
       margin: 0 auto 2.5rem;
@@ -149,15 +163,22 @@
       gap: 1.5rem;
       justify-content: space-between;
     }
-    #bottom-box .logo { flex-shrink: 0; }
-    #bottom-box .logo img { height: 40px; }
+    #bottom-box .logo {
+      flex-shrink: 0;
+    }
+    #bottom-box .logo img {
+      height: 40px;
+    }
     #bottom-box .text {
       flex: 1;
       font-weight: 600;
       color: rgb(31,186,156);
       font-size: 1.1rem;
     }
-    #bottom-box .btn-group { display: flex; gap: 1rem; }
+    #bottom-box .btn-group {
+      display: flex;
+      gap: 1rem;
+    }
     #bottom-box .btn-group a {
       padding: 0.5rem 1.2rem;
       border-radius: 6px;
@@ -173,7 +194,6 @@
     #bottom-box .btn-bsc:hover { background-color: #d9a200; }
     #bottom-box .btn-gecko { background-color: #1e88e5; }
     #bottom-box .btn-gecko:hover { background-color: #1669bb; }
-
     footer {
       text-align: center;
       padding: 1rem 2rem;
@@ -181,13 +201,13 @@
       font-size: 0.9rem;
       color: #555;
     }
-
     @media (max-width: 960px) {
       #bottom-box { flex-direction: column; gap: 1rem; text-align: center; }
       #bottom-box .btn-group { justify-content: center; width: 100%; }
     }
   </style>
 
+  <!-- Chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js" defer></script>
 </head>
 <body>
@@ -196,29 +216,19 @@
       <a href="../index_en.html" class="logo" aria-label="Go to homepage">
         <img src="../img/flags/logo-white.png" alt="USDt.z Logo" />
       </a>
-
       <input type="checkbox" id="menu-toggle" />
-      <label for="menu-toggle" aria-label="Open menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </label>
-
+      <label for="menu-toggle" aria-label="Open menu"><span></span><span></span><span></span></label>
       <ul class="menu" role="menubar" aria-label="Main navigation">
         <li role="none"><a href="../index_en.html" role="menuitem">Home</a></li>
-        <li role="none"><a href="../pages/about_en.html" role="menuitem">About Token</a></li>
+        <li role="none"><a href="../pages/about_en.html" role="menuitem">About USDt.z</a></li>
         <li role="none"><a href="../pages/usecases_en.html" role="menuitem">Use Cases</a></li>
         <li role="none"><a href="../pages/docs_en.html" role="menuitem" aria-current="page" class="active">Documentation</a></li>
         <li role="none"><a href="../index_en.html#wallet-connect" role="menuitem">Connect Wallet</a></li>
         <li role="none">
-          <a href="../index.html" title="Czech" role="menuitem" aria-label="Czech version">
-            <img src="../img/flags/cz.png" alt="Czech flag" class="flag" />
-          </a>
+          <a href="../index.html" title="Czech" role="menuitem"><img src="../img/flags/cz.png" alt="Czech flag" class="flag" /></a>
         </li>
         <li role="none">
-          <a href="../index_en.html" title="English" role="menuitem" aria-label="English version">
-            <img src="../img/flags/en.png" alt="English flag" class="flag" />
-          </a>
+          <a href="../index_en.html" title="English" role="menuitem"><img src="../img/flags/en.png" alt="English flag" class="flag" /></a>
         </li>
       </ul>
     </nav>
@@ -227,69 +237,49 @@
   <main>
     <section class="content-box" role="main">
       <h1>USDt.z Documentation</h1>
-      <p>
-        USDt.z is an innovative next-generation stablecoin designed for both banking and non-banking sectors. Below you will find detailed information about security, technical features, roadmap, and tokenomics.
-      </p>
+      <p>USDt.z is a next-generation stablecoin for both banking and non-banking sectors. Below you will find detailed information about security, technical aspects, roadmap, and tokenomics.</p>
 
       <h2>Security</h2>
-      <p>
-        Security is our top priority. USDt.z is built on the robust Binance Smart Chain (BSC) with decentralized transaction validation.
-      </p>
-      <p>
-        The token undergoes regular audits by independent security firms, ensuring smart contracts remain tamper-proof.
-      </p>
-      <p>
-        Our own liquidity pool guarantees stability and immediate trading volume, minimizes pump and dump risks, and ensures transparency.
-      </p>
-      <canvas id="securityChart" width="400" height="250" style="max-width: 100%;"></canvas>
-      <p style="font-size: 0.9rem; color: #555; margin-top: 0.3rem;">
-        Chart: Security evaluation of USDt.z by auditors and community.
-      </p>
+      <p>Security is our top priority. USDt.z is built on the robust Binance Smart Chain (BSC) with decentralized transaction validation.</p>
+      <p>The token undergoes regular audits by independent security firms to ensure smart contracts remain uncompromised.</p>
+      <p>Our liquidity pool ensures stability, immediate trading volume, and transparency while minimizing pump-and-dump risks.</p>
+      <canvas id="securityChart" width="400" height="250" style="max-width:100%;"></canvas>
+      <p style="font-size:0.9rem; color:#555; margin-top:0.3rem;">Chart: Security elements rating by auditors and community.</p>
 
       <h2>Roadmap</h2>
-      <p>
-        The USDt.z development plan includes continuous ecosystem expansion, implementation of new features, and increased adoption in the banking sector.
-      </p>
+      <p>USDt.z’s roadmap includes expanding the ecosystem, adding new features, and increasing adoption in the banking sector.</p>
       <p>Key milestones:</p>
       <ul>
-        <li>Q3 2025: Integration with leading non-banking financial institutions</li>
-        <li>Q4 2025: Launch of smart contracts for loans and credit</li>
+        <li>Q3 2025: Integration with top non-banking financial institutions</li>
+        <li>Q4 2025: Smart contract deployment for loans and credits</li>
         <li>Q1 2026: Expansion of liquidity pools and cross-chain interoperability</li>
         <li>Q2 2026: Launch of own DEX and governance model</li>
       </ul>
-      <canvas id="roadmapChart" width="400" height="250" style="max-width: 100%;"></canvas>
-      <p style="font-size: 0.9rem; color: #555; margin-top: 0.3rem;">
-        Chart: Roadmap implementation progress of USDt.z.
-      </p>
+      <canvas id="roadmapChart" width="400" height="250" style="max-width:100%;"></canvas>
+      <p style="font-size:0.9rem; color:#555; margin-top:0.3rem;">Chart: USDt.z roadmap implementation progress.</p>
 
-      <h2>Technical Features and Tokenomics</h2>
-      <p>
-        USDt.z is an ERC-20 token fully compatible with Binance Smart Chain, ensuring low fees and fast transactions.
-      </p>
-      <p>Tokenomics are designed to support stability, liquidity, and user trust:</p>
+      <h2>Technical Features & Tokenomics</h2>
+      <p>USDt.z is an ERC-20 token fully compatible with Binance Smart Chain for low fees and fast transactions.</p>
+      <p>Tokenomics is designed to support stability, liquidity, and user trust:</p>
       <ul>
-        <li>Fixed 1:1 peg to the US dollar</li>
+        <li>1:1 fixed peg to USD</li>
         <li>Regular audits and transparent reporting</li>
-        <li>Own liquidity pool on PancakeSwap</li>
+        <li>Dedicated liquidity pool on PancakeSwap</li>
         <li>Staking and governance capabilities</li>
       </ul>
-      <canvas id="tokenomicsChart" width="400" height="250" style="max-width: 100%;"></canvas>
-      <p style="font-size: 0.9rem; color: #555; margin-top: 0.3rem;">
-        Chart: Token distribution and ecosystem usage of USDt.z.
-      </p>
+      <canvas id="tokenomicsChart" width="400" height="250" style="max-width:100%;"></canvas>
+      <p style="font-size:0.9rem; color:#555; margin-top:0.3rem;">Chart: Token distribution and ecosystem allocation.</p>
 
       <h2>Downloadable Documents</h2>
-      <div class="button-group" style="margin-top: 1rem;">
-        <a href="../docs/USDTz_Whitepaper_EN.pdf" class="btn" target="_blank" rel="noopener" style="display:inline-block; margin-right:1rem; padding:0.5rem 1rem; background:rgb(31,186,156); color:white; border-radius:6px; text-decoration:none; font-weight:600;">Download Whitepaper (PDF)</a>
-        <a href="../docs/Audit_Report.pdf" class="btn audit" target="_blank" rel="noopener" style="display:inline-block; padding:0.5rem 1rem; background:#dc3545; color:white; border-radius:6px; text-decoration:none; font-weight:600;">Download Audit (PDF)</a>
+      <div class="button-group" style="margin-top:1rem;">
+        <a href="../docs/USDTz_Whitepaper_EN.pdf" class="btn" target="_blank" rel="noopener" style="margin-right:1rem; padding:0.5rem 1rem; background:rgb(31,186,156); color:white; border-radius:6px; text-decoration:none; font-weight:600;">Download Whitepaper (PDF)</a>
+        <a href="../docs/Audit_Report.pdf" class="btn audit" target="_blank" rel="noopener" style="padding:0.5rem 1rem; background:#dc3545; color:white; border-radius:6px; text-decoration:none; font-weight:600;">Download Audit (PDF)</a>
       </div>
     </section>
 
-    <section id="bottom-box" role="contentinfo" aria-label="Explore USDt.z Token">
-      <div class="logo">
-        <img src="../img/flags/logo.png" alt="USDt.z Logo" />
-      </div>
-      <div class="text">Explore USDt.z token on BscScan and GeckoTerminal</div>
+    <section id="bottom-box" role="contentinfo" aria-label="Explore USDt.z token">
+      <div class="logo"><img src="../img/flags/logo.png" alt="USDt.z Logo" /></div>
+      <div class="text">Explore USDt.z on BscScan and GeckoTerminal</div>
       <div class="btn-group">
         <a href="https://bscscan.com/token/0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" target="_blank" rel="noopener" class="btn btn-bsc">BscScan</a>
         <a href="https://www.geckoterminal.com/bsc/pools/0x553b402b3d6f91ea2208c7df61a6d4aa96ccb6191787c20fedb7ae6c9823b280" target="_blank" rel="noopener" class="btn btn-gecko">GeckoTerminal</a>
@@ -297,9 +287,7 @@
     </section>
   </main>
 
-  <footer>
-    &copy; 2025 USDt.z – Next Generation Stablecoin. All rights reserved.
-  </footer>
+  <footer>&copy; 2025 USDt.z – Next Generation Stablecoin. All rights reserved.</footer>
 
   <script defer>
     document.addEventListener('DOMContentLoaded', function () {
@@ -307,42 +295,26 @@
       new Chart(ctx1, {
         type: 'bar',
         data: {
-          labels: ['Smart Contracts', 'Audits', 'Liquidity', 'Decentralization', 'Security Team'],
-          datasets: [{
-            label: 'Rating',
-            data: [95, 90, 85, 80, 88],
-            backgroundColor: 'rgba(31,186,156,0.7)',
-            borderColor: 'rgba(31,186,156,1)',
-            borderWidth: 1
-          }]
+          labels: ['Smart Contracts','Audits','Liquidity','Decentralization','Security Team'],
+          datasets: [{label:'Rating', data:[95,90,85,80,88], backgroundColor:'rgba(31,186,156,0.7)', borderColor:'rgba(31,186,156,1)', borderWidth:1}]
         },
-        options: { responsive: true, scales: { y: { beginAtZero: true, max: 100 } }, plugins: { legend: { display: false } } }
+        options:{responsive:true, scales:{y:{beginAtZero:true,max:100}}, plugins:{legend:{display:false}}}
       });
 
       const ctx2 = document.getElementById('roadmapChart').getContext('2d');
       new Chart(ctx2, {
-        type: 'line',
-        data: {
-          labels: ['Q1 2025', 'Q2 2025', 'Q3 2025', 'Q4 2025', 'Q1 2026', 'Q2 2026'],
-          datasets: [{
-            label: 'Progress',
-            data: [10, 30, 55, 70, 90, 100],
-            fill: false,
-            borderColor: 'rgba(31,186,156,1)',
-            tension: 0.3
-          }]
-        },
-        options: { responsive: true, scales: { y: { beginAtZero: true, max: 100 } }, plugins: { legend: { display: false } } }
+        type:'line',
+        data:{labels:['Q1 2025','Q2 2025','Q3 2025','Q4 2025','Q1 2026','Q2 2026'], datasets:[{label:'Progress', data:[10,30,55,70,90,100], fill:false, borderColor:'rgba(31,186,156,1)', tension:0.3}]},
+        options:{responsive:true, scales:{y:{beginAtZero:true,max:100}}, plugins:{legend:{display:false}}}
       });
 
       const ctx3 = document.getElementById('tokenomicsChart').getContext('2d');
       new Chart(ctx3, {
-        type: 'doughnut',
-        data: {
-          labels: ['Staking', 'Liquidity Pool', 'Reserve', 'Team', 'Marketing'],
-          datasets: [{
-            label: 'Token Distribution',
-            data: [30, 25, 20, 15, 10],
-            backgroundColor: [
-              'rgba(31,186,156,0.8)',
-              '
+        type:'doughnut',
+        data:{labels:['Staking','Liquidity Pool','Reserve','Team','Marketing'], datasets:[{label:'Token Distribution', data:[30,25,20,15,10], backgroundColor:['rgba(31,186,156,0.8)','rgba(0,123,255,0.7)','rgba(255,193,7,0.7)','rgba(220,53,69,0.7)','rgba(108,117,125,0.7)'], borderColor:'white', borderWidth:2}]},
+        options:{responsive:true, plugins:{legend:{position:'right'}}}
+      });
+    });
+  </script>
+</body>
+</html>
