@@ -298,26 +298,7 @@
     color: rgb(31,186,156);
   }
 
-  /* Dokumentace - předposlední rámeček */
-  #docs-box {
-    max-width: 900px;
-    margin: 0 auto 2.5rem;
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    box-shadow: 0 0 12px rgb(31 186 156 / 0.15);
-    padding: 2rem 2.5rem;
-    text-align: center;
-  }
-  #docs-box h2 {
-    color: rgb(31,186,156);
-    margin-bottom: 1rem;
-  }
-  #docs-box .button-group {
-    justify-content: center;
-  }
-
-  /* Spodní rámeček - prozkoumej token (neměnit) */
+  /* Spodní rámeček - prozkoumej token */
   #bottom-box {
     max-width: 900px;
     margin: 0 auto 2.5rem;
@@ -449,41 +430,30 @@
 </header>
 
 <main>
-  <!-- Pod menu: Tabulka aktuálních kurzů a kalkulačka -->
+  <!-- Hlavní info -->
   <section>
-    <h2>Aktuální kurz měn a kalkulačka</h2>
-    <div class="flex-row">
-      <table aria-label="Tabulka aktuálních kurzů">
-        <thead>
-          <tr><th>Měna</th><th>Kurz k USDt.z</th></tr>
-        </thead>
-        <tbody id="exchangeRates">
-          <!-- Data doplní JS -->
-        </tbody>
-      </table>
-
-      <div class="calculator" aria-label="Kalkulačka převodu měn">
-        <label for="amountInput">Zadejte částku:</label>
-        <input type="number" id="amountInput" min="0" step="any" value="1" aria-describedby="amountHelp" />
-        <label for="currencyFrom">Z měny:</label>
-        <select id="currencyFrom" aria-describedby="fromHelp">
-          <option value="USDTz">USDt.z</option>
-          <option value="BNB">BNB</option>
-          <option value="USD">USD</option>
-          <option value="EUR">EUR</option>
-          <option value="CZK">CZK</option>
-        </select>
-        <label for="currencyTo">Na měnu:</label>
-        <select id="currencyTo" aria-describedby="toHelp">
-          <option value="USDTz">USDt.z</option>
-          <option value="BNB">BNB</option>
-          <option value="USD">USD</option>
-          <option value="EUR">EUR</option>
-          <option value="CZK">CZK</option>
-        </select>
-        <output id="conversionResult" aria-live="polite" style="margin-top:1rem; display:block; font-weight:700; color:rgb(31,186,156); font-size:1.25rem;">Výsledek: 1 USDt.z</output>
-      </div>
+    <h1>USDt.z – Next Generation Stablecoin</h1>
+    <p style="text-align:center; font-size:1.15rem; max-width:600px; margin: 0 auto 1rem;">
+      Stabilní, bezpečný a inovativní token navržený pro bankovní i nebankovní sektor.<br />
+      Navrženo s důrazem na bezpečnost, transparentnost a dlouhodobou stabilitu.
+    </p>
+    <div style="text-align:center;">
+      <a href="/USDTz-Premium/pages/about.html" class="btn">Více o tokenu</a>
     </div>
+  </section>
+
+  <!-- Tokenomika s barevným kruhovým grafem -->
+  <section>
+    <h2>Tokenomika</h2>
+    <p>Rozložení tokenů USDt.z podporuje dlouhodobou stabilitu a růst ekosystému.</p>
+    <canvas id="tokenomicsChart" width="400" height="250" aria-label="Graf rozložení tokenů USDt.z" role="img"></canvas>
+  </section>
+
+  <!-- Roadmapa - graf s dvěma křivkami -->
+  <section>
+    <h2>Vývoj tokenu (Roadmapa)</h2>
+    <p>Zde vidíte vývoj projektu v průběhu měsíců: počet uživatelů a likvidita v milionech Kč.</p>
+    <canvas id="roadmapChart" width="600" height="300" aria-label="Graf vývoje tokenu" role="img"></canvas>
   </section>
 
   <!-- Bankovní a nebankovní sektor vedle sebe s ikonami -->
@@ -514,84 +484,167 @@
     </div>
   </section>
 
-  <!-- Dokumentace - předposlední rámeček -->
-  <section id="docs-box" aria-labelledby="docs-title">
-    <h2 id="docs-title">Dokumentace</h2>
-    <div class="button-group">
-      <a href="/USDTz-Premium/docs/USDtz-whitepaper.pdf" class="btn" target="_blank" rel="noopener noreferrer" aria-label="Otevřít PDF dokumentaci">📄 PDF Whitepaper</a>
-      <a href="/USDTz-Premium/docs/USDtz-audit-report.pdf" class="btn audit" target="_blank" rel="noopener noreferrer" aria-label="Otevřít auditní zprávu">🛡 Auditní zpráva</a>
+  <!-- Kurzovní tabulka a kalkulačka -->
+  <section>
+    <h2>Aktuální kurz měn a kalkulačka</h2>
+    <div class="flex-row" role="region" aria-label="Kalkulačka a tabulka kurzů">
+      <div class="calculator" role="form" aria-labelledby="calculator-title">
+        <h3 id="calculator-title">Kalkulačka USDt.z</h3>
+        <label for="input-amount">Zadejte částku v USDt.z:</label>
+        <input type="number" id="input-amount" value="100" min="0" step="0.01" />
+        <label for="select-currency">Vyberte měnu pro převod:</label>
+        <select id="select-currency" aria-describedby="currency-desc">
+          <option value="CZK">CZK - Česká koruna</option>
+          <option value="EUR">EUR - Euro</option>
+          <option value="USD">USD - Americký dolar</option>
+          <option value="BNB">BNB - Binance Coin</option>
+        </select>
+        <output id="output-result" aria-live="polite" aria-atomic="true" style="margin-top:1rem;display:block;color:#1fbabc;font-weight:700;font-size:1.2rem;"></output>
+      </div>
+      <table role="table" aria-label="Tabulka aktuálních kurzů">
+        <thead>
+          <tr>
+            <th>Měna</th>
+            <th>Kurz (1 USDt.z)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>CZK</td><td>23.00</td></tr>
+          <tr><td>EUR</td><td>0.91</td></tr>
+          <tr><td>USD</td><td>1.00</td></tr>
+          <tr><td>BNB</td><td>0.0033</td></tr>
+        </tbody>
+      </table>
     </div>
   </section>
 
-  <!-- Poslední rámeček - Prozkoumej token (neměnit) -->
-  <section id="bottom-box" role="region" aria-label="Prozkoumej token USDt.z">
-    <div class="logo">
-      <img src="/USDTz-Premium/img/flags/logo-green.png" alt="USDt.z Logo" />
-    </div>
-    <div class="text">Prozkoumej token USDt.z na:</div>
-    <div class="btn-group">
-      <a href="https://bscscan.com/token/0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" class="btn btn-bsc" target="_blank" rel="noopener noreferrer" aria-label="BscScan token USDt.z">BscScan</a>
-      <a href="https://www.geckoterminal.com/bsc/pools/0x553b402b3d6f91ea2208c7df61a6d4aa96ccb6191787c20fedb7ae6c9823b280" class="btn btn-gecko" target="_blank" rel="noopener noreferrer" aria-label="GeckoTerminal token USDt.z">GeckoTerminal</a>
+  <!-- Dokumentace -->
+  <section aria-labelledby="documentation-title">
+    <h2 id="documentation-title">Dokumentace</h2>
+    <p>Veškeré důležité dokumenty k projektu USDt.z:</p>
+    <div class="button-group" role="group" aria-label="Odkazy na dokumenty">
+      <a href="/USDTz-Premium/docs/whitepaper.pdf" class="btn" target="_blank" rel="noopener noreferrer" aria-label="Stáhnout whitepaper USDt.z">Whitepaper PDF</a>
+      <a href="/USDTz-Premium/docs/audit-report.pdf" class="btn audit" target="_blank" rel="noopener noreferrer" aria-label="Stáhnout audit USDt.z">Audit USDt.z</a>
     </div>
   </section>
 </main>
 
+<div id="bottom-box" role="contentinfo" aria-label="Prozkoumej token USDt.z">
+  <div class="logo" aria-hidden="true">
+    <img src="/USDTz-Premium/img/flags/logo-white.png" alt="USDt.z logo" />
+  </div>
+  <div class="text">Prozkoumej token USDt.z na:</div>
+  <div class="btn-group">
+    <a href="https://bscscan.com/token/0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" target="_blank" rel="noopener noreferrer" class="btn-bsc" aria-label="Token na BscScan">BscScan</a>
+    <a href="https://www.coingecko.com/en/coins/usdtz" target="_blank" rel="noopener noreferrer" class="btn-gecko" aria-label="Token na CoinGecko">CoinGecko</a>
+  </div>
+</div>
+
 <footer>
-  © 2025 USDt.z – Next Generation Stablecoin. Všechna práva vyhrazena.
+  &copy; 2025 USDt.z – Všechna práva vyhrazena
 </footer>
 
 <script>
-  // Ukázková data pro kurzy (změň dle potřeby z API)
-  const exchangeRatesData = {
-    USDTz: 1,
-    BNB: 0.0033,
-    USD: 1,
-    EUR: 0.92,
-    CZK: 22.3
+  // Jednoduchá kalkulačka pro převod
+  const rates = {
+    'CZK': 23.00,
+    'EUR': 0.91,
+    'USD': 1.00,
+    'BNB': 0.0033
   };
+  const inputAmount = document.getElementById('input-amount');
+  const selectCurrency = document.getElementById('select-currency');
+  const outputResult = document.getElementById('output-result');
 
-  // Vyplnění tabulky aktuálních kurzů
-  const ratesBody = document.getElementById('exchangeRates');
-  for (const [currency, rate] of Object.entries(exchangeRatesData)) {
-    const tr = document.createElement('tr');
-    const tdCurrency = document.createElement('td');
-    tdCurrency.textContent = currency;
-    const tdRate = document.createElement('td');
-    tdRate.textContent = rate.toFixed(6);
-    tr.appendChild(tdCurrency);
-    tr.appendChild(tdRate);
-    ratesBody.appendChild(tr);
+  function updateResult() {
+    const amount = parseFloat(inputAmount.value) || 0;
+    const currency = selectCurrency.value;
+    const rate = rates[currency];
+    const result = amount * rate;
+    outputResult.textContent = `${amount.toFixed(2)} USDt.z = ${result.toFixed(4)} ${currency}`;
   }
 
-  // Kalkulačka převodu měn
-  const amountInput = document.getElementById('amountInput');
-  const currencyFrom = document.getElementById('currencyFrom');
-  const currencyTo = document.getElementById('currencyTo');
-  const resultOutput = document.getElementById('conversionResult');
+  inputAmount.addEventListener('input', updateResult);
+  selectCurrency.addEventListener('change', updateResult);
+  updateResult();
 
-  function calculateConversion() {
-    const amount = parseFloat(amountInput.value);
-    if (isNaN(amount) || amount < 0) {
-      resultOutput.textContent = 'Zadejte platnou částku.';
-      return;
-    }
-    const fromRate = exchangeRatesData[currencyFrom.value];
-    const toRate = exchangeRatesData[currencyTo.value];
-    if (!fromRate || !toRate) {
-      resultOutput.textContent = 'Kurz není dostupný.';
-      return;
-    }
-    const converted = amount * (toRate / fromRate);
-    resultOutput.textContent = `Výsledek: ${converted.toFixed(6)} ${currencyTo.value}`;
-  }
+  // Grafy - Chart.js
+  window.addEventListener('DOMContentLoaded', () => {
+    const ctxTokenomics = document.getElementById('tokenomicsChart').getContext('2d');
+    const tokenomicsChart = new Chart(ctxTokenomics, {
+      type: 'doughnut',
+      data: {
+        labels: ['Likvidita', 'Vývoj', 'Marketing', 'Rezerva', 'Tým'],
+        datasets: [{
+          label: 'Tokenomika',
+          data: [40, 25, 15, 10, 10],
+          backgroundColor: [
+            '#1fbabc',
+            '#007acc',
+            '#ff7f50',
+            '#32cd32',
+            '#ffa500'
+          ],
+          borderWidth: 0
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { position: 'bottom' },
+          tooltip: { enabled: true }
+        }
+      }
+    });
 
-  amountInput.addEventListener('input', calculateConversion);
-  currencyFrom.addEventListener('change', calculateConversion);
-  currencyTo.addEventListener('change', calculateConversion);
-
-  // Inicializace výpočtu při načtení
-  calculateConversion();
+    const ctxRoadmap = document.getElementById('roadmapChart').getContext('2d');
+    const roadmapChart = new Chart(ctxRoadmap, {
+      type: 'line',
+      data: {
+        labels: ['Leden', 'Únor', 'Březen', 'Duben', 'Květen', 'Červen', 'Červenec'],
+        datasets: [
+          {
+            label: 'Uživatelé (tisíce)',
+            data: [10, 30, 60, 120, 200, 320, 450],
+            borderColor: '#1fbabc',
+            backgroundColor: 'rgba(31,186,188,0.3)',
+            fill: true,
+            tension: 0.3,
+            yAxisID: 'y'
+          },
+          {
+            label: 'Likvidita (mil. Kč)',
+            data: [1, 2.5, 5, 8, 13, 21, 34],
+            borderColor: '#007acc',
+            backgroundColor: 'rgba(0,122,204,0.3)',
+            fill: true,
+            tension: 0.3,
+            yAxisID: 'y1'
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        interaction: { mode: 'index', intersect: false },
+        stacked: false,
+        scales: {
+          y: {
+            type: 'linear',
+            display: true,
+            position: 'left',
+            title: { display: true, text: 'Uživatelé (tisíce)' }
+          },
+          y1: {
+            type: 'linear',
+            display: true,
+            position: 'right',
+            grid: { drawOnChartArea: false },
+            title: { display: true, text: 'Likvidita (mil. Kč)' }
+          }
+        }
+      }
+    });
+  });
 </script>
-
 </body>
 </html>
