@@ -3,137 +3,166 @@
 <head>
  <meta charset="UTF-8" />
  <meta name="viewport" content="width=device-width, initial-scale=1" />
- <title>Programs & Collaboration – USDt.z</title>
+ <title>Program & Collaboration – USDt.z</title>
  <style>
    /* Reset */
-   * {margin:0; padding:0; box-sizing:border-box;}
-   #msg_body {font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:#fff; color:#222; min-height:100vh; display:flex; flex-direction:column;}
-   header {background: rgb(31,186,156); box-shadow:0 2px 5px rgba(0,0,0,0.1); position:sticky; top:0; z-index:1100;}
-   nav {max-width:1200px; margin:0 auto; padding:1rem 2rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap;}
-   .logo img {height:40px; cursor:pointer; filter:drop-shadow(0 0 5px rgba(0,0,0,0.15));}
-   ul.menu {list-style:none; display:flex; gap:1.5rem; align-items:center;}
-   ul.menu li a {color:white; font-weight:600; font-size:1rem; text-decoration:none; transition:color 0.3s ease; display:flex; align-items:center; gap:0.3rem;}
-   ul.menu li a:hover, ul.menu li a.active {color:#004d40; font-weight:700;}
-   img.flag {width:24px; height:16px; object-fit:cover; border-radius:3px; border:1px solid rgba(255,255,255,0.6);}
-   /* Hamburger button - mobile */
-   #menu-toggle {display:none;}
-   label[for="menu-toggle"] {display:none; cursor:pointer; width:30px; height:25px; flex-direction:column; justify-content:space-between;}
-   label[for="menu-toggle"] span {display:block; height:3px; background:white; border-radius:2px;}
-   @media (max-width:768px) {
-     label[for="menu-toggle"] {display:flex;}
-     ul.menu {display:none; flex-direction:column; width:100%; margin-top:1rem; gap:1rem; background: rgb(31,186,156); border-radius:8px; padding:1rem 2rem;}
-     ul.menu li {width:100%;}
-     ul.menu li a {display:block; width:100%; font-size:1.1rem; padding:0.5rem 0;}
-     #menu-toggle:checked + label + ul.menu {display:flex;}
+   * { margin:0; padding:0; box-sizing:border-box; }
+   #msg_body { font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:#fff; color:#222; min-height:100vh; display:flex; flex-direction:column; }
+   header { background: rgb(31,186,156); box-shadow:0 2px 5px rgba(0,0,0,0.1); position:sticky; top:0; z-index:1100; }
+   nav { max-width:1200px; margin:0 auto; padding:1rem 2rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; }
+   .logo img { height:40px; cursor:pointer; filter:drop-shadow(0 0 5px rgba(0,0,0,0.15)); }
+   ul.menu { list-style:none; display:flex; gap:1.5rem; align-items:center; }
+   ul.menu li a { color:white; font-weight:600; font-size:1rem; text-decoration:none; transition:color 0.3s ease; display:flex; align-items:center; gap:0.3rem; }
+   ul.menu li a:hover, ul.menu li a.active { color:#004d40; font-weight:700; }
+   img.flag { width:24px; height:16px; object-fit:cover; border-radius:3px; border:1px solid rgba(255,255,255,0.6); }
+   /* Hamburger mobile */
+   #menu-toggle { display:none; }
+   label[for="menu-toggle"] { display:none; cursor:pointer; width:30px; height:25px; flex-direction:column; justify-content:space-between; }
+   label[for="menu-toggle"] span { display:block; height:3px; background:white; border-radius:2px; }
+   @media (max-width:768px){
+     label[for="menu-toggle"] { display:flex; }
+     ul.menu { display:none; flex-direction:column; width:100%; margin-top:1rem; gap:1rem; background:rgb(31,186,156); border-radius:8px; padding:1rem 2rem; }
+     ul.menu li { width:100%; }
+     ul.menu li a { display:block; width:100%; font-size:1.1rem; padding:0.5rem 0; }
+     #menu-toggle:checked + label + ul.menu { display:flex; }
    }
-   main {flex:1; max-width:1000px; margin:2rem auto 3rem; padding:0 1rem;}
-   section.content-box {background:#fff; border:1px solid #ddd; border-radius:10px; box-shadow:0 0 12px rgb(31 186 156 / 0.15); padding:2rem 2.5rem; margin-bottom:2.5rem;}
-   h1,h2 {color:rgb(31,186,156); margin-bottom:1rem;}
-   h1 {font-size:2.5rem; text-align:center; margin-bottom:1.5rem;}
-   h2 {font-size:2rem; margin-bottom:1rem;}
-   p {margin-bottom:1rem; font-size:1rem;}
-   ul {margin-left:1.5rem; margin-bottom:1rem;}
-   ul li {margin-bottom:0.5rem; font-size:1rem;}
-   .btn-group {display:flex; gap:1rem; margin-top:1rem;}
-   .btn {padding:0.5rem 1.2rem; border-radius:6px; font-weight:700; text-decoration:none; display:inline-block; cursor:pointer; color:white; transition: background-color 0.3s ease; white-space:nowrap;}
-   .btn-pitch {background-color:#f39c12;} .btn-pitch:hover {background-color:#e67e22;}
-   .btn-consult {background-color:#27ae60;} .btn-consult:hover {background-color:#219150;}
-   .btn-training {background-color:#2980b9;} .btn-training:hover {background-color:#21618c;}
+   main { flex:1; max-width:900px; margin:2rem auto 3rem; padding:0 1rem; }
+   section.content-box { background:#fff; border:1px solid #ddd; border-radius:10px; box-shadow:0 0 12px rgb(31 186 156 / 0.15); padding:2rem 2.5rem; margin-bottom:2.5rem; min-height:300px; }
+   h1,h2 { color:rgb(31,186,156); margin-bottom:1rem; }
+   h1 { font-size:2.5rem; text-align:center; margin-bottom:1.5rem; }
+   h2 { font-size:2rem; margin-bottom:1rem; }
+   p { margin-bottom:1rem; font-size:1rem; }
+   ul { margin-left:1.5rem; margin-bottom:1rem; }
+   ul li { margin-bottom:0.5rem; font-size:1rem; }
+   /* Button styles */
+   .btn { padding:0.5rem 1.2rem; border-radius:6px; font-weight:700; text-decoration:none; display:inline-block; cursor:pointer; color:white; transition:background-color 0.3s ease; margin-top:0.5rem; }
+   .btn-pitch { background:#f0b90b; }
+   .btn-pitch:hover { background:#d9a200; }
+   .btn-training { background:#1e88e5; }
+   .btn-training:hover { background:#1669bb; }
+   .btn-services { background:#43a047; }
+   .btn-services:hover { background:#2e7d32; }
    /* Bottom box */
-   #bottom-box {max-width:1000px; margin:0 auto 2.5rem; background:#fff; border:1px solid #ddd; border-radius:10px; box-shadow:0 0 12px rgb(31 186 156 / 0.15); padding:1rem 2rem; display:flex; align-items:center; gap:1.5rem; justify-content:space-between;}
-   #bottom-box .logo img {height:40px;}
-   #bottom-box .text {flex:1; font-weight:600; color:rgb(31,186,156); font-size:1.1rem;}
-   footer {text-align:center; padding:1rem 2rem; background:#f0f0f0; font-size:0.9rem; color:#555;}
-   @media (max-width:960px) {#bottom-box {flex-direction:column; gap:1rem; text-align:center;} #bottom-box .btn-group {justify-content:center; width:100%;}}
+   #bottom-box { max-width:900px; margin:0 auto 2.5rem; background:#fff; border:1px solid #ddd; border-radius:10px; box-shadow:0 0 12px rgb(31 186 156 / 0.15); padding:1rem 2rem; display:flex; align-items:center; gap:1.5rem; justify-content:space-between; }
+   #bottom-box .logo { flex-shrink:0; }
+   #bottom-box .logo img { height:40px; }
+   #bottom-box .text { flex:1; font-weight:600; color:rgb(31,186,156); font-size:1.1rem; }
+   #bottom-box .btn-group { display:flex; gap:1rem; }
+   #bottom-box .btn-group a { padding:0.5rem 1.2rem; border-radius:6px; font-weight:700; text-decoration:none; display:inline-block; cursor:pointer; color:white; transition:background-color 0.3s ease; white-space:nowrap; }
+   #bottom-box .btn-bsc { background-color:#f0b90b; }
+   #bottom-box .btn-bsc:hover { background-color:#d9a200; }
+   #bottom-box .btn-gecko { background-color:#1e88e5; }
+   #bottom-box .btn-gecko:hover { background-color:#1669bb; }
+   footer { text-align:center; padding:1rem 2rem; background:#f0f0f0; font-size:0.9rem; color:#555; }
+   @media(max-width:960px){#bottom-box{flex-direction:column;gap:1rem;text-align:center;}#bottom-box .btn-group{justify-content:center;width:100%;}}
  </style>
 </head>
 <body>
-<header>
- <nav>
-   <a href="index_en.html" class="logo" aria-label="Go to homepage"><img src="img/flags/logo-white.png" alt="USDt.z Logo"></a>
-   <input type="checkbox" id="menu-toggle">
-   <label for="menu-toggle" aria-label="Open menu"><span></span><span></span><span></span></label>
-   <ul class="menu" role="menubar" aria-label="Main navigation">
-     <li><a href="index_en.html" role="menuitem">Home</a></li>
-     <li><a href="pages/about_en.html" role="menuitem">About</a></li>
-     <li><a href="pages/programs_en.html" role="menuitem" aria-current="page" class="active">Programs</a></li>
-     <li><a href="pages/usecases_en.html" role="menuitem">Use Cases</a></li>
-     <li><a href="pages/docs_en.html" role="menuitem">Documentation</a></li>
-     <li><a href="pages/contact_en.html" role="menuitem">Contact</a></li>
-     <li><a href="index.html" title="Czech" aria-label="Czech version"><img src="img/flags/cz.png" alt="Czech flag" class="flag"></a></li>
-     <li><a href="index_en.html" title="English" aria-label="English version"><img src="img/flags/en.png" alt="English flag" class="flag"></a></li>
-   </ul>
- </nav>
-</header>
+ <header>
+   <nav>
+     <a href="../index_en.html" class="logo" aria-label="Go to homepage">
+       <img src="../img/flags/logo-white.png" alt="USDt.z Logo" />
+     </a>
 
-<main>
- <section class="content-box">
-   <h1>Programs & Collaboration</h1>
-   <p>Explore how USDt.z collaborates with financial institutions and projects, offering innovative opportunities in the crypto space.</p>
- </section>
+     <input type="checkbox" id="menu-toggle" />
+     <label for="menu-toggle" aria-label="Open menu">
+       <span></span>
+       <span></span>
+       <span></span>
+     </label>
 
- <section class="content-box">
-   <h2>Bank Collaboration</h2>
-   <ul>
-     <li>Access to institutional liquidity pools</li>
-     <li>Partnerships for structured financing</li>
-     <li>Integration with banking DeFi platforms</li>
-   </ul>
-   <div class="btn-group">
-     <a href="#" class="btn-pitch">Pitch Deck</a>
-     <a href="#" class="btn-consult">Consulting</a>
-     <a href="#" class="btn-training">Training</a>
-   </div>
- </section>
+     <ul class="menu" role="menubar" aria-label="Main navigation">
+       <li role="none"><a href="../index_en.html" role="menuitem">Home</a></li>
+       <li role="none"><a href="programs_en.html" role="menuitem" aria-current="page" class="active">Program</a></li>
+       <li role="none"><a href="about_en.html" role="menuitem">About</a></li>
+       <li role="none"><a href="usecases_en.html" role="menuitem">Use Cases</a></li>
+       <li role="none"><a href="docs_en.html" role="menuitem">Documentation</a></li>
+       <li role="none"><a href="contact_en.html" role="menuitem">Contact</a></li>
+       <li role="none">
+         <a href="../index.html" title="Czech" role="menuitem" aria-label="Czech version">
+           <img src="../img/flags/cz.png" alt="Czech flag" class="flag" />
+         </a>
+       </li>
+       <li role="none">
+         <a href="../index_en.html" title="English" role="menuitem" aria-label="English version">
+           <img src="../img/flags/en.png" alt="English flag" class="flag" />
+         </a>
+       </li>
+     </ul>
+   </nav>
+ </header>
 
- <section class="content-box">
-   <h2>Non-Bank Collaboration</h2>
-   <ul>
-     <li>Support for startups and innovative projects</li>
-     <li>Decentralized finance (DeFi) partnerships</li>
-     <li>Token utilization in real-world applications</li>
-   </ul>
-   <div class="btn-group">
-     <a href="#" class="btn-pitch">Pitch Deck</a>
-     <a href="#" class="btn-consult">Consulting</a>
-     <a href="#" class="btn-training">Training</a>
-   </div>
- </section>
+ <main>
+   <section class="content-box">
+     <h1>Program & Collaboration</h1>
+     <p>Explore the main areas of collaboration, market opportunities, and our service offerings.</p>
+   </section>
 
- <section class="content-box">
-   <h2>Market Value & Opportunities</h2>
-   <ul>
-     <li>Maximizing token utility and liquidity</li>
-     <li>Exposure to emerging markets</li>
-     <li>Participation in crypto ecosystem growth</li>
-   </ul>
- </section>
+   <section class="content-box">
+     <h2>Banking Collaboration</h2>
+     <ul>
+       <li>Partnerships with banks and financial institutions.</li>
+       <li>Access to traditional and crypto markets.</li>
+       <li>Integrated solutions for liquidity and stablecoin usage.</li>
+     </ul>
+   </section>
 
- <section class="content-box">
-   <h2>Educational & Training Programs</h2>
-   <ul>
-     <li>Workshops and seminars for partners</li>
-     <li>DeFi and stablecoin education</li>
-     <li>Customized training for institutional clients</li>
-   </ul>
-   <div class="btn-group">
-     <a href="#" class="btn-training">Schedule Training</a>
-   </div>
- </section>
+   <section class="content-box">
+     <h2>Non-Banking Collaboration</h2>
+     <ul>
+       <li>Startups, fintech, and innovative projects.</li>
+       <li>Token integration and DeFi solutions.</li>
+       <li>Support for growth and scaling business operations.</li>
+     </ul>
+   </section>
 
- 
- <section id="bottom-box">
-   <div class="logo"><img src="img/flags/logo.png" alt="USDt.z Logo"></div>
-   <div class="text">Explore the USDt.z token on BscScan and GeckoTerminal</div>
-   <div class="btn-group">
-     <a href="https://bscscan.com/token/0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" target="_blank" rel="noopener" class="btn btn-bsc">BscScan</a>
-     <a href="https://www.geckoterminal.com/bsc/pools/0x553b402b3d6f91ea2208c7df61a6d4aa96ccb6191787c20fedb7ae6c9823b280" target="_blank" rel="noopener" class="btn btn-gecko">GeckoTerminal</a>
-   </div>
- </section>
-</main>
+   <section class="content-box">
+     <h2>Market & Valuation</h2>
+     <ul>
+       <li>Establishing market presence and brand recognition.</li>
+       <li>Pitch Decks and investor meetings.</li>
+       <li>Evaluation of token and project value in real market conditions.</li>
+     </ul>
+     <a href="#" class="btn btn-pitch">Pitch Deck</a>
+     <a href="#" class="btn btn-pitch">Investor Meeting</a>
+   </section>
 
-<footer>
- &copy; 2025 USDt.z – Next Generation Stablecoin. All rights reserved.
-</footer>
+   <section class="content-box">
+     <h2>Training & Education</h2>
+     <ul>
+       <li>Workshops and webinars for clients and partners.</li>
+       <li>Educational materials about USDt.z and blockchain usage.</li>
+     </ul>
+     <a href="#" class="btn btn-training">Workshops</a>
+     <a href="#" class="btn btn-training">Webinars</a>
+   </section>
+
+   <section class="content-box">
+     <h2>Service Offerings</h2>
+     <ul>
+       <li>Consulting for projects and startups.</li>
+       <li>Custom token integration and smart contract solutions.</li>
+       <li>Strategic advice for market entry.</li>
+     </ul>
+     <a href="#" class="btn btn-services">Consulting</a>
+     <a href="#" class="btn btn-services">Integration</a>
+   </section>
+
+   
+   <section id="bottom-box">
+     <div class="logo">
+       <img src="../img/flags/logo.png" alt="USDt.z Logo" />
+     </div>
+     <div class="text">Explore the USDt.z token on BscScan and GeckoTerminal</div>
+     <div class="btn-group">
+       <a href="https://bscscan.com/token/0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" target="_blank" rel="noopener" class="btn btn-bsc">BscScan</a>
+       <a href="https://www.geckoterminal.com/bsc/pools/0x553b402b3d6f91ea2208c7df61a6d4aa96ccb6191787c20fedb7ae6c9823b280" target="_blank" rel="noopener" class="btn btn-gecko">GeckoTerminal</a>
+     </div>
+   </section>
+ </main>
+
+ <footer>
+   &copy; 2025 USDt.z – Next Generation Stablecoin. All rights reserved.
+ </footer>
 </body>
 </html>
