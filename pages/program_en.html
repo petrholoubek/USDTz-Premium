@@ -1,132 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <meta charset="UTF-8" />
- <meta name="viewport" content="width=device-width, initial-scale=1" />
- <title>Programs & Collaboration – USDt.z Stablecoin</title>
- <style>
-   * { margin:0; padding:0; box-sizing:border-box; }
-   #msg_body { font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:#fff; color:#222; min-height:100vh; display:flex; flex-direction:column; }
-   header { background:rgb(31,186,156); box-shadow:0 2px 5px rgba(0,0,0,0.1); position:sticky; top:0; z-index:1100; }
-   nav { max-width:1200px; margin:0 auto; padding:1rem 2rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; }
-   .logo img { height:40px; cursor:pointer; filter:drop-shadow(0 0 5px rgba(0,0,0,0.15)); }
-   ul.menu { list-style:none; display:flex; gap:1.5rem; align-items:center; }
-   ul.menu li a { color:white; font-weight:600; font-size:1rem; text-decoration:none; transition:color 0.3s ease; display:flex; align-items:center; gap:0.3rem; }
-   ul.menu li a:hover, ul.menu li a.active { color:#004d40; font-weight:700; }
-   img.flag { width:24px; height:16px; object-fit:cover; border-radius:3px; border:1px solid rgba(255,255,255,0.6); }
-   #menu-toggle { display:none; }
-   label[for="menu-toggle"] { display:none; cursor:pointer; width:30px; height:25px; flex-direction:column; justify-content:space-between; }
-   label[for="menu-toggle"] span { display:block; height:3px; background:white; border-radius:2px; }
-   @media(max-width:768px) {
-     label[for="menu-toggle"] { display:flex; }
-     ul.menu { display:none; flex-direction:column; width:100%; margin-top:1rem; gap:1rem; background:rgb(31,186,156); border-radius:8px; padding:1rem 2rem; }
-     ul.menu li { width:100%; }
-     ul.menu li a { display:block; width:100%; font-size:1.1rem; padding:0.5rem 0; }
-     #menu-toggle:checked + label + ul.menu { display:flex; }
-   }
-   main { flex:1; max-width:1000px; margin:2rem auto 3rem; padding:0 1rem; }
-   section.content-box { background:#fff; border:1px solid #ddd; border-radius:10px; box-shadow:0 0 12px rgb(31 186 156 / 0.15); padding:2rem 2.5rem; margin-bottom:2.5rem; min-height:400px; }
-   h1,h2 { color:rgb(31,186,156); margin-bottom:1rem; }
-   h1 { font-size:2.5rem; text-align:center; margin-bottom:1.5rem; }
-   h2 { font-size:2rem; margin-bottom:1rem; }
-   p { margin-bottom:1rem; font-size:1rem; }
-   ul { margin-left:1.5rem; margin-bottom:1rem; }
-   ul li { margin-bottom:0.5rem; font-size:1rem; }
-   .frame { background:#f9f9f9; border:1px solid #ddd; border-radius:10px; padding:1.5rem; margin-bottom:2rem; box-shadow:0 0 10px rgb(31 186 156 / 0.1); }
-   .frame h3 { color:rgb(31,186,156); margin-bottom:0.8rem; }
-   .btn-group { display:flex; flex-wrap:wrap; gap:1rem; margin-top:1rem; }
-   .btn { padding:0.5rem 1.2rem; border-radius:6px; font-weight:700; text-decoration:none; display:inline-block; cursor:pointer; color:white; transition:background-color 0.3s ease; white-space:nowrap; }
-   .btn-pitch { background:#f0b90b; }
-   .btn-pitch:hover { background:#d9a200; }
-   .btn-training { background:#1e88e5; }
-   .btn-training:hover { background:#1669bb; }
-   #bottom-box { max-width:1000px; margin:0 auto 2.5rem; background:#fff; border:1px solid #ddd; border-radius:10px; box-shadow:0 0 12px rgb(31 186 156 / 0.15); padding:1rem 2rem; display:flex; align-items:center; gap:1.5rem; justify-content:space-between; }
-   #bottom-box .logo img { height:40px; }
-   #bottom-box .text { flex:1; font-weight:600; color:rgb(31,186,156); font-size:1.1rem; }
-   #bottom-box .btn-group a { color:white; }
-   footer { text-align:center; padding:1rem 2rem; background:#f0f0f0; font-size:0.9rem; color:#555; }
-   @media(max-width:960px) { #bottom-box { flex-direction:column; gap:1rem; text-align:center; } #bottom-box .btn-group { justify-content:center; width:100%; } }
- </style>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>USDt.z – Programs & Partnerships</title>
+   <link rel="stylesheet" href="../style.css">
 </head>
 <body>
- <header>
+   
    <nav>
-     <a href="index_en.html" class="logo" aria-label="Go to homepage">
-       <img src="../img/flags/logo-white.png" alt="USDt.z Logo" />
-     </a>
-     <input type="checkbox" id="menu-toggle" />
-     <label for="menu-toggle" aria-label="Open menu"><span></span><span></span><span></span></label>
-     <ul class="menu" role="menubar" aria-label="Main navigation">
-       <li><a href="index_en.html" role="menuitem">Home</a></li>
-       <li><a href="about_en.html" role="menuitem">About</a></li>
-       <li><a href="programs_en.html" role="menuitem" class="active" aria-current="page">Program</a></li>
-       <li><a href="usecases_en.html" role="menuitem">Use Cases</a></li>
-       <li><a href="docs_en.html" role="menuitem">Documentation</a></li>
-       <li><a href="contact_en.html" role="menuitem">Contact</a></li>
-       <li>
-         <a href="index.html" title="Czech" role="menuitem" aria-label="Czech version">
-           <img src="../img/flags/cz.png" alt="Czech flag" class="flag" />
-         </a>
-       </li>
-       <li>
-         <a href="index_en.html" title="English" role="menuitem" aria-label="English version">
-           <img src="../img/flags/en.png" alt="English flag" class="flag" />
-         </a>
-       </li>
-     </ul>
-   </nav>
- </header>
-
- <main>
-   <section class="content-box" role="main">
-     <h1>Programs & Collaboration</h1>
-
-     <div class="frame">
-       <h3>Banking Partnerships</h3>
-       <ul>
-         <li>Integration with banks for liquidity and stablecoin support</li>
-         <li>Joint services to ensure market value and compliance</li>
-         <li>Workshops, seminars, and training programs</li>
-       </ul>
-     </div>
-
-     <div class="frame">
-       <h3>Non-Banking Collaboration</h3>
-       <ul>
-         <li>DeFi and crypto startups support</li>
-         <li>Pitch deck creation and advisory</li>
-         <li>Marketing campaigns and strategic partnerships</li>
-       </ul>
-       <div class="btn-group">
-         <a href="#" class="btn btn-pitch">Pitch Deck</a>
-         <a href="#" class="btn btn-training">Training Programs</a>
+       <div class="nav-left">
+           <a href="../index.html"><img src="../img/logo/logo-white.png" alt="USDt.z Logo" class="logo"></a>
        </div>
-     </div>
+       <div class="nav-center">
+           <a href="../index.html">Home</a>
+           <a href="about_en.html">About</a>
+           <a href="docs_en.html">Documents</a>
+           <a href="usecases_en.html">Use Cases</a>
+           <a href="program_en.html" class="active">Programs</a>
+           <a href="contact_en.html">Contact</a>
+       </div>
+       <div class="nav-right">
+           <a href="../pages/program.html"><img src="../img/flags/cz.png" alt="CZ Flag" class="flag"></a>
+           <a href="../pages/program_en.html"><img src="../img/flags/en.png" alt="EN Flag" class="flag"></a>
+       </div>
+   </nav>
 
-     <div class="frame">
-       <h3>Educational & Networking</h3>
-       <ul>
-         <li>Workshops for youth and startups</li>
-         <li>Networking events and webinars</li>
-         <li>DeFi and blockchain knowledge sharing</li>
-       </ul>
-     </div>
-   </section>
+   
+   <header class="page-header">
+       <h1>Programs & Partnerships</h1>
+       <p>Strategic collaborations, training, and global expansion opportunities with USDt.z</p>
+   </header>
 
-   <section id="bottom-box" role="contentinfo" aria-label="Explore the USDt.z token">
-     <div class="logo">
-       <img src="../img/flags/logo.png" alt="USDt.z Logo" />
-     </div>
-     <div class="text">Explore the USDt.z token on BscScan and GeckoTerminal</div>
-     <div class="btn-group">
-       <a href="https://bscscan.com/token/0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" target="_blank" rel="noopener" class="btn btn-pitch">BscScan</a>
-       <a href="https://www.geckoterminal.com/bsc/pools/0x553b402b3d6f91ea2208c7df61a6d4aa96ccb6191787c20fedb7ae6c9823b280" target="_blank" rel="noopener" class="btn btn-training">GeckoTerminal</a>
-     </div>
-   </section>
- </main>
+   
+   <main>
+       <section class="program-section">
+           <div class="card">
+               <h2>Banking Sector Collaboration</h2>
+               <p>We create tailored financial solutions for commercial banks, investment funds, and payment institutions, enabling stable liquidity and innovative transaction models.</p>
+           </div>
+           <div class="card">
+               <h2>Non-Banking Sector Collaboration</h2>
+               <p>USDt.z opens opportunities for fintech companies, e-commerce platforms, and large corporate ecosystems to implement blockchain solutions without volatility risks.</p>
+           </div>
+           <div class="card">
+               <h2>Market Capitalization & Growth</h2>
+               <p>Strong market entry strategy and liquidity management to ensure the long-term value growth of USDt.z.</p>
+           </div>
+           <div class="card">
+               <h2>Training & Consulting</h2>
+               <p>Professional training programs for banks, companies, and security institutions in blockchain integration and risk management.</p>
+           </div>
+           <div class="card">
+               <h2>Exclusive Services</h2>
+               <p>We offer personalized support, presentations, and materials to help your institution join the next generation of financial technology.</p>
+               <div class="button-group">
+                   <a href="#" class="btn green">Pitch Deck</a>
+                   <a href="#" class="btn blue">Download PDF</a>
+                   <a href="#" class="btn orange">Book Training</a>
+               </div>
+           </div>
+           <div class="card highlight">
+               <img src="../img/logo/logo-white.png" alt="USDt.z Logo" class="footer-logo">
+               <h2>Explore USDt.z</h2>
+               <p>Join our global network and discover the potential of our stablecoin in your market.</p>
+               <a href="../index.html" class="btn green">Start Now</a>
+           </div>
+       </section>
+   </main>
 
- <footer>
-   &copy; 2025 USDt.z – Next Generation Stablecoin. All rights reserved.
- </footer>
+   
+   <footer>
+       <p>&copy; 2025 USDt.z – All Rights Reserved.</p>
+   </footer>
 </body>
 </html>
