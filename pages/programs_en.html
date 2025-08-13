@@ -3,7 +3,7 @@
 <head>
  <meta charset="UTF-8" />
  <meta name="viewport" content="width=device-width, initial-scale=1" />
- <title>Programs & Cooperation – USDt.z Stablecoin</title>
+ <title>Program – USDt.z Stablecoin</title>
  <style>
    /* Reset */
    * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -25,16 +25,19 @@
      ul.menu li a { display: block; width: 100%; font-size: 1.1rem; padding: 0.5rem 0; }
      #menu-toggle:checked + label + ul.menu { display: flex; }
    }
-   main { flex: 1; max-width: 900px; margin: 2rem auto 3rem; padding: 0 1rem; }
-   section.content-box { background: #fff; border: 1px solid #ddd; border-radius: 10px; box-shadow: 0 0 12px rgb(31 186 156 / 0.15); padding: 2rem 2.5rem; margin-bottom: 2.5rem; min-height: 400px; }
+   main { flex: 1; max-width: 1200px; margin: 2rem auto 3rem; padding: 0 1rem; }
+   section.content-box { background: #fff; border: 1px solid #ddd; border-radius: 10px; box-shadow: 0 0 12px rgb(31 186 156 / 0.15); padding: 2rem 2.5rem; margin-bottom: 2.5rem; }
    h1, h2 { color: rgb(31,186,156); margin-bottom: 1rem; }
    h1 { font-size: 2.5rem; text-align: center; margin-bottom: 1.5rem; }
    h2 { font-size: 2rem; margin-bottom: 1rem; }
-   p { margin-bottom: 1rem; font-size: 1rem; }
+   p, li { font-size: 1rem; margin-bottom: 1rem; }
    ul { margin-left: 1.5rem; margin-bottom: 1rem; }
-   ul li { margin-bottom: 0.5rem; font-size: 1rem; }
-   #bottom-box { max-width: 900px; margin: 0 auto 2.5rem; background: #fff; border: 1px solid #ddd; border-radius: 10px; box-shadow: 0 0 12px rgb(31 186 156 / 0.15); padding: 1rem 2rem; display: flex; align-items: center; gap: 1.5rem; justify-content: space-between; }
-   #bottom-box .logo { flex-shrink: 0; }
+   .sector-box { background: #f9f9f9; border: 1px solid #ddd; border-radius: 10px; padding: 1.5rem; margin-bottom: 2rem; box-shadow: 0 0 8px rgb(31 186 156 / 0.1); }
+   .sector-box h3 { font-size: 1.5rem; color: rgb(31,186,156); margin-bottom: 1rem; }
+   .sector-box p { font-size: 0.95rem; }
+   .btn-pitch { display: inline-block; margin-top: 1rem; padding: 0.6rem 1.4rem; background-color: #1e88e5; color: #fff; text-decoration: none; border-radius: 6px; font-weight: 700; transition: background 0.3s; }
+   .btn-pitch:hover { background-color: #1669bb; }
+   #bottom-box { max-width: 1200px; margin: 0 auto 2.5rem; background: #fff; border: 1px solid #ddd; border-radius: 10px; box-shadow: 0 0 12px rgb(31 186 156 / 0.15); padding: 1rem 2rem; display: flex; align-items: center; gap: 1.5rem; justify-content: space-between; }
    #bottom-box .logo img { height: 40px; }
    #bottom-box .text { flex: 1; font-weight: 600; color: rgb(31,186,156); font-size: 1.1rem; }
    #bottom-box .btn-group { display: flex; gap: 1rem; }
@@ -48,8 +51,6 @@
      #bottom-box { flex-direction: column; gap: 1rem; text-align: center; }
      #bottom-box .btn-group { justify-content: center; width: 100%; }
    }
-   /* Graph placeholder */
-   .graph-box { background: #e0f7f5; border-radius: 8px; padding: 1rem; margin: 1.5rem 0; text-align: center; font-weight: 600; }
  </style>
 </head>
 <body>
@@ -73,42 +74,52 @@
        <li><a href="usecases_en.html">Use Cases</a></li>
        <li><a href="docs_en.html">Documentation</a></li>
        <li><a href="contact_en.html">Contact</a></li>
-       <li>
-         <a href="index.html" title="Czech" aria-label="Czech version">
-           <img src="../img/flags/cz.png" alt="Czech flag" class="flag" />
-         </a>
-       </li>
-       <li>
-         <a href="index_en.html" title="English" aria-label="English version">
-           <img src="../img/flags/en.png" alt="English flag" class="flag" />
-         </a>
-       </li>
+       <li><a href="index.html"><img src="../img/flags/cz.png" alt="Czech flag" class="flag" /></a></li>
+       <li><a href="index_en.html"><img src="../img/flags/en.png" alt="English flag" class="flag" /></a></li>
      </ul>
    </nav>
  </header>
 
  <main>
    <section class="content-box" role="main">
-     <h1>Programs, Cooperation & Training</h1>
-     <p>Our USDt.z initiatives cover a variety of programs including banking and non-banking cooperation, workshops, training, and Pitch Deck presentations.</p>
+     <h1>Program & Cooperation</h1>
+     <p>Our USDt.z program provides structured offerings for banks, non-banking institutions, and innovative startups. Explore liquidity, trading, and strategic partnerships.</p>
 
-     <h2>Banking & Non-Banking Cooperation</h2>
-     <ul>
-       <li><strong>Banking Partners:</strong> Collaborations with banks for liquidity management, lending, and stablecoin adoption.</li>
-       <li><strong>Non-Banking Partners:</strong> Integration with fintech, DeFi platforms, and startups to expand ecosystem use.</li>
-       <li><strong>Workshops & Training:</strong> Professional training sessions for financial and crypto institutions.</li>
-       <li><strong>Pitch Deck Presentations:</strong> Dedicated session to present USDt.z benefits and investment opportunities.
-         <br><a href="pages/pitch_en.html" class="btn btn-gecko" style="margin-top:0.5rem;">Pitch Deck</a>
-       </li>
-     </ul>
-
-     <h2>Liquidity & Market Overview</h2>
-     <div class="graph-box">
-       Graph: USDt.z liquidity pools and market capitalization – $5 trillion potential.
+     <div class="sector-box">
+       <h3>Banking Sector</h3>
+       <p>USDt.z enables banks to access next-generation stablecoin solutions for liquidity management, collateral, and DeFi integrations.</p>
+       <p><strong>Key Highlights:</strong></p>
+       <ul>
+         <li>Liquidity provision support</li>
+         <li>Stable collateral for loans</li>
+         <li>Market capitalization over 5 trillion USDt.z equivalent</li>
+         <li>Integration into proprietary banking platforms</li>
+       </ul>
      </div>
 
-     <h2>Additional Opportunities</h2>
-     <p>Integration with various blockchain applications, DeFi protocols, and youth/startup support initiatives.</p>
+     <div class="sector-box">
+       <h3>Non-Banking Sector</h3>
+       <p>Non-banking institutions, startups, and educational projects can leverage USDt.z for financing, trading, and risk mitigation.</p>
+       <p><strong>Key Highlights:</strong></p>
+       <ul>
+         <li>Access to liquidity pools</li>
+         <li>Participation in decentralized trading</li>
+         <li>Startup financing without traditional guarantees</li>
+         <li>Integration into educational and innovation programs</li>
+       </ul>
+     </div>
+
+     <div class="sector-box">
+       <h3>Training & Workshops</h3>
+       <p>We provide practical training for teams and institutions covering:</p>
+       <ul>
+         <li>Blockchain and DeFi fundamentals</li>
+         <li>Token liquidity management</li>
+         <li>Risk mitigation strategies</li>
+         <li>Hands-on workshops with USDt.z tokens</li>
+       </ul>
+       <a href="pages/pitch_en.html" class="btn-pitch">Pitch Deck</a>
+     </div>
    </section>
 
    <section id="bottom-box" role="contentinfo" aria-label="Explore the USDt.z token">
