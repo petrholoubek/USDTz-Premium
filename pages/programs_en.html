@@ -3,293 +3,202 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>USDt.z – Program & Collaboration</title>
+<title>USDt.z – Next Generation Stablecoin</title>
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js" defer></script>
+
 <style>
- /* Reset */
- * {
-   margin: 0; padding: 0; box-sizing: border-box;
- }
- #msg_body {
-   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-   background: #f8f9fa;
-   color: #222;
-   min-height: 100vh;
-   display: flex;
-   flex-direction: column;
- }
+/* Reset */
+* { margin:0; padding:0; box-sizing:border-box; }
+#msg_body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:#f8f9fa; color:#222; min-height:100vh; display:flex; flex-direction:column; }
+header { background: rgb(31,186,156); box-shadow: 0 2px 5px rgba(0,0,0,0.1); position: sticky; top:0; z-index:1100; }
+nav { max-width:1200px; margin:0 auto; padding:1rem 2rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; }
+.logo img { height:40px; cursor:pointer; filter: drop-shadow(0 0 5px rgba(0,0,0,0.15)); }
+ul.menu { list-style:none; display:flex; gap:1.5rem; align-items:center; }
+ul.menu li a { color:white; font-weight:600; font-size:1rem; text-decoration:none; display:flex; align-items:center; gap:0.3rem; transition:color 0.3s ease; }
+ul.menu li a:hover, ul.menu li a.active { color:#004d40; font-weight:700; }
+img.flag { width:24px; height:16px; object-fit:cover; border-radius:3px; border:1px solid rgba(255,255,255,0.6); }
 
- header {
-   background: rgb(31,186,156);
-   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-   position: sticky;
-   top: 0;
-   z-index: 1100;
- }
- nav {
-   max-width: 1200px;
-   margin: 0 auto;
-   padding: 1rem 2rem;
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-   flex-wrap: wrap;
- }
+/* Responsive hamburger */
+#menu-toggle { display:none; }
+label[for="menu-toggle"] { display:none; cursor:pointer; width:30px; height:25px; flex-direction:column; justify-content:space-between; }
+label[for="menu-toggle"] span { display:block; height:3px; background:white; border-radius:2px; }
 
- .logo img {
-   height: 40px;
-   cursor: pointer;
-   filter: drop-shadow(0 0 5px rgba(0,0,0,0.15));
- }
+@media(max-width:768px){
+ label[for="menu-toggle"] { display:flex; }
+ ul.menu { display:none; flex-direction:column; width:100%; margin-top:1rem; gap:1rem; background: rgb(31,186,156); border-radius:8px; padding:1rem 2rem; }
+ ul.menu li a { display:block; width:100%; font-size:1.1rem; padding:0.5rem 0; }
+ #menu-toggle:checked + label + ul.menu { display:flex; }
+}
 
- /* Menu - desktop */
- ul.menu {
-   list-style: none;
-   display: flex;
-   gap: 1.5rem;
-   align-items: center;
- }
- ul.menu li a {
-   color: white;
-   font-weight: 600;
-   font-size: 1rem; /* zachováno podle indexu */
-   text-decoration: none;
-   transition: color 0.3s ease;
-   display: flex;
-   align-items: center;
-   gap: 0.3rem;
- }
- ul.menu li a:hover,
- ul.menu li a.active {
-   color: #004d40;
-   font-weight: 700;
- }
- img.flag {
-   width: 24px;
-   height: 16px;
-   object-fit: cover;
-   border-radius: 3px;
-   border: 1px solid rgba(255,255,255,0.6);
- }
+main { flex:1; max-width:1200px; margin:2rem auto 3rem; padding:0 1rem; }
 
- /* Hamburger button - mobile */
- #menu-toggle {
-   display: none;
- }
- label[for="menu-toggle"] {
-   display: none;
-   cursor: pointer;
-   width: 30px;
-   height: 25px;
-   flex-direction: column;
-   justify-content: space-between;
- }
- label[for="menu-toggle"] span {
-   display: block;
-   height: 3px;
-   background: white;
-   border-radius: 2px;
- }
+/* Sections */
+section { background:#fff; border:1px solid #ddd; border-radius:10px; box-shadow:0 0 12px rgb(31 186 156 / 0.15); padding:2rem 2.5rem; margin-bottom:2.5rem; max-width:900px; margin-left:auto; margin-right:auto; }
+h1,h2 { color: rgb(31,186,156); margin-bottom:1rem; }
+h1 { font-size:2.8rem; text-align:center; }
+h2 { font-size:2rem; }
+p { font-size:1.1rem; line-height:1.5; margin-bottom:1.25rem; }
 
- @media (max-width: 768px) {
-   label[for="menu-toggle"] {
-     display: flex;
-   }
-   ul.menu {
-     display: none;
-     flex-direction: column;
-     width: 100%;
-     margin-top: 1rem;
-     gap: 1rem;
-     background: rgb(31,186,156);
-     border-radius: 8px;
-     padding: 1rem 2rem;
-   }
-   ul.menu li {
-     width: 100%;
-   }
-   ul.menu li a {
-     display: block;
-     width: 100%;
-     font-size: 1.1rem;
-     padding: 0.5rem 0;
-   }
-   #menu-toggle:checked + label + ul.menu {
-     display: flex;
-   }
- }
+/* Buttons */
+.btn { background-color: rgb(31,186,156); color:white; padding:0.85rem 1.7rem; border:none; border-radius:6px; cursor:pointer; font-weight:700; text-decoration:none; display:inline-block; transition:background-color 0.3s ease; margin-top:1rem; }
+.btn:hover { background-color:#1eab91; }
+.btn.audit { background-color:#007acc; }
+.btn.audit:hover { background-color:#005f99; }
+.button-group { display:flex; gap:1.3rem; flex-wrap:wrap; justify-content:center; }
 
- main {
-   flex: 1;
-   max-width: 1200px;
-   margin: 2rem auto 3rem;
-   padding: 0 1rem;
- }
+/* Sectors */
+.sectors { display:flex; gap:2rem; justify-content:center; flex-wrap:wrap; max-width:900px; margin:0 auto 2rem; }
+.sector-box { flex:1 1 45%; background:white; border:1px solid #ddd; border-radius:10px; box-shadow:0 0 12px rgb(31 186 156 / 0.15); padding:1.5rem 2rem; display:flex; gap:1rem; align-items:center; min-width:280px; }
+.sector-icon { font-size:3rem; color: rgb(31,186,156); min-width:60px; text-align:center; }
+.sector-content h3 { margin-bottom:0.5rem; color: rgb(31,186,156); }
+.sector-content ul { list-style:none; padding-left:0; }
+.sector-content ul li { margin-bottom:0.3rem; padding-left:1.2rem; position:relative; }
+.sector-content ul li::before { content:"✔"; position:absolute; left:0; color: rgb(31,186,156); }
 
- section {
-   background: #fff;
-   border: 1px solid #ddd;
-   border-radius: 10px;
-   box-shadow: 0 0 12px rgb(31 186 156 / 0.15);
-   padding: 2rem 2.5rem;
-   margin-bottom: 2.5rem;
-   max-width: 900px;
-   margin-left: auto;
-   margin-right: auto;
- }
+/* Our Services */
+#our-services { max-width:900px; margin:0 auto 2.5rem; background:#fff; border:1px solid #ddd; border-radius:10px; box-shadow:0 0 12px rgb(31 186 156 / 0.15); padding:2rem 2.5rem; text-align:center; }
+#our-services h2 { margin-bottom:1rem; }
 
- h1, h2 {
-   color: rgb(31,186,156);
-   margin-bottom: 1rem;
- }
- h1 {
-   font-size: 2.8rem;
-   text-align: center;
- }
- h2 {
-   font-size: 2rem;
- }
- p {
-   font-size: 1.1rem;
-   line-height: 1.5;
-   margin-bottom: 1.25rem;
- }
+/* Charts */
+.chart-box { background:#fff; border:1px solid #ddd; border-radius:10px; box-shadow:0 0 12px rgb(31 186 156 / 0.15); padding:2rem 2.5rem; margin-bottom:2.5rem; max-width:900px; margin-left:auto; margin-right:auto; text-align:center; }
 
- .btn {
-   padding: 0.85rem 1.7rem;
-   border: none;
-   border-radius: 6px;
-   cursor: pointer;
-   font-weight: 700;
-   text-decoration: none;
-   display: inline-block;
-   transition: background-color 0.3s ease;
-   margin-top: 1rem;
-   color: white;
- }
- .btn.pitch { background-color: #1e88e5; }
- .btn.pitch:hover { background-color: #1565c0; }
- .btn.consult { background-color: #f0b90b; color: black; }
- .btn.consult:hover { background-color: #d9a200; }
- .btn.audit { background-color: #007acc; }
- .btn.audit:hover { background-color: #005f99; }
+/* Tables */
+xtable { border-collapse: collapse; width:100%; max-width:400px; margin:0 auto; }
+table th, table td { padding:0.75rem 1rem; text-align:left; border-bottom:1px solid #ddd; font-size:1rem; }
+table th { background-color: rgb(31,186,156); color:white; font-weight:600; }
+table tbody tr:hover { background-color:#e0f2f1; }
 
- .button-group { display: flex; gap: 1.3rem; flex-wrap: wrap; justify-content: center; }
+/* Footer-like box */
+#bottom-box { max-width:900px; margin:0 auto 2.5rem; background:#fff; border:1px solid #ddd; border-radius:10px; box-shadow:0 0 12px rgb(31 186 156 / 0.15); padding:1rem 2rem; display:flex; align-items:center; gap:1.5rem; justify-content:space-between; }
+#bottom-box .logo img { height:40px; }
+#bottom-box .text { flex:1; font-weight:600; color: rgb(31,186,156); font-size:1.1rem; }
+#bottom-box .btn-group { display:flex; gap:1rem; flex-wrap:wrap; }
+#bottom-box .btn-group a { padding:0.5rem 1.2rem; border-radius:6px; font-weight:700; text-decoration:none; display:inline-block; cursor:pointer; color:white; transition:background-color 0.3s ease; white-space:nowrap; }
+#bottom-box .btn-bsc { background-color:#f0b90b; } #bottom-box .btn-bsc:hover { background-color:#d9a200; }
+#bottom-box .btn-gecko { background-color:#1e88e5; } #bottom-box .btn-gecko:hover { background-color:#1669bb; }
 
- /* Sectors */
- .sectors { display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; max-width: 900px; margin: 0 auto 2rem; }
- .sector-box { flex: 1 1 45%; background: white; border: 1px solid #ddd; border-radius: 10px; box-shadow: 0 0 12px rgb(31 186 156 / 0.15); padding: 1.5rem 2rem; display: flex; gap: 1rem; align-items: center; min-width: 280px; }
- .sector-icon { font-size: 3rem; color: rgb(31,186,156); min-width: 60px; text-align: center; }
- .sector-content h3 { margin-bottom: 0.5rem; color: rgb(31,186,156); }
- .sector-content ul { list-style: none; padding-left: 0; }
- .sector-content ul li { margin-bottom: 0.3rem; padding-left: 1.2rem; position: relative; }
- .sector-content ul li::before { content: "✔"; position: absolute; left: 0; color: rgb(31,186,156); }
+/* Footer */
+footer { text-align:center; padding:1rem 1.5rem; background:#f1f3f4; font-size:0.9rem; color:#555; }
 
- #bottom-box {
-   max-width: 900px;
-   margin: 0 auto 2.5rem;
-   background: #fff;
-   border: 1px solid #ddd;
-   border-radius: 10px;
-   box-shadow: 0 0 12px rgb(31 186 156 / 0.15);
-   padding: 1rem 2rem;
-   display: flex;
-   align-items: center;
-   gap: 1.5rem;
-   justify-content: space-between;
- }
- #bottom-box .logo img { height: 40px; }
- #bottom-box .text { flex:1; font-weight:600; color:rgb(31,186,156); font-size:1.1rem; }
- #bottom-box .btn-group { display:flex; gap:1rem; }
- #bottom-box .btn-group a { padding:0.5rem 1.2rem; border-radius:6px; font-weight:700; text-decoration:none; display:inline-block; cursor:pointer; color:white; transition:background-color 0.3s ease; white-space:nowrap; }
- #bottom-box .btn-bsc { background-color:#f0b90b; color:black; }
- #bottom-box .btn-bsc:hover { background-color:#d9a200; }
- #bottom-box .btn-gecko { background-color:#1e88e5; }
- #bottom-box .btn-gecko:hover { background-color:#1565c0; }
+/* Responsivita */
+@media(max-width:960px){ .flex-row { flex-direction:column; gap:2rem; } xtable { max-width:100%; } }
+@media(max-width:768px){ nav ul { flex-direction:column; gap:1rem; } nav .logo { margin-bottom:0.75rem; } #bottom-box { flex-direction:column; gap:1rem; text-align:center; } #bottom-box .btn-group { justify-content:center; width:100%; } }
 
- footer { text-align:center; padding:1rem 1.5rem; background:#f1f3f4; font-size:0.9rem; color:#555; }
-
- @media (max-width:960px){
-   .sectors{flex-direction:column; gap:1.5rem;}
-   .sector-box{min-width:auto; width:100%;}
-   #bottom-box{flex-direction:column; gap:1rem; text-align:center;}
-   #bottom-box .btn-group{justify-content:center; width:100%;}
- }
 </style>
 </head>
+
 <body>
+
 <header>
- <nav>
-   <a href="/USDTz-Premium/index.html" class="logo" aria-label="Go to homepage">
-     <img src="/USDTz-Premium/img/flags/logo-white.png" alt="USDt.z Logo" />
-   </a>
-   <input type="checkbox" id="menu-toggle" />
-   <label for="menu-toggle" aria-label="Open menu"><span></span><span></span><span></span></label>
-   <ul class="menu">
-     <li><a href="/USDTz-Premium/index.html">Home</a></li>
-     <li><a href="/USDTz-Premium/pages/about_en.html">About</a></li>
-     <li><a href="/USDTz-Premium/pages/programs_en.html" class="active">Program</a></li>
-     <li><a href="/USDTz-Premium/pages/docs_en.html">Documentation</a></li>
-     <li><a href="/USDTz-Premium/pages/contact_en.html">Contact</a></li>
-     <li><a href="/USDTz-Premium/index.html"><img src="/USDTz-Premium/img/flags/cz.png" alt="Czech flag" class="flag" /></a></li>
-     <li><a href="/USDTz-Premium/index_en.html"><img src="/USDTz-Premium/img/flags/en.png" alt="English flag" class="flag" /></a></li>
-   </ul>
- </nav>
+<nav>
+ <a href="/USDTz-Premium/index.html" class="logo" aria-label="Go to home">
+   <img src="/USDTz-Premium/img/flags/logo.png" alt="USDt.z Logo" />
+ </a>
+ <input type="checkbox" id="menu-toggle" />
+ <label for="menu-toggle"><span></span><span></span><span></span></label>
+ <ul class="menu">
+   <li><a href="/USDTz-Premium/index.html">Home</a></li>
+   <li><a href="/USDTz-Premium/Pages/about_en.html">About</a></li>
+   <li><a href="/USDTz-Premium/Pages/programs_en.html" class="active">Programs</a></li>
+   <li><a href="/USDTz-Premium/Pages/contact_en.html">Contact</a></li>
+   <li><a href="/USDTz-Premium/index.html"><img src="/USDTz-Premium/img/flags/us.png" class="flag" alt="EN"></a></li>
+   <li><a href="/USDTz-Premium/index.html"><img src="/USDTz-Premium/img/flags/cz.png" class="flag" alt="CZ"></a></li>
+ </ul>
+</nav>
 </header>
 
 <main>
- <section>
-   <h1>USDt.z Program & Collaboration</h1>
-   <p>Explore the multiple opportunities to collaborate with USDt.z and leverage next-generation stablecoin solutions.</p>
- </section>
+<h1>USDt.z Programs & Cooperation</h1>
 
- <div class="sectors">
-   <div class="sector-box">
-     <div class="sector-icon">🏦</div>
-     <div class="sector-content">
-       <h3>Banking Sector</h3>
-       <ul>
-         <li>Stablecoin integration for payments</li>
-         <li>Collateral for loans</li>
-         <li>Trading & liquidity solutions</li>
-       </ul>
-     </div>
-   </div>
-   <div class="sector-box">
-     <div class="sector-icon">💼</div>
-     <div class="sector-content">
-       <h3>Non-Banking Sector</h3>
-       <ul>
-         <li>Financing startups and youth projects</li>
-         <li>Access to decentralized finance (DeFi)</li>
-         <li>Innovative payment solutions</li>
-       </ul>
-     </div>
+<section class="sectors">
+ <div class="sector-box">
+   <div class="sector-icon">🏦</div>
+   <div class="sector-content">
+     <h3>Banking Sector</h3>
+     <ul>
+       <li>Token integration and liquidity</li>
+       <li>Secure stablecoin operations</li>
+       <li>Custom financial solutions</li>
+     </ul>
    </div>
  </div>
+ <div class="sector-box">
+   <div class="sector-icon">💳</div>
+   <div class="sector-content">
+     <h3>Non-Banking Sector</h3>
+     <ul>
+       <li>Retail partnerships</li>
+       <li>Payment gateways</li>
+       <li>Token adoption programs</li>
+     </ul>
+   </div>
+ </div>
+</section>
 
- <section id="documentation-box">
-   <h2>Our Services</h2>
-   <div class="button-group">
-     <a href="#" class="btn pitch">Pitch Deck</a>
-     <a href="#" class="btn audit">Audit Services</a>
-     <a href="#" class="btn consult">Consulting</a>
-   </div>
- </section>
+<section id="our-services">
+ <h2>Our Services</h2>
+ <div class="button-group">
+   <a href="/USDTz-Premium/Pages/pitch_en.html" class="btn">Pitch Deck</a>
+   <a href="#" class="btn audit">Audit</a>
+   <a href="#" class="btn gecko">Gecko Listing</a>
+ </div>
+</section>
 
- <section id="bottom-box">
-   <div class="logo">
-     <img src="/USDTz-Premium/img/flags/logo.png" alt="USDt.z Logo" />
-   </div>
-   <div class="text">Explore the USDt.z token on BscScan and GeckoTerminal</div>
-   <div class="btn-group">
-     <a href="https://bscscan.com/token/0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" target="_blank" class="btn-bsc">BscScan</a>
-     <a href="https://www.geckoterminal.com/bsc/pools/0x553b402b3d6f91ea2208c7df61a6d4aa96ccb6191787c20fedb7ae6c9823b280" target="_blank" class="btn-gecko">GeckoTerminal</a>
-   </div>
- </section>
+<section class="chart-box">
+ <h2>Market Capitalization & Token Growth</h2>
+ <canvas id="marketChart"></canvas>
+</section>
+
+<section class="chart-box">
+ <h2>Exchange Rates</h2>
+ <table>
+   <thead>
+     <tr><th>Pair</th><th>Rate</th><th>Change %</th></tr>
+   </thead>
+   <tbody>
+     <tr><td>USDt.z / USD</td><td>1.00</td><td>+0.1%</td></tr>
+     <tr><td>USDt.z / BNB</td><td>0.0035</td><td>-0.2%</td></tr>
+     <tr><td>USDt.z / BTC</td><td>0.000025</td><td>+0.5%</td></tr>
+   </tbody>
+ </table>
+</section>
+
+<section id="bottom-box">
+ <div class="logo"><img src="/USDTz-Premium/img/flags/logo.png" alt="USDt.z Logo"></div>
+ <div class="text">Explore our token & opportunities</div>
+ <div class="btn-group">
+   <a href="#" class="btn-bsc">BSC</a>
+   <a href="#" class="btn-gecko">Gecko</a>
+ </div>
+</section>
+
 </main>
 
 <footer>
- &copy; 2025 USDt.z – Next Generation Stablecoin. All rights reserved.
+ &copy; 2025 USDt.z. All rights reserved.
 </footer>
+
+<script>
+// Chart.js demo
+const ctx = document.getElementById('marketChart').getContext('2d');
+const marketChart = new Chart(ctx, {
+ type: 'line',
+ data: {
+   labels: ['Jan','Feb','Mar','Apr','May','Jun','Jul'],
+   datasets: [{
+     label: 'USDt.z Price',
+     data: [1,1.01,1.02,1.05,1.03,1.04,1.06],
+     borderColor: 'rgb(31,186,156)',
+     backgroundColor: 'rgba(31,186,156,0.1)',
+     fill:true,
+     tension:0.3
+   }]
+ },
+ options: { responsive:true, plugins:{legend:{display:false}}, scales:{y:{beginAtZero:false}} }
+});
+</script>
+
 </body>
 </html>
