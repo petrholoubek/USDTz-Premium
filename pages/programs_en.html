@@ -3,7 +3,7 @@
 <head>
  <meta charset="UTF-8" />
  <meta name="viewport" content="width=device-width, initial-scale=1" />
- <title>Programs & Collaboration – USDt.z</title>
+ <title>USDt.z Programs – Next Generation Stablecoin</title>
  <style>
    /* Reset */
    * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -26,32 +26,33 @@
      #menu-toggle:checked + label + ul.menu { display: flex; }
    }
    main { flex: 1; max-width: 900px; margin: 2rem auto 3rem; padding: 0 1rem; }
-   section.content-box { background: #fff; border: 1px solid #ddd; border-radius: 10px; box-shadow: 0 0 12px rgb(31 186 156 / 0.15); padding: 2rem 2.5rem; margin-bottom: 2.5rem; }
+   section.content-box { background: #fff; border: 1px solid #ddd; border-radius: 10px; box-shadow: 0 0 12px rgb(31 186 156 / 0.15); padding: 2rem 2.5rem; margin-bottom: 2.5rem; min-height: 400px; }
    h1, h2 { color: rgb(31,186,156); margin-bottom: 1rem; }
    h1 { font-size: 2.5rem; text-align: center; margin-bottom: 1.5rem; }
    h2 { font-size: 2rem; margin-bottom: 1rem; }
    p { margin-bottom: 1rem; font-size: 1rem; }
    ul { margin-left: 1.5rem; margin-bottom: 1rem; }
    ul li { margin-bottom: 0.5rem; font-size: 1rem; }
+   .program-box { background: #f9f9f9; border: 1px solid #ddd; border-radius: 10px; padding: 1.5rem; margin-bottom: 2rem; box-shadow: 0 0 10px rgb(31 186 156 / 0.1); }
+   .program-box h3 { color: rgb(31,186,156); margin-bottom: 1rem; font-size: 1.5rem; }
+   .btn-group-multiple { display: flex; gap: 0.8rem; flex-wrap: wrap; margin-top: 1rem; }
+   .btn-group-multiple a { padding: 0.5rem 1rem; border-radius: 6px; font-weight: 700; text-decoration: none; display: inline-block; cursor: pointer; color: white; transition: background-color 0.3s ease; white-space: nowrap; }
+   .btn-bsc { background-color: #f0b90b; }
+   .btn-bsc:hover { background-color: #d9a200; }
+   .btn-gecko { background-color: #1e88e5; }
+   .btn-gecko:hover { background-color: #1669bb; }
+   .btn-pitch { background-color: #4caf50; }
+   .btn-pitch:hover { background-color: #388e3c; }
    #bottom-box { max-width: 900px; margin: 0 auto 2.5rem; background: #fff; border: 1px solid #ddd; border-radius: 10px; box-shadow: 0 0 12px rgb(31 186 156 / 0.15); padding: 1rem 2rem; display: flex; align-items: center; gap: 1.5rem; justify-content: space-between; }
    #bottom-box .logo { flex-shrink: 0; }
    #bottom-box .logo img { height: 40px; }
    #bottom-box .text { flex: 1; font-weight: 600; color: rgb(31,186,156); font-size: 1.1rem; }
    #bottom-box .btn-group { display: flex; gap: 1rem; }
-   #bottom-box .btn-group a { padding: 0.5rem 1.2rem; border-radius: 6px; font-weight: 700; text-decoration: none; display: inline-block; cursor: pointer; color: white; transition: background-color 0.3s ease; white-space: nowrap; }
-   #bottom-box .btn-bsc { background-color: #f0b90b; }
-   #bottom-box .btn-bsc:hover { background-color: #d9a200; }
-   #bottom-box .btn-gecko { background-color: #1e88e5; }
-   #bottom-box .btn-gecko:hover { background-color: #1669bb; }
    footer { text-align: center; padding: 1rem 2rem; background: #f0f0f0; font-size: 0.9rem; color: #555; }
    @media (max-width: 960px) {
      #bottom-box { flex-direction: column; gap: 1rem; text-align: center; }
      #bottom-box .btn-group { justify-content: center; width: 100%; }
    }
-   .program-box { background: #f9f9f9; border: 1px solid #ccc; border-radius: 10px; padding: 1.5rem; margin-bottom: 2rem; }
-   .program-box h3 { color: #1fba9c; margin-bottom: 0.8rem; }
-   .program-box p { font-size: 1rem; margin-bottom: 0.5rem; }
-   .program-box ul { margin-left: 1.5rem; }
  </style>
 </head>
 <body>
@@ -71,7 +72,7 @@
      <ul class="menu" role="menubar" aria-label="Main navigation">
        <li><a href="index_en.html">Home</a></li>
        <li><a href="about_en.html">About</a></li>
-       <li><a href="programs_en.html" class="active">Programs</a></li>
+       <li><a href="program_en.html" class="active">Program</a></li>
        <li><a href="usecases_en.html">Use Cases</a></li>
        <li><a href="docs_en.html">Documentation</a></li>
        <li><a href="contact_en.html">Contact</a></li>
@@ -91,44 +92,28 @@
 
  <main>
    <section class="content-box" role="main">
-     <h1>Programs & Collaboration</h1>
+     <h1>USDt.z Programs and Collaboration</h1>
 
      <div class="program-box">
-       <h3>Banking Sector Collaboration</h3>
-       <p>USDt.z enables banks to offer innovative financial solutions, including loans, liquidity management, and asset stabilization.</p>
-       <ul>
-         <li>Liquidity pools supporting a market capitalization of 5 trillion USDt.z equivalent.</li>
-         <li>Secure, fast and transparent operations.</li>
-         <li>Integration with existing banking infrastructure.</li>
-         <li>Supports compliance and regulatory reporting.</li>
-       </ul>
+       <h3>Banking Sector</h3>
+       <p>USDt.z enables banks to provide faster loans and stabilize liquidity. The token can be used as collateral for loans, increasing access to financing.</p>
+       <p><strong>Liquidity & Market Value:</strong> $5 trillion, high liquidity on DEX and BscScan.</p>
      </div>
 
      <div class="program-box">
-       <h3>Non-Banking Sector Collaboration</h3>
-       <p>USDt.z provides flexible solutions for fintechs, startups, and DeFi protocols, expanding financial accessibility.</p>
-       <ul>
-         <li>DeFi integration and smart contract capabilities.</li>
-         <li>Enables secure cross-border payments.</li>
-         <li>Supports liquidity provision and staking.</li>
-         <li>Use of USDt.z as collateral for innovative financing.</li>
-       </ul>
+       <h3>Non-Banking Sector</h3>
+       <p>USDt.z is suitable for non-banking institutions, startups, and fintech projects that need a stable token for financing, trading, and integration into DeFi protocols.</p>
+       <p><strong>Liquidity & Market Value:</strong> Flexible, available on decentralized exchanges.</p>
      </div>
 
      <div class="program-box">
-       <h3>Workshops & Training</h3>
-       <p>Comprehensive programs for education, training, and onboarding on stablecoin management and DeFi applications.</p>
-       <ul>
-         <li>Hands-on workshops for banks and startups.</li>
-         <li>Practical training sessions on liquidity management.</li>
-         <li>Workshops on compliance, security, and risk mitigation.</li>
-       </ul>
-     </div>
-
-     <div class="program-box">
-       <h3>Pitch Deck</h3>
-       <p>Access our complete pitch deck presenting USDt.z and collaboration opportunities.</p>
-       <a href="pages/pitch_en.html" class="btn btn-gecko">Open Pitch Deck</a>
+       <h3>Investor & Partner Materials</h3>
+       <p>We provide complete project presentation and materials for partners and investors.</p>
+       <div class="btn-group-multiple">
+         <a href="pages/whitepaper_en.html" class="btn-bsc" target="_blank">Whitepaper</a>
+         <a href="pages/roadmap_en.html" class="btn-gecko" target="_blank">Roadmap</a>
+         <a href="pages/pitch_en.html" class="btn-pitch" target="_blank">Pitch Deck</a>
+       </div>
      </div>
    </section>
 
