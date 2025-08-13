@@ -2,138 +2,63 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>USDt.z – Next Generation Stablecoin</title>
-<style>
-/* Reset a základní font */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-#msg_body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f8f9fa; color: #222; min-height: 100vh; display: flex; flex-direction: column; }
-
-/* Header a navigace */
-header { background: rgb(31,186,156); box-shadow: 0 2px 5px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1100; }
-nav { max-width: 1200px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
-nav .logo img { height: 40px; cursor: pointer; filter: drop-shadow(0 0 5px rgba(0,0,0,0.15)); }
-ul.menu { list-style: none; display: flex; gap: 1.5rem; align-items: center; }
-ul.menu li a { color: white; font-weight: 600; font-size: 1rem; text-decoration: none; display: flex; align-items: center; gap: 0.3rem; transition: color 0.3s ease; }
-ul.menu li a:hover, ul.menu li a.active { color: #004d40; font-weight: 700; }
-img.flag { width: 24px; height: 16px; object-fit: cover; border-radius: 3px; border: 1px solid rgba(255,255,255,0.6); }
-
-/* Responsive menu */
-#menu-toggle { display: none; }
-label[for="menu-toggle"] { display: none; cursor: pointer; width: 30px; height: 25px; flex-direction: column; justify-content: space-between; }
-label[for="menu-toggle"] span { display: block; height: 3px; background: white; border-radius: 2px; }
-@media(max-width:768px){
- label[for="menu-toggle"]{ display:flex; }
- ul.menu { display:none; flex-direction:column; width:100%; margin-top:1rem; gap:1rem; background: rgb(31,186,156); border-radius: 8px; padding:1rem 2rem; }
- #menu-toggle:checked + label + ul.menu { display:flex; }
-}
-
-/* Hlavní obsah */
-main { flex:1; max-width:1200px; margin:2rem auto 3rem; padding:0 1rem; }
-
-/* Rámečky sekcí */
-section { background:#fff; border:1px solid #ddd; border-radius:10px; box-shadow:0 0 12px rgb(31 186 156 / 0.15); padding:2rem 2.5rem; margin-bottom:2.5rem; max-width:900px; margin-left:auto; margin-right:auto; }
-h1,h2{ color: rgb(31,186,156); margin-bottom:1rem; }
-h1{ font-size:2.8rem; text-align:center; }
-h2{ font-size:2rem; }
-p{ font-size:1.1rem; line-height:1.5; margin-bottom:1.25rem; }
-
-/* Tlačítka */
-.btn{ background-color: rgb(31,186,156); color:white; padding:0.85rem 1.7rem; border:none; border-radius:6px; cursor:pointer; font-weight:700; text-decoration:none; display:inline-block; transition:0.3s; margin-top:1rem; }
-.btn:hover{ background-color:#1eab91; }
-.btn.audit{ background-color:#007acc; }
-.btn.audit:hover{ background-color:#005f99; }
-
-/* Flex box pro tlačítka */
-.button-group{ display:flex; gap:1.3rem; flex-wrap:wrap; justify-content:center; }
-
-/* Flexbox pro tabulku a kalkulačku */
-.flex-row{ display:flex; gap:3rem; flex-wrap:wrap; justify-content:space-between; }
-
-/* Tabulka */
-xtable { border-collapse:collapse; width:100%; max-width:400px; }
-table th, table td{ padding:0.75rem 1rem; text-align:left; border-bottom:1px solid #ddd; font-size:1rem; }
-table th{ background-color: rgb(31,186,156); color:white; font-weight:600; }
-table tbody tr:hover{ background-color:#e0f2f1; }
-
-/* Sekce bankovní a nebankovní sektor */
-.sectors{ display:flex; gap:2rem; justify-content:center; flex-wrap:wrap; max-width:900px; margin:0 auto 2rem; }
-.sector-box{ flex:1 1 45%; background:white; border:1px solid #ddd; border-radius:10px; box-shadow:0 0 12px rgb(31 186 156 / 0.15); padding:1.5rem 2rem; display:flex; gap:1rem; align-items:flex-start; min-width:280px; }
-.sector-icon{ font-size:3rem; color: rgb(31,186,156); min-width:60px; text-align:center; }
-.sector-content h3{ margin-bottom:0.5rem; color: rgb(31,186,156); }
-.sector-content ul{ list-style:none; padding-left:0; }
-.sector-content ul li{ margin-bottom:0.3rem; padding-left:1.2rem; position:relative; }
-.sector-content ul li::before{ content:"✔"; position:absolute; left:0; color: rgb(31,186,156); }
-
-/* Dokumentace / Our Services */
-#our-services{ max-width:900px; margin:0 auto 2.5rem; background:#fff; border:1px solid #ddd; border-radius:10px; box-shadow:0 0 12px rgb(31 186 156 / 0.15); padding:1.5rem 2rem; text-align:center; }
-#our-services h2{ color: rgb(31,186,156); margin-bottom:1rem; }
-#our-services .button-group{ justify-content:center; }
-
-/* Dolní rámeček */
-#bottom-box{ max-width:900px; margin:0 auto 2.5rem; background:#fff; border:1px solid #ddd; border-radius:10px; box-shadow:0 0 12px rgb(31 186 156 / 0.15); padding:1rem 2rem; display:flex; align-items:center; gap:1.5rem; justify-content:space-between; }
-#bottom-box .logo img{ height:40px; }
-#bottom-box .text{ flex:1; font-weight:600; color: rgb(31,186,156); font-size:1.1rem; }
-#bottom-box .btn-group{ display:flex; gap:1rem; }
-#bottom-box .btn-bsc{ background-color:#f0b90b; color:white; padding:0.5rem 1.2rem; border-radius:6px; font-weight:700; text-decoration:none; }
-#bottom-box .btn-bsc:hover{ background-color:#d9a200; }
-#bottom-box .btn-gecko{ background-color:#1e88e5; color:white; padding:0.5rem 1.2rem; border-radius:6px; font-weight:700; text-decoration:none; }
-#bottom-box .btn-gecko:hover{ background-color:#1669bb; }
-
-/* Footer */
-footer{ text-align:center; padding:1rem 1.5rem; background:#f1f3f4; font-size:0.9rem; color:#555; }
-
-/* Responsivita */
-@media(max-width:960px){ .flex-row{ flex-direction:column; gap:2rem; } xtable { max-width:100%; } }
-@media(max-width:768px){ #bottom-box{ flex-direction:column; gap:1rem; text-align:center; } #bottom-box .btn-group{ justify-content:center; width:100%; } }
-</style>
+<link rel="stylesheet" href="/USDTz-Premium/css/style.css">
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js" defer></script>
 </head>
 <body>
+
 <header>
  <nav>
    <a href="/USDTz-Premium/index.html" class="logo">
-     <img src="/USDTz-Premium/img/flags/logo-White.png" alt="USDt.z Logo">
+     <img src="/USDTz-Premium/img/flags/logo-white.png" alt="USDt.z Logo">
    </a>
-   <input type="checkbox" id="menu-toggle"/>
-   <label for="menu-toggle"><span></span><span></span><span></span></label>
+   <input type="checkbox" id="menu-toggle">
+   <label for="menu-toggle">
+     <span></span>
+     <span></span>
+     <span></span>
+   </label>
    <ul class="menu">
      <li><a href="/USDTz-Premium/pages/programs_en.html" class="active">Programs</a></li>
-     <li><a href="/USDTz-Premium/pages/pitch_en.html">Pitch Deck</a></li>
-     <li><a href="/USDTz-Premium/pages/contact_en.html">Contact</a></li>
      <li><a href="/USDTz-Premium/pages/about_en.html">About</a></li>
-     <li><a href="/USDTz-Premium/pages/faq_en.html">FAQ</a></li>
-     <li><a href="#"><img src="/USDTz-Premium/img/flags/uk.png" class="flag" alt="English"></a></li>
+     <li><a href="/USDTz-Premium/pages/contact_en.html">Contact</a></li>
+     <li><a href="/USDTz-Premium/pages/pitch_en.html">Pitch Deck</a></li>
+     <li><a href="/USDTz-Premium/index.html"><img src="/USDTz-Premium/img/flags/gb.png" class="flag" alt="English"></a></li>
+     <li><a href="/USDTz-Premium/pages/programs.html"><img src="/USDTz-Premium/img/flags/cz.png" class="flag" alt="Czech"></a></li>
    </ul>
  </nav>
 </header>
 
 <main>
- <h1>USDt.z Programs</h1>
-
  
- <section class="sectors">
-   <div class="sector-box">
-     <div class="sector-icon">🏦</div>
-     <div class="sector-content">
-       <h3>Banking Sector</h3>
-       <ul>
-         <li>Stablecoin integration for secure transactions</li>
-         <li>Liquidity management and token collateral</li>
-         <li>Real-time monitoring and analytics</li>
-       </ul>
+ <section id="sectors">
+   <h1>Banking & Non-Banking Sector</h1>
+   <div class="sectors">
+     <div class="sector-box">
+       <div class="sector-icon">🏦</div>
+       <div class="sector-content">
+         <h3>Banking Sector</h3>
+         <ul>
+           <li>Liquidity management solutions</li>
+           <li>Collateral optimization</li>
+           <li>Secure tokenized transactions</li>
+           <li>Real-time stablecoin integration</li>
+         </ul>
+       </div>
      </div>
-   </div>
-
-   <div class="sector-box">
-     <div class="sector-icon">💳</div>
-     <div class="sector-content">
-       <h3>Non-Banking Sector</h3>
-       <ul>
-         <li>Tokenized payments for businesses</li>
-         <li>Partnership programs for exchanges</li>
-         <li>Cross-border and multi-currency support</li>
-       </ul>
+     <div class="sector-box">
+       <div class="sector-icon">💼</div>
+       <div class="sector-content">
+         <h3>Non-Banking Sector</h3>
+         <ul>
+           <li>Cross-border payments</li>
+           <li>Tokenized lending & borrowing</li>
+           <li>Instant settlements</li>
+           <li>Smart contract automation</li>
+         </ul>
+       </div>
      </div>
    </div>
  </section>
@@ -141,58 +66,79 @@ footer{ text-align:center; padding:1rem 1.5rem; background:#f1f3f4; font-size:0.
  
  <section id="our-services">
    <h2>Our Services</h2>
-   <p>Explore our offerings and partnership opportunities. Learn how USDt.z can support your financial operations and provide next-generation stablecoin solutions.</p>
+   <p>We offer comprehensive solutions for both financial institutions and private partners. Clients benefit from secure stablecoin operations, access to liquidity pools, and smart contract automation.</p>
    <div class="button-group">
      <a href="/USDTz-Premium/pages/pitch_en.html" class="btn">Pitch Deck</a>
-     <a href="#" class="btn audit">Audit Reports</a>
-     <a href="#" class="btn gecko">Market Data</a>
+     <a href="/USDTz-Premium/pages/contact_en.html" class="btn audit">Request Demo</a>
+     <a href="/USDTz-Premium/pages/contact_en.html" class="btn gecko">Technical Inquiry</a>
    </div>
  </section>
 
  
- <section>
+ <section id="charts">
    <h2>Market Overview</h2>
    <canvas id="marketChart"></canvas>
+ </section>
+
+ 
+ <section id="exchange">
+   <h2>Exchange Rates</h2>
    <table>
      <thead>
-       <tr><th>Token</th><th>Price</th><th>Market Cap</th></tr>
+       <tr>
+         <th>Pair</th>
+         <th>Price</th>
+         <th>Volume</th>
+       </tr>
      </thead>
      <tbody>
-       <tr><td>USDt.z</td><td>$0.0001538</td><td>$769M</td></tr>
-       <tr><td>BNB</td><td>$320</td><td>$50B</td></tr>
+       <tr><td>USDt.z / USD</td><td>1.00</td><td>$5B</td></tr>
+       <tr><td>USDt.z / EUR</td><td>0.92</td><td>€4.6B</td></tr>
      </tbody>
    </table>
  </section>
 </main>
 
 
-<div id="bottom-box">
+<section id="bottom-box">
  <div class="logo">
-   <img src="/USDTz-Premium/img/flags/logo-White.png" alt="USDt.z Logo">
+   <img src="/USDTz-Premium/img/flags/logo.png" alt="USDt.z Logo">
  </div>
- <div class="text">Explore USDt.z and our token ecosystem</div>
+ <div class="text">Explore USDt.z – the next generation stablecoin</div>
  <div class="btn-group">
-   <a href="#" class="btn-bsc">BSC Scan</a>
-   <a href="#" class="btn-gecko">Gecko Terminal</a>
+   <a href="https://bscscan.com/token/0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" class="btn btn-bsc">BSC</a>
+   <a href="https://www.coingecko.com/en/coins/usdtz" class="btn btn-gecko">Coingecko</a>
  </div>
-</div>
+</section>
 
-<footer>© 2025 USDt.z – All rights reserved.</footer>
+<footer>
+ <p>© 2025 USDt.z. All rights reserved.</p>
+</footer>
 
 <script>
-const ctx = document.getElementById('marketChart').getContext('2d');
-const marketChart = new Chart(ctx, {
-   type: 'bar',
+ // Příklad grafu
+ const ctx = document.getElementById('marketChart').getContext('2d');
+ const marketChart = new Chart(ctx, {
+   type: 'line',
    data: {
-       labels: ['USDt.z', 'BNB'],
-       datasets: [{
-           label: 'Market Cap ($M)',
-           data: [769, 50000],
-           backgroundColor: ['rgb(31,186,156)', 'rgb(0,122,204)']
-       }]
+     labels: ['Jan','Feb','Mar','Apr','May','Jun'],
+     datasets: [{
+       label: 'USDt.z Market Cap (Billion $)',
+       data: [4.5, 4.7, 4.9, 5.0, 5.1, 5.0],
+       borderColor: 'rgb(31,186,156)',
+       backgroundColor: 'rgba(31,186,156,0.2)',
+       tension: 0.4,
+       fill: true
+     }]
    },
-   options: { responsive:true, plugins:{ legend:{ display:false } } }
-});
+   options: {
+     responsive: true,
+     plugins: {
+       legend: { display: true, position: 'top' }
+     }
+   }
+ });
 </script>
+
 </body>
 </html>
