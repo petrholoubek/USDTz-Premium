@@ -110,6 +110,59 @@
       font-size: 1rem;
     }
 
+    #bottom-box {
+      max-width: 900px;
+      margin: 0 auto 2.5rem;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      box-shadow: 0 0 12px rgb(31 186 156 / 0.15);
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      justify-content: space-between;
+    }
+    #bottom-box .logo {
+      flex-shrink: 0;
+    }
+    #bottom-box .logo img {
+      height: 40px;
+    }
+    #bottom-box .text {
+      flex: 1;
+      font-weight: 600;
+      color: rgb(31,186,156);
+      font-size: 1.1rem;
+    }
+    #bottom-box .btn-group {
+      display: flex;
+      gap: 1rem;
+    }
+    #bottom-box .btn-group a {
+      padding: 0.5rem 1.2rem;
+      border-radius: 6px;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-block;
+      cursor: pointer;
+      color: white;
+      transition: background-color 0.3s ease;
+      white-space: nowrap;
+    }
+    #bottom-box .btn-bsc {
+      background-color: #f0b90b;
+    }
+    #bottom-box .btn-bsc:hover {
+      background-color: #d9a200;
+    }
+    #bottom-box .btn-gecko {
+      background-color: #1e88e5;
+    }
+    #bottom-box .btn-gecko:hover {
+      background-color: #1669bb;
+    }
+
     footer {
       text-align: center;
       padding: 1rem 2rem;
@@ -134,6 +187,15 @@
       main {
         margin: 1rem auto 2rem;
       }
+      #bottom-box {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+      }
+      #bottom-box .btn-group {
+        justify-content: center;
+        width: 100%;
+      }
     }
   </style>
 </head>
@@ -141,12 +203,12 @@
   <header>
     <nav>
       <div class="logo">
-        <a href="../index_en.html"><img src="../logo.png" alt="USDt.z Logo" /></a>
+        <a href="../index_en.html"><img src="../img/flags/logo.png" alt="USDt.z Logo" /></a>
       </div>
       <ul>
         <li><a href="../index_en.html">Home</a></li>
-        <li><a href="about_en.html" aria-current="page">About the Token</a></li>
-        <li><a href="../swap_en.html">Swap & DEX</a></li>
+        <li><a href="about_en.html" aria-current="page">About Token</a></li>
+        <li><a href="../swap.html">Swap & DEX</a></li>
         <li><a href="../usecases_en.html">Use Cases</a></li>
         <li><a href="../docs_en.html">Documentation</a></li>
         <li><a href="../contact_en.html">Contact</a></li>
@@ -168,28 +230,40 @@
     <section>
       <h1>About USDt.z Token</h1>
 
-      <p><strong>USDt.z</strong> is a next-generation stablecoin combining the stability of traditional currencies with cutting-edge blockchain technology.</p>
+      <p><strong>USDt.z</strong> is a next-generation stablecoin that combines the stability of traditional currencies with cutting-edge blockchain technology.</p>
       
       <h2>Why We Created USDt.z</h2>
-      <p>Our goal was to create a secure, transparent, and reliable token that facilitates cryptocurrency use in both banking and non-banking sectors, offering stability comparable to traditional currencies.</p>
+      <p>Our goal was to develop a secure, transparent, and reliable token that facilitates cryptocurrency usage in both banking and non-banking sectors, offering stability comparable to traditional currencies.</p>
       
       <h2>Key Features of USDt.z</h2>
       <ul>
-        <li>1:1 USD backing</li>
-        <li>Support as collateral for loans, including for young and new clients without traditional guarantees</li>
+        <li>1:1 fixed USD backing</li>
+        <li>Support as collateral for loans, including for young and emerging clients without traditional guarantees</li>
         <li>High security thanks to next-generation blockchain technology</li>
         <li>Transparent and auditable system</li>
         <li>Fast and low-cost transactions</li>
       </ul>
       
       <h2>Use Cases</h2>
-      <p>USDt.z can be used across a wide range of financial applications, from loans and trading to liquidity provision and asset stabilization.</p>
+      <p>USDt.z can be utilized in a wide range of financial applications, from lending and trading to liquidity provisioning and asset stabilization.</p>
       
       <h2>Supporting Young Clients</h2>
-      <p>The token is ideal for young clients and startups who often lack traditional loan guarantees. USDt.z enables the use of crypto collateral as security, opening new financing possibilities.</p>
+      <p>The token is ideal for young clients and startups who often lack traditional loan collateral. USDt.z enables the use of crypto collateral as security, opening new financing possibilities.</p>
       
       <h2>Documentation and Audit</h2>
       <p>The complete whitepaper and audit reports are available for download on the main page.</p>
+    </section>
+
+    <!-- Bottom box from index -->
+    <section id="bottom-box" role="contentinfo" aria-label="Explore the token">
+      <div class="logo">
+        <img src="../img/flags/logo.png" alt="USDt.z Logo" />
+      </div>
+      <div class="text">Explore USDt.z token on BscScan and GeckoTerminal</div>
+      <div class="btn-group">
+        <a href="https://bscscan.com/token/0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" target="_blank" rel="noopener" class="btn btn-bsc">BscScan</a>
+        <a href="https://www.geckoterminal.com/bsc/pools/0x553b402b3d6f91ea2208c7df61a6d4aa96ccb6191787c20fedb7ae6c9823b280" target="_blank" rel="noopener" class="btn btn-gecko">GeckoTerminal</a>
+      </div>
     </section>
   </main>
 
