@@ -1,59 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>USDt.z – Programs</title>
-<link rel="stylesheet" href="../css/index.css" />
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js" defer></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Programs - USDt.z</title>
+<link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
+
+
 <header>
  <nav>
-   <a href="../index.html" class="logo" aria-label="Go to home">
-     <img src="../img/logo-white.png" alt="USDt.z Logo" />
-   </a>
-   <input type="checkbox" id="menu-toggle">
-   <label for="menu-toggle">
-     <span></span><span></span><span></span>
-   </label>
-   <ul class="menu">
+   <div class="logo">
+     <a href="../index.html"><img src="../img/logo-white.png" alt="USDt.z Logo"></a>
+   </div>
+   <ul>
      <li><a href="../index.html">Home</a></li>
      <li><a href="programs_en.html" class="active">Programs</a></li>
-     <li><a href="../pages/about_en.html">About</a></li>
-     <li><a href="../pages/contact_en.html">Contact</a></li>
-     <li><a href="../index.html"><img src="../img/flags/en.png" alt="English"></a></li>
-     <li><a href="../index.html"><img src="../img/flags/cz.png" alt="Czech"></a></li>
+     <li><a href="pitch_en.html">Pitch Deck</a></li>
+     <li><a href="contact_en.html">Contact</a></li>
+     <li><a href="../index.html"><img src="../img/en.png" class="flag" alt="EN"></a></li>
    </ul>
  </nav>
 </header>
 
+
 <main>
- 
+ <section>
+   <h1>Banking and Non-Banking Programs</h1>
+   <p>Explore our comprehensive programs tailored for both the banking and non-banking sectors. We provide solutions, collaborations, and tools to optimize financial operations and unlock new opportunities.</p>
+ </section>
+
  <section>
    <h2>Banking Sector</h2>
    <div class="flex-row">
-     <div class="sector-box">
-       <div class="sector-icon">🏦</div>
-       <div class="sector-content">
-         <h3>Opportunities</h3>
-         <ul>
-           <li>Access to USDt.z liquidity pools</li>
-           <li>Stablecoin-backed lending products</li>
-           <li>Custom financial solutions for clients</li>
-         </ul>
-       </div>
+     <div class="calculator">
+       <h3>Program Overview</h3>
+       <p>Our banking programs include secure stablecoin integrations, liquidity management, and regulatory-compliant solutions to streamline operations and expand digital assets usage.</p>
+       <table>
+         <thead>
+           <tr>
+             <th>Feature</th>
+             <th>Benefit</th>
+           </tr>
+         </thead>
+         <tbody>
+           <tr>
+             <td>Stablecoin USDt.z</td>
+             <td>Next-generation digital currency for secure transactions</td>
+           </tr>
+           <tr>
+             <td>Liquidity Pools</td>
+             <td>Maximized capital efficiency</td>
+           </tr>
+           <tr>
+             <td>Audit & Compliance</td>
+             <td>Trusted by regulators and financial institutions</td>
+           </tr>
+         </tbody>
+       </table>
      </div>
-     <div class="sector-box">
-       <div class="sector-icon">📊</div>
-       <div class="sector-content">
-         <h3>Benefits</h3>
-         <ul>
-           <li>Reduced volatility risk</li>
-           <li>Next-generation stablecoin integration</li>
-           <li>Access to DeFi dashboards and analytics</li>
-         </ul>
-       </div>
+     <div class="calculator">
+       <h3>Graph Overview</h3>
+       <canvas id="bankGraph"></canvas>
      </div>
    </div>
  </section>
@@ -61,117 +70,97 @@
  <section>
    <h2>Non-Banking Sector</h2>
    <div class="flex-row">
-     <div class="sector-box">
-       <div class="sector-icon">💼</div>
-       <div class="sector-content">
-         <h3>Collaboration</h3>
-         <ul>
-           <li>Merchant acceptance of USDt.z</li>
-           <li>Token-based loyalty programs</li>
-           <li>Integration into payment platforms</li>
-         </ul>
-       </div>
+     <div class="calculator">
+       <h3>Program Overview</h3>
+       <p>We provide access to decentralized finance tools, tokenized assets, and partnerships for fintech companies, crypto projects, and private investors.</p>
+       <table>
+         <thead>
+           <tr>
+             <th>Feature</th>
+             <th>Benefit</th>
+           </tr>
+         </thead>
+         <tbody>
+           <tr>
+             <td>Token Utility</td>
+             <td>Use USDt.z as collateral, payments, and swaps</td>
+           </tr>
+           <tr>
+             <td>DEX Integration</td>
+             <td>Access instant liquidity</td>
+           </tr>
+           <tr>
+             <td>Analytics Tools</td>
+             <td>Track performance and market trends</td>
+           </tr>
+         </tbody>
+       </table>
      </div>
-     <div class="sector-box">
-       <div class="sector-icon">📈</div>
-       <div class="sector-content">
-         <h3>Benefits</h3>
-         <ul>
-           <li>Fast settlement and low fees</li>
-           <li>Real-time dashboard and analytics</li>
-           <li>Secure and auditable token transfers</li>
-         </ul>
-       </div>
+     <div class="calculator">
+       <h3>Graph Overview</h3>
+       <canvas id="nonBankGraph"></canvas>
      </div>
    </div>
  </section>
 
- 
  <section>
-   <h2>Market Overview</h2>
-   <canvas id="marketChart"></canvas>
- </section>
-
- 
- <section>
-   <h2>Liquidity Pools</h2>
-   <table>
-     <thead>
-       <tr>
-         <th>Pool</th>
-         <th>Total Value</th>
-         <th>Volume 24h</th>
-       </tr>
-     </thead>
-     <tbody>
-       <tr>
-         <td>USDt.z / BNB</td>
-         <td>$5,000,000,000</td>
-         <td>$120,000,000</td>
-       </tr>
-       <tr>
-         <td>USDt.z / BUSD</td>
-         <td>$3,200,000,000</td>
-         <td>$80,000,000</td>
-       </tr>
-     </tbody>
-   </table>
- </section>
-
- 
- <section id="services">
    <h2>Our Services</h2>
-   <p>We provide tailored solutions for banks, merchants, and partners integrating USDt.z.</p>
+   <p>Collaborate with us and unlock full potential in finance and digital assets. Our services include consulting, liquidity management, token integrations, and dedicated support.</p>
    <div class="button-group">
-     <a href="pitch_en.html" class="btn">Pitch Deck</a>
-     <a href="../pages/contact_en.html" class="btn audit">Contact Us</a>
+     <a href="pitch_en.html" class="btn gecko">Pitch Deck</a>
+     <a href="contact_en.html" class="btn">Contact Us</a>
    </div>
  </section>
 </main>
 
 
-<div id="bottom-box">
- <div class="logo">
+<div id="token-links">
+ <div class="left">
    <img src="../img/logo.png" alt="USDt.z Logo">
+   <span>USDt.z Token</span>
  </div>
- <div class="text">Explore USDt.z – Next Generation Stablecoin</div>
- <div class="btn-group">
-   <a href="https://bscscan.com/token/0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" class="btn-bsc">BSC Scan</a>
-   <a href="https://www.coingecko.com/en/coins/usdt-z" class="btn-gecko">Gecko</a>
+ <div class="right">
+   <a href="https://geckoterminal.com" target="_blank" class="btn gecko">GeckoTerminal</a>
+   <a href="audit.html" class="btn audit">Audit</a>
  </div>
 </div>
 
 <footer>
- © 2025 USDt.z. All rights reserved.
+ &copy; 2025 USDt.z. All rights reserved.
 </footer>
 
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
- // Chart.js example
- const ctx = document.getElementById('marketChart').getContext('2d');
- new Chart(ctx, {
-   type: 'line',
-   data: {
-     labels: ['Jan','Feb','Mar','Apr','May','Jun'],
-     datasets: [{
-       label: 'USDt.z Market Cap (Billion $)',
-       data: [1,2,3,4,5,5],
-       backgroundColor: 'rgba(31,186,156,0.2)',
-       borderColor: 'rgb(31,186,156)',
-       borderWidth: 2,
-       fill: true,
-       tension: 0.3
-     }]
-   },
-   options: {
-     responsive: true,
-     plugins: {
-       legend: { display: true }
-     },
-     scales: {
-       y: { beginAtZero: false }
-     }
-   }
- });
+const bankCtx = document.getElementById('bankGraph').getContext('2d');
+new Chart(bankCtx, {
+ type: 'bar',
+ data: {
+   labels: ['Liquidity', 'Compliance', 'Transactions'],
+   datasets: [{
+     label: 'Banking Program Metrics',
+     data: [80, 95, 70],
+     backgroundColor: 'rgba(31,186,156,0.7)'
+   }]
+ },
+ options: { responsive: true }
+});
+
+const nonBankCtx = document.getElementById('nonBankGraph').getContext('2d');
+new Chart(nonBankCtx, {
+ type: 'line',
+ data: {
+   labels: ['Jan', 'Feb', 'Mar', 'Apr'],
+   datasets: [{
+     label: 'Non-Banking Engagement',
+     data: [50, 65, 80, 90],
+     borderColor: 'rgba(31,186,156,0.9)',
+     backgroundColor: 'rgba(31,186,156,0.3)',
+     fill: true
+   }]
+ },
+ options: { responsive: true }
+});
 </script>
 
 </body>
