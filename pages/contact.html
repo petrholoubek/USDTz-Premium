@@ -1,373 +1,189 @@
-<header>
- <nav>
-   <a href="/USDTz-Premium/index.html" class="logo" aria-label="Přejít na domovskou stránku">
-     <img src="/USDTz-Premium/img/flags/logo-white.png" alt="USDt.z Logo" />
-   </a>
-
-   <input type="checkbox" id="menu-toggle" />
-   <label for="menu-toggle" aria-label="Otevřít menu">
-     <span></span>
-     <span></span>
-     <span></span>
-   </label>
-
-   <ul class="menu" role="menubar" aria-label="Hlavní navigace">
-     <li role="none"><a href="/USDTz-Premium/pages/about.html" role="menuitem">O tokenu</a></li>
-     <li role="none"><a href="/USDTz-Premium/pages/usecases.html" role="menuitem">Použití</a></li>
-     <li role="none"><a href="/USDTz-Premium/pages/programs.html" role="menuitem">Programy</a></li>
-     <li role="none"><a href="/USDTz-Premium/pages/docs.html" role="menuitem">Dokumentace</a></li>
-     <li role="none"><a href="/USDTz-Premium/pages/contact.html" role="menuitem">Kontakt</a></li>
-
-     <li role="none">
-       <a href="/USDTz-Premium/index.html" title="Česky" role="menuitem" aria-label="Česká verze">
-         <img src="/USDTz-Premium/img/flags/cz.png" alt="Česká vlajka" class="flag" />
-       </a>
-     </li>
-     <li role="none">
-       <a href="/USDTz-Premium/index_en.html" title="English" role="menuitem" aria-label="Anglická verze">
-         <img src="/USDTz-Premium/img/flags/en.png" alt="Anglická vlajka" class="flag" />
-       </a>
-     </li>
-   </ul>
- </nav>
-</header>
-
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Program – USDt.z</title>
 <style>
-/* Základní styly menu */
-header {
- background: rgb(31,186,156);
- box-shadow: 0 2px 5px rgba(0,0,0,0.1);
- position: sticky;
- top: 0;
- z-index: 1100;
-}
-nav {
- max-width: 1200px;
- margin: 0 auto;
- padding: 1rem 2rem;
- display: flex;
- justify-content: space-between;
- align-items: center;
- flex-wrap: wrap;
-}
-.logo img {
- height: 40px;
- cursor: pointer;
- filter: drop-shadow(0 0 5px rgba(0,0,0,0.15));
-}
+ * { margin:0; padding:0; box-sizing:border-box; }
+ #msg_body { font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:#f8f9fa; color:#222; }
+ main { max-width:1200px; margin:2rem auto; padding:0 1rem; display:flex; flex-direction:column; gap:2rem; }
 
-/* Menu - desktop */
-ul.menu {
- list-style: none;
- display: flex;
- gap: 1.5rem;
- align-items: center;
-}
-ul.menu li a {
- color: white;
- font-weight: 600;
- font-size: 1rem;
- text-decoration: none;
- transition: color 0.3s ease;
- display: flex;
- align-items: center;
- gap: 0.3rem;
-}
-ul.menu li a:hover,
-ul.menu li a.active {
- color: #004d40;
- font-weight: 700;
-}
-img.flag {
- width: 24px;
- height: 16px;
- object-fit: cover;
- border-radius: 3px;
- border: 1px solid rgba(255,255,255,0.6);
-}
+ section { background:#fff; border-radius:10px; box-shadow:0 0 15px rgba(31,186,156,0.15); padding:2rem; }
+ h1,h2,h3 { color:rgb(31,186,156); margin-bottom:1rem; }
+ h1 { font-size:2.8rem; text-align:center; }
+ h2 { font-size:2rem; }
+ h3 { font-size:1.4rem; margin-bottom:0.5rem; }
+ p { font-size:1.1rem; line-height:1.6; margin-bottom:1rem; }
 
-/* Hamburger button - mobile */
-#menu-toggle {
- display: none;
-}
-label[for="menu-toggle"] {
- display: none;
- cursor: pointer;
- width: 30px;
- height: 25px;
- flex-direction: column;
- justify-content: space-between;
-}
-label[for="menu-toggle"] span {
- display: block;
- height: 3px;
- background: white;
- border-radius: 2px;
-}
+ .btn { background-color:rgb(31,186,156); color:white; padding:0.85rem 1.7rem; border:none; border-radius:6px; cursor:pointer; font-weight:700; text-decoration:none; transition:0.3s; display:inline-block; margin-top:1rem;}
+ .btn:hover { background-color:#1eab91; }
+ .btn.pitch { background-color:#1e88e5; }
+ .btn.pitch:hover { background-color:#1565c0; }
 
-/* Responsive styles */
-@media (max-width: 768px) {
- label[for="menu-toggle"] {
-   display: flex;
- }
- ul.menu {
-   display: none;
-   flex-direction: column;
-   width: 100%;
-   margin-top: 1rem;
-   gap: 1rem;
-   background: rgb(31,186,156);
-   border-radius: 8px;
-   padding: 1rem 2rem;
- }
- ul.menu li {
-   width: 100%;
- }
- ul.menu li a {
-   display: block;
-   width: 100%;
-   font-size: 1.1rem;
-   padding: 0.5rem 0;
- }
- #menu-toggle:checked + label + ul.menu {
-   display: flex;
- }
-}
+ .flex-row { display:flex; gap:2rem; flex-wrap:wrap; justify-content:space-between; }
+ xtable { border-collapse:collapse; width:100%; max-width:600px; }
+ table th, table td { padding:0.75rem 1rem; border-bottom:1px solid #ddd; text-align:left; font-size:1rem; }
+ table th { background:rgb(31,186,156); color:white; font-weight:600; }
+
+ .calculator { background:#f4f9f8; padding:1.5rem 2rem; border-radius:10px; box-shadow:inset 0 0 10px rgba(31,186,156,0.1); flex:1; max-width:480px; }
+ .calculator label { display:block; font-weight:600; margin-top:1rem; }
+ .calculator input, .calculator select { width:100%; padding:0.5rem 0.7rem; margin-top:0.3rem; border:1px solid #ccc; border-radius:5px; font-size:1rem; }
+ .calculator output { display:block; margin-top:0.6rem; font-weight:700; font-size:1.2rem; color:rgb(31,186,156); }
+
+ /* Sectors */
+ .sectors { display:flex; gap:2rem; flex-wrap:wrap; justify-content:center; }
+ .sector-box { flex:1 1 45%; background:white; border-radius:10px; box-shadow:0 0 12px rgba(31,186,156,0.15); padding:1.5rem 2rem; display:flex; gap:1rem; min-width:280px; }
+ .sector-icon { font-size:3rem; color:rgb(31,186,156); min-width:60px; text-align:center; }
+ .sector-content ul { list-style:none; padding-left:0; }
+ .sector-content ul li { position:relative; padding-left:1.5rem; margin-bottom:0.5rem; }
+ .sector-content ul li::before { content:"✔"; position:absolute; left:0; color:rgb(31,186,156); }
+
+ /* Slider pro workshopy */
+ .slider-container { position:relative; overflow:hidden; border-radius:10px; box-shadow:0 0 12px rgba(31,186,156,0.15); }
+ .slider { display:flex; transition:transform 0.5s ease; }
+ .slide { min-width:100%; padding:2rem; background:#e0f2f1; display:flex; flex-direction:column; align-items:center; gap:1rem; }
+ .slide h3 { color:#004d40; }
+ .slider-buttons { display:flex; justify-content:center; gap:1rem; margin-top:0.5rem; }
+ .slider-buttons button { padding:0.5rem 1rem; border:none; border-radius:5px; cursor:pointer; background:rgb(31,186,156); color:white; font-weight:700; transition:0.3s;}
+ .slider-buttons button:hover { background:#1eab91; }
+
+ @media(max-width:960px){.flex-row{flex-direction:column;}.sectors{flex-direction:column;}.sector-box{width:100%;}.calculator{max-width:100%;}}
 </style>
-
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js" defer></script>
+</head>
+<body>
 <main>
- 
- <section style="background: #e0f7f5; border-radius: 12px; box-shadow: 0 0 20px rgba(31,186,156,0.2); padding: 2.5rem; margin-bottom: 2.5rem; text-align:center;">
-   <h1>Programy USDt.z</h1>
-   <p style="font-size:1.2rem; max-width:700px; margin:0 auto;">
-     Představujeme komplexní nabídku programů pro bankovní i nebankovní sektor.
-     Sledujte růst likvidity, objem obchodů a využití tokenu USDt.z v praxi.
-   </p>
+ <section>
+   <h1>Program USDt.z</h1>
+   <p style="text-align:center;">Náš program je navržen pro bankovní i nebankovní instituce, decentralizované finance a všechny partnery, kteří chtějí využít potenciál stabilního tokenu USDt.z. Na této stránce uvidíte tokenomiku, roadmapu, spolupráci s bankami, obchodní příležitosti a kalkulačku pro převody měn.</p>
+   <div style="text-align:center;"><a href="pages/pitch.html" class="btn pitch">Pitch Deck – Obchodní materiály</a></div>
  </section>
 
  
- <section class="flex-row" style="margin-bottom:2.5rem;">
-   <div style="flex:1; background:#fff; padding:2rem; border-radius:12px; box-shadow:0 0 15px rgba(31,186,156,0.15); text-align:center;">
-     <h2>Celkový objem</h2>
-     <p style="font-size:2rem; font-weight:700; color:rgb(31,186,156);">5 000 000 000 USDt.z</p>
-     <p>Celková hodnota tokenů v oběhu.</p>
-   </div>
-   <div style="flex:1; background:#fff; padding:2rem; border-radius:12px; box-shadow:0 0 15px rgba(31,186,156,0.15); text-align:center;">
-     <h2>Likvidita</h2>
-     <p style="font-size:2rem; font-weight:700; color:rgb(31,186,156);">2 500 000 USDt.z</p>
-     <p>Aktuální likvidita v BSC poolu.</p>
-   </div>
-   <div style="flex:1; background:#fff; padding:2rem; border-radius:12px; box-shadow:0 0 15px rgba(31,186,156,0.15); text-align:center;">
-     <h2>Uživatelé</h2>
-     <p style="font-size:2rem; font-weight:700; color:rgb(31,186,156);">7 500</p>
-     <p>Počet aktivních uživatelů platformy.</p>
-   </div>
+ <section>
+   <h2>Tokenomika</h2>
+   <canvas id="tokenomicsChart" aria-label="Tokenomika tokenu USDt.z" role="img"></canvas>
  </section>
 
  
- <section style="margin-bottom:2.5rem;">
-   <h2 style="text-align:center; color:rgb(31,186,156); margin-bottom:1.5rem;">Programy a funkce</h2>
-   <div style="display:flex; overflow-x:auto; gap:1.5rem; padding-bottom:1rem;">
-     <div style="min-width:250px; flex:0 0 auto; background:#fff; border-radius:12px; box-shadow:0 0 15px rgba(31,186,156,0.15); padding:1.5rem;">
-       <h3>DeFi Integrace</h3>
-       <p>Zapojení do decentralizovaných finančních protokolů pro flexibilitu a rychlé transakce.</p>
+ <section>
+   <h2>Roadmapa projektu</h2>
+   <canvas id="roadmapChart" aria-label="Roadmapa růstu uživatelů a likvidity" role="img"></canvas>
+ </section>
+
+ 
+ <section class="sectors">
+   <div class="sector-box">
+     <div class="sector-icon">🏦</div>
+     <div class="sector-content">
+       <h3>Bankovní sektor</h3>
+       <ul>
+         <li>Stabilita a bezpečnost transakcí</li>
+         <li>Podpora pro tradiční finanční instituce</li>
+         <li>Regulace a compliance</li>
+         <li>Rychlé a transparentní platby</li>
+       </ul>
      </div>
-     <div style="min-width:250px; flex:0 0 auto; background:#fff; border-radius:12px; box-shadow:0 0 15px rgba(31,186,156,0.15); padding:1.5rem;">
-       <h3>Bankovní partneři</h3>
-       <p>Spolupráce s tradičními institucemi pro bezpečnost a regulaci.</p>
-     </div>
-     <div style="min-width:250px; flex:0 0 auto; background:#fff; border-radius:12px; box-shadow:0 0 15px rgba(31,186,156,0.15); padding:1.5rem;">
-       <h3>Marketing & Growth</h3>
-       <p>Programy zaměřené na získání nových uživatelů a expanzi trhu.</p>
-     </div>
-     <div style="min-width:250px; flex:0 0 auto; background:#fff; border-radius:12px; box-shadow:0 0 15px rgba(31,186,156,0.15); padding:1.5rem;">
-       <h3>Audit & Security</h3>
-       <p>Neustálá kontrola bezpečnosti a transparentní audit pro důvěru investorů.</p>
+   </div>
+   <div class="sector-box">
+     <div class="sector-icon">🏢</div>
+     <div class="sector-content">
+       <h3>Nebankovní sektor</h3>
+       <ul>
+         <li>Decentralizované finance (DeFi)</li>
+         <li>Flexibilita a inovace</li>
+         <li>Globalizace plateb</li>
+         <li>Přístup pro nebankovní uživatele</li>
+       </ul>
      </div>
    </div>
  </section>
 
  
- <section style="margin-bottom:2.5rem;">
-   <h2 style="text-align:center; color:rgb(31,186,156); margin-bottom:1rem;">Historie a vývoj</h2>
+ <section>
+   <h2>Aktuální kurz a kalkulačka</h2>
    <div class="flex-row">
-     <canvas id="programLineChart" style="flex:1; min-width:300px; max-width:600px;"></canvas>
-     <table style="flex:1; min-width:300px; border-collapse: collapse; border:1px solid #ddd;">
+     <table aria-label="Aktuální kurzy měn">
        <thead>
-         <tr style="background:rgb(31,186,156); color:white;">
-           <th>Datum</th><th>Objem USDt.z</th><th>Uživatelé</th>
-         </tr>
+         <tr><th>Měna</th><th>Kurz (USDt.z)</th></tr>
        </thead>
-       <tbody>
-         <tr><td>Q1 2024</td><td>500M</td><td>500</td></tr>
-         <tr><td>Q2 2024</td><td>1.5B</td><td>1 500</td></tr>
-         <tr><td>Q3 2024</td><td>2.5B</td><td>2 500</td></tr>
-         <tr><td>Q4 2024</td><td>4B</td><td>4 500</td></tr>
-         <tr><td>Q1 2025</td><td>5B</td><td>7 500</td></tr>
+       <tbody id="exchangeTableBody">
+         <tr><td>USD</td><td>1.00</td></tr>
+         <tr><td>EUR</td><td>0.92</td></tr>
+         <tr><td>BTC</td><td>30000</td></tr>
        </tbody>
      </table>
+     <div class="calculator">
+       <label for="amountInput">Částka</label>
+       <input type="number" id="amountInput" value="1" min="0" step="any">
+       <label for="fromCurrency">Z měny</label>
+       <select id="fromCurrency">
+         <option value="USD">USD</option>
+         <option value="EUR">EUR</option>
+         <option value="BTC">BTC</option>
+       </select>
+       <label for="toCurrency">Do měny</label>
+       <select id="toCurrency">
+         <option value="USDt.z">USDt.z</option>
+         <option value="EUR">EUR</option>
+         <option value="BTC">BTC</option>
+       </select>
+       <output id="resultOutput">Výsledek: 1.00 USDt.z</output>
+     </div>
    </div>
  </section>
 
  
- <section style="margin-bottom:2.5rem;">
-   <h2 style="text-align:center; color:rgb(31,186,156); margin-bottom:1rem;">Kalkulačka konverze</h2>
-   <div class="calculator" style="max-width:480px; margin:0 auto;">
-     <label for="amountProgram">Částka</label>
-     <input type="number" id="amountProgram" value="1" min="0" step="any" />
-     <label for="fromProgram">Z měny</label>
-     <select id="fromProgram">
-       <option value="USD">USD</option>
-       <option value="EUR">EUR</option>
-       <option value="BTC">BTC</option>
-     </select>
-     <label for="toProgram">Do měny</label>
-     <select id="toProgram">
-       <option value="USDt.z">USDt.z</option>
-       <option value="EUR">EUR</option>
-       <option value="BTC">BTC</option>
-     </select>
-     <output id="resultProgram" style="margin-top:1rem; font-weight:700; font-size:1.2rem;">Výsledek: 1.00 USDt.z</output>
+ <section>
+   <h2>Workshopy a školení</h2>
+   <div class="slider-container">
+     <div class="slider" id="workshopSlider">
+       <div class="slide"><h3>Workshop 1</h3><p>Jak integrovat USDt.z do firemních procesů.</p></div>
+       <div class="slide"><h3>Workshop 2</h3><p>Bezpečné transakce a compliance pro banky.</p></div>
+       <div class="slide"><h3>Workshop 3</h3><p>Decentralizované finance a příležitosti pro nebankovní sektor.</p></div>
+     </div>
+     <div class="slider-buttons">
+       <button onclick="prevSlide()">◀</button>
+       <button onclick="nextSlide()">▶</button>
+     </div>
    </div>
- </section>
-
- 
- <section style="text-align:center; margin-bottom:2.5rem;">
-   <h2 style="color:rgb(31,186,156); margin-bottom:1rem;">Pitch Deck</h2>
-   <p>Pro marketingové a obchodní materiály navštivte náš Pitch Deck.</p>
-   <a href="/USDTz-Premium/pages/pitch.html" class="btn">Otevřít Pitch Deck</a>
  </section>
 </main>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js" defer></script>
 <script>
- // Line chart pro vývoj objemu a uživatelů
- window.addEventListener('load', () => {
-   const ctx = document.getElementById('programLineChart').getContext('2d');
-   new Chart(ctx, {
-     type: 'line',
-     data: {
-       labels: ['Q1 2024','Q2 2024','Q3 2024','Q4 2024','Q1 2025'],
-       datasets: [
-         { label:'Objem (USDt.z)', data:[500,1500,2500,4000,5000], borderColor:'rgb(31,186,156)', backgroundColor:'rgba(31,186,156,0.2)', fill:true, tension:0.3 },
-         { label:'Uživatelé', data:[500,1500,2500,4500,7500], borderColor:'rgb(33,150,243)', backgroundColor:'rgba(33,150,243,0.2)', fill:true, tension:0.3 }
-       ]
-     },
-     options:{ responsive:true, plugins:{legend:{position:'bottom'}}, scales:{y:{beginAtZero:true}} }
-   });
+ // Kalkulačka
+ const rates = { USD:1, EUR:0.92, BTC:30000, "USDt.z":1 };
+ const amountInput = document.getElementById('amountInput');
+ const fromCurrency = document.getElementById('fromCurrency');
+ const toCurrency = document.getElementById('toCurrency');
+ const resultOutput = document.getElementById('resultOutput');
+ function calculate() {
+   const amount = parseFloat(amountInput.value);
+   if(isNaN(amount)||amount<0){resultOutput.textContent="Zadejte platnou částku";return;}
+   const fromRate=rates[fromCurrency.value]||1;
+   const toRate=rates[toCurrency.value]||1;
+   resultOutput.textContent=`Výsledek: ${(amount/fromRate*toRate).toFixed(4)} ${toCurrency.value}`;
+ }
+ amountInput.addEventListener('input',calculate);
+ fromCurrency.addEventListener('change',calculate);
+ toCurrency.addEventListener('change',calculate);
+ window.addEventListener('load',calculate);
+
+ // Grafy
+ window.addEventListener('load',()=>{
+   const ctxToken=document.getElementById('tokenomicsChart').getContext('2d');
+   new Chart(ctxToken,{type:'doughnut',data:{labels:['Ekosystém','Rezerva','Tým','Marketing'],datasets:[{data:[40,25,20,15],backgroundColor:['rgb(31,186,156)','rgb(255,193,7)','rgb(255,87,34)','rgb(33,150,243)'],borderWidth:1}]},options:{responsive:true,plugins:{legend:{position:'bottom'}}}});
+   const ctxRoadmap=document.getElementById('roadmapChart').getContext('2d');
+   new Chart(ctxRoadmap,{type:'line',data:{labels:['Q1 2024','Q2 2024','Q3 2024','Q4 2024','Q1 2025','Q2 2025'],datasets:[{label:'Uživatelé',data:[500,1500,2500,4500,6000,7500],borderColor:'rgb(31,186,156)',backgroundColor:'rgba(31,186,156,0.2)',fill:true,tension:0.3},{label:'Likvidita (mil USDt.z)',data:[100,300,600,1200,1800,2500],borderColor:'rgb(33,150,243)',backgroundColor:'rgba(33,150,243,0.2)',fill:true,tension:0.3}]} ,options:{responsive:true,scales:{y:{beginAtZero:true}},plugins:{legend:{position:'bottom'}}}});
  });
 
- // Kalkulačka
- const ratesProgram = { USD:1, EUR:0.92, BTC:30000, "USDt.z":1 };
- const amountProgram = document.getElementById('amountProgram');
- const fromProgram = document.getElementById('fromProgram');
- const toProgram = document.getElementById('toProgram');
- const resultProgram = document.getElementById('resultProgram');
-
- function calculateProgram() {
-   const amount = parseFloat(amountProgram.value);
-   if(isNaN(amount)||amount<0){resultProgram.textContent="Zadejte platnou částku";return;}
-   const fromRate = ratesProgram[fromProgram.value]||1;
-   const toRate = ratesProgram[toProgram.value]||1;
-   const result = (amount/fromRate)*toRate;
-   resultProgram.textContent=`Výsledek: ${result.toFixed(4)} ${toProgram.value}`;
- }
-
- amountProgram.addEventListener('input', calculateProgram);
- fromProgram.addEventListener('change', calculateProgram);
- toProgram.addEventListener('change', calculateProgram);
- window.addEventListener('load', calculateProgram);
-</script>
-
-<section id="bottom-box" aria-label="Prozkoumej token USDt.z">
- <div class="logo">
-   <img src="/USDTz-Premium/img/flags/logo.png" alt="USDt.z Logo" />
- </div>
- <div class="text">Prozkoumejte token USDt.z na těchto platformách:</div>
- <div class="btn-group">
-   <a href="https://bscscan.com/token/0x913ef7244bEd019b95Ec5321408eE4CE83E25c01"
-      target="_blank" rel="noopener noreferrer"
-      class="btn-bsc" aria-label="Token na BscScan">
-      BscScan
-   </a>
-   <a href="https://www.geckoterminal.com/bsc/pools/0x553b402b3d6f91ea2208c7df61a6d4aa96ccb6191787c20fedb7ae6c9823b280"
-      target="_blank" rel="noopener noreferrer"
-      class="btn-gecko" aria-label="Token na GeckoTerminal">
-      GeckoTerminal
-   </a>
- </div>
-</section>
-
-<style>
-#bottom-box {
- max-width: 900px;
- margin: 2rem auto;
- background: #fff;
- border: 1px solid #ddd;
- border-radius: 10px;
- box-shadow: 0 0 12px rgb(31 186 156 / 0.15);
- padding: 1rem 2rem;
- display: flex;
- align-items: center;
- gap: 1.5rem;
- justify-content: space-between;
-}
-
-#bottom-box .logo {
- flex-shrink: 0;
-}
-#bottom-box .logo img {
- height: 40px;
-}
-
-#bottom-box .text {
- flex: 1;
- font-weight: 600;
- color: rgb(31,186,156);
- font-size: 1.1rem;
-}
-
-#bottom-box .btn-group {
- display: flex;
- gap: 1rem;
-}
-
-#bottom-box .btn-group a {
- padding: 0.5rem 1.2rem;
- border-radius: 6px;
- font-weight: 700;
- text-decoration: none;
- display: inline-block;
- cursor: pointer;
- color: white;
- transition: background-color 0.3s ease;
- white-space: nowrap;
-}
-
-#bottom-box .btn-bsc {
- background-color: #f0b90b;
-}
-#bottom-box .btn-bsc:hover {
- background-color: #d9a200;
-}
-
-#bottom-box .btn-gecko {
- background-color: #1e88e5;
-}
-#bottom-box .btn-gecko:hover {
- background-color: #1669bb;
-}
-
-/* Responzivita pro mobil */
-@media (max-width: 768px) {
- #bottom-box {
-   flex-direction: column;
-   gap: 1rem;
-   text-align: center;
- }
- #bottom-box .btn-group {
-   justify-content: center;
-   width: 100%;
- }
-}
-</style>
+ // Slider
+ let currentSlide=0;
+ const slides=document.getElementById('workshopSlider');
+ function showSlide(index){
+   const total=slides.children.length;
+   if(index<0)currentSlide=total-1;
+   else if(index>=total)currentSlide=0;
+   else currentSlide=index;
+   slides.style.transform=`translateX(-${currentSlide*100}
