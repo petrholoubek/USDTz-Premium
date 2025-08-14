@@ -135,6 +135,229 @@ label[for="menu-toggle"] span {
 }
 </style>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Programs – USDt.z</title>
+<style>
+ #msg_body {
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   background: #f8f9fa;
+   color: #222;
+   margin: 0;
+   padding: 0;
+ }
+
+ main {
+   max-width: 1200px;
+   margin: 2rem auto;
+   padding: 0 1rem;
+ }
+
+ h1, h2 {
+   color: rgb(31,186,156);
+ }
+
+ h1 {
+   text-align: center;
+   font-size: 2.8rem;
+   margin-bottom: 2rem;
+ }
+
+ section {
+   background: #fff;
+   border-radius: 12px;
+   padding: 2rem;
+   margin-bottom: 2rem;
+   box-shadow: 0 0 20px rgba(31,186,156,0.1);
+ }
+
+ /* Slider */
+ .slider-container {
+   position: relative;
+   width: 100%;
+   overflow: hidden;
+   border-radius: 12px;
+   box-shadow: 0 0 12px rgba(0,0,0,0.1);
+ }
+
+ .slider-track {
+   display: flex;
+   transition: transform 0.5s ease-in-out;
+ }
+
+ .slide {
+   min-width: 100%;
+   box-sizing: border-box;
+   position: relative;
+   text-align: center;
+   color: white;
+   font-weight: 700;
+   font-size: 1.5rem;
+ }
+
+ .slide img {
+   width: 100%;
+   border-radius: 12px;
+   vertical-align: middle;
+ }
+
+ .slider-buttons {
+   position: absolute;
+   top: 50%;
+   width: 100%;
+   display: flex;
+   justify-content: space-between;
+   transform: translateY(-50%);
+   pointer-events: none;
+ }
+
+ .slider-buttons button {
+   background: rgba(0,0,0,0.4);
+   border: none;
+   color: white;
+   font-size: 2rem;
+   padding: 0.2rem 0.7rem;
+   cursor: pointer;
+   pointer-events: all;
+   border-radius: 6px;
+   transition: background 0.3s;
+ }
+
+ .slider-buttons button:hover {
+   background: rgba(0,0,0,0.7);
+ }
+
+ /* Program blocks */
+ .program-blocks {
+   display: flex;
+   flex-wrap: wrap;
+   gap: 2rem;
+   justify-content: center;
+ }
+
+ .program-block {
+   background: #f0fdf9;
+   border: 1px solid #1fba9c;
+   border-radius: 12px;
+   padding: 1.5rem;
+   flex: 1 1 280px;
+   box-shadow: 0 0 12px rgba(31,186,156,0.1);
+   transition: transform 0.3s;
+ }
+
+ .program-block:hover {
+   transform: translateY(-5px) scale(1.02);
+ }
+
+ .program-block h3 {
+   color: rgb(31,186,156);
+   margin-bottom: 1rem;
+ }
+
+ .program-block p {
+   font-size: 1rem;
+   line-height: 1.4;
+ }
+
+ /* Buttons */
+ .btn {
+   display: inline-block;
+   padding: 0.7rem 1.5rem;
+   background: rgb(31,186,156);
+   color: white;
+   border-radius: 6px;
+   font-weight: 700;
+   text-decoration: none;
+   transition: background 0.3s;
+   margin-top: 1rem;
+ }
+ .btn:hover {
+   background: #1eab91;
+ }
+</style>
+</head>
+<body>
+<main>
+ <h1>USDt.z Programs</h1>
+
+ 
+ <section aria-label="Main program presentation">
+   <div class="slider-container">
+     <div class="slider-track">
+       <div class="slide">
+         <img src="https://via.placeholder.com/1200x400/1fba9c/ffffff?text=Program+1" alt="Program 1">
+         <div class="slide-caption">Innovative stable token for banking sector</div>
+       </div>
+       <div class="slide">
+         <img src="https://via.placeholder.com/1200x400/2196f3/ffffff?text=Program+2" alt="Program 2">
+         <div class="slide-caption">Decentralized finance (DeFi) integration</div>
+       </div>
+       <div class="slide">
+         <img src="https://via.placeholder.com/1200x400/ff5722/ffffff?text=Program+3" alt="Program 3">
+         <div class="slide-caption">Global access for non-banking users</div>
+       </div>
+     </div>
+     <div class="slider-buttons">
+       <button id="prev">&#10094;</button>
+       <button id="next">&#10095;</button>
+     </div>
+   </div>
+ </section>
+
+ 
+ <section>
+   <div class="program-blocks">
+     <div class="program-block">
+       <h3>Banking Partnerships</h3>
+       <p>Supporting traditional financial institutions with transparent and secure transaction flows.</p>
+       <a href="#" class="btn">Learn More</a>
+     </div>
+     <div class="program-block">
+       <h3>DeFi Integration</h3>
+       <p>Providing access to decentralized finance for flexible investment strategies.</p>
+       <a href="#" class="btn">Learn More</a>
+     </div>
+     <div class="program-block">
+       <h3>Global Payments</h3>
+       <p>Access for non-banking users worldwide with fast and secure transfers.</p>
+       <a href="#" class="btn">Learn More</a>
+     </div>
+   </div>
+ </section>
+</main>
+
+<script>
+ // Slider JS
+ const track = document.querySelector('.slider-track');
+ const slides = Array.from(track.children);
+ const nextButton = document.getElementById('next');
+ const prevButton = document.getElementById('prev');
+ let currentIndex = 0;
+
+ function updateSlider() {
+   const slideWidth = slides[0].getBoundingClientRect().width;
+   track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+ }
+
+ nextButton.addEventListener('click', () => {
+   currentIndex = (currentIndex + 1) % slides.length;
+   updateSlider();
+ });
+
+ prevButton.addEventListener('click', () => {
+   currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+   updateSlider();
+ });
+
+ window.addEventListener('resize', updateSlider);
+ updateSlider();
+</script>
+</body>
+</html>
+
 <section id="bottom-box" aria-label="Prozkoumej token USDt.z">
  <div class="logo">
    <img src="/USDTz-Premium/img/flags/logo.png" alt="USDt.z Logo" />
