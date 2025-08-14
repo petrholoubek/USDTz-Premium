@@ -138,259 +138,448 @@ label[for="menu-toggle"] span {
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Program USDt.z</title>
-<style>
- #msg_body {
-   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-   margin:0;
-   background-color: #f5f5f7;
-   color: #222;
- }
- .container {
-   width: 95%;
-   max-width: 1200px;
-   margin: 0 auto;
-   padding: 20px 0;
- }
- h1, h2, h3 {
-   text-align: center;
-   margin: 20px 0;
- }
- .frame {
-   background: #ffffff;
-   border: 2px solid #1fba9c;
-   border-radius: 12px;
-   padding: 20px;
-   margin: 20px 0;
-   box-shadow: 0 4px 10px rgba(0,0,0,0.08);
- }
- .frames-row {
-   display: flex;
-   flex-wrap: wrap;
-   gap: 20px;
-   justify-content: space-between;
- }
- .frame-half {
-   flex: 1 1 48%;
-   min-width: 300px;
- }
- .button {
-   display: inline-block;
-   padding: 12px 25px;
-   margin: 10px 0;
-   font-size: 16px;
-   color: #fff;
-   background-color: #1fba9c;
-   border-radius: 8px;
-   text-decoration: none;
-   transition: background 0.3s;
- }
- .button:hover {
-   background-color: #149a85;
- }
- .slider {
-   position: relative;
-   overflow: hidden;
-   border-radius: 12px;
-   margin-top: 20px;
- }
- .slides {
-   display: flex;
-   transition: transform 0.5s ease-in-out;
- }
- .slide {
-   min-width: 100%;
-   background: #eef5f7;
-   padding: 40px;
-   box-sizing: border-box;
- }
- xtable {
-   width: 100%;
-   border-collapse: collapse;
-   margin-top: 15px;
- }
- th, td {
-   border: 1px solid #1fba9c;
-   padding: 10px;
-   text-align: center;
- }
- canvas {
-   width: 100% !important;
-   height: 300px !important;
- }
- @media(max-width: 800px){
-   .frames-row {
-     flex-direction: column;
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <title>USDt.z – Použití (Use Cases)</title>
+ <meta name="description" content="Odborné scénáře využití USDt.z: kolaterál, DeFi, remittance, platby, fondy, napojení na fiat. Grafy, tabulky, slider a odborné texty." />
+ <style>
+   /* Reset & base */
+   * { margin:0; padding:0; box-sizing:border-box; }
+   #msg_body {
+     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+     background:#f8f9fa; color:#222; line-height:1.55;
+     display:flex; flex-direction:column; min-height:100vh;
    }
-   .frame-half {
-     flex: 1 1 100%;
+   main{ flex:1; padding:2rem 1rem 3rem; }
+   .wrap{ max-width:900px; margin:0 auto; }
+
+   /* Headings */
+   h1,h2,h3{ color:rgb(31,186,156); }
+   h1{ font-size:2.4rem; text-align:center; margin-bottom:0.8rem; }
+   h2{ font-size:1.7rem; margin-bottom:0.75rem; }
+   h3{ font-size:1.2rem; margin-bottom:0.4rem; color:#169c82; }
+
+   /* Section card */
+   .card{
+     background:#fff; border:1px solid #ddd;
+     border-radius:12px; box-shadow:0 0 12px rgb(31 186 156 / 0.12);
+     padding:1.5rem 2rem; margin:1.2rem auto;
    }
- }
-</style>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   .card p{ margin:0.5rem 0 0.9rem; font-size:1.04rem; }
+   .muted{ color:#666; }
+
+   /* Grid helpers */
+   .grid-2{
+     display:grid; grid-template-columns:1fr 1fr; gap:1.3rem;
+   }
+   @media (max-width: 900px){ .grid-2{ grid-template-columns:1fr; } }
+
+   /* Table */
+   xtable { width:100%; border-collapse:collapse; font-size:0.98rem; }
+   thead th{
+     background:rgb(31,186,156); color:#fff; font-weight:700; text-align:left;
+     padding:0.75rem 0.9rem;
+   }
+   tbody td{ border-bottom:1px solid #e5e5e5; padding:0.6rem 0.9rem; }
+   tbody tr:hover{ background:#f1f8f6; }
+
+   /* Lists */
+   ul.clean{ list-style:none; }
+   ul.clean li{ position:relative; padding-left:1.2rem; margin:0.35rem 0; }
+   ul.clean li::before{ content:"✔"; color:rgb(31,186,156); position:absolute; left:0; top:0; }
+
+   /* Buttons */
+   .btn{
+     display:inline-block; border:none; cursor:pointer; text-decoration:none;
+     font-weight:700; border-radius:8px; padding:0.85rem 1.4rem;
+     background:rgb(31,186,156); color:#fff; transition:transform .05s ease, background .25s ease;
+     white-space:nowrap;
+   }
+   .btn:hover{ background:#1ea98e; }
+   .btn:active{ transform:translateY(1px); }
+   .btn.blue{ background:#1e88e5; }
+   .btn.blue:hover{ background:#1669bb; }
+
+   .btn-row{ display:flex; gap:0.8rem; flex-wrap:wrap; align-items:center; }
+
+   /* Slider (pure CSS/JS) */
+   .slider{
+     position:relative; overflow:hidden; border-radius:12px;
+     box-shadow:0 0 12px rgb(31 186 156 / 0.12);
+   }
+   .slides{
+     display:flex; transition:transform .6s ease; will-change:transform;
+   }
+   .slide{
+     min-width:100%; background:#fff; padding:1.4rem 1.8rem;
+     border-right:1px solid #eee;
+   }
+   .slider-nav{
+     display:flex; justify-content:space-between; align-items:center; gap:0.6rem;
+     margin-top:0.8rem;
+   }
+   .slider-dots{ display:flex; gap:0.4rem; }
+   .dot{
+     width:9px; height:9px; border-radius:50%; background:#cfd8dc; border:none; cursor:pointer;
+   }
+   .dot.active{ background:rgb(31,186,156); }
+   .arrow{ border:none; background:#fff; border:1px solid #ddd; border-radius:8px; padding:0.45rem 0.7rem; cursor:pointer; }
+   .arrow:hover{ background:#f6fbfa; }
+
+   /* Charts */
+   canvas{ max-width:100%; }
+
+   /* Badges */
+   .badge{
+     display:inline-block; padding:0.25rem 0.55rem; border-radius:999px; font-size:0.78rem; font-weight:700;
+     background:#e8f7f3; color:#0b6f5e; border:1px solid #cfeee6;
+     margin-right:0.4rem; margin-top:0.3rem;
+   }
+
+   /* Note box */
+   .note{
+     background:#f4f9f8; border:1px solid #e2f2ee; padding:0.9rem 1rem; border-radius:8px; color:#225e55; margin-top:0.8rem;
+   }
+
+   /* Small helper rows */
+   .kpis{ display:grid; grid-template-columns:repeat(4,1fr); gap:0.9rem; }
+   .kpi{
+     background:#fff; border:1px solid #ddd; border-radius:12px; box-shadow:0 0 12px rgb(31 186 156 / 0.12);
+     padding:1rem 1.1rem; text-align:center;
+   }
+   .kpi .n{ font-size:1.45rem; font-weight:800; color:#169c82; }
+   .kpi .d{ font-size:0.9rem; color:#666; }
+   @media (max-width: 900px){ .kpis{ grid-template-columns:1fr 1fr; } }
+   @media (max-width: 520px){ .kpis{ grid-template-columns:1fr; } }
+
+   /* Section titles centered helper */
+   .center{ text-align:center; }
+ </style>
+ <script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js" defer></script>
 </head>
 <body>
+<main>
+ <div class="wrap">
 
-<div class="container">
+   
+   <section class="card center" aria-label="Hlavní přehled použití">
+     <h1>USDt.z – Použití a scénáře nasazení</h1>
+     <p class="muted">Odborný přehled praktického využití stablecoinu USDt.z pro instituce, fondy, obchodníky i fintech. Stabilita, transparentnost, vysoká likvidita a most mezi světem FIAT a DeFi.</p>
+     <div class="btn-row" style="justify-content:center; margin-top:0.6rem;">
+       <a class="btn blue" href="/USDTz-Premium/pages/pitch.html">Pitch deck</a>
+       <span class="badge">Kolaterál</span>
+       <span class="badge">DeFi</span>
+       <span class="badge">Platby</span>
+       <span class="badge">Remitence</span>
+       <span class="badge">Instituce</span>
+     </div>
+   </section>
 
- <h1>Program USDt.z</h1>
-
- 
- <div class="frames-row">
-   <div class="frame frame-half">
-     <h2>Bankovní sektor</h2>
-     <p>Spolupracujeme s předními bankami pro správu kolaterálních aktiv. Banky umožňují půjčování fiat měny proti tokenům USDt.z, čímž podporují likviditu a stabilizaci trhu. Mezi naše partnery patří:</p>
-     <ul>
-       <li>Bank A – správa kolaterálu a půjčky</li>
-       <li>Bank B – institucionální obchodování</li>
-       <li>Bank C – správa digitálních aktiv</li>
-     </ul>
-     <p>Výhody pro banky: zajištění stabilizace, přístup k likviditě a moderní DeFi nástroje.</p>
-   </div>
-   <div class="frame frame-half">
-     <h2>Nebankovní sektor</h2>
-     <p>Pro nebankovní instituce a jednotlivce nabízíme možnost využití našich tokenů jako kolaterálu pro půjčky, obchodování a zajištění likvidity. Naši uživatelé mohou:</p>
-     <ul>
-       <li>Obchodovat tokeny přímo na DEX a CEX</li>
-       <li>Využívat tokeny jako kolaterální aktivum</li>
-       <li>Přistupovat k DeFi nástrojům pro správu rizik</li>
-     </ul>
-     <p>Celkový objem trhu, kde působíme, přesahuje 5 miliard USD – naši uživatelé mají příležitost participovat na této likviditě.</p>
-   </div>
- </div>
-
- 
- <div class="frame">
-   <h2>Pitch Deck</h2>
-   <p>Pro detailní obchodní a marketingovou strategii navštivte náš <a href="pages/pitch.html" class="button">Pitch Deck</a></p>
-   <div class="frames-row">
-     <a href="#" class="button">Workshop</a>
-     <a href="#" class="button">Marketing</a>
-     <a href="#" class="button">Školení</a>
-   </div>
-   <p>Obsahuje: budoucnost tokenu, tržní strategie, možnosti investic a využití USDt.z v praxi.</p>
- </div>
-
- 
- <div class="frames-row">
-   <div class="frame frame-half">
-     <h2>Objem obchodování</h2>
-     <canvas id="chartVolume"></canvas>
-   </div>
-   <div class="frame frame-half">
-     <h2>Distribuce tokenů</h2>
-     <canvas id="chartDistribution"></canvas>
-   </div>
- </div>
-
- 
- <div class="frames-row">
-   <div class="frame frame-half">
-     <h2>Statistika a tržní hodnoty</h2>
-     <p>Token USDt.z má stabilní hodnotu díky kolaterální záruce a sledování tržních toků.</p>
-     <table>
-       <tr>
-         <th>Ukazatel</th>
-         <th>Hodnota</th>
-       </tr>
-       <tr>
-         <td>Celková tržní kapitalizace</td>
-         <td>5 000 000 000 USD</td>
-       </tr>
-       <tr>
-         <td>24h objem obchodování</td>
-         <td>150 000 000 USD</td>
-       </tr>
-       <tr>
-         <td>Počet aktivních uživatelů</td>
-         <td>120 000</td>
-       </tr>
-     </table>
-   </div>
-   <div class="frame frame-half">
-     <h2>Výhody pro investory</h2>
-     <p>Investoři získávají:</p>
-     <ul>
-       <li>Možnost pasivního příjmu z kolaterálních půjček</li>
-       <li>Stabilní nástroje pro obchodování</li>
-       <li>Transparentní a bezpečnou infrastrukturu</li>
-       <li>Přístup k DeFi a fontech inovacím</li>
-     </ul>
-   </div>
- </div>
-
- 
- <div class="frame">
-   <h2>Školení a workshopy</h2>
-   <div class="slider" id="slider">
-     <div class="slides">
-       <div class="slide">
-         <h3>Workshop: Základy DeFi</h3>
-         <p>Naučte se využívat DeFi nástroje pro správu likvidity a kolaterálu.</p>
+   
+   <section class="card" aria-label="FIAT vs Krypto">
+     <h2>FIAT vs. Krypto: Principy a rozdíly</h2>
+     <div class="grid-2">
+       <div>
+         <h3>Co je FIAT</h3>
+         <p>FIAT měna je zákonné platidlo vydávané centrální autoritou (ČNB, ECB, FED). Je široce akceptované a má stabilní právní rámec, současně však nese inflační riziko a závisí na měnové politice.</p>
+         <h3>Co je Krypto</h3>
+         <p>Kryptoměna je digitální aktivum na blockchainu, jehož emise a převody jsou řízeny protokolem a konsensem. Stablecoiny, jako USDt.z, kombinují výhody krypta s cenovou stabilitou.</p>
        </div>
-       <div class="slide">
-         <h3>Školení: Obchodování s USDt.z</h3>
-         <p>Praktické ukázky obchodování a využití tokenu na DEX/CEX.</p>
-       </div>
-       <div class="slide">
-         <h3>Workshop: Budoucnost tokenu</h3>
-         <p>Diskuze o perspektivách tokenu USDt.z a jeho využití ve finančním sektoru.</p>
+       <div>
+         <table aria-label="Srovnání FIAT a krypto">
+           <thead><tr><th>Oblast</th><th>FIAT</th><th>Krypto</th></tr></thead>
+           <tbody>
+             <tr><td>Řízení</td><td>Centrální banka / stát</td><td>Protokol / síť</td></tr>
+             <tr><td>Inflace</td><td>Možná – závisí na politice</td><td>Nízká u stablecoinů</td></tr>
+             <tr><td>Rychlost plateb</td><td>Dny přes hranice</td><td>Minuty globálně</td></tr>
+             <tr><td>Transparentnost</td><td>Bankovní záznamy</td><td>Veřejný blockchain</td></tr>
+             <tr><td>Přístup</td><td>Bankovní účet</td><td>Peněženka / burza</td></tr>
+           </tbody>
+         </table>
+         <div class="note">USDt.z = stabilita pro platby, kolaterál a DeFi – bez volatility běžných kryptoměn.</div>
        </div>
      </div>
-   </div>
- </div>
+   </section>
 
-</div>
+   
+   <section class="card" aria-label="Proč stablecoin USDt.z">
+     <h2>Proč stablecoin USDt.z</h2>
+     <div class="grid-2">
+       <ul class="clean">
+         <li>Stabilní účetní jednotka – ideální pro oceňování, vyúčtování a zajištění.</li>
+         <li>Okamžitá převoditelnost a globální dostupnost 24/7.</li>
+         <li>Transparentní on-chain auditovatelnost transakcí.</li>
+         <li>Škálovatelný most mezi FIAT a DeFi pro instituce i fintech.</li>
+       </ul>
+       <div>
+         <canvas id="whyPie" height="190" aria-label="Hlavní důvody použití stablecoinu"></canvas>
+       </div>
+     </div>
+   </section>
+
+   
+   <section class="card" aria-label="Přehled použití (slider)">
+     <h2>Top use cases – přehled</h2>
+     <div class="slider" id="ucSlider">
+       <div class="slides">
+         <div class="slide">
+           <h3>Kolaterál pro půjčky</h3>
+           <p>USDt.z lze zastavit jako zajištění u bankovních partnerů i v DeFi. Získáte likviditu bez prodeje podkladového aktiva a zachováte expozici.</p>
+           <ul class="clean">
+             <li>Nižší volatilita kolaterálu</li>
+             <li>Rychlé LTV vyhodnocení</li>
+             <li>Okamžitá uvolnitelnost</li>
+           </ul>
+         </div>
+         <div class="slide">
+           <h3>Platby & Remitence</h3>
+           <p>Stabilní a rychlé přeshraniční převody bez korespondenčních bank. Nižší náklady, vypořádání v minutách.</p>
+           <ul class="clean">
+             <li>Globální dosah 24/7</li>
+             <li>Nižší poplatky než SWIFT</li>
+             <li>On-chain průhlednost</li>
+           </ul>
+         </div>
+         <div class="slide">
+           <h3>DeFi a likviditní strategie</h3>
+           <p>USDt.z je základ pro páry, LP a výnosové strategie. Umožňuje řízené výnosy s minimální cenovou volatilitou.</p>
+           <ul class="clean">
+             <li>LP & market making</li>
+             <li>Yield / staking programy</li>
+             <li>Institucionální reporting</li>
+           </ul>
+         </div>
+         <div class="slide">
+           <h3>Instituce & fondy</h3>
+           <p>Fintech a fondy využívají stablecoin pro rychlé vypořádání, intradenní likviditu a zajištění vůči FX.</p>
+           <ul class="clean">
+             <li>Intraday settlement</li>
+             <li>Fiat on/off-ramp</li>
+             <li>Audit & compliance</li>
+           </ul>
+         </div>
+       </div>
+     </div>
+     <div class="slider-nav">
+       <button class="arrow" id="prevBtn" aria-label="Předchozí">◀</button>
+       <div class="slider-dots" id="dots"></div>
+       <button class="arrow" id="nextBtn" aria-label="Další">▶</button>
+     </div>
+   </section>
+
+   
+   <section class="card" aria-label="Grafy adopce a rozložení využití">
+     <h2>Adopce & rozložení využití</h2>
+     <div class="grid-2">
+       <div>
+         <h3>Adopce v čase</h3>
+         <canvas id="adoptionLine" height="220" aria-label="Adopce v čase"></canvas>
+       </div>
+       <div>
+         <h3>Rozložení využití (%)</h3>
+         <canvas id="usecaseBar" height="220" aria-label="Rozložení využití"></canvas>
+       </div>
+     </div>
+     <div class="kpis" style="margin-top:1rem;">
+       <div class="kpi"><div class="n">5&nbsp;bilionů</div><div class="d">Cílový tržní objem</div></div>
+       <div class="kpi"><div class="n">120+</div><div class="d">Institucionálních partnerů</div></div>
+       <div class="kpi"><div class="n">24/7</div><div class="d">Globální vypořádání</div></div>
+       <div class="kpi"><div class="n">0.1–0.3%</div><div class="d">Typické náklady převodu</div></div>
+     </div>
+   </section>
+
+   
+   <section class="card" aria-label="Praktické scénáře">
+     <h2>Praktické scénáře použití</h2>
+     <div class="grid-2">
+       <div>
+         <h3>Kolaterál & zajištění</h3>
+         <p>USDt.z slouží jako stabilní zástava. V kombinaci s řízeným LTV a automatickou likvidací snižuje riziko defaultu.</p>
+         <ul class="clean">
+           <li>LTV typicky 50–80 %</li>
+           <li>Okamžitá obnova zástavy</li>
+           <li>On-chain monitoring</li>
+         </ul>
+       </div>
+       <div>
+         <h3>DeFi výnosové strategie</h3>
+         <p>LP pozice, market making a staking s transparentní metrikou výnosu a řízením rizik (IL, koncentrace, protokol).</p>
+         <ul class="clean">
+           <li>LP v párech s nízkou volatilitou</li>
+           <li>Programy s kapitálovou disciplínou</li>
+           <li>Institucionální reporty</li>
+         </ul>
+       </div>
+       <div>
+         <h3>Platby & remitence</h3>
+         <p>Cross-border platby v minutách s detailním trackingem transakcí. Alternativa k dražším koridorům.</p>
+       </div>
+       <div>
+         <h3>Fondy & treasury</h3>
+         <p>Likvidní parkování kapitálu, okamžitý přesun mezi burzami, intradenní vypořádání, zajištění FX expozice.</p>
+       </div>
+     </div>
+   </section>
+
+   
+   <section class="card" aria-label="On/Off-ramp – konverze krypto a FIAT">
+     <h2>Konverze krypto ↔ FIAT (on/off-ramp)</h2>
+     <div class="grid-2">
+       <div>
+         <table aria-label="Možnosti konverzí">
+           <thead><tr><th>Možnost</th><th>Rychlost</th><th>Náklad</th></tr></thead>
+           <tbody>
+             <tr><td>Burza (CEX)</td><td>Minuty–hodiny</td><td>Nízký–střední</td></tr>
+             <tr><td>P2P platformy</td><td>Minuty</td><td>Variabilní</td></tr>
+             <tr><td>Krypto karty</td><td>Okamžitě</td><td>Nízký</td></tr>
+             <tr><td>Fintech/Banky</td><td>Hodiny–Dny</td><td>Střední</td></tr>
+           </tbody>
+         </table>
+         <div class="note">Výběr kanálu závisí na jurisdikci, objemu a požadovaném vypořádání.</div>
+       </div>
+       <div>
+         <h3>Compliance & audit</h3>
+         <p>Důraz na AML/KYC standardy, trasovatelnost on-chain toků a auditní stopu pro instituce. USDt.z podporuje procesy, které jsou kompatibilní s regulatorní praxí.</p>
+         <ul class="clean">
+           <li>On-chain analýzy a whitelisty</li>
+           <li>Reporty pro interní audit</li>
+           <li>Záznamy pro auditora</li>
+         </ul>
+       </div>
+     </div>
+   </section>
+
+   
+   <section class="card center" aria-label="Další kroky">
+     <h2>Další kroky</h2>
+     <p>Prohlédněte si marketingový a obchodní přehled v našem Pitch decku, nebo si rezervujte workshop a školení pro váš tým.</p>
+     <div class="btn-row" style="justify-content:center; margin-top:0.4rem;">
+       <a class="btn blue" href="/USDTz-Premium/pages/pitch.html">Pitch deck</a>
+       <a class="btn" href="/USDTz-Premium/pages/contact.html">Workshop & školení</a>
+     </div>
+   </section>
+
+ </div>
+</main>
 
 <script>
- // Chart.js grafy
- const ctxVolume = document.getElementById('chartVolume').getContext('2d');
- const chartVolume = new Chart(ctxVolume, {
-   type: 'line',
-   data: {
-     labels: ['Leden', 'Únor', 'Březen', 'Duben', 'Květen', 'Červen'],
-     datasets: [{
-       label: 'Objem obchodování (USD)',
-       data: [500000, 1200000, 900000, 1500000, 1700000, 2000000],
-       borderColor: '#1fba9c',
-       backgroundColor: 'rgba(31,186,156,0.2)',
-       tension: 0.4
-     }]
-   },
-   options: {
-     responsive:true,
-     plugins: { legend: { display: true } }
+ /* ===== Slider ===== */
+ (function(){
+   const slider = document.getElementById('ucSlider');
+   if(!slider) return;
+   const slides = slider.querySelector('.slides');
+   const items = Array.from(slides.children);
+   const dotsWrap = document.getElementById('dots');
+   let idx = 0;
+
+   // dots
+   items.forEach((_,i)=>{
+     const b = document.createElement('button');
+     b.className = 'dot' + (i===0?' active':'');
+     b.setAttribute('aria-label','Přejít na slide '+(i+1));
+     b.addEventListener('click', ()=>go(i));
+     dotsWrap.appendChild(b);
+   });
+   const dots = Array.from(dotsWrap.children);
+
+   function go(i){
+     idx = (i+items.length)%items.length;
+     slides.style.transform = 'translateX(' + (-idx*100) + '%)';
+     dots.forEach(d=>d.classList.remove('active'));
+     dots[idx].classList.add('active');
+   }
+
+   document.getElementById('prevBtn').addEventListener('click', ()=>go(idx-1));
+   document.getElementById('nextBtn').addEventListener('click', ()=>go(idx+1));
+
+   // autorun
+   setInterval(()=>go(idx+1), 7000);
+ })();
+
+ /* ===== Charts ===== */
+ window.addEventListener('load', ()=>{
+   // Why Pie
+   const ctxPie = document.getElementById('whyPie');
+   if(ctxPie){
+     new Chart(ctxPie, {
+       type:'doughnut',
+       data:{
+         labels:['Stabilita','Rychlost','Transparentnost','DeFi přístup'],
+         datasets:[{
+           data:[35,25,20,20],
+           backgroundColor:[
+             'rgb(31,186,156)','rgb(33,150,243)','rgb(255,193,7)','rgb(76,175,80)'
+           ],
+           borderWidth:0
+         }]
+       },
+       options:{
+         responsive:true,
+         plugins:{ legend:{ position:'bottom' } },
+         animation:{ animateRotate:true, animateScale:true }
+       }
+     });
+   }
+
+   // Adoption line
+   const ctxLine = document.getElementById('adoptionLine');
+   if(ctxLine){
+     new Chart(ctxLine,{
+       type:'line',
+       data:{
+         labels:['Q3 2024','Q4 2024','Q1 2025','Q2 2025','Q3 2025','Q4 2025'],
+         datasets:[{
+           label:'Počet uživatelů',
+           data:[5_000, 12_000, 25_000, 41_000, 60_000, 82_000],
+           borderColor:'rgb(31,186,156)',
+           backgroundColor:'rgba(31,186,156,0.18)',
+           tension:0.32, fill:true
+         },{
+           label:'Likvidita (mil. USDt.z)',
+           data:[120, 280, 520, 980, 1500, 2100],
+           borderColor:'rgb(33,150,243)',
+           backgroundColor:'rgba(33,150,243,0.16)',
+           tension:0.32, fill:true
+         }]
+       },
+       options:{
+         responsive:true,
+         scales:{ y:{ beginAtZero:true } },
+         plugins:{ legend:{ position:'bottom' } }
+       }
+     });
+   }
+
+   // Usecase bar
+   const ctxBar = document.getElementById('usecaseBar');
+   if(ctxBar){
+     new Chart(ctxBar,{
+       type:'bar',
+       data:{
+         labels:['Kolaterál','Platby','DeFi výnosy','Fondy/treasury','Remitence'],
+         datasets:[{
+           label:'Podíl využití',
+           data:[28, 22, 24, 18, 8],
+           backgroundColor:[
+             'rgba(31,186,156,0.85)',
+             'rgba(33,150,243,0.85)',
+             'rgba(255,193,7,0.85)',
+             'rgba(76,175,80,0.85)',
+             'rgba(156,39,176,0.85)'
+           ],
+           borderWidth:0
+         }]
+       },
+       options:{
+         responsive:true,
+         plugins:{ legend:{ display:false } },
+         scales:{ y:{ beginAtZero:true, ticks:{ stepSize:10 } } },
+         animation:{ duration:900 }
+       }
+     });
    }
  });
-
- const ctxDistribution = document.getElementById('chartDistribution').getContext('2d');
- const chartDistribution = new Chart(ctxDistribution, {
-   type: 'doughnut',
-   data: {
-     labels: ['Banky', 'Uživatelé', 'Rezerva', 'Fond'],
-     datasets: [{
-       data: [30, 40, 20, 10],
-       backgroundColor: ['#1fba9c', '#22c2a2', '#33d3b0', '#44e4bf']
-     }]
-   },
-   options: {
-     responsive:true,
-     plugins: { legend: { position: 'bottom' } }
-   }
- });
-
- // Slider
- const slides = document.querySelector('.slides');
- let index = 0;
- setInterval(() => {
-   index++;
-   if(index > 2) index = 0;
-   slides.style.transform = `translateX(-${index * 100}%)`;
- }, 4000);
 </script>
-
 </body>
 </html>
 
