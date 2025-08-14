@@ -135,181 +135,239 @@ label[for="menu-toggle"] span {
 }
 </style>
 
-<!DOCTYPE html>
-<html lang="cs">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Program – USDt.z</title>
-<style>
- /* Reset */
- * { margin:0; padding:0; box-sizing:border-box; }
- #msg_body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:#f5f6fa; color:#222; }
+<main>
+ 
+ <section style="background: #e0f7f5; border-radius: 12px; box-shadow: 0 0 20px rgba(31,186,156,0.2); padding: 2.5rem; margin-bottom: 2.5rem; text-align:center;">
+   <h1>Programy USDt.z</h1>
+   <p style="font-size:1.2rem; max-width:700px; margin:0 auto;">
+     Představujeme komplexní nabídku programů pro bankovní i nebankovní sektor.
+     Sledujte růst likvidity, objem obchodů a využití tokenu USDt.z v praxi.
+   </p>
+ </section>
 
- /* Hero slider */
- .hero-slider { position:relative; width:100%; height:60vh; overflow:hidden; display:flex; align-items:center; justify-content:center; background:linear-gradient(135deg, #1fbabc 0%, #33d9b2 100%); color:white; }
- .hero-slide { position:absolute; width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; transition:opacity 1s ease; opacity:0; }
- .hero-slide.active { opacity:1; }
- .hero-slide h1 { font-size:3rem; margin-bottom:1rem; }
- .hero-slide p { font-size:1.3rem; max-width:600px; margin-bottom:1.5rem; }
- .hero-slide .btn { background:#fff; color:#1fbabc; font-weight:700; padding:0.8rem 2rem; border-radius:8px; text-decoration:none; transition:0.3s; }
- .hero-slide .btn:hover { background:#e0f7f4; }
-
- /* Section style */
- section { padding:4rem 1.5rem; max-width:1200px; margin:0 auto; }
- section h2 { font-size:2.2rem; color:#1fbabc; margin-bottom:2rem; text-align:center; }
-
- /* Cards / Programy */
- .cards { display:flex; flex-wrap:wrap; gap:2rem; justify-content:center; }
- .card { background:white; border-radius:12px; box-shadow:0 10px 25px rgba(31,186,156,0.15); padding:2rem; width:280px; transition: transform 0.3s ease, box-shadow 0.3s ease; text-align:center; }
- .card:hover { transform:translateY(-10px); box-shadow:0 15px 30px rgba(31,186,156,0.25); }
- .card img { width:60px; height:60px; margin-bottom:1rem; }
- .card h3 { font-size:1.4rem; color:#1fbabc; margin-bottom:0.8rem; }
- .card p { font-size:1rem; line-height:1.5; margin-bottom:1.2rem; }
-
- /* Timeline / Roadmap */
- .timeline { position:relative; padding:2rem 0; }
- .timeline::before { content:""; position:absolute; top:0; left:50%; width:4px; height:100%; background:#1fbabc; transform:translateX(-50%); }
- .timeline-event { position:relative; width:45%; padding:1rem 2rem; background:white; border-radius:10px; box-shadow:0 5px 15px rgba(31,186,156,0.15); margin:2rem 0; }
- .timeline-event.left { left:0; }
- .timeline-event.right { left:55%; }
- .timeline-event h4 { color:#1fbabc; margin-bottom:0.5rem; }
- .timeline-event p { font-size:1rem; line-height:1.5; }
-
- /* Graph placeholder */
- .chart-box { background:white; border-radius:12px; box-shadow:0 8px 20px rgba(31,186,156,0.1); padding:2rem; margin:3rem auto; max-width:800px; }
-
- /* Slider navigation buttons */
- .slider-nav { position:absolute; top:50%; transform:translateY(-50%); font-size:2rem; color:white; cursor:pointer; padding:0 1rem; user-select:none; }
- .slider-nav.prev { left:0; }
- .slider-nav.next { right:0; }
-
- /* Responsive */
- @media(max-width:768px){
-   .timeline-event.left, .timeline-event.right { width:90%; left:5% !important; }
-   .cards { flex-direction:column; align-items:center; }
- }
-</style>
-</head>
-<body>
-
-
-<div class="hero-slider">
- <div class="hero-slide active">
-   <h1>Program USDt.z</h1>
-   <p>Objevte náš inovativní program a všechny možnosti, které přináší pro bankovní i nebankovní sektor.</p>
-   <a href="#programy" class="btn">Zjistit více</a>
- </div>
- <div class="hero-slide">
-   <h1>Next Generation Stablecoin</h1>
-   <p>Stabilita, bezpečnost a transparentnost – to je základ našeho programu pro budoucnost financí.</p>
-   <a href="#programy" class="btn">Zjistit více</a>
- </div>
- <div class="slider-nav prev">&#10094;</div>
- <div class="slider-nav next">&#10095;</div>
-</div>
-
-
-<section id="programy">
- <h2>Naše programy a iniciativy</h2>
- <div class="cards">
-   <div class="card">
-     <img src="/USDTz-Premium/img/icons/blockchain.png" alt="Blockchain">
-     <h3>Integrace Blockchainu</h3>
-     <p>Zapojení nejmodernějších blockchain technologií pro bezpečné a transparentní transakce.</p>
-     <a href="#" class="btn">Více info</a>
+ 
+ <section class="flex-row" style="margin-bottom:2.5rem;">
+   <div style="flex:1; background:#fff; padding:2rem; border-radius:12px; box-shadow:0 0 15px rgba(31,186,156,0.15); text-align:center;">
+     <h2>Celkový objem</h2>
+     <p style="font-size:2rem; font-weight:700; color:rgb(31,186,156);">5 000 000 000 USDt.z</p>
+     <p>Celková hodnota tokenů v oběhu.</p>
    </div>
-   <div class="card">
-     <img src="/USDTz-Premium/img/icons/defi.png" alt="DeFi">
-     <h3>Decentralizované finance (DeFi)</h3>
-     <p>Přístup pro všechny uživatele s flexibilitou a inovacemi v DeFi prostředí.</p>
-     <a href="#" class="btn">Více info</a>
+   <div style="flex:1; background:#fff; padding:2rem; border-radius:12px; box-shadow:0 0 15px rgba(31,186,156,0.15); text-align:center;">
+     <h2>Likvidita</h2>
+     <p style="font-size:2rem; font-weight:700; color:rgb(31,186,156);">2 500 000 USDt.z</p>
+     <p>Aktuální likvidita v BSC poolu.</p>
    </div>
-   <div class="card">
-     <img src="/USDTz-Premium/img/icons/analytics.png" alt="Analytics">
-     <h3>Analytické nástroje</h3>
-     <p>Pokročilé nástroje pro sledování tokenu, kurzů a statistik pro vaše investice.</p>
-     <a href="#" class="btn">Více info</a>
+   <div style="flex:1; background:#fff; padding:2rem; border-radius:12px; box-shadow:0 0 15px rgba(31,186,156,0.15); text-align:center;">
+     <h2>Uživatelé</h2>
+     <p style="font-size:2rem; font-weight:700; color:rgb(31,186,156);">7 500</p>
+     <p>Počet aktivních uživatelů platformy.</p>
    </div>
- </div>
-</section>
+ </section>
 
+ 
+ <section style="margin-bottom:2.5rem;">
+   <h2 style="text-align:center; color:rgb(31,186,156); margin-bottom:1.5rem;">Programy a funkce</h2>
+   <div style="display:flex; overflow-x:auto; gap:1.5rem; padding-bottom:1rem;">
+     <div style="min-width:250px; flex:0 0 auto; background:#fff; border-radius:12px; box-shadow:0 0 15px rgba(31,186,156,0.15); padding:1.5rem;">
+       <h3>DeFi Integrace</h3>
+       <p>Zapojení do decentralizovaných finančních protokolů pro flexibilitu a rychlé transakce.</p>
+     </div>
+     <div style="min-width:250px; flex:0 0 auto; background:#fff; border-radius:12px; box-shadow:0 0 15px rgba(31,186,156,0.15); padding:1.5rem;">
+       <h3>Bankovní partneři</h3>
+       <p>Spolupráce s tradičními institucemi pro bezpečnost a regulaci.</p>
+     </div>
+     <div style="min-width:250px; flex:0 0 auto; background:#fff; border-radius:12px; box-shadow:0 0 15px rgba(31,186,156,0.15); padding:1.5rem;">
+       <h3>Marketing & Growth</h3>
+       <p>Programy zaměřené na získání nových uživatelů a expanzi trhu.</p>
+     </div>
+     <div style="min-width:250px; flex:0 0 auto; background:#fff; border-radius:12px; box-shadow:0 0 15px rgba(31,186,156,0.15); padding:1.5rem;">
+       <h3>Audit & Security</h3>
+       <p>Neustálá kontrola bezpečnosti a transparentní audit pro důvěru investorů.</p>
+     </div>
+   </div>
+ </section>
 
-<section id="roadmap">
- <h2>Roadmapa projektu</h2>
- <div class="timeline">
-   <div class="timeline-event left">
-     <h4>Q1 2024</h4>
-     <p>Start projektu, první testování tokenu a pilotní integrace s bankami.</p>
+ 
+ <section style="margin-bottom:2.5rem;">
+   <h2 style="text-align:center; color:rgb(31,186,156); margin-bottom:1rem;">Historie a vývoj</h2>
+   <div class="flex-row">
+     <canvas id="programLineChart" style="flex:1; min-width:300px; max-width:600px;"></canvas>
+     <table style="flex:1; min-width:300px; border-collapse: collapse; border:1px solid #ddd;">
+       <thead>
+         <tr style="background:rgb(31,186,156); color:white;">
+           <th>Datum</th><th>Objem USDt.z</th><th>Uživatelé</th>
+         </tr>
+       </thead>
+       <tbody>
+         <tr><td>Q1 2024</td><td>500M</td><td>500</td></tr>
+         <tr><td>Q2 2024</td><td>1.5B</td><td>1 500</td></tr>
+         <tr><td>Q3 2024</td><td>2.5B</td><td>2 500</td></tr>
+         <tr><td>Q4 2024</td><td>4B</td><td>4 500</td></tr>
+         <tr><td>Q1 2025</td><td>5B</td><td>7 500</td></tr>
+       </tbody>
+     </table>
    </div>
-   <div class="timeline-event right">
-     <h4>Q2 2024</h4>
-     <p>Rozšíření programu o DeFi produkty a přidání analytických nástrojů.</p>
-   </div>
-   <div class="timeline-event left">
-     <h4>Q3 2024</h4>
-     <p>Plná integrace tokenu do partnerských systémů a marketingová kampaň.</p>
-   </div>
-   <div class="timeline-event right">
-     <h4>Q4 2024</h4>
-     <p>Mezinárodní expanze, zajištění likvidity a partnerské spolupráce.</p>
-   </div>
- </div>
-</section>
+ </section>
 
+ 
+ <section style="margin-bottom:2.5rem;">
+   <h2 style="text-align:center; color:rgb(31,186,156); margin-bottom:1rem;">Kalkulačka konverze</h2>
+   <div class="calculator" style="max-width:480px; margin:0 auto;">
+     <label for="amountProgram">Částka</label>
+     <input type="number" id="amountProgram" value="1" min="0" step="any" />
+     <label for="fromProgram">Z měny</label>
+     <select id="fromProgram">
+       <option value="USD">USD</option>
+       <option value="EUR">EUR</option>
+       <option value="BTC">BTC</option>
+     </select>
+     <label for="toProgram">Do měny</label>
+     <select id="toProgram">
+       <option value="USDt.z">USDt.z</option>
+       <option value="EUR">EUR</option>
+       <option value="BTC">BTC</option>
+     </select>
+     <output id="resultProgram" style="margin-top:1rem; font-weight:700; font-size:1.2rem;">Výsledek: 1.00 USDt.z</output>
+   </div>
+ </section>
 
-<section id="stats">
- <h2>Statistiky a tokenomika</h2>
- <div class="chart-box">
-   <canvas id="tokenChart" aria-label="Graf tokenomiky USDt.z" role="img"></canvas>
- </div>
-</section>
+ 
+ <section style="text-align:center; margin-bottom:2.5rem;">
+   <h2 style="color:rgb(31,186,156); margin-bottom:1rem;">Pitch Deck</h2>
+   <p>Pro marketingové a obchodní materiály navštivte náš Pitch Deck.</p>
+   <a href="/USDTz-Premium/pages/pitch.html" class="btn">Otevřít Pitch Deck</a>
+ </section>
+</main>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js" defer></script>
 <script>
- // Hero slider
- const slides = document.querySelectorAll('.hero-slide');
- const prev = document.querySelector('.slider-nav.prev');
- const next = document.querySelector('.slider-nav.next');
- let currentSlide = 0;
-
- function showSlide(index) {
-   slides.forEach((s, i)=> s.classList.remove('active'));
-   slides[index].classList.add('active');
- }
-
- prev.addEventListener('click', ()=>{
-   currentSlide = (currentSlide-1 + slides.length)%slides.length;
-   showSlide(currentSlide);
- });
- next.addEventListener('click', ()=>{
-   currentSlide = (currentSlide+1)%slides.length;
-   showSlide(currentSlide);
- });
-
- // Auto slide
- setInterval(()=>{
-   currentSlide = (currentSlide+1)%slides.length;
-   showSlide(currentSlide);
- }, 7000);
-
- // Tokenomika chart
- window.addEventListener('load', ()=>{
-   const ctx = document.getElementById('tokenChart').getContext('2d');
+ // Line chart pro vývoj objemu a uživatelů
+ window.addEventListener('load', () => {
+   const ctx = document.getElementById('programLineChart').getContext('2d');
    new Chart(ctx, {
-     type:'doughnut',
-     data:{
-       labels:['Ekosystém','Rezerva','Tým','Marketing'],
-       datasets:[{
-         data:[40,25,20,15],
-         backgroundColor:['#1fbabc','#ffc107','#ff5722','#2196f3'],
-         borderWidth:1
-       }]
+     type: 'line',
+     data: {
+       labels: ['Q1 2024','Q2 2024','Q3 2024','Q4 2024','Q1 2025'],
+       datasets: [
+         { label:'Objem (USDt.z)', data:[500,1500,2500,4000,5000], borderColor:'rgb(31,186,156)', backgroundColor:'rgba(31,186,156,0.2)', fill:true, tension:0.3 },
+         { label:'Uživatelé', data:[500,1500,2500,4500,7500], borderColor:'rgb(33,150,243)', backgroundColor:'rgba(33,150,243,0.2)', fill:true, tension:0.3 }
+       ]
      },
-     options:{responsive:true, plugins:{legend:{position:'bottom'}}}
+     options:{ responsive:true, plugins:{legend:{position:'bottom'}}, scales:{y:{beginAtZero:true}} }
    });
  });
+
+ // Kalkulačka
+ const ratesProgram = { USD:1, EUR:0.92, BTC:30000, "USDt.z":1 };
+ const amountProgram = document.getElementById('amountProgram');
+ const fromProgram = document.getElementById('fromProgram');
+ const toProgram = document.getElementById('toProgram');
+ const resultProgram = document.getElementById('resultProgram');
+
+ function calculateProgram() {
+   const amount = parseFloat(amountProgram.value);
+   if(isNaN(amount)||amount<0){resultProgram.textContent="Zadejte platnou částku";return;}
+   const fromRate = ratesProgram[fromProgram.value]||1;
+   const toRate = ratesProgram[toProgram.value]||1;
+   const result = (amount/fromRate)*toRate;
+   resultProgram.textContent=`Výsledek: ${result.toFixed(4)} ${toProgram.value}`;
+ }
+
+ amountProgram.addEventListener('input', calculateProgram);
+ fromProgram.addEventListener('change', calculateProgram);
+ toProgram.addEventListener('change', calculateProgram);
+ window.addEventListener('load', calculateProgram);
 </script>
 
-</body>
-</html>
+<section id="bottom-box" aria-label="Prozkoumej token USDt.z">
+ <div class="logo">
+   <img src="/USDTz-Premium/img/flags/logo.png" alt="USDt.z Logo" />
+ </div>
+ <div class="text">Prozkoumejte token USDt.z na těchto platformách:</div>
+ <div class="btn-group">
+   <a href="https://bscscan.com/token/0x913ef7244bEd019b95Ec5321408eE4CE83E25c01"
+      target="_blank" rel="noopener noreferrer"
+      class="btn-bsc" aria-label="Token na BscScan">
+      BscScan
+   </a>
+   <a href="https://www.geckoterminal.com/bsc/pools/0x553b402b3d6f91ea2208c7df61a6d4aa96ccb6191787c20fedb7ae6c9823b280"
+      target="_blank" rel="noopener noreferrer"
+      class="btn-gecko" aria-label="Token na GeckoTerminal">
+      GeckoTerminal
+   </a>
+ </div>
+</section>
+
+<style>
+#bottom-box {
+ max-width: 900px;
+ margin: 2rem auto;
+ background: #fff;
+ border: 1px solid #ddd;
+ border-radius: 10px;
+ box-shadow: 0 0 12px rgb(31 186 156 / 0.15);
+ padding: 1rem 2rem;
+ display: flex;
+ align-items: center;
+ gap: 1.5rem;
+ justify-content: space-between;
+}
+
+#bottom-box .logo {
+ flex-shrink: 0;
+}
+#bottom-box .logo img {
+ height: 40px;
+}
+
+#bottom-box .text {
+ flex: 1;
+ font-weight: 600;
+ color: rgb(31,186,156);
+ font-size: 1.1rem;
+}
+
+#bottom-box .btn-group {
+ display: flex;
+ gap: 1rem;
+}
+
+#bottom-box .btn-group a {
+ padding: 0.5rem 1.2rem;
+ border-radius: 6px;
+ font-weight: 700;
+ text-decoration: none;
+ display: inline-block;
+ cursor: pointer;
+ color: white;
+ transition: background-color 0.3s ease;
+ white-space: nowrap;
+}
+
+#bottom-box .btn-bsc {
+ background-color: #f0b90b;
+}
+#bottom-box .btn-bsc:hover {
+ background-color: #d9a200;
+}
+
+#bottom-box .btn-gecko {
+ background-color: #1e88e5;
+}
+#bottom-box .btn-gecko:hover {
+ background-color: #1669bb;
+}
+
+/* Responzivita pro mobil */
+@media (max-width: 768px) {
+ #bottom-box {
+   flex-direction: column;
+   gap: 1rem;
+   text-align: center;
+ }
+ #bottom-box .btn-group {
+   justify-content: center;
+   width: 100%;
+ }
+}
+</style>
