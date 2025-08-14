@@ -1,101 +1,259 @@
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Program - USDT.z</title>
-   <link rel="stylesheet" href="../style.css">
-   <style>
-       #msg_body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin:0; padding:0; }
-       .nav { background-color: rgb(31,186,156); padding:1rem 2rem; display:flex; align-items:center; justify-content:space-between; position:sticky; top:0; z-index:1000; }
-       .nav a { color:white; text-decoration:none; margin-left:1.5rem; font-weight:bold; }
-       .nav-logo { height:40px; }
-       .container { max-width:1200px; margin:0 auto; padding:2rem; }
-       .section { background:#f8f8f8; padding:2rem; margin-bottom:2rem; border-radius:8px; }
-       .section h2 { color: rgb(31,186,156); margin-bottom:1rem; }
-       .button { display:inline-block; background:rgb(31,186,156); color:white; padding:0.75rem 1.5rem; border-radius:5px; text-decoration:none; font-weight:bold; margin-top:1rem; }
-   </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Program</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="slider.css">
+<script src="slider.js" defer></script>
+<style>
+ #msg_body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin:0; padding:0; }
+ .nav { background-color: #1FBA9C; padding: 1rem 2rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; }
+ .nav a { color:white; text-decoration:none; margin:0 1rem; font-weight:bold; }
+ .nav-logo { height:40px; }
+ .container { max-width:1200px; margin:2rem auto; padding:0 1rem; }
+ .section { background-color:#f5f5f5; margin-bottom:2rem; padding:2rem; border-radius:10px; }
+ .section h2 { color:#1FBA9C; margin-bottom:1rem; }
+ .btn { background-color:#007BFF; color:white; padding:0.75rem 1.5rem; border:none; border-radius:5px; text-decoration:none; display:inline-block; margin-top:1rem; }
+</style>
 </head>
 <body>
 
 
 <nav class="nav">
-   <a href="index.html"><img src="../img/logo_white.png" alt="USDT.z" class="nav-logo"></a>
-   <div>
-       <a href="program.html">Program</a>
-       <a href="pitch.html">Pitch Deck</a>
-       <a href="contact.html">Kontakt</a>
-       <a href="about.html">O nás</a>
-   </div>
+ <a href="index.html"><img src="img/logo_white.png" alt="Logo" class="nav-logo"></a>
+ <div>
+   <a href="program.html">Program</a>
+   <a href="pitch.html">Pitch Deck</a>
+   <a href="about.html">O nás</a>
+   <a href="contact.html">Kontakt</a>
+ </div>
 </nav>
 
-
 <div class="container">
-   <div class="section">
-       <h2>Bankovní sektor</h2>
-       <p>Naše služby pro bankovní sektor zahrnují moderní stablecoin USDt.z, který umožňuje vysokou likviditu, bezpečné transakce a propojení s decentralizovanými burzami. Díky našemu tokenu mohou banky zvýšit efektivitu operací a nabídnout klientům nové produkty s minimálním rizikem.</p>
-       <p><strong>Tržní hodnota:</strong> více než 5 bilionů USD v propojených systémech.</p>
-       <p>Implementujeme grafy a analytické tabulky, které ukazují výkon tokenu, objemy obchodů a predikce likvidity pro budoucí generaci finančních produktů.</p>
-   </div>
 
-   <div class="section">
-       <h2>Nebankovní sektor</h2>
-       <p>Pro nebankovní instituce nabízíme flexibilní nástroje pro obchodování a správu kapitálu, včetně workshopů a školení pro profesionály i začátečníky.</p>
-       <p>Naši partneři mohou využívat vysokorychlostní transakce, tokenové kolaterály a přehledné grafy pro rozhodování.</p>
-   </div>
-   <div class="section">
-       <h2>Výhody programu</h2>
-       <ul>
-           <li>Vysoká likvidita a stabilita tokenu</li>
-           <li>Integrace s DEX a CEX burzami</li>
-           <li>Školení a workshopy pro obchodníky</li>
-           <li>Prediktivní grafy pro správu kapitálu</li>
-           <li>Technologicky propracované dashboardy</li>
-       </ul>
-   </div>
 
-   <div class="section">
-       <h2>Programy a školení</h2>
-       <p>Nabízíme širokou škálu programů zaměřených na marketing, obchodování a finanční technologie:</p>
-       <ul>
-           <li>Advanced Trading HYP – vysokovýnosové strategie</li>
-           <li>Stablecoin Workshop – jak efektivně používat USDt.z</li>
-           <li>Blockchain a DeFi školení – propojení bank a nebankovních subjektů</li>
-           <li>Simulace tržních operací a risk management</li>
-       </ul>
-       <p>Každý program obsahuje praktické příklady, analytické tabulky a interaktivní slidery, které ukazují reálné scénáře tržního chování.</p>
-   </div>
+<section class="section">
+ <h2>Úvod do programu</h2>
+ <p>Tento program je navržen pro obchodníky a investory, kteří chtějí porozumět tržní ekonomice, obchodním strategiím a využití našeho tokenu. Obsahuje školení, workshopy a praktické příklady, aby účastníci získali reálné dovednosti.</p>
+ <a href="pitch.html" class="btn">Pitch Deck</a>
+</section>
 
-   <div class="section">
-       <h2>Predikce a grafy</h2>
-       <p>Pro lepší vizualizaci nabízíme:</p>
-       <ul>
-           <li>Grafy tržní kapitalizace tokenu</li>
-           <li>Objemy obchodů v jednotlivých segmentech</li>
-           <li>Predikce likvidity a výnosů pro budoucí generaci</li>
-       </ul>
-       <p>Grafy jsou interaktivní a umožňují návštěvníkům simulovat různé scénáře a analyzovat data v reálném čase.</p>
-   </div>
-   <div class="section">
-       <h2>Prozkoumejte token USDt.z</h2>
-       <p>Podívejte se na detaily, likviditu a předpovědi růstu tokenu.</p>
-       <button onclick="location.href='pages/pitch.html'" class="btn-pitch">Pitch Deck</button>
-   </div>
 
-   
-   <footer class="footer">
-       <div class="footer-logo">
-           <a href="index.html"><img src="../img/logo-white.png" alt="Logo"></a>
-       </div>
-       <div class="footer-info">
-           <p>&copy; 2025 USDT.z Premium. Všechna práva vyhrazena.</p>
-           <p>Kontakt: info@usdtz.com</p>
-       </div>
-       <div class="footer-links">
-           <a href="programs.html">Program</a> |
-           <a href="pages/pitch.html">Pitch Deck</a> |
-           <a href="contact.html">Kontakt</a>
-       </div>
-   </footer>
+<section class="section">
+ <h2>Bankovní sektor</h2>
+ <p>Prozkoumáme hlavní finanční instituty, jejich likviditu a tržní kapitalizaci. Program zahrnuje grafy s přehledem likvidity v bilionech USD a ukázky investičních příležitostí.</p>
+ <img src="img/graph_banking.png" alt="Graf bankovní sektor" style="width:100%; margin-top:1rem; border-radius:10px;">
+</section>
+
+<section class="section">
+ <h2>Nebankovní sektor</h2>
+ <p>Analyzujeme hlavní nebankovní finanční instituce, fondy a platformy pro decentralizované finance (DeFi). Grafy ukazují objemy likvidity, tržní kapitalizaci a potenciální růstové příležitosti.</p>
+ <img src="img/graph_defi.png" alt="Graf nebankovní sektor" style="width:100%; margin-top:1rem; border-radius:10px;">
+</section>
+
+
+<section class="section">
+ <h2>Vysokovýnosové programy (HYP)</h2>
+ <p>Tyto programy jsou určeny pro pokročilé investory hledající maximální návratnost. Obsahují detailní školení, simulace obchodních strategií a praktické workshopy, kde si účastníci osvojí moderní investiční metody.</p>
+ <ul>
+   <li>Simulace tržních scénářů</li>
+   <li>Rizikové a výnosové modelování</li>
+   <li>Pokročilé obchodní strategie</li>
+ </ul>
+ <img src="img/graph_hyp.png" alt="Graf HYP" style="width:100%; margin-top:1rem; border-radius:10px;">
+</section>
+
+
+<section class="section">
+ <h2>Marketing a obchodní dovednosti</h2>
+ <p>Hlavní nosná část programu – marketingové strategie, budování značky a obchodní dovednosti. Účastníci se naučí, jak efektivně propagovat produkty, analyzovat trhy a zvyšovat konverze.</p>
+ <img src="img/graph_marketing.png" alt="Graf marketing" style="width:100%; margin-top:1rem; border-radius:10px;">
+</section>
+
+<section class="section">
+ <h2>Výkonnost a statistiky</h2>
+ <p>Tato tabulka zobrazuje klíčové ukazatele bankovního a nebankovního sektoru. Hodnoty lze filtrovat a řadit podle objemu, návratnosti a rizika.</p>
+ <table class="interactive-table" style="width:100%; border-collapse: collapse; margin-top:1rem;">
+   <thead>
+     <tr>
+       <th>Program</th>
+       <th>Kapitalizace (USD)</th>
+       <th>ROI</th>
+       <th>Riziko</th>
+     </tr>
+   </thead>
+   <tbody>
+     <tr>
+       <td>Bankovní sektor A</td>
+       <td>5,000,000,000</td>
+       <td>8%</td>
+       <td>Střední</td>
+     </tr>
+     <tr>
+       <td>Nebankovní sektor B</td>
+       <td>3,200,000,000</td>
+       <td>12%</td>
+       <td>Vysoké</td>
+     </tr>
+     <tr>
+       <td>HYP Program</td>
+       <td>1,500,000,000</td>
+       <td>25%</td>
+       <td>Vysoké</td>
+     </tr>
+   </tbody>
+ </table>
+</section>
+
+
+<section class="section">
+ <h2>Budoucí generace</h2>
+ <p>Slider prezentuje projekty, inovace a nadcházející produkty. Uživatel může posouvat jednotlivé karty a získat detailní přehled o nových příležitostech.</p>
+ <div class="slider" style="display:flex; overflow-x:auto; gap:1rem; padding:1rem 0;">
+   <div class="slide-card" style="min-width:300px; border-radius:10px; background:#f2f2f2; padding:1rem;">
+     <h3>Projekt A</h3>
+     <p>Inovativní fintech platforma pro správu likvidity.</p>
+   </div>
+   <div class="slide-card" style="min-width:300px; border-radius:10px; background:#f2f2f2; padding:1rem;">
+     <h3>Projekt B</h3>
+     <p>Decentralizovaný finanční nástroj pro investory.</p>
+   </div>
+   <div class="slide-card" style="min-width:300px; border-radius:10px; background:#f2f2f2; padding:1rem;">
+     <h3>Projekt C</h3>
+     <p>Pokročilé modely rizikového řízení pro HYP.</p>
+   </div>
+ </div>
+</section>
+
+
+<section class="section">
+ <h2>Prozkoumejte token</h2>
+ <p>Připojte se k programu a získejte přístup k podrobným analýzám a exkluzivním školením.</p>
+ <a href="pages/pitch_en.html" class="cta-button" style="display:inline-block; padding:1rem 2rem; background:#1fba9c; color:white; border-radius:10px; text-decoration:none; margin-top:1rem;">Pitch Deck</a>
+</section>
+
+<footer style="background:#1f2e4a; color:white; padding:2rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap;">
+ 
+ <div class="footer-logo">
+   <a href="index_en.html">
+     <img src="../img/logo_white.png" alt="USDT.z Logo" style="height:50px;">
+   </a>
+ </div>
+
+ 
+ <nav class="footer-nav" style="display:flex; gap:2rem; flex-wrap:wrap;">
+   <a href="programs_en.html" style="color:white; text-decoration:none;">Programs</a>
+   <a href="pitch_en.html" style="color:white; text-decoration:none;">Pitch Deck</a>
+   <a href="about_en.html" style="color:white; text-decoration:none;">About</a>
+   <a href="contact_en.html" style="color:white; text-decoration:none;">Contact</a>
+ </nav>
+
+ 
+ <div class="footer-flags" style="display:flex; gap:0.5rem;">
+   <a href="../programs.html"><img src="../img/flags/cz.png" alt="CZ" style="height:30px;"></a>
+   <a href="../programs_en.html"><img src="../img/flags/uk.png" alt="EN" style="height:30px;"></a>
+ </div>
+</footer>
+
+
 </body>
 </html>
+
+<section id="program-slider" style="margin:2rem 0;">
+ <div class="slider-container" style="position:relative; overflow:hidden;">
+   <div class="slide" style="display:flex; transition:transform 0.5s ease;">
+     <div style="flex:1; padding:1rem;">
+       <h3>High Yield Programs</h3>
+       <p>Naše programy HYP poskytují vysoký výnos, školení a praktické workshopy pro obchodníky.</p>
+     </div>
+     <div style="flex:1;">
+       <img src="../img/programs/hyp.png" alt="HYP" style="width:100%;">
+     </div>
+   </div>
+   <div class="slide" style="display:flex; transition:transform 0.5s ease;">
+     <div style="flex:1; padding:1rem;">
+       <h3>Liquidity Management</h3>
+       <p>Efektivní správa likvidity s biliony USDt.z pro finanční instituce a partnery.</p>
+     </div>
+     <div style="flex:1;">
+       <img src="../img/programs/liquidity.png" alt="Liquidity" style="width:100%;">
+     </div>
+   </div>
+   
+ </div>
+ 
+ <button class="prev-slide" style="position:absolute; top:50%; left:0;">&#10094;</button>
+ <button class="next-slide" style="position:absolute; top:50%; right:0;">&#10095;</button>
+</section>
+
+
+<section id="program-table" style="margin:2rem 0;">
+ <h2>Výhody našich programů</h2>
+ <table style="width:100%; border-collapse:collapse; text-align:left;">
+   <thead style="background:#1f2e4a; color:white;">
+     <tr>
+       <th>Program</th>
+       <th>Výnos</th>
+       <th>Workshopy</th>
+       <th>Online školení</th>
+     </tr>
+   </thead>
+   <tbody>
+     <tr>
+       <td>HYP</td>
+       <td>12-15% ročně</td>
+       <td>Ano</td>
+       <td>Ano</td>
+     </tr>
+     <tr>
+       <td>Liquidity</td>
+       <td>8-10% ročně</td>
+       <td>Ano</td>
+       <td>Ne</td>
+     </tr>
+     <tr>
+       <td>Trading Academy</td>
+       <td>Rizikově řízené</td>
+       <td>Ano</td>
+       <td>Ano</td>
+     </tr>
+   </tbody>
+ </table>
+</section>
+
+
+<section id="cta-pitch" style="text-align:center; margin:3rem 0;">
+ <a href="pitch.html" style="background:#1fba9c; color:white; padding:1rem 2rem; font-size:1.2rem; text-decoration:none; border-radius:5px;">Prozkoumej náš Pitch Deck</a>
+</section>
+
+
+<style>
+.slider-container { display:flex; width:200%; } /* ukázka pro 2 slidy, přizpůsobit JS */
+.slide { min-width:50%; box-sizing:border-box; }
+.prev-slide, .next-slide { background:none; border:none; color:#1f2e4a; font-size:2rem; cursor:pointer; }
+table, th, td { border:1px solid #ccc; padding:0.5rem; }
+table tr:nth-child(even) { background:#f9f9f9; }
+</style>
+
+
+<script>
+let currentSlide = 0;
+const slides = document.querySelectorAll('.slide');
+const totalSlides = slides.length;
+
+document.querySelector('.next-slide').addEventListener('click', ()=> {
+ currentSlide = (currentSlide + 1) % totalSlides;
+ updateSlider();
+});
+document.querySelector('.prev-slide').addEventListener('click', ()=> {
+ currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+ updateSlider();
+});
+
+function updateSlider(){
+ const container = document.querySelector('.slider-container');
+ container.style.transform = `translateX(-${currentSlide * 100}%)`;
+}
+</script>
