@@ -1,120 +1,96 @@
 <nav class="navbar">
- <div class="container nav-content">
-   
-   <a href="../index.html" class="nav-logo">
-     <img src="../img/logo_white.png" alt="USDt.z Logo White" />
-   </a>
+   <div class="container navbar-container">
+       
+       <a href="../index.html" class="navbar-logo">
+           <img src="../img/logo_white.png" alt="Logo" class="logo">
+       </a>
 
-   
-   <button class="hamburger" aria-label="Menu">&#9776;</button>
+       
+       <ul class="navbar-menu">
+           <li><a href="programs.html">Programy</a></li>
+           <li><a href="pitch.html">Pitch Deck</a></li>
+           <li><a href="contact.html">Kontakt</a></li>
+       </ul>
 
-   
-   <ul class="nav-links">
-     <li><a href="../index.html">Domů</a></li>
-     <li><a href="../pages/about.html">O nás</a></li>
-     <li><a href="../pages/programs.html">Programy</a></li>
-     <li><a href="../pages/roadmap.html">Roadmapa</a></li>
-     <li><a href="../pages/contact.html">Kontakt</a></li>
-   </ul>
+       
+       <div class="navbar-languages">
+           <a href="programs.html"><img src="../img/flag_cz.png" alt="CZ"></a>
+           <a href="programs_en.html"><img src="../img/flag_en.png" alt="EN"></a>
+       </div>
 
-   
-   <div class="lang-switch">
-     <a href="../pages/programs.html">
-       <img src="../img/flags/cz.png" alt="Česky" />
-     </a>
-     <a href="../en/pages/programs.html">
-       <img src="../img/flags/gb.png" alt="English" />
-     </a>
+       
+       <button class="navbar-toggle" aria-label="Toggle navigation">
+           <span class="bar"></span>
+           <span class="bar"></span>
+           <span class="bar"></span>
+       </button>
    </div>
- </div>
 </nav>
-/* Navigace */
+
+
+<style>
 .navbar {
- background: rgb(31,186,156); /* zelený pruh */
- padding: 1rem 2rem;
- box-shadow: 0 2px 5px rgba(0,0,0,0.1);
- position: sticky;
- top: 0;
- z-index: 1000;
+   background-color: #1FBA9C; /* zelený pruh */
+   padding: 0.5rem 1rem;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
 }
-
-.nav-content {
- max-width: 1200px;
- margin: 0 auto;
- display: flex;
- justify-content: space-between;
- align-items: center;
+.navbar-logo img {
+   height: 50px;
 }
-
-.nav-logo img {
- height: 40px;
+.navbar-menu {
+   list-style: none;
+   display: flex;
+   gap: 1rem;
 }
-
-/* Menu odkazy */
-.nav-links {
- list-style: none;
- display: flex;
- gap: 2rem;
+.navbar-menu li a {
+   color: white;
+   text-decoration: none;
+   font-weight: bold;
 }
-
-.nav-links a {
- color: #fff;
- text-decoration: none;
- font-weight: 500;
+.navbar-languages img {
+   height: 24px;
+   margin-left: 0.5rem;
 }
-
-.nav-links a:hover {
- text-decoration: underline;
+.navbar-toggle {
+   display: none; /* zobrazí se v mobilu přes media query */
 }
-
-/* Vlajky */
-.lang-switch img {
- width: 24px;
- height: auto;
- margin-left: 0.5rem;
- cursor: pointer;
-}
-
-/* Hamburger tlačítko (schované na PC) */
-.hamburger {
- display: none;
- font-size: 28px;
- background: none;
- border: none;
- color: #fff;
- cursor: pointer;
-}
-
-/* ✅ Responzivní část */
 @media (max-width: 768px) {
- .nav-links {
-   display: none; /* schované menu */
-   flex-direction: column;
-   background: rgb(31,186,156);
-   position: absolute;
-   top: 70px; /* pod navigační lištou */
-   right: 0;
-   width: 100%;
-   padding: 1rem 0;
- }
-
- .nav-links.show {
-   display: flex; /* zobrazí se po kliknutí na hamburger */
- }
-
- .hamburger {
-   display: block; /* na mobilu viditelné */
- }
-
- .lang-switch {
-   margin-left: 1rem;
- }
+   .navbar-menu {
+       display: none;
+       flex-direction: column;
+       gap: 0;
+       background-color: #1FBA9C;
+       position: absolute;
+       top: 60px;
+       left: 0;
+       width: 100%;
+   }
+   .navbar-menu.active {
+       display: flex;
+   }
+   .navbar-toggle {
+       display: block;
+       background: none;
+       border: none;
+       cursor: pointer;
+   }
+   .navbar-toggle .bar {
+       display: block;
+       width: 25px;
+       height: 3px;
+       margin: 5px 0;
+       background-color: white;
+   }
 }
-<script>
- const hamburger = document.querySelector(".hamburger");
- const navLinks = document.querySelector(".nav-links");
+</style>
 
- hamburger.addEventListener("click", () => {
-   navLinks.classList.toggle("show");
- });
+
+<script>
+const toggleButton = document.querySelector('.navbar-toggle');
+const menu = document.querySelector('.navbar-menu');
+toggleButton.addEventListener('click', () => {
+   menu.classList.toggle('active');
+});
 </script>
