@@ -136,317 +136,180 @@ label[for="menu-toggle"] span {
 </style>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="cs">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Programs – USDt.z</title>
+<title>Program – USDt.z</title>
 <style>
- #msg_body {
-   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-   background: #f8f9fa;
-   color: #222;
-   margin: 0;
-   padding: 0;
- }
+ /* Reset */
+ * { margin:0; padding:0; box-sizing:border-box; }
+ #msg_body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:#f5f6fa; color:#222; }
 
- main {
-   max-width: 1200px;
-   margin: 2rem auto;
-   padding: 0 1rem;
- }
+ /* Hero slider */
+ .hero-slider { position:relative; width:100%; height:60vh; overflow:hidden; display:flex; align-items:center; justify-content:center; background:linear-gradient(135deg, #1fbabc 0%, #33d9b2 100%); color:white; }
+ .hero-slide { position:absolute; width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; transition:opacity 1s ease; opacity:0; }
+ .hero-slide.active { opacity:1; }
+ .hero-slide h1 { font-size:3rem; margin-bottom:1rem; }
+ .hero-slide p { font-size:1.3rem; max-width:600px; margin-bottom:1.5rem; }
+ .hero-slide .btn { background:#fff; color:#1fbabc; font-weight:700; padding:0.8rem 2rem; border-radius:8px; text-decoration:none; transition:0.3s; }
+ .hero-slide .btn:hover { background:#e0f7f4; }
 
- h1, h2 {
-   color: rgb(31,186,156);
- }
+ /* Section style */
+ section { padding:4rem 1.5rem; max-width:1200px; margin:0 auto; }
+ section h2 { font-size:2.2rem; color:#1fbabc; margin-bottom:2rem; text-align:center; }
 
- h1 {
-   text-align: center;
-   font-size: 2.8rem;
-   margin-bottom: 2rem;
- }
+ /* Cards / Programy */
+ .cards { display:flex; flex-wrap:wrap; gap:2rem; justify-content:center; }
+ .card { background:white; border-radius:12px; box-shadow:0 10px 25px rgba(31,186,156,0.15); padding:2rem; width:280px; transition: transform 0.3s ease, box-shadow 0.3s ease; text-align:center; }
+ .card:hover { transform:translateY(-10px); box-shadow:0 15px 30px rgba(31,186,156,0.25); }
+ .card img { width:60px; height:60px; margin-bottom:1rem; }
+ .card h3 { font-size:1.4rem; color:#1fbabc; margin-bottom:0.8rem; }
+ .card p { font-size:1rem; line-height:1.5; margin-bottom:1.2rem; }
 
- section {
-   background: #fff;
-   border-radius: 12px;
-   padding: 2rem;
-   margin-bottom: 2rem;
-   box-shadow: 0 0 20px rgba(31,186,156,0.1);
- }
+ /* Timeline / Roadmap */
+ .timeline { position:relative; padding:2rem 0; }
+ .timeline::before { content:""; position:absolute; top:0; left:50%; width:4px; height:100%; background:#1fbabc; transform:translateX(-50%); }
+ .timeline-event { position:relative; width:45%; padding:1rem 2rem; background:white; border-radius:10px; box-shadow:0 5px 15px rgba(31,186,156,0.15); margin:2rem 0; }
+ .timeline-event.left { left:0; }
+ .timeline-event.right { left:55%; }
+ .timeline-event h4 { color:#1fbabc; margin-bottom:0.5rem; }
+ .timeline-event p { font-size:1rem; line-height:1.5; }
 
- /* Slider */
- .slider-container {
-   position: relative;
-   width: 100%;
-   overflow: hidden;
-   border-radius: 12px;
-   box-shadow: 0 0 12px rgba(0,0,0,0.1);
- }
+ /* Graph placeholder */
+ .chart-box { background:white; border-radius:12px; box-shadow:0 8px 20px rgba(31,186,156,0.1); padding:2rem; margin:3rem auto; max-width:800px; }
 
- .slider-track {
-   display: flex;
-   transition: transform 0.5s ease-in-out;
- }
+ /* Slider navigation buttons */
+ .slider-nav { position:absolute; top:50%; transform:translateY(-50%); font-size:2rem; color:white; cursor:pointer; padding:0 1rem; user-select:none; }
+ .slider-nav.prev { left:0; }
+ .slider-nav.next { right:0; }
 
- .slide {
-   min-width: 100%;
-   box-sizing: border-box;
-   position: relative;
-   text-align: center;
-   color: white;
-   font-weight: 700;
-   font-size: 1.5rem;
- }
-
- .slide img {
-   width: 100%;
-   border-radius: 12px;
-   vertical-align: middle;
- }
-
- .slider-buttons {
-   position: absolute;
-   top: 50%;
-   width: 100%;
-   display: flex;
-   justify-content: space-between;
-   transform: translateY(-50%);
-   pointer-events: none;
- }
-
- .slider-buttons button {
-   background: rgba(0,0,0,0.4);
-   border: none;
-   color: white;
-   font-size: 2rem;
-   padding: 0.2rem 0.7rem;
-   cursor: pointer;
-   pointer-events: all;
-   border-radius: 6px;
-   transition: background 0.3s;
- }
-
- .slider-buttons button:hover {
-   background: rgba(0,0,0,0.7);
- }
-
- /* Program blocks */
- .program-blocks {
-   display: flex;
-   flex-wrap: wrap;
-   gap: 2rem;
-   justify-content: center;
- }
-
- .program-block {
-   background: #f0fdf9;
-   border: 1px solid #1fba9c;
-   border-radius: 12px;
-   padding: 1.5rem;
-   flex: 1 1 280px;
-   box-shadow: 0 0 12px rgba(31,186,156,0.1);
-   transition: transform 0.3s;
- }
-
- .program-block:hover {
-   transform: translateY(-5px) scale(1.02);
- }
-
- .program-block h3 {
-   color: rgb(31,186,156);
-   margin-bottom: 1rem;
- }
-
- .program-block p {
-   font-size: 1rem;
-   line-height: 1.4;
- }
-
- /* Buttons */
- .btn {
-   display: inline-block;
-   padding: 0.7rem 1.5rem;
-   background: rgb(31,186,156);
-   color: white;
-   border-radius: 6px;
-   font-weight: 700;
-   text-decoration: none;
-   transition: background 0.3s;
-   margin-top: 1rem;
- }
- .btn:hover {
-   background: #1eab91;
+ /* Responsive */
+ @media(max-width:768px){
+   .timeline-event.left, .timeline-event.right { width:90%; left:5% !important; }
+   .cards { flex-direction:column; align-items:center; }
  }
 </style>
 </head>
 <body>
-<main>
- <h1>USDt.z Programs</h1>
 
- 
- <section aria-label="Main program presentation">
-   <div class="slider-container">
-     <div class="slider-track">
-       <div class="slide">
-         <img src="https://via.placeholder.com/1200x400/1fba9c/ffffff?text=Program+1" alt="Program 1">
-         <div class="slide-caption">Innovative stable token for banking sector</div>
-       </div>
-       <div class="slide">
-         <img src="https://via.placeholder.com/1200x400/2196f3/ffffff?text=Program+2" alt="Program 2">
-         <div class="slide-caption">Decentralized finance (DeFi) integration</div>
-       </div>
-       <div class="slide">
-         <img src="https://via.placeholder.com/1200x400/ff5722/ffffff?text=Program+3" alt="Program 3">
-         <div class="slide-caption">Global access for non-banking users</div>
-       </div>
-     </div>
-     <div class="slider-buttons">
-       <button id="prev">&#10094;</button>
-       <button id="next">&#10095;</button>
-     </div>
-   </div>
- </section>
 
- 
- <section>
-   <div class="program-blocks">
-     <div class="program-block">
-       <h3>Banking Partnerships</h3>
-       <p>Supporting traditional financial institutions with transparent and secure transaction flows.</p>
-       <a href="#" class="btn">Learn More</a>
-     </div>
-     <div class="program-block">
-       <h3>DeFi Integration</h3>
-       <p>Providing access to decentralized finance for flexible investment strategies.</p>
-       <a href="#" class="btn">Learn More</a>
-     </div>
-     <div class="program-block">
-       <h3>Global Payments</h3>
-       <p>Access for non-banking users worldwide with fast and secure transfers.</p>
-       <a href="#" class="btn">Learn More</a>
-     </div>
-   </div>
- </section>
-</main>
-
-<script>
- // Slider JS
- const track = document.querySelector('.slider-track');
- const slides = Array.from(track.children);
- const nextButton = document.getElementById('next');
- const prevButton = document.getElementById('prev');
- let currentIndex = 0;
-
- function updateSlider() {
-   const slideWidth = slides[0].getBoundingClientRect().width;
-   track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
- }
-
- nextButton.addEventListener('click', () => {
-   currentIndex = (currentIndex + 1) % slides.length;
-   updateSlider();
- });
-
- prevButton.addEventListener('click', () => {
-   currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-   updateSlider();
- });
-
- window.addEventListener('resize', updateSlider);
- updateSlider();
-</script>
-</body>
-</html>
-
-<section id="bottom-box" aria-label="Prozkoumej token USDt.z">
- <div class="logo">
-   <img src="/USDTz-Premium/img/flags/logo.png" alt="USDt.z Logo" />
+<div class="hero-slider">
+ <div class="hero-slide active">
+   <h1>Program USDt.z</h1>
+   <p>Objevte náš inovativní program a všechny možnosti, které přináší pro bankovní i nebankovní sektor.</p>
+   <a href="#programy" class="btn">Zjistit více</a>
  </div>
- <div class="text">Prozkoumejte token USDt.z na těchto platformách:</div>
- <div class="btn-group">
-   <a href="https://bscscan.com/token/0x913ef7244bEd019b95Ec5321408eE4CE83E25c01"
-      target="_blank" rel="noopener noreferrer"
-      class="btn-bsc" aria-label="Token na BscScan">
-      BscScan
-   </a>
-   <a href="https://www.geckoterminal.com/bsc/pools/0x553b402b3d6f91ea2208c7df61a6d4aa96ccb6191787c20fedb7ae6c9823b280"
-      target="_blank" rel="noopener noreferrer"
-      class="btn-gecko" aria-label="Token na GeckoTerminal">
-      GeckoTerminal
-   </a>
+ <div class="hero-slide">
+   <h1>Next Generation Stablecoin</h1>
+   <p>Stabilita, bezpečnost a transparentnost – to je základ našeho programu pro budoucnost financí.</p>
+   <a href="#programy" class="btn">Zjistit více</a>
+ </div>
+ <div class="slider-nav prev">&#10094;</div>
+ <div class="slider-nav next">&#10095;</div>
+</div>
+
+
+<section id="programy">
+ <h2>Naše programy a iniciativy</h2>
+ <div class="cards">
+   <div class="card">
+     <img src="/USDTz-Premium/img/icons/blockchain.png" alt="Blockchain">
+     <h3>Integrace Blockchainu</h3>
+     <p>Zapojení nejmodernějších blockchain technologií pro bezpečné a transparentní transakce.</p>
+     <a href="#" class="btn">Více info</a>
+   </div>
+   <div class="card">
+     <img src="/USDTz-Premium/img/icons/defi.png" alt="DeFi">
+     <h3>Decentralizované finance (DeFi)</h3>
+     <p>Přístup pro všechny uživatele s flexibilitou a inovacemi v DeFi prostředí.</p>
+     <a href="#" class="btn">Více info</a>
+   </div>
+   <div class="card">
+     <img src="/USDTz-Premium/img/icons/analytics.png" alt="Analytics">
+     <h3>Analytické nástroje</h3>
+     <p>Pokročilé nástroje pro sledování tokenu, kurzů a statistik pro vaše investice.</p>
+     <a href="#" class="btn">Více info</a>
+   </div>
  </div>
 </section>
 
-<style>
-#bottom-box {
- max-width: 900px;
- margin: 2rem auto;
- background: #fff;
- border: 1px solid #ddd;
- border-radius: 10px;
- box-shadow: 0 0 12px rgb(31 186 156 / 0.15);
- padding: 1rem 2rem;
- display: flex;
- align-items: center;
- gap: 1.5rem;
- justify-content: space-between;
-}
 
-#bottom-box .logo {
- flex-shrink: 0;
-}
-#bottom-box .logo img {
- height: 40px;
-}
+<section id="roadmap">
+ <h2>Roadmapa projektu</h2>
+ <div class="timeline">
+   <div class="timeline-event left">
+     <h4>Q1 2024</h4>
+     <p>Start projektu, první testování tokenu a pilotní integrace s bankami.</p>
+   </div>
+   <div class="timeline-event right">
+     <h4>Q2 2024</h4>
+     <p>Rozšíření programu o DeFi produkty a přidání analytických nástrojů.</p>
+   </div>
+   <div class="timeline-event left">
+     <h4>Q3 2024</h4>
+     <p>Plná integrace tokenu do partnerských systémů a marketingová kampaň.</p>
+   </div>
+   <div class="timeline-event right">
+     <h4>Q4 2024</h4>
+     <p>Mezinárodní expanze, zajištění likvidity a partnerské spolupráce.</p>
+   </div>
+ </div>
+</section>
 
-#bottom-box .text {
- flex: 1;
- font-weight: 600;
- color: rgb(31,186,156);
- font-size: 1.1rem;
-}
 
-#bottom-box .btn-group {
- display: flex;
- gap: 1rem;
-}
+<section id="stats">
+ <h2>Statistiky a tokenomika</h2>
+ <div class="chart-box">
+   <canvas id="tokenChart" aria-label="Graf tokenomiky USDt.z" role="img"></canvas>
+ </div>
+</section>
 
-#bottom-box .btn-group a {
- padding: 0.5rem 1.2rem;
- border-radius: 6px;
- font-weight: 700;
- text-decoration: none;
- display: inline-block;
- cursor: pointer;
- color: white;
- transition: background-color 0.3s ease;
- white-space: nowrap;
-}
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js" defer></script>
+<script>
+ // Hero slider
+ const slides = document.querySelectorAll('.hero-slide');
+ const prev = document.querySelector('.slider-nav.prev');
+ const next = document.querySelector('.slider-nav.next');
+ let currentSlide = 0;
 
-#bottom-box .btn-bsc {
- background-color: #f0b90b;
-}
-#bottom-box .btn-bsc:hover {
- background-color: #d9a200;
-}
-
-#bottom-box .btn-gecko {
- background-color: #1e88e5;
-}
-#bottom-box .btn-gecko:hover {
- background-color: #1669bb;
-}
-
-/* Responzivita pro mobil */
-@media (max-width: 768px) {
- #bottom-box {
-   flex-direction: column;
-   gap: 1rem;
-   text-align: center;
+ function showSlide(index) {
+   slides.forEach((s, i)=> s.classList.remove('active'));
+   slides[index].classList.add('active');
  }
- #bottom-box .btn-group {
-   justify-content: center;
-   width: 100%;
- }
-}
-</style>
+
+ prev.addEventListener('click', ()=>{
+   currentSlide = (currentSlide-1 + slides.length)%slides.length;
+   showSlide(currentSlide);
+ });
+ next.addEventListener('click', ()=>{
+   currentSlide = (currentSlide+1)%slides.length;
+   showSlide(currentSlide);
+ });
+
+ // Auto slide
+ setInterval(()=>{
+   currentSlide = (currentSlide+1)%slides.length;
+   showSlide(currentSlide);
+ }, 7000);
+
+ // Tokenomika chart
+ window.addEventListener('load', ()=>{
+   const ctx = document.getElementById('tokenChart').getContext('2d');
+   new Chart(ctx, {
+     type:'doughnut',
+     data:{
+       labels:['Ekosystém','Rezerva','Tým','Marketing'],
+       datasets:[{
+         data:[40,25,20,15],
+         backgroundColor:['#1fbabc','#ffc107','#ff5722','#2196f3'],
+         borderWidth:1
+       }]
+     },
+     options:{responsive:true, plugins:{legend:{position:'bottom'}}}
+   });
+ });
+</script>
+
+</body>
+</html>
