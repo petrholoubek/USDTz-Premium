@@ -1,136 +1,425 @@
+<header>
+ <nav>
+   <a href="/USDTz-Premium/index.html" class="logo" aria-label="Přejít na domovskou stránku">
+     <img src="/USDTz-Premium/img/flags/logo-white.png" alt="USDt.z Logo" />
+   </a>
+
+   <input type="checkbox" id="menu-toggle" />
+   <label for="menu-toggle" aria-label="Otevřít menu">
+     <span></span>
+     <span></span>
+     <span></span>
+   </label>
+
+   <ul class="menu" role="menubar" aria-label="Hlavní navigace">
+     <li role="none"><a href="/USDTz-Premium/pages/about.html" role="menuitem">O tokenu</a></li>
+     <li role="none"><a href="/USDTz-Premium/pages/usecases.html" role="menuitem">Použití</a></li>
+     <li role="none"><a href="/USDTz-Premium/pages/programs.html" role="menuitem">Programy</a></li>
+     <li role="none"><a href="/USDTz-Premium/pages/docs.html" role="menuitem">Dokumentace</a></li>
+     <li role="none"><a href="/USDTz-Premium/pages/contact.html" role="menuitem">Kontakt</a></li>
+
+     <li role="none">
+       <a href="/USDTz-Premium/index.html" title="Česky" role="menuitem" aria-label="Česká verze">
+         <img src="/USDTz-Premium/img/flags/cz.png" alt="Česká vlajka" class="flag" />
+       </a>
+     </li>
+     <li role="none">
+       <a href="/USDTz-Premium/index_en.html" title="English" role="menuitem" aria-label="Anglická verze">
+         <img src="/USDTz-Premium/img/flags/en.png" alt="Anglická vlajka" class="flag" />
+       </a>
+     </li>
+   </ul>
+ </nav>
+</header>
+
+<style>
+/* Základní styly menu */
+header {
+ background: rgb(31,186,156);
+ box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+ position: sticky;
+ top: 0;
+ z-index: 1100;
+}
+nav {
+ max-width: 1200px;
+ margin: 0 auto;
+ padding: 1rem 2rem;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ flex-wrap: wrap;
+}
+.logo img {
+ height: 40px;
+ cursor: pointer;
+ filter: drop-shadow(0 0 5px rgba(0,0,0,0.15));
+}
+
+/* Menu - desktop */
+ul.menu {
+ list-style: none;
+ display: flex;
+ gap: 1.5rem;
+ align-items: center;
+}
+ul.menu li a {
+ color: white;
+ font-weight: 600;
+ font-size: 1rem;
+ text-decoration: none;
+ transition: color 0.3s ease;
+ display: flex;
+ align-items: center;
+ gap: 0.3rem;
+}
+ul.menu li a:hover,
+ul.menu li a.active {
+ color: #004d40;
+ font-weight: 700;
+}
+img.flag {
+ width: 24px;
+ height: 16px;
+ object-fit: cover;
+ border-radius: 3px;
+ border: 1px solid rgba(255,255,255,0.6);
+}
+
+/* Hamburger button - mobile */
+#menu-toggle {
+ display: none;
+}
+label[for="menu-toggle"] {
+ display: none;
+ cursor: pointer;
+ width: 30px;
+ height: 25px;
+ flex-direction: column;
+ justify-content: space-between;
+}
+label[for="menu-toggle"] span {
+ display: block;
+ height: 3px;
+ background: white;
+ border-radius: 2px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+ label[for="menu-toggle"] {
+   display: flex;
+ }
+ ul.menu {
+   display: none;
+   flex-direction: column;
+   width: 100%;
+   margin-top: 1rem;
+   gap: 1rem;
+   background: rgb(31,186,156);
+   border-radius: 8px;
+   padding: 1rem 2rem;
+ }
+ ul.menu li {
+   width: 100%;
+ }
+ ul.menu li a {
+   display: block;
+   width: 100%;
+   font-size: 1.1rem;
+   padding: 0.5rem 0;
+ }
+ #menu-toggle:checked + label + ul.menu {
+   display: flex;
+ }
+}
+</style>
+
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>O tokenu USDt.z – Next Generation Stablecoin</title>
-  <style>
-    /* Reset */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #fff; color: #222; min-height: 100vh; display: flex; flex-direction: column; }
-    header { background: rgb(31,186,156); box-shadow: 0 2px 5px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1100; }
-    nav { max-width: 1200px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
-    .logo img { height: 40px; cursor: pointer; filter: drop-shadow(0 0 5px rgba(0,0,0,0.15)); }
-    ul.menu { list-style: none; display: flex; gap: 1.5rem; align-items: center; }
-    ul.menu li a { color: white; font-weight: 600; font-size: 1rem; text-decoration: none; transition: color 0.3s ease; display: flex; align-items: center; gap: 0.3rem; }
-    ul.menu li a:hover, ul.menu li a.active { color: #004d40; font-weight: 700; }
-    img.flag { width: 24px; height: 16px; object-fit: cover; border-radius: 3px; border: 1px solid rgba(255,255,255,0.6); }
-    #menu-toggle { display: none; }
-    label[for="menu-toggle"] { display: none; cursor: pointer; width: 30px; height: 25px; flex-direction: column; justify-content: space-between; }
-    label[for="menu-toggle"] span { display: block; height: 3px; background: white; border-radius: 2px; }
-    @media (max-width: 768px) {
-      label[for="menu-toggle"] { display: flex; }
-      ul.menu { display: none; flex-direction: column; width: 100%; margin-top: 1rem; gap: 1rem; background: rgb(31,186,156); border-radius: 8px; padding: 1rem 2rem; }
-      ul.menu li { width: 100%; }
-      ul.menu li a { display: block; width: 100%; font-size: 1.1rem; padding: 0.5rem 0; }
-      #menu-toggle:checked + label + ul.menu { display: flex; }
-    }
-    main { flex: 1; max-width: 900px; margin: 2rem auto 3rem; padding: 0 1rem; }
-    section.content-box { background: #fff; border: 1px solid #ddd; border-radius: 10px; box-shadow: 0 0 12px rgb(31 186 156 / 0.15); padding: 2rem 2.5rem; margin-bottom: 2.5rem; min-height: 400px; }
-    h1, h2 { color: rgb(31,186,156); margin-bottom: 1rem; }
-    h1 { font-size: 2.5rem; text-align: center; margin-bottom: 1.5rem; }
-    h2 { font-size: 2rem; margin-bottom: 1rem; }
-    p { margin-bottom: 1rem; font-size: 1rem; }
-    ul { margin-left: 1.5rem; margin-bottom: 1rem; }
-    ul li { margin-bottom: 0.5rem; font-size: 1rem; }
-    #bottom-box { max-width: 900px; margin: 0 auto 2.5rem; background: #fff; border: 1px solid #ddd; border-radius: 10px; box-shadow: 0 0 12px rgb(31 186 156 / 0.15); padding: 1rem 2rem; display: flex; align-items: center; gap: 1.5rem; justify-content: space-between; }
-    #bottom-box .logo { flex-shrink: 0; }
-    #bottom-box .logo img { height: 40px; }
-    #bottom-box .text { flex: 1; font-weight: 600; color: rgb(31,186,156); font-size: 1.1rem; }
-    #bottom-box .btn-group { display: flex; gap: 1rem; }
-    #bottom-box .btn-group a { padding: 0.5rem 1.2rem; border-radius: 6px; font-weight: 700; text-decoration: none; display: inline-block; cursor: pointer; color: white; transition: background-color 0.3s ease; white-space: nowrap; }
-    #bottom-box .btn-bsc { background-color: #f0b90b; }
-    #bottom-box .btn-bsc:hover { background-color: #d9a200; }
-    #bottom-box .btn-gecko { background-color: #1e88e5; }
-    #bottom-box .btn-gecko:hover { background-color: #1669bb; }
-    footer { text-align: center; padding: 1rem 2rem; background: #f0f0f0; font-size: 0.9rem; color: #555; }
-    @media (max-width: 960px) {
-      #bottom-box { flex-direction: column; gap: 1rem; text-align: center; }
-      #bottom-box .btn-group { justify-content: center; width: 100%; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>USDt.z – Klíčové vlastnosti a využití</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+#msg_body {
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   margin: 0;
+   padding: 0;
+   background-color: #f5f7fa;
+   color: #222;
+}
+.container {
+   max-width: 1200px;
+   margin: 0 auto;
+   padding: 2rem;
+}
+h1, h2, h3 { color: #1fba9c; }
+.card {
+   background-color: #fff;
+   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+   padding: 1.5rem;
+   margin-bottom: 2rem;
+   border-radius: 12px;
+}
+.flex-row { display: flex; gap: 2rem; flex-wrap: wrap; }
+.flex-row .card { flex: 1 1 calc(50% - 1rem); min-width: 280px; }
+.button {
+   display: inline-block;
+   padding: 0.8rem 1.5rem;
+   margin-top: 1rem;
+   background-color: #1fba9c;
+   color: #fff;
+   border: none;
+   border-radius: 8px;
+   text-decoration: none;
+   font-weight: bold;
+   transition: background-color 0.3s;
+}
+.button:hover { background-color: #159c84; }
+/* Slider */
+.slider { position: relative; overflow: hidden; border-radius: 12px; }
+.slide-track { display: flex; animation: scroll 20s linear infinite; }
+.slide { flex: 0 0 300px; margin-right: 1rem; background-color: #1fba9c; color: #fff; padding: 1rem; border-radius: 12px; text-align: center; }
+@keyframes scroll { 0% {transform: translateX(0);} 100% {transform: translateX(-50%);} }
+/* Tables */
+xtable { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+th, td { padding: 0.8rem; text-align: left; border-bottom: 1px solid #ddd; }
+th { background-color: #1fba9c; color: #fff; }
+canvas { max-width: 100%; height: auto; margin-top: 1rem; }
+</style>
 </head>
 <body>
+<div class="container">
+<h1>USDt.z – Klíčové vlastnosti a využití tokenu</h1>
 
-<header>
-  <nav>
-    <a href="../index.html" class="logo" aria-label="Přejít na hlavní stránku">
-      <img src="../img/flags/logo-white.png" alt="USDt.z Logo" />
-    </a>
+<div class="card">
+<h2>Co je USDt.z?</h2>
+<p>USDt.z je moderní stablecoin navázaný na USD, který kombinuje bezpečnost blockchainu s praktičností tradičního finančního systému. Je určen pro profesionální obchodníky, banky, nebankovní instituce a investory hledající stabilitu a transparentnost.</p>
+<ul>
+<li>Stabilita a důvěra – podložená aktivy a kontrolou emisí</li>
+<li>Rychlé transakce na blockchainu</li>
+<li>Možnost využití jako kolaterálu pro půjčky</li>
+<li>Podpora DeFi a tradičního bankovnictví</li>
+</ul>
+<a href="pages/pitch.html" class="button">Pitch Deck</a>
+</div>
 
-    <input type="checkbox" id="menu-toggle" />
-    <label for="menu-toggle" aria-label="Otevřít menu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </label>
+<div class="flex-row">
+<div class="card">
+<h2>Bankovní sektor</h2>
+<p>Banky mohou využít USDt.z k:</p>
+<ul>
+<li>zajištění likvidity</li>
+<li>půjčkám a úvěrům</li>
+<li>kolaterální podpoře obchodních operací</li>
+<li>spolupráci s našimi aktivy pro zvýšení stability</li>
+</ul>
+<canvas id="bankChart"></canvas>
+</div>
+<div class="card">
+<h2>Nebankovní sektor</h2>
+<p>Nebankovní instituce a DeFi projekty mohou využít USDt.z k:</p>
+<ul>
+<li>P2P obchodování</li>
+<li>stabilizaci vlastního kapitálu</li>
+<li>zajištění půjček a likvidity</li>
+<li>využití jako kolaterálu pro další projekty</li>
+</ul>
+<canvas id="defiChart"></canvas>
+</div>
+</div>
 
-    <ul class="menu" role="menubar" aria-label="Hlavní navigace">
-      <li role="none"><a href="../index.html" role="menuitem">Domů</a></li>
-      <li role="none"><a href="about.html" role="menuitem" aria-current="page" class="active">O tokenu</a></li>
-      <li role="none"><a href="program.html" role="menuitem">Program</a></li>
-      <li role="none"><a href="usecases.html" role="menuitem">Použití</a></li>
-      <li role="none"><a href="docs.html" role="menuitem">Dokumentace</a></li>
-      <li role="none"><a href="contact.html" role="menuitem">Kontakt</a></li>
+<div class="card">
+<h2>Emise a ekosystém</h2>
+<p>Token je pravidelně emitován podle stanovených pravidel s transparentním reportingem. Ekosystém zahrnuje banky, DeFi platformy, partnery a komunitu, která přispívá k jeho stabilitě.</p>
+<canvas id="emissionChart"></canvas>
+</div>
 
-      <li role="none">
-        <a href="../index.html" title="Česky" role="menuitem" aria-label="Česká verze">
-          <img src="../img/flags/cz.png" alt="Česká vlajka" class="flag" />
-        </a>
-      </li>
-      <li role="none">
-        <a href="../index_en.html" title="English" role="menuitem" aria-label="English version">
-          <img src="../img/flags/en.png" alt="Anglická vlajka" class="flag" />
-        </a>
-      </li>
-    </ul>
-  </nav>
-</header>
+<div class="card">
+<h2>Bezpečnost a audity</h2>
+<p>Token je pravidelně kontrolován nezávislými audity smart contractů a je plně v souladu s regulacemi. Transparentní reporting a kontrola emisí zajišťují důvěru investorů.</p>
+</div>
 
-<main>
-  <section class="content-box" role="main">
-    <h1>O tokenu USDt.z</h1>
+<div class="card">
+<h2>Vzdělávání a školení</h2>
+<div class="slider">
+<div class="slide-track">
+<div class="slide">Workshop: Jak používat USDt.z</div>
+<div class="slide">Školení pro banky a investory</div>
+<div class="slide">Webinář o kolaterálech a DeFi</div>
+<div class="slide">Budoucnost stablecoinů</div>
+<div class="slide">Jak obchodovat a spravovat aktiva</div>
+</div>
+</div>
+</div>
 
-    <p><strong>USDt.z</strong> je stablecoin nové generace, který kombinuje stabilitu tradičních měn s nejmodernější blockchain technologií.</p>
-    
-    <h2>Proč jsme USDt.z vytvořili</h2>
-    <p>Naším cílem bylo vytvořit bezpečný, transparentní a spolehlivý token, který usnadní využití kryptoměn v bankovním i nebankovním sektoru a nabídne stabilitu srovnatelnou s tradičními měnami.</p>
-    
-    <h2>Klíčové vlastnosti USDt.z</h2>
-    <ul>
-      <li>1:1 pevné krytí USD</li>
-      <li>Podpora jako kolaterál pro půjčky i pro mladé a začínající klienty bez klasického zajištění</li>
-      <li>Vysoká bezpečnost díky blockchain technologii nové generace</li>
-      <li>Transparentní a auditovatelný systém</li>
-      <li>Rychlé a levné transakce</li>
-    </ul>
-    
-    <h2>Možnosti využití</h2>
-    <p>USDt.z lze využít v široké škále finančních aplikací, od půjček, přes obchodování až po zajištění likvidity a stabilizaci aktiv.</p>
-    
-    <h2>Podpora mladých klientů</h2>
-    <p>Token je ideální pro mladé klienty a startupy, které často nemají klasické zajištění pro půjčky. USDt.z umožňuje využít kryptoměnový kolaterál jako záruku, což otevírá nové možnosti financování.</p>
-    
-    <h2>Dokumentace a audit</h2>
-    <p>Kompletní whitepaper a auditní zprávy jsou k dispozici ke stažení na hlavní stránce.</p>
-  </section>
+<div class="flex-row">
+<div class="card">
+<h2>Klíčové vlastnosti</h2>
+<ul>
+<li>Stablecoin s nízkou volatilitou</li>
+<li>Možnost využití jako kolaterál</li>
+<li>Integrace do DeFi a tradičních financí</li>
+<li>Transparentní a pravidelné audity</li>
+<li>Podpora školení a workshopů</li>
+</ul>
+</div>
+<div class="card">
+<h2>Marketing a obchodní využití</h2>
+<p>Pro partnery a klienty nabízíme:</p>
+<ul>
+<li>Pitch deck a dokumentaci</li>
+<li>Marketingové nástroje pro propagaci USDt.z</li>
+<li>Interaktivní prezentace a workshopy</li>
+<li>Podrobné reporty o tržní hodnotě a objemech</li>
+</ul>
+<a href="pages/pitch.html" class="button">Pitch Deck</a>
+<a href="pages/workshop.html" class="button">Workshop</a>
+</div>
+</div>
 
-  <!-- Spodní rámeček -->
-  <section id="bottom-box" role="contentinfo" aria-label="Prozkoumejte token USDt.z">
-    <div class="logo">
-      <img src="../img/flags/logo.png" alt="USDt.z Logo" />
-    </div>
-    <div class="text">Prozkoumejte token USDt.z na BscScan a GeckoTerminal</div>
-    <div class="btn-group">
-      <a href="https://bscscan.com/token/0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" target="_blank" rel="noopener" class="btn btn-bsc">BscScan</a>
-      <a href="https://www.geckoterminal.com/bsc/pools/0x553b402b3d6f91ea2208c7df61a6d4aa96ccb6191787c20fedb7ae6c9823b280" target="_blank" rel="noopener" class="btn btn-gecko">GeckoTerminal</a>
-    </div>
-  </section>
-</main>
+</div>
 
-<footer>
-  &copy; 2025 USDt.z – Next Generation Stablecoin. Všechna práva vyhrazena.
-</footer>
+<script>
+// Graf bankovního sektoru
+new Chart(document.getElementById('bankChart'), {
+   type: 'bar',
+   data: {
+       labels: ['Likvidita', 'Úvěry', 'Kolaterál', 'Stabilita'],
+       datasets: [{
+           label: 'Využití USDt.z (banky)',
+           data: [80, 65, 70, 90],
+           backgroundColor: '#1fba9c'
+       }]
+   },
+   options: { responsive: true, animation: { duration: 2000 } }
+});
+
+// Graf DeFi sektoru
+new Chart(document.getElementById('defiChart'), {
+   type: 'bar',
+   data: {
+       labels: ['P2P', 'Stabilizace', 'Půjčky', 'Kolaterál'],
+       datasets: [{
+           label: 'Využití USDt.z (DeFi)',
+           data: [75, 85, 60, 80],
+           backgroundColor: '#159c84'
+       }]
+   },
+   options: { responsive: true, animation: { duration: 2000 } }
+});
+
+// Graf emisí
+new Chart(document.getElementById('emissionChart'), {
+   type: 'line',
+   data: {
+       labels: ['2023', '2024', '2025'],
+       datasets: [{
+           label: 'Emise USDt.z (mil.)',
+           data: [1000, 2000, 5000],
+           fill: true,
+           backgroundColor: 'rgba(31,186,156,0.2)',
+           borderColor: '#1fba9c',
+           tension: 0.4
+       }]
+   },
+   options: { responsive: true, animation: { duration: 2000 } }
+});
+</script>
 
 </body>
 </html>
+<section id="bottom-box" aria-label="Prozkoumej token USDt.z">
+ <div class="logo">
+   <img src="/USDTz-Premium/img/flags/logo.png" alt="USDt.z Logo" />
+ </div>
+ <div class="text">Prozkoumejte token USDt.z na těchto platformách:</div>
+ <div class="btn-group">
+   <a href="https://bscscan.com/token/0x913ef7244bEd019b95Ec5321408eE4CE83E25c01"
+      target="_blank" rel="noopener noreferrer"
+      class="btn-bsc" aria-label="Token na BscScan">
+      BscScan
+   </a>
+   <a href="https://www.geckoterminal.com/bsc/pools/0x553b402b3d6f91ea2208c7df61a6d4aa96ccb6191787c20fedb7ae6c9823b280"
+      target="_blank" rel="noopener noreferrer"
+      class="btn-gecko" aria-label="Token na GeckoTerminal">
+      GeckoTerminal
+   </a>
+ </div>
+</section>
+
+<style>
+#bottom-box {
+ max-width: 900px;
+ margin: 2rem auto;
+ background: #fff;
+ border: 1px solid #ddd;
+ border-radius: 10px;
+ box-shadow: 0 0 12px rgb(31 186 156 / 0.15);
+ padding: 1rem 2rem;
+ display: flex;
+ align-items: center;
+ gap: 1.5rem;
+ justify-content: space-between;
+}
+
+#bottom-box .logo {
+ flex-shrink: 0;
+}
+#bottom-box .logo img {
+ height: 40px;
+}
+
+#bottom-box .text {
+ flex: 1;
+ font-weight: 600;
+ color: rgb(31,186,156);
+ font-size: 1.1rem;
+}
+
+#bottom-box .btn-group {
+ display: flex;
+ gap: 1rem;
+}
+
+#bottom-box .btn-group a {
+ padding: 0.5rem 1.2rem;
+ border-radius: 6px;
+ font-weight: 700;
+ text-decoration: none;
+ display: inline-block;
+ cursor: pointer;
+ color: white;
+ transition: background-color 0.3s ease;
+ white-space: nowrap;
+}
+
+#bottom-box .btn-bsc {
+ background-color: #f0b90b;
+}
+#bottom-box .btn-bsc:hover {
+ background-color: #d9a200;
+}
+
+#bottom-box .btn-gecko {
+ background-color: #1e88e5;
+}
+#bottom-box .btn-gecko:hover {
+ background-color: #1669bb;
+}
+
+/* Responzivita pro mobil */
+@media (max-width: 768px) {
+ #bottom-box {
+   flex-direction: column;
+   gap: 1rem;
+   text-align: center;
+ }
+ #bottom-box .btn-group {
+   justify-content: center;
+   width: 100%;
+ }
+}
+</style>
