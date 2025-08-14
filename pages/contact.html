@@ -1,105 +1,123 @@
+
 <nav class="navbar">
- <div class="container">
+ <div class="container navbar-container">
    
-   <a href="../index.html" class="navbar-logo">
-     <img src="../img/logo.png" alt="Logo">
+   <a href="index.html" class="navbar-logo">
+     <img src="../img/logo_white.png" alt="Logo">
    </a>
 
    
-   <ul class="navbar-links">
-     <li><a href="../pages/programs.html">Programy</a></li>
-     <li><a href="../pages/pitch.html">Pitch Deck</a></li>
-     <li><a href="../pages/contact.html">Kontakt</a></li>
+   <ul class="navbar-menu">
+     <li><a href="programs.html">Programy</a></li>
+     <li><a href="services.html">Služby</a></li>
+     <li><a href="about.html">O nás</a></li>
+     <li><a href="contact.html">Kontakt</a></li>
    </ul>
 
    
    <div class="navbar-lang">
-     <a href="../pages/programs.html"><img src="../img/flag_cz.png" alt="CZ"></a>
-     <a href="../en/pages/programs.html"><img src="../img/flag_en.png" alt="EN"></a>
+     <a href="index.html"><img src="../img/cz_flag.png" alt="CZ"></a>
+     <a href="index_en.html"><img src="../img/en_flag.png" alt="EN"></a>
    </div>
 
    
-   <button class="navbar-toggle" aria-label="Otevřít menu">
+   <div class="navbar-toggle" id="mobile-menu">
      <span class="bar"></span>
      <span class="bar"></span>
      <span class="bar"></span>
-   </button>
+   </div>
  </div>
 </nav>
 
-
 <style>
- .navbar {
-   background-color: #1FBA9C;
-   padding: 10px 20px;
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
+/* --- Základní styl navigace --- */
+.navbar {
+ background-color: #1fba9c; /* zelený pruh nahoře */
+ padding: 1rem 2rem;
+ position: sticky;
+ top: 0;
+ z-index: 1000;
+ display: flex;
+ justify-content: center;
+}
+
+.navbar-container {
+ max-width: 1200px;
+ width: 100%;
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+}
+
+.navbar-logo img {
+ height: 50px;
+}
+
+.navbar-menu {
+ display: flex;
+ list-style: none;
+ gap: 2rem;
+}
+
+.navbar-menu li a {
+ text-decoration: none;
+ color: white;
+ font-weight: 500;
+ transition: color 0.3s;
+}
+
+.navbar-menu li a:hover {
+ color: #000; /* změna barvy při hoveru */
+}
+
+.navbar-lang img {
+ height: 25px;
+ margin-left: 1rem;
+ cursor: pointer;
+}
+
+.navbar-toggle {
+ display: none;
+ flex-direction: column;
+ cursor: pointer;
+ gap: 5px;
+}
+
+.bar {
+ width: 25px;
+ height: 3px;
+ background-color: white;
+ transition: all 0.3s;
+}
+
+/* --- Responzivní mobilní menu --- */
+@media screen and (max-width: 768px) {
+ .navbar-menu {
+   position: absolute;
+   top: 70px;
+   left: -100%;
+   flex-direction: column;
+   background-color: #1fba9c;
+   width: 100%;
+   transition: 0.3s;
  }
 
- .navbar-logo img {
-   height: 40px;
- }
-
- .navbar-links {
-   list-style: none;
-   display: flex;
-   gap: 20px;
- }
-
- .navbar-links a {
-   color: white;
-   text-decoration: none;
-   font-weight: bold;
- }
-
- .navbar-lang img {
-   width: 24px;
-   margin-left: 10px;
+ .navbar-menu.active {
+   left: 0;
  }
 
  .navbar-toggle {
-   display: none;
-   background: none;
-   border: none;
-   cursor: pointer;
+   display: flex;
  }
-
- .navbar-toggle .bar {
-   width: 25px;
-   height: 3px;
-   margin: 5px;
-   background-color: white;
- }
-
- @media (max-width: 768px) {
-   .navbar-links {
-     display: none;
-     flex-direction: column;
-     position: absolute;
-     top: 60px;
-     right: 20px;
-     background-color: #1FBA9C;
-     padding: 10px;
-     width: 200px;
-   }
-
-   .navbar-links.active {
-     display: flex;
-   }
-
-   .navbar-toggle {
-     display: block;
-   }
- }
+}
 </style>
 
-
 <script>
- const toggleButton = document.querySelector('.navbar-toggle');
- const navbarLinks = document.querySelector('.navbar-links');
+const mobileMenu = document.getElementById('mobile-menu');
+const navMenu = document.querySelector('.navbar-menu');
 
- toggleButton.addEventListener('click', () => {
-   navbarLinks.classList.toggle('active');
- });
+mobileMenu.addEventListener('click', () => {
+ navMenu.classList.toggle('active');
+ mobileMenu.classList.toggle('active');
+});
 </script>
