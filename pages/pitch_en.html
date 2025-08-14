@@ -1,163 +1,394 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>USDt.z Pitch Deck – Next Generation Stablecoin</title>
- <style>
-   * { margin: 0; padding: 0; box-sizing: border-box; }
-   #msg_body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f9f9f9; color: #222; line-height: 1.6; }
-   header { background: rgb(31,186,156); padding: 1rem 2rem; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-   nav { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
-   nav .logo img { height: 45px; cursor: pointer; }
-   ul.menu { list-style: none; display: flex; gap: 1.5rem; align-items: center; }
-   ul.menu li a { color: white; font-weight: 600; text-decoration: none; transition: color 0.3s ease; }
-   ul.menu li a:hover, ul.menu li a.active { color: #004d40; font-weight: 700; }
-   img.flag { width: 24px; height: 16px; object-fit: cover; border-radius: 3px; border: 1px solid rgba(255,255,255,0.6); }
-   #menu-toggle { display: none; }
-   label[for="menu-toggle"] { display: none; cursor: pointer; flex-direction: column; gap: 4px; width: 30px; height: 25px; }
-   label[for="menu-toggle"] span { display: block; height: 3px; background: white; border-radius: 2px; }
-   @media (max-width: 768px) {
-     label[for="menu-toggle"] { display: flex; }
-     ul.menu { display: none; flex-direction: column; width: 100%; margin-top: 1rem; gap: 1rem; background: rgb(31,186,156); border-radius: 8px; padding: 1rem 2rem; }
-     ul.menu li a { display: block; width: 100%; font-size: 1.1rem; padding: 0.5rem 0; }
-     #menu-toggle:checked + label + ul.menu { display: flex; }
-   }
-   main { max-width: 1100px; margin: 2rem auto; padding: 0 1rem; }
-   .content-box { background: #fff; border-radius: 10px; padding: 2rem; margin-bottom: 2rem; box-shadow: 0 0 12px rgb(31 186 156 / 0.15); }
-   h1, h2 { color: rgb(31,186,156); margin-bottom: 1rem; }
-   h1 { font-size: 2.5rem; text-align: center; }
-   h2 { font-size: 2rem; margin-top: 1rem; }
-   p { margin-bottom: 1rem; }
-   ul { margin-left: 1.5rem; margin-bottom: 1rem; }
-   ul li { margin-bottom: 0.5rem; }
- </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Pitch — USDt.z | High-Yield Programs & Partnerships</title>
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js" defer></script>
+
+<style>
+/* === GLOBAL / from your standard (do not change font) === */
+* { margin:0; padding:0; box-sizing:border-box; }
+#msg_body {
+ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ background: #fff;
+ color: #222;
+ min-height: 100vh;
+ display:flex;
+ flex-direction:column;
+}
+
+/* Header / nav - same style you provided */
+header {
+ background: rgb(31,186,156);
+ box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+ position: sticky;
+ top: 0;
+ z-index: 1100;
+}
+nav {
+ max-width: 1200px;
+ margin: 0 auto;
+ padding: 1rem 2rem;
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ flex-wrap:wrap;
+}
+nav .logo img { height:40px; cursor:pointer; filter: drop-shadow(0 0 5px rgba(0,0,0,0.15)); }
+
+/* Menu */
+ul.menu { list-style:none; display:flex; gap:1.5rem; align-items:center; }
+ul.menu li a {
+ color:white; font-weight:600; font-size:1rem; text-decoration:none;
+ display:flex; align-items:center; gap:0.3rem;
+ transition: color .2s ease;
+}
+ul.menu li a:hover, ul.menu li a.active { color:#004d40; font-weight:700; }
+img.flag { width:24px; height:16px; object-fit:cover; border-radius:3px; border:1px solid rgba(255,255,255,0.6); }
+
+/* Mobile hamburger */
+#menu-toggle { display:none; }
+label[for="menu-toggle"] { display:none; cursor:pointer; width:30px; height:25px; flex-direction:column; justify-content:space-between; }
+label[for="menu-toggle"] span { display:block; height:3px; background:white; border-radius:2px; }
+
+@media (max-width:768px) {
+ label[for="menu-toggle"] { display:flex; }
+ ul.menu { display:none; flex-direction:column; width:100%; margin-top:1rem; gap:1rem; background:rgb(31,186,156); border-radius:8px; padding:1rem 2rem; }
+ ul.menu li { width:100%; }
+ ul.menu li a { display:block; width:100%; font-size:1.05rem; padding:0.5rem 0; }
+ #menu-toggle:checked + label + ul.menu { display:flex; }
+}
+
+/* Page layout */
+main { flex:1; max-width:1200px; margin:2rem auto 3rem; padding:0 1rem; }
+
+/* Section frames (consistent with index) */
+.section-frame {
+ background:#fff;
+ border:1px solid #ddd;
+ border-radius:10px;
+ box-shadow:0 0 12px rgb(31 186 156 / 0.15);
+ padding:2rem 2.5rem;
+ margin-bottom:2.5rem;
+ max-width:900px;
+ margin-left:auto; margin-right:auto;
+}
+.section-frame h1, .section-frame h2 { color: rgb(31,186,156); margin-bottom:1rem; }
+.section-frame h1 { font-size:2.5rem; text-align:center; margin-bottom:1.2rem; }
+.section-frame p { font-size:1rem; line-height:1.5; margin-bottom:1rem; }
+
+/* Sectors HYP layout */
+.sectors { display:flex; gap:1.6rem; justify-content:center; flex-wrap:wrap; }
+.sector-box {
+ flex:1 1 45%;
+ background: #fff;
+ border:1px solid #e6e6e6;
+ border-radius:10px;
+ padding:1.2rem 1.4rem;
+ min-width:260px;
+ box-shadow: 0 4px 18px rgba(31,186,156,0.06);
+}
+.sector-box h3 { color: rgb(31,186,156); margin-bottom:0.6rem; }
+.sector-box ul { list-style:none; padding-left:0; }
+.sector-box li { margin-bottom:0.5rem; padding-left:1.2rem; position:relative; }
+.sector-box li::before { content:'•'; position:absolute; left:0; color:rgb(31,186,156); font-weight:700; }
+
+/* HYP featured box */
+.hyp-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap:1rem; margin-top:1rem; }
+.hyp-card {
+ background:linear-gradient(180deg, #fff, #f8fffb);
+ border:1px solid #e6f4ef;
+ border-radius:10px;
+ padding:1rem;
+ box-shadow:0 6px 18px rgba(31,186,156,0.05);
+}
+.hyp-card h4 { margin-bottom:0.5rem; color:#0c6; font-size:1.05rem; }
+.hyp-card p { font-size:0.95rem; color:#333; margin-bottom:0.6rem; }
+
+/* Buttons */
+.btn { background: rgb(31,186,156); color:white; padding:0.75rem 1.2rem; border-radius:6px; font-weight:700; text-decoration:none; display:inline-block; }
+.btn.blue { background:#007acc; }
+.btn.alt { background:#1e88e5; }
+.btn.small { padding:0.45rem 0.8rem; font-weight:700; }
+
+/* Token bottom box (must be identical to index) */
+#bottom-box {
+ max-width:900px; margin:0 auto 2.5rem; background:#fff; border:1px solid #ddd; border-radius:10px;
+ box-shadow:0 0 12px rgb(31 186 156 / 0.15); padding:1rem 2rem;
+ display:flex; align-items:center; gap:1.5rem; justify-content:space-between;
+}
+#bottom-box .logo img { height:40px; }
+#bottom-box .text { flex:1; font-weight:600; color:rgb(31,186,156); font-size:1.05rem; }
+#bottom-box .btn-group { display:flex; gap:1rem; }
+#bottom-box .btn-bsc { background:#f0b90b; color:#000; padding:0.45rem 0.9rem; border-radius:6px; font-weight:700; text-decoration:none; }
+#bottom-box .btn-gecko { background:#1e88e5; color:#fff; padding:0.45rem 0.9rem; border-radius:6px; font-weight:700; text-decoration:none; }
+
+/* Responsive tweaks */
+@media (max-width:960px) {
+ .sectors { flex-direction:column; }
+ #bottom-box { flex-direction:column; text-align:center; gap:1rem; }
+}
+</style>
 </head>
 <body>
- <header>
-   <nav>
-     <a href="../index_en.html" class="logo">
-       <img src="../img/flags/logo-white.png" alt="USDt.z Logo">
-     </a>
 
-     <input type="checkbox" id="menu-toggle">
-     <label for="menu-toggle">
-       <span></span>
-       <span></span>
-       <span></span>
-     </label>
+<header>
+ <nav>
+   
+   <a href="/USDTz-Premium/index_en.html" class="logo" aria-label="Go to homepage">
+     <img src="/USDTz-Premium/img/flags/logo-white.png" alt="USDt.z Logo" />
+   </a>
 
-     <ul class="menu">
-       <li><a href="programs_en.html">Programs</a></li>
-       <li><a href="usecases_en.html">Use Cases</a></li>
-       <li><a href="docs_en.html">Documentation</a></li>
-       <li><a href="contact_en.html">Contact</a></li>
-       <li>
-         <a href="../index.html"><img src="../img/flags/cz.png" alt="Czech" class="flag"></a>
-       </li>
-       <li>
-         <a href="../index_en.html"><img src="../img/flags/en.png" alt="English" class="flag"></a>
-       </li>
-     </ul>
-   </nav>
- </header>
+   <input type="checkbox" id="menu-toggle" />
+   <label for="menu-toggle" aria-label="Open menu">
+     <span></span><span></span><span></span>
+   </label>
 
- <main>
-   <section class="content-box">
-     <h1>USDt.z – Pitch Deck</h1>
-     <p>Welcome to the next-generation stablecoin ecosystem. Here we provide a detailed overview of banking and non-banking collaborations, liquidity insights, market capitalization analysis, and strategic growth programs.</p>
-     <h2>Banking Collaborations</h2>
-     <p>USDt.z partners with traditional banking institutions to enhance liquidity and provide innovative financial services. Key offerings include:</p>
-     <ul>
-       <li>Collateralized loan programs for enterprises.</li>
-       <li>Liquidity pools integrated with banking networks.</li>
-       <li>Risk management tools and market analysis dashboards.</li>
-       <li>High-yield savings solutions using USDt.z as a stable asset.</li>
-     </ul>
-   </section>
+   <ul class="menu" role="menubar" aria-label="Main navigation">
+     <li role="none"><a href="/USDTz-Premium/pages/about_en.html" role="menuitem">About Token</a></li>
+     <li role="none"><a href="/USDTz-Premium/pages/usecases_en.html" role="menuitem">Use Cases</a></li>
+     <li role="none"><a href="/USDTz-Premium/pages/programs_en.html" role="menuitem">Programs</a></li>
+     <li role="none"><a href="/USDTz-Premium/pages/docs_en.html" role="menuitem">Documentation</a></li>
+     <li role="none"><a href="/USDTz-Premium/pages/contact_en.html" role="menuitem">Contact</a></li>
 
-   <section class="content-box">
-     <h2>Non-Banking Sector Collaborations</h2>
-     <p>USDt.z extends its ecosystem to non-banking entities, supporting decentralized finance, startups, and community-driven projects. Benefits include:</p>
-     <ul>
-       <li>DeFi protocol integrations for automated liquidity management.</li>
-       <li>Collateral options for non-traditional financing.</li>
-       <li>Innovative workshops and training for youth and startups.</li>
-       <li>Market participation insights with projected 5 trillion USD impact.</li>
-     </ul>
-   </section>
-   <section class="content-box">
-     <h2>High-Yield Programs (HYP)</h2>
-     <p>Our High-Yield Programs are designed for investors, enterprises, and partners seeking stable, technologically advanced returns. Key aspects include:</p>
-     <ul>
-       <li>Advanced risk assessment and allocation dashboards.</li>
-       <li>Automated rebalancing of collateral to optimize yield.</li>
-       <li>Regular workshops for participants on market strategy and stablecoin utilization.</li>
-       <li>Integration with DeFi protocols to maximize capital efficiency.</li>
-     </ul>
-     <p>These programs aim to deliver predictable returns while maintaining liquidity integrity across the USDt.z ecosystem.</p>
-   </section>
+     <li role="none">
+       <a href="/USDTz-Premium/index.html" title="Czech" role="menuitem" aria-label="Czech version">
+         <img src="/USDTz-Premium/img/flags/cz.png" alt="Czech flag" class="flag" />
+       </a>
+     </li>
+     <li role="none">
+       <a href="/USDTz-Premium/index_en.html" title="English" role="menuitem" aria-label="English version">
+         <img src="/USDTz-Premium/img/flags/en.png" alt="English flag" class="flag" />
+       </a>
+     </li>
+   </ul>
+ </nav>
+</header>
 
-   <section class="content-box">
-     <h2>Liquidity Overview</h2>
-     <p>USDt.z maintains an extensive liquidity pool, ensuring seamless transactions and market stability.</p>
-     <ul>
-       <li>Total liquidity: <strong>$5,000,000,000,000</strong> (5 trillion USD equivalent)</li>
-       <li>Multi-layer liquidity strategy combining banks, non-banking institutions, and DeFi protocols.</li>
-       <li>Dynamic allocation to markets with highest demand for stable assets.</li>
-     </ul>
-     <p>Graphical representation of liquidity pools across sectors:</p>
-     <img src="../img/graphs/liquidity_graph.png" alt="Liquidity Graph" style="width:100%; max-width:900px; display:block; margin:1rem auto; border-radius:10px; box-shadow:0 0 12px rgba(31,186,156,0.3);">
-   </section>
+<main>
 
-   <section class="content-box">
-     <h2>Market Capitalization</h2>
-     <p>USDt.z is rapidly gaining adoption, reflected in its robust market capitalization. Key insights:</p>
-     <ul>
-       <li>Current market cap: <strong>$769,080,000</strong></li>
-       <li>Projected 12-month growth: 200% based on ecosystem expansion.</li>
-       <li>Participation from both banking and non-banking partners ensures stability.</li>
-     </ul>
-     <p>Graphical chart of market capitalization trends:</p>
-     <img src="../img/graphs/market_cap_graph.png" alt="Market Capitalization Graph" style="width:100%; max-width:900px; display:block; margin:1rem auto; border-radius:10px; box-shadow:0 0 12px rgba(31,186,156,0.3);">
-   </section>
-   <section class="content-box">
-     <h2>Programs & Workshops</h2>
-     <p>We provide hands-on workshops and training programs to ensure participants can leverage USDt.z effectively:</p>
-     <ul>
-       <li>Trading strategies and market analytics workshops.</li>
-       <li>Hands-on stablecoin integration for fintech projects.</li>
-       <li>Interactive webinars with industry experts.</li>
-       <li>Certification programs for advanced participants.</li>
-     </ul>
-     <div class="button-group" style="text-align:center; margin-top:1rem;">
-       <a href="pages/pitch_en.html" class="btn-primary">Pitch Deck</a>
-       <a href="../index_en.html" class="btn-secondary">Home</a>
-       <a href="../pages/programs_en.html" class="btn-secondary">Programs</a>
+ 
+ <section class="section-frame" aria-label="Pitch Overview">
+   <h1>Pitch — High-Yield Programs & Strategic Partnerships</h1>
+   <p style="text-align:center; max-width:820px; margin:0 auto 1rem;">
+     USDt.z is a next-generation stablecoin designed to capture institutional liquidity and accelerate DeFi adoption.
+     Our High-Yield Programs (HYP) combine regulated collateral strategies, market-making, and institutional grade risk management
+     to deliver attractive, sustainable yields for partners and liquidity providers.
+   </p>
+
+   <div style="text-align:center; gap:0.8rem; display:flex; justify-content:center; flex-wrap:wrap;">
+     <a class="btn" href="/USDTz-Premium/pages/programs_en.html">Programs & Collaboration</a>
+     <a class="btn blue" href="/USDTz-Premium/pages/pitch_en.html">View Full Pitch Deck</a>
+     <a class="btn alt" href="/USDTz-Premium/pages/contact_en.html">Contact Sales</a>
+   </div>
+ </section>
+
+ 
+ <section class="section-frame" aria-label="Banking and Non-banking cooperation">
+   <h2 style="text-align:center;">Banking & Non-Banking Cooperation</h2>
+   <div class="sectors" role="list">
+     <div class="sector-box" role="listitem" aria-labelledby="bank-title">
+       <h3 id="bank-title">Banking Sector — Institutional Integration</h3>
+       <ul>
+         <li>On-chain settlement rails integrated with core banking via APIs and permissioned channels</li>
+         <li>USDt.z as regulated collateral for bilateral lending and repo facilities</li>
+         <li>Custody partnerships & proof of reserves for regulatory compliance</li>
+         <li>Liquidity provisioning agreements to ensure tight spreads and market depth</li>
+       </ul>
+       <p style="margin-top:0.8rem; font-weight:700;">Key value: seamless fiat-grade liquidity and compliance.</p>
      </div>
-   </section>
 
-   <section class="content-box">
-     <h2>Explore the Token</h2>
-     <p>Discover how USDt.z can enhance your financial strategies and portfolio:</p>
-     <ul>
-       <li>Tokenomics and smart contract details fully transparent.</li>
-       <li>High liquidity and bank-grade stability mechanisms.</li>
-       <li>Integration with DeFi and financial applications.</li>
-     </ul>
-     <img src="../img/graphs/token_overview.png" alt="Token Overview" style="width:100%; max-width:900px; display:block; margin:1rem auto; border-radius:10px; box-shadow:0 0 12px rgba(31,186,156,0.3);">
-   </section>
-
-   <footer style="background-color:#1fba9c; color:white; padding:2rem; text-align:center; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
-     <div>
-       <a href="../index_en.html"><img src="../img/logo_white.png" alt="USDt.z Logo" style="height:50px; margin-bottom:1rem;"></a>
-       <p>&copy; 2025 USDt.z. All rights reserved.</p>
-       <p>
-         <a href="../pages/privacy_en.html" style="color:white; margin:0 0.5rem;">Privacy Policy</a> |
-         <a href="../pages/terms_en.html" style="color:white; margin:0 0.5rem;">Terms & Conditions</a>
-       </p>
+     <div class="sector-box" role="listitem" aria-labelledby="nonbank-title">
+       <h3 id="nonbank-title">Non-Banking Sector — DeFi & Startups</h3>
+       <ul>
+         <li>Yield orchestration: staking, liquidity mining, and vault strategies with risk controls</li>
+         <li>DEX integrations & LP incentives to bootstrap markets</li>
+         <li>Bridge support for cross-chain liquidity and atomic swaps</li>
+         <li>Programs for startups: collateralized credit lines & incubation grants</li>
+       </ul>
+       <p style="margin-top:0.8rem; font-weight:700;">Key value: fast adoption, capital efficiency and product innovation.</p>
      </div>
-   </footer>
+   </div>
 
- </body>
+   
+   <div style="margin-top:1.2rem; display:flex; gap:1rem; flex-wrap:wrap; justify-content:center;">
+     <div style="background:#f7fffb; border:1px solid #e0f7ef; padding:0.9rem 1rem; border-radius:8px; text-align:center; min-width:220px;">
+       <div style="font-size:1.2rem; font-weight:800; color:rgb(31,186,156);">Total Market Opportunity</div>
+       <div style="font-size:1.6rem; font-weight:900; margin-top:0.25rem;">$5,000,000,000,000</div>
+       <div style="font-size:0.9rem; color:#666; margin-top:0.3rem;">(estimated addressable market)</div>
+     </div>
+
+     <div style="background:#fff; border:1px solid #ddd; padding:0.9rem 1rem; border-radius:8px; min-width:220px; text-align:center;">
+       <div style="font-size:1.05rem; font-weight:700;">Projected Liquidity</div>
+       <div style="font-size:1.4rem; font-weight:800; color:#0b75a8; margin-top:0.25rem;">$110M+</div>
+       <div style="font-size:0.85rem; color:#666; margin-top:0.3rem;">(initial bootstrapped pools)</div>
+     </div>
+   </div>
+ </section>
+
+ 
+ <section class="section-frame" aria-label="High-yield programs">
+   <h2 style="text-align:center;">High-Yield Programs (HYP)</h2>
+   <p style="text-align:center; max-width:820px; margin:0 auto 0.8rem;">
+     Our HYPs are structured, auditable yield programs designed for institutional and professional counterparties.
+     Each program includes a clear risk framework, reporting, and configurable risk tiers.
+   </p>
+
+   <div class="hyp-grid" role="list">
+     <div class="hyp-card" role="listitem">
+       <h4>HYP — Market Making Pool</h4>
+       <p>Provide liquidity to our main pool and earn spread + performance fees. Automated risk controls and rebalancing reduce inventory risk.</p>
+       <p><strong>Target yield:</strong> 6–12% APY (variable)</p>
+       <a class="btn small" href="/USDTz-Premium/pages/programs_en.html">Apply</a>
+     </div>
+
+     <div class="hyp-card" role="listitem">
+       <h4>HYP — Collateralized Credit Line</h4>
+       <p>Institutional credit facilities backed by USDt.z collateral; tailored terms, on-chain transparency and off-chain KYC for counterparties.</p>
+       <p><strong>Target yield for lenders:</strong> 4–8% APY</p>
+       <a class="btn small" href="/USDTz-Premium/pages/contact_en.html">Request Terms</a>
+     </div>
+
+     <div class="hyp-card" role="listitem">
+       <h4>HYP — Yield Vaults</h4>
+       <p>Managed strategies aggregating treasury yields, DEX farming and lending protocols. Strong emphasis on diversification and audits.</p>
+       <p><strong>Target yield:</strong> 8–18% APY (strategy-dependent)</p>
+       <a class="btn small" href="/USDTz-Premium/pages/about_en.html">Learn More</a>
+     </div>
+
+     <div class="hyp-card" role="listitem">
+       <h4>HYP — Institutional Staking Programs</h4>
+       <p>Long-term staking programs with tiered rewards and governance participation. Ideal for strategic partners and foundations.</p>
+       <p><strong>Target yield:</strong> 3–10% APY</p>
+       <a class="btn small" href="/USDTz-Premium/pages/programs_en.html">Partner With Us</a>
+     </div>
+   </div>
+
+   <p style="margin-top:1rem; font-size:0.95rem; color:#444;">
+     Each HYP product is accompanied by on-chain proof, regular audits and a clear exit policy. We build programs around partner needs
+     — capital, risk appetite and regulation.
+   </p>
+ </section>
+
+ 
+ <section class="section-frame" aria-label="Charts and Data">
+   <h2 style="text-align:center;">Data & Visuals</h2>
+
+   <div style="display:flex; gap:1.2rem; flex-wrap:wrap; justify-content:center; align-items:flex-start;">
+     <div style="flex:1 1 320px; max-width:420px;">
+       <h3 style="margin-bottom:0.6rem;">Token Distribution</h3>
+       <canvas id="tokenChart" width="400" height="300" aria-label="Token distribution chart" role="img"></canvas>
+     </div>
+
+     <div style="flex:1 1 420px; max-width:560px;">
+       <h3 style="margin-bottom:0.6rem;">Roadmap — Users vs Liquidity</h3>
+       <canvas id="roadmapChart" width="560" height="300" aria-label="Roadmap chart" role="img"></canvas>
+     </div>
+   </div>
+
+   <div style="margin-top:1.2rem;">
+     <h3>Quick Facts</h3>
+     <table style="width:100%; border-collapse:collapse; margin-top:0.5rem;">
+       <thead>
+         <tr style="background:rgb(31,186,156); color:white;">
+           <th style="padding:0.6rem; text-align:left;">Metric</th>
+           <th style="padding:0.6rem; text-align:left;">Value</th>
+         </tr>
+       </thead>
+       <tbody>
+         <tr><td style="padding:0.6rem; border-bottom:1px solid #eee;">Market opportunity</td><td style="padding:0.6rem; border-bottom:1px solid #eee;">$5T</td></tr>
+         <tr><td style="padding:0.6rem; border-bottom:1px solid #eee;">Initial liquidity target</td><td style="padding:0.6rem; border-bottom:1px solid #eee;">$100M+</td></tr>
+         <tr><td style="padding:0.6rem; border-bottom:1px solid #eee;">Audit cadence</td><td style="padding:0.6rem; border-bottom:1px solid #eee;">Quarterly</td></tr>
+         <tr><td style="padding:0.6rem;">Governance</td><td style="padding:0.6rem;">On roadmap — token holder voting</td></tr>
+       </tbody>
+     </table>
+   </div>
+ </section>
+
+ 
+ <section class="section-frame" aria-label="Our services & offers">
+   <h2 style="text-align:center;">Our Services & Programs</h2>
+   <p style="text-align:center; max-width:820px; margin:0 auto 1rem;">
+     Tailored services for institutions, corporates and DeFi builders — from pitch assistance to fully managed liquidity programs.
+   </p>
+
+   <div style="display:flex; gap:1rem; flex-wrap:wrap; justify-content:center; margin-top:0.6rem;">
+     <a class="btn blue" href="/USDTz-Premium/pages/pitch_en.html" title="Pitch Deck (EN)">Pitch Deck (EN)</a>
+     <a class="btn" href="/USDTz-Premium/pages/programs_en.html">Programs & Workshops</a>
+     <a class="btn alt" href="/USDTz-Premium/pages/contact_en.html">Schedule a Demo</a>
+     <a class="btn" href="/USDTz-Premium/pages/about_en.html">Technical Documentation</a>
+   </div>
+
+   <div style="margin-top:1rem;">
+     <p style="font-size:0.95rem;">
+       <strong>Workshops & Training:</strong> hands-on sessions for treasury teams and fintech devs (on-chain settlements, LP management, risk modelling).
+       <br/><strong>Pitch Support:</strong> custom pitch creation, slide templates, go-to-market strategies — we help you present to VCs and banks.
+     </p>
+   </div>
+ </section>
+
+ 
+ <section id="bottom-box" role="contentinfo" aria-label="Explore the token">
+   <div class="logo">
+     <img src="/USDTz-Premium/img/flags/logo.png" alt="USDt.z Logo" />
+   </div>
+   <div class="text">Explore USDt.z token on BscScan and GeckoTerminal</div>
+   <div class="btn-group">
+     <a class="btn-bsc" href="https://bscscan.com/token/0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" target="_blank" rel="noopener">BscScan</a>
+     <a class="btn-gecko" href="https://www.geckoterminal.com/bsc/pools/0x553b402b3d6f91ea2208c7df61a6d4aa96ccb6191787c20fedb7ae6c9823b280" target="_blank" rel="noopener">GeckoTerminal</a>
+   </div>
+ </section>
+
+</main>
+
+<footer style="text-align:center; padding:1rem 1.5rem; background:#f1f3f4; font-size:0.9rem; color:#555;">
+ &copy; 2025 USDt.z – Next Generation Stablecoin. All rights reserved.
+</footer>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+ // Tokenomics donut
+ const tokenCtx = document.getElementById('tokenChart').getContext('2d');
+ new Chart(tokenCtx, {
+   type: 'doughnut',
+   data: {
+     labels: ['Liquidity', 'Reserve', 'Team', 'Marketing', 'Community'],
+     datasets: [{
+       data: [40,25,15,12,8],
+       backgroundColor: ['rgb(31,186,156)','rgb(21,133,108)','rgb(88,176,170)','rgb(144,204,192)','rgb(198,233,229)'],
+       borderColor:'#fff',
+       borderWidth:2
+     }]
+   },
+   options: { responsive:true, plugins:{ legend:{ position:'bottom' } } }
+ });
+
+ // Roadmap dual-line
+ const roadmapCtx = document.getElementById('roadmapChart').getContext('2d');
+ new Chart(roadmapCtx, {
+   type:'line',
+   data:{
+     labels:['Q1','Q2','Q3','Q4','Q1-Next','Q2-Next','Q3-Next'],
+     datasets:[
+       { label:'Users (k)', data:[10,30,70,120,200,350,500], borderColor:'rgb(31,186,156)', fill:true, tension:0.3, yAxisID:'y' },
+       { label:'Liquidity ($M)', data:[2,8,25,45,80,130,200], borderColor:'rgb(0,123,255)', fill:true, tension:0.3, yAxisID:'y1' }
+     ]
+   },
+   options:{
+     responsive:true,
+     scales: {
+       y: { type:'linear', position:'left', title:{ display:true, text:'Users (thousands)' }, beginAtZero:true },
+       y1: { type:'linear', position:'right', title:{ display:true, text:'Liquidity (million $)' }, beginAtZero:true, grid:{ drawOnChartArea:false } }
+     },
+     plugins:{ legend:{ position:'top' } }
+   }
+ });
+});
+</script>
+
+</body>
 </html>
