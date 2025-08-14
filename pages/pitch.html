@@ -138,160 +138,217 @@ label[for="menu-toggle"] span {
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>USDt.z – Pitch Deck</title>
 <style>
-* {margin:0; padding:0; box-sizing:border-box;}
-#msg_body {font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:#f8f9fa; color:#222; line-height:1.6;}
-main {max-width:1200px; margin:2rem auto; padding:0 1rem;}
-section {background:#fff; border:1px solid #ddd; border-radius:10px; box-shadow:0 0 12px rgba(31,186,156,0.15); padding:2rem; margin-bottom:2rem;}
-h1, h2, h3 {color:rgb(31,186,156); margin-bottom:1rem;}
-h1 {text-align:center; font-size:2.5rem;}
-h2 {font-size:2rem;}
-h3 {font-size:1.5rem;}
-p {margin-bottom:1rem;}
-.btn {background-color:rgb(31,186,156); color:white; padding:0.85rem 1.7rem; border:none; border-radius:6px; font-weight:700; text-decoration:none; display:inline-block; margin-top:1rem; transition:0.3s;}
-.btn:hover {background-color:#1eab91;}
-.btn.blue {background-color:#1e88e5;}
-.btn.blue:hover {background-color:#1669bb;}
-.flex {display:flex; flex-wrap:wrap; gap:2rem;}
-.flex > div {flex:1; min-width:280px;}
-.slider {position:relative; overflow:hidden; border-radius:10px; margin-top:1rem; border:1px solid #ddd;}
-.slide-container {display:flex; transition:transform 0.5s ease;}
-.slide {min-width:100%; padding:2rem; background:#f4f9f8;}
-.slider-buttons {text-align:center; margin-top:1rem;}
-.slider-buttons button {padding:0.5rem 1rem; margin:0 0.3rem; border:none; border-radius:6px; background:rgb(31,186,156); color:white; cursor:pointer;}
-.slider-buttons button.active {background:#004d40;}
-xtable {width:100%; border-collapse:collapse; margin-top:1rem;}
-th, td {border:1px solid #ddd; padding:0.75rem; text-align:left;}
-th {background:rgb(31,186,156); color:white;}
-canvas {max-width:100%; margin-top:1rem;}
+ /* Reset a font */
+ * { margin:0; padding:0; box-sizing:border-box; }
+ #msg_body { font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:#f8f9fa; color:#222; line-height:1.5; }
+ h1,h2,h3 { color: rgb(31,186,156); }
+ h1 { text-align:center; margin-bottom:1rem; font-size:2.5rem; }
+ h2 { font-size:2rem; margin-bottom:1rem; }
+ h3 { font-size:1.2rem; margin-bottom:0.5rem; }
+
+ main { max-width:1200px; margin:2rem auto; padding:0 1rem; display:flex; flex-direction:column; gap:2rem; }
+
+ /* Rámečky */
+ .card { background:#fff; border:1px solid #ddd; border-radius:10px; box-shadow:0 0 12px rgb(31 186 156 / 0.15); padding:2rem; display:flex; flex-direction:column; gap:1rem; }
+ .flex-row { display:flex; gap:2rem; flex-wrap:wrap; }
+ .flex-2 { flex:1 1 48%; }
+
+ /* Slider */
+ .slider { display:flex; overflow-x:auto; scroll-snap-type:x mandatory; gap:1rem; }
+ .slide { flex:0 0 300px; scroll-snap-align:start; background:#fff; border:1px solid #ddd; border-radius:10px; padding:1.5rem; box-shadow:0 0 10px rgb(31 186 156 / 0.1); }
+ .slide h3 { font-size:1.1rem; color:#1fba9c; }
+ .slide p { font-size:0.95rem; margin-top:0.5rem; }
+
+ /* CTA tlačítka */
+ .btn { background-color: rgb(31,186,156); color:white; padding:0.7rem 1.5rem; border:none; border-radius:6px; font-weight:700; text-decoration:none; display:inline-block; text-align:center; cursor:pointer; transition:0.3s; }
+ .btn:hover { background-color:#1eab91; }
+ .btn-blue { background-color:#1e88e5; }
+ .btn-blue:hover { background-color:#1565c0; }
+ .button-group { display:flex; gap:1rem; flex-wrap:wrap; }
+
+ /* Tabulky */
+ xtable { border-collapse: collapse; width:100%; }
+ table th, table td { padding:0.6rem 1rem; border-bottom:1px solid #ddd; text-align:left; }
+ table th { background-color: rgb(31,186,156); color:white; font-weight:600; }
+ table tbody tr:hover { background-color:#e0f2f1; }
+
+ /* Výhody interaktivní */
+ .advantage { display:flex; gap:1rem; align-items:flex-start; padding:1rem 0; border-bottom:1px solid #eee; cursor:pointer; transition:0.3s; }
+ .advantage:hover { background:#f1fdfb; }
+ .advantage-icon { font-size:2rem; color: rgb(31,186,156); min-width:50px; }
+ .advantage-content { flex:1; }
+
+ /* Slider scrollbar */
+ .slider::-webkit-scrollbar { height:8px; }
+ .slider::-webkit-scrollbar-thumb { background: rgb(31,186,156); border-radius:4px; }
+ .slider::-webkit-scrollbar-track { background:#eee; }
+
+ @media(max-width:768px) {
+   .flex-row { flex-direction:column; }
+   .flex-2 { flex:1 1 100%; }
+ }
 </style>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js" defer></script>
 </head>
 <body>
 <main>
-<section>
-<h1>Pitch Deck USDt.z</h1>
-<p>Vítejte v našem pitch decku! Zde najdete kompletní informace o tokenu USDt.z, obchodních možnostech, vzdělávání a marketingových strategiích.</p>
-</section>
+ <section class="card">
+   <h1>Pitch Deck USDt.z</h1>
+   <p>V této sekci představujeme obchodní a marketingovou strategii USDt.z. Zde zjistíte, jak token využít, možnosti spolupráce s bankami a nebankovním sektorem, školení a workshopy, a proč je USDt.z atraktivní pro investory.</p>
+   <div class="button-group">
+     <a href="/USDTz-Premium/pages/pitch.html" class="btn btn-blue">Otevřít Pitch Deck</a>
+     <a href="#" class="btn">Workshop</a>
+     <a href="#" class="btn">Marketing</a>
+     <a href="#" class="btn">Školení</a>
+     <a href="#" class="btn">Kupte token</a>
+   </div>
+ </section>
 
-<section>
-<h2>Bankovní a nebankovní spolupráce</h2>
-<div class="flex">
-<div>
-<h3>Bankovní sektor</h3>
-<p>Spolupracujeme s tradičními bankami, které umožňují držení a obchodování s tokenem USDt.z. Naši partneři zajišťují:</p>
-<ul>
-<li>Úvěrové produkty a půjčky</li>
-<li>Správu kolaterálních aktiv</li>
-<li>Transparentní a bezpečné transakce</li>
-<li>Fiat převody a integraci do platebních systémů</li>
-</ul>
-<p>Partner banky: Česká spořitelna, Komerční banka, Raiffeisen Bank.</p>
-</div>
-<div>
-<h3>Nebankovní sektor</h3>
-<p>Nabízíme přístup do decentralizovaných financí (DeFi) a flexibilní využití likvidity:</p>
-<ul>
-<li>Kolaterální tokeny pro půjčky</li>
-<li>Likviditu pro obchodní strategie</li>
-<li>Globální přístup a online obchodování</li>
-<li>Školení a podpora pro nové uživatele</li>
-</ul>
-</div>
-</div>
-</section>
+ 
+ <section class="card">
+   <h2>Workshopy a školení</h2>
+   <div class="slider">
+     <div class="slide">
+       <h3>Úvod do USDt.z</h3>
+       <p>Základní školení pro nové investory a uživatele tokenu.</p>
+     </div>
+     <div class="slide">
+       <h3>Kolaterální využití</h3>
+       <p>Naučte se, jak využívat USDt.z jako kolaterál a získat likviditu.</p>
+     </div>
+     <div class="slide">
+       <h3>Marketing a obchodní strategie</h3>
+       <p>Pro investory a partnery – jak maximalizovat návratnost.</p>
+     </div>
+     <div class="slide">
+       <h3>Budoucnost a inovace</h3>
+       <p>Nové produkty, decentralizované finance a globální trhy.</p>
+     </div>
+   </div>
+ </section>
 
-<section>
-<h2>Statistika a tabulky</h2>
-<div class="flex">
-<div>
-<h3>Objem trhu</h3>
-<p>Celkový objem tokenů USDt.z v oběhu: <strong>5 000 000 000 USDt.z</strong></p>
-<canvas id="marketVolumeChart" aria-label="Graf objemu trhu USDt.z" role="img"></canvas>
-</div>
-<div>
-<h3>Aktuální kurzy</h3>
-<table>
-<thead><tr><th>Měna</th><th>Kurz (USDt.z)</th></tr></thead>
-<tbody>
-<tr><td>USD</td><td>1.00</td></tr>
-<tr><td>EUR</td><td>0.92</td></tr>
-<tr><td>BTC</td><td>0.000033</td></tr>
-<tr><td>ETH</td><td>0.00063</td></tr>
-</tbody>
-</table>
-</div>
-</div>
-</section>
+ 
+ <section class="flex-row">
+   <div class="card flex-2">
+     <h2>Objem transakcí</h2>
+     <canvas id="volumeChart" aria-label="Graf objemu transakcí USDt.z" role="img"></canvas>
+   </div>
+   <div class="card flex-2">
+     <h2>Tržní kapitalizace a likvidita</h2>
+     <canvas id="marketChart" aria-label="Graf tržní kapitalizace a likvidity" role="img"></canvas>
+   </div>
+ </section>
 
-<section>
-<h2>Výhody pro investory</h2>
-<p>Investoři získávají:</p>
-<ul>
-<li>Přístup k high-tech tokenu stabilní hodnoty</li>
-<li>Možnost využít token jako kolaterál</li>
-<li>Školení a support při obchodování</li>
-<li>Transparentní reporting a analytiku</li>
-</ul>
-</section>
+ 
+ <section class="card">
+   <h2>Bankovní a nebankovní spolupráce</h2>
+   <div class="flex-row">
+     <div class="flex-2">
+       <h3>Bankovní sektor</h3>
+       <p>Spolupracujeme s předními bankami, které umožňují půjčky fiat měny s využitím USDt.z jako kolaterálu:</p>
+       <ul>
+         <li>Bank of Prague – půjčky a správa aktiv</li>
+         <li>FinanceCorp – kolaterální programy</li>
+         <li>EuroBank – integrace USDt.z do platebních systémů</li>
+       </ul>
+     </div>
+     <div class="flex-2">
+       <h3>Nebankovní sektor</h3>
+       <p>Uživatelé DeFi a nebankovních institucí mohou využít naši likviditu pro obchod, investice a získávání pasivního výnosu:</p>
+       <ul>
+         <li>Přístup k likviditě pro půjčky</li>
+         <li>Flexibilní obchodování s tokenem</li>
+         <li>Decentralizované aplikace (DApps)</li>
+       </ul>
+     </div>
+   </div>
+   <h3>Statistiky</h3>
+   <table>
+     <thead>
+       <tr><th>Ukazatel</th><th>Hodnota</th></tr>
+     </thead>
+     <tbody>
+       <tr><td>Celkový objem trhu</td><td>5 000 000 000 USDt.z</td></tr>
+       <tr><td>Aktivní uživatelé</td><td>7 500</td></tr>
+       <tr><td>Likvidita v DeFi</td><td>2 500 000 USDt.z</td></tr>
+       <tr><td>Bankovní partneři</td><td>3 hlavní banky</td></tr>
+     </tbody>
+   </table>
+ </section>
 
-<section>
-<h2>Pitch deck a marketing</h2>
-<p>Pro obchodní a marketingové materiály navštivte naši <a href="pages/pitch.html" class="btn blue">Pitch Deck</a>.</p>
-<div class="slider">
-<div class="slide-container" id="slides">
-<div class="slide">
-<h3>Workshop a školení</h3>
-<p>Nabízíme školení pro banky, firmy i jednotlivce. Naučíte se používat token, kolaterál a likviditu.</p>
-</div>
-<div class="slide">
-<h3>Marketingové strategie</h3>
-<p>Ukazujeme jak efektivně propagovat token, získávat investory a budovat komunitu.</p>
-</div>
-<div class="slide">
-<h3>Obchodní příležitosti</h3>
-<p>Uživatelé mohou tokeny nakupovat, využívat je jako kolaterál nebo obchodovat na našich partner platformách.</p>
-</div>
-</div>
-<div class="slider-buttons" id="sliderButtons"></div>
-</div>
-</section>
-
-<script>
-window.addEventListener('load', ()=>{
-// Market Volume Chart
-const ctx = document.getElementById('marketVolumeChart').getContext('2d');
-new Chart(ctx,{
-type:'bar',
-data:{labels:['Q1','Q2','Q3','Q4'],datasets:[{label:'Objem USDt.z (mil)',data:[1200,1500,1700,2000],backgroundColor:'rgba(31,186,156,0.7)'}]},
-options:{responsive:true,plugins:{legend:{display:false}}}
-});
-
-// Slider
-const slides=document.getElementById('slides');
-const buttons=document.getElementById('sliderButtons');
-const total=slides.children.length;
-let current=0;
-function showSlide(index){
-slides.style.transform=`translateX(-${index*100}%)`;
-for(let i=0;i<total;i++){buttons.children[i].classList.remove('active');}
-buttons.children[index].classList.add('active');
-}
-for(let i=0;i<total;i++){
-const btn=document.createElement('button');
-btn.textContent=i+1;
-btn.addEventListener('click',()=>{current=i; showSlide(current);});
-buttons.appendChild(btn);
-}
-showSlide(0);
-setInterval(()=>{current=(current+1)%total; showSlide(current);},5000);
-});
-</script>
+ 
+ <section class="card">
+   <h2>Výhody pro investory</h2>
+   <div class="advantage">
+     <div class="advantage-icon">💰</div>
+     <div class="advantage-content">
+       <h3>Stabilní zhodnocení</h3>
+       <p>Token USDt.z je navržen pro dlouhodobou stabilitu a minimalizaci rizik.</p>
+     </div>
+   </div>
+   <div class="advantage">
+     <div class="advantage-icon">📈</div>
+     <div class="advantage-content">
+       <h3>Přístup k likviditě</h3>
+       <p>Investoři mohou využívat USDt.z pro získání likvidity a financování projektů.</p>
+     </div>
+   </div>
+   <div class="advantage">
+     <div class="advantage-icon">🏦</div>
+     <div class="advantage-content">
+       <h3>Spolupráce s bankami</h3>
+       <p>Možnost využití tokenu pro kolaterál u našich bankovních partnerů.</p>
+     </div>
+   </div>
+   <div class="advantage">
+     <div class="advantage-icon">🌐</div>
+     <div class="advantage-content">
+       <h3>Nebankovní sektor</h3>
+       <p>Decentralizované finance a inovativní produkty pro retail a instituce.</p>
+     </div>
+   </div>
+ </section>
 
 </main>
+
+<script>
+ window.addEventListener('load', () => {
+   const ctxVolume = document.getElementById('volumeChart').getContext('2d');
+   new Chart(ctxVolume, {
+     type:'line',
+     data:{
+       labels:['Jan','Feb','Mar','Apr','May','Jun'],
+       datasets:[{
+         label:'Objem transakcí (mil USDt.z)',
+         data:[500,1200,2000,3500,4200,5000],
+         borderColor:'rgb(31,186,156)',
+         backgroundColor:'rgba(31,186,156,0.2)',
+         fill:true,
+         tension:0.3
+       }]
+     },
+     options:{ responsive:true, plugins:{legend:{position:'bottom'}}, scales:{y:{beginAtZero:true}} }
+   });
+
+   const ctxMarket = document.getElementById('marketChart').getContext('2d');
+   new Chart(ctxMarket,{
+     type:'bar',
+     data:{
+       labels:['Tržní kapitalizace','Likvidita'],
+       datasets:[{
+         label:'Hodnota v mil USDt.z',
+         data:[5000,2500],
+         backgroundColor:['rgb(33,150,243)','rgb(255,193,7)']
+       }]
+     },
+     options:{ responsive:true, plugins:{legend:{display:false}}, scales:{y:{beginAtZero:true}} }
+   });
+ });
+</script>
 </body>
 </html>
 
