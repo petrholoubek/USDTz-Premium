@@ -1,179 +1,215 @@
 <!DOCTYPE html>
-<html lang="cs">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Program | USDt.z</title>
-<link rel="stylesheet" href="../css/style.css">
-<style>
-#msg_body {
-   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-   margin: 0;
-   padding: 0;
-   background-color: #f9f9f9;
-}
-.navbar {
-   background-color: #1fba9c;
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-   padding: 1rem 2rem;
-   position: sticky;
-   top: 0;
-   z-index: 1000;
-}
-.navbar-logo img {
-   width: 150px;
-}
-.navbar-links a {
-   color: white;
-   text-decoration: none;
-   margin-left: 1.5rem;
-   font-weight: bold;
-}
-.navbar-links a:hover {
-   text-decoration: underline;
-}
-.section {
-   max-width: 1200px;
-   margin: 2rem auto;
-   padding: 2rem;
-   background-color: white;
-   box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-   border-radius: 8px;
-}
-.section h2 {
-   color: #1fba9c;
-}
-.section p {
-   line-height: 1.6;
-}
-.button-primary {
-   background-color: #1fba9c;
-   color: white;
-   padding: 0.8rem 1.5rem;
-   border: none;
-   border-radius: 5px;
-   cursor: pointer;
-   text-decoration: none;
-}
-.button-primary:hover {
-   background-color: #15917f;
-}
-</style>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>USDT.z Programs</title>
+   <link rel="stylesheet" href="../css/style.css">
+   <script src="../js/slider.js" defer></script>
 </head>
 <body>
 
-
 <nav class="navbar">
-   <a href="index.html" class="navbar-logo">
-       <img src="../img/logo_white.png" alt="USDt.z Logo">
-   </a>
-   <div class="navbar-links">
-       <a href="program.html">Program</a>
-       <a href="pitch.html">Pitch Deck</a>
-       <a href="usecases.html">Use Cases</a>
-       <a href="contact.html">Kontakt</a>
+   <div class="container navbar-container">
+       <a href="index_en.html" class="logo"><img src="../img/logo_white.png" alt="USDT.z Logo"></a>
+       <ul class="nav-links">
+           <li><a href="programs_en.html" class="active">Programs</a></li>
+           <li><a href="pitch_en.html">Pitch Deck</a></li>
+           <li><a href="contact_en.html">Contact</a></li>
+       </ul>
+       <div class="nav-toggle"><span></span></div>
    </div>
 </nav>
 
 
-<section class="section">
-   <h2>Bankovní sektor</h2>
-   <p>V této sekci představujeme naše produkty a programy pro banky. Naším cílem je ukázat, jak USDt.z poskytuje stabilitu, likviditu a přístup k moderním digitálním finančním nástrojům. Celková hodnota likvidity přesahuje 5 bilionů USD, což zajišťuje bezpečné a efektivní transakce.</p>
-   <p>Program zahrnuje školení, workshopy a praktické příklady obchodních operací, aby bankovní profesionálové mohli implementovat naše řešení rychle a efektivně.</p>
-   <a href="pitch.html" class="button-primary">Pitch Deck</a>
-</section>
-
-
-<section class="section">
-   <h2>Nebankovní sektor</h2>
-   <p>Pro nebankovní instituce nabízíme flexibilní přístup k tokenizovaným aktivům, půjčkám a likviditě. Zajišťujeme bezpečné a transparentní procesy, které umožňují rychlý růst a adaptaci na nové tržní podmínky.</p>
-   <p>Součástí programu jsou školení zaměřená na řízení rizik, obchodní strategie a moderní finanční technologie.</p>
-</section>
-
-
-<section class="section">
-   <h2>Výhody programu</h2>
-   <ul>
-       <li>Vysoká likvidita a stabilita tokenu USDt.z</li>
-       <li>Školení a workshopy pro bankovní i nebankovní sektor</li>
-       <li>Interaktivní grafy a přehledy tržní hodnoty</li>
-       <li>Technologicky propracované řešení pro next generation finance</li>
-   </ul>
-</section>
-
-<section class="section">
-   <h2>Likvidita a tržní kapitál</h2>
-   <p>USDt.z poskytuje vysokou likviditu s objemem transakcí přes 5 bilionů USD, což umožňuje spolehlivé obchodování a rychlý obrat kapitálu.</p>
-   <canvas id="liquidityChart" width="400" height="200"></canvas>
-   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-   <script>
-       const ctx = document.getElementById('liquidityChart').getContext('2d');
-       const liquidityChart = new Chart(ctx, {
-           type: 'bar',
-           data: {
-               labels: ['Q1', 'Q2', 'Q3', 'Q4'],
-               datasets: [{
-                   label: 'Likvidita (v miliardách USD)',
-                   data: [1200, 1500, 1800, 2100],
-                   backgroundColor: '#1fba9c'
-               }]
-           },
-           options: {
-               responsive: true,
-               plugins: {
-                   legend: { display: false },
-                   title: {
-                       display: true,
-                       text: 'Vývoj likvidity USDt.z v jednotlivých čtvrtletích'
-                   }
-               }
-           }
-       });
-   </script>
-</section>
-
-
-<section class="section">
-   <h2>Školení a workshopy</h2>
-   <p>Náš program nabízí praktická školení a interaktivní workshopy, které připraví vaše zaměstnance na obchodování s digitálními aktivy a správu likvidity. Každý workshop je veden odborníky z finančního sektoru.</p>
-   <ul>
-       <li>Interaktivní simulace obchodních operací</li>
-       <li>Analýza tržních dat a predikce</li>
-       <li>Řízení rizik a compliance</li>
-       <li>Přehled technologických trendů a inovací</li>
-   </ul>
-</section>
-
-
-<section class="section">
-   <h2>Budoucí generace finančních řešení</h2>
-   <p>Naše řešení představuje next generation finance: propojení bankovního a nebankovního sektoru, vysoká transparentnost a snadná integrace s moderními technologiemi.</p>
-   <p>Využití tokenu USDt.z umožňuje rychlé, bezpečné a efektivní transakce, které podporují inovace a růst podnikání.</p>
-</section>
-
-<section class="section">
-   <h2>Prozkoumej USDt.z</h2>
-   <p>Seznamte se s tokenem USDt.z, jeho využitím v obchodních strategiích a možnostmi, které poskytuje pro bankovní i nebankovní sektor. Token zajišťuje stabilitu, likviditu a snadnou integraci do obchodních modelů.</p>
-   <a href="pages/pitch_en.html" class="btn btn-primary">Pitch Deck</a>
-</section>
-
-
-<footer class="footer">
-   <div class="footer-content">
-       <a href="index_en.html"><img src="img/logo_white.png" alt="Logo" class="footer-logo"></a>
-       <nav class="footer-nav">
-           <ul>
-               <li><a href="program.html">Program</a></li>
-               <li><a href="pages/usecases_en.html">Use Cases</a></li>
-               <li><a href="pages/pitch_en.html">Pitch Deck</a></li>
-               <li><a href="pages/contact_en.html">Contact</a></li>
-           </ul>
-       </nav>
+<section class="hero">
+   <div class="container hero-container">
+       <h1>High-Yield Programs for Next Generation Banking</h1>
+       <p>Explore our advanced programs, liquidity insights, and innovative financial tools designed to empower the modern market.</p>
+       <a href="pitch_en.html" class="btn btn-primary">Pitch Deck</a>
    </div>
-   <p class="footer-copy">&copy; 2025 USDt.z – All rights reserved.</p>
-</footer>
+</section>
 
-</body>
+
+<section class="programs">
+   <div class="container">
+       <h2>Our Programs</h2>
+       <div class="program-grid">
+           
+           <div class="program-card">
+               <h3>Banking Sector Insights</h3>
+               <p>Gain deep knowledge of modern banking, liquidity management, and high-value financial operations. Our program provides practical workshops and simulations to master the market.</p>
+               <ul>
+                   <li>Workshops on liquidity strategies</li>
+                   <li>Market capitalization analysis</li>
+                   <li>Risk management and compliance</li>
+               </ul>
+               <div class="program-graph">
+                   <img src="../img/graphs/banking_sector.png" alt="Banking Sector Graph">
+               </div>
+           </div>
+
+           
+           <div class="program-card">
+               <h3>Non-Banking Sector</h3>
+               <p>Explore investment opportunities, decentralized finance, and digital asset management outside traditional banking. Learn to maximize ROI with modern tech solutions.</p>
+               <ul>
+                   <li>DeFi protocols and tokenomics</li>
+                   <li>High-yield investment programs</li>
+                   <li>Workshops on trading strategies</li>
+               </ul>
+               <div class="program-graph">
+                   <img src="../img/graphs/non_banking_sector.png" alt="Non-Banking Sector Graph">
+               </div>
+           </div>
+
+           
+           <div class="program-card">
+               <h3>Educational Workshops</h3>
+               <p>Hands-on training for traders and financial analysts. Covering strategy, risk, and market dynamics to prepare the next generation of experts.</p>
+               <ul>
+                   <li>Practical trading simulations</li>
+                   <li>Market research exercises</li>
+                   <li>Interactive case studies</li>
+               </ul>
+           </div>
+           
+           <div class="program-card">
+               <h3>High-Yield Programs (HYP)</h3>
+               <p>Exclusive courses focusing on high-return strategies and portfolio optimization. Perfect for investors seeking measurable results.</p>
+               <ul>
+                   <li>HYP calculation methods</li>
+                   <li>Advanced portfolio management</li>
+                   <li>Simulation of high-yield investments</li>
+               </ul>
+           </div>
+
+           
+           <div class="program-card">
+               <h3>Marketing & Sales Mastery</h3>
+               <p>Learn effective marketing techniques for financial products. Includes workshops, webinars, and real-world case studies.</p>
+               <ul>
+                   <li>Digital marketing campaigns</li>
+                   <li>Customer acquisition strategies</li>
+                   <li>Workshop: Selling high-value financial solutions</li>
+               </ul>
+           </div>
+
+           
+           <div class="slider-section">
+               <h3>Explore Interactive Scenarios</h3>
+               <p>Use the slider to visualize market dynamics, liquidity flows, and token performance over time.</p>
+               <div class="slider-container">
+                   <input type="range" min="0" max="100" value="50" class="slider" id="marketSlider">
+                   <p>Market Simulation: <span id="sliderValue">50</span>%</p>
+               </div>
+           </div>
+
+           <script>
+               const slider = document.getElementById("marketSlider");
+               const output = document.getElementById("sliderValue");
+               slider.oninput = function() {
+                   output.innerText = this.value;
+               }
+           </script>
+           
+           <div class="calculations-section">
+               <h3>Liquidity & Market Metrics</h3>
+               <p>Explore our token liquidity, market capitalization, and trading volumes with detailed calculations.</p>
+               <table class="metrics-table">
+                   <thead>
+                       <tr>
+                           <th>Metric</th>
+                           <th>Value</th>
+                           <th>Notes</th>
+                       </tr>
+                   </thead>
+                   <tbody>
+                       <tr>
+                           <td>Total Liquidity</td>
+                           <td>$5,000,000,000</td>
+                           <td>Across all exchanges</td>
+                       </tr>
+                       <tr>
+                           <td>Market Cap</td>
+                           <td>$769,080,000</td>
+                           <td>Token market value</td>
+                       </tr>
+                       <tr>
+                           <td>24h Volume</td>
+                           <td>$120,500,000</td>
+                           <td>Recent trading activity</td>
+                       </tr>
+                   </tbody>
+               </table>
+           </div>
+
+           
+           <div class="graph-section">
+               <h3>Token Performance Overview</h3>
+               <canvas id="tokenGraph" width="600" height="300"></canvas>
+           </div>
+
+           <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+           <script>
+               const ctx = document.getElementById('tokenGraph').getContext('2d');
+               const tokenGraph = new Chart(ctx, {
+                   type: 'line',
+                   data: {
+                       labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                       datasets: [{
+                           label: 'USDt.z Price',
+                           data: [0.15, 0.18, 0.16, 0.20, 0.22, 0.21],
+                           borderColor: 'rgb(31,186,156)',
+                           fill: false,
+                           tension: 0.1
+                       }]
+                   },
+                   options: {
+                       responsive: true,
+                       plugins: {
+                           legend: { display: true },
+                           tooltip: { enabled: true }
+                       }
+                   }
+               });
+           </script>
+
+           
+           <div class="workshop-section">
+               <h3>Workshops & Training</h3>
+               <p>Participate in interactive sessions focused on trading strategies, marketing, and liquidity management.</p>
+               <ul>
+                   <li>Advanced trading simulations</li>
+                   <li>Marketing & token promotion workshops</li>
+                   <li>Risk assessment exercises</li>
+               </ul>
+           </div>
+           
+           <div class="explore-token-section">
+               <h3>Explore Our Token</h3>
+               <p>Dive deeper into USDt.z tokenomics, market potential, and next-generation banking applications.</p>
+               <a href="pitch.html" class="btn btn-primary">Pitch Deck</a>
+           </div>
+
+       </div>
+
+       
+       <footer class="site-footer">
+           <div class="footer-content">
+               <a href="index_en.html">
+                   <img src="../img/logo_white.png" alt="USDt.z Logo" class="footer-logo">
+               </a>
+               <p>&copy; 2025 USDt.z. All Rights Reserved.</p>
+               <div class="footer-links">
+                   <a href="programs.html">Programs</a> |
+                   <a href="pitch.html">Pitch Deck</a> |
+                   <a href="contact.html">Contact</a>
+               </div>
+           </div>
+       </footer>
+
+       
+       <script src="../js/main.js"></script>
+   </body>
 </html>
