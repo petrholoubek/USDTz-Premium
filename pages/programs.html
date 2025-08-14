@@ -1,259 +1,396 @@
 <!DOCTYPE html>
-<html lang="cs">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Program</title>
-<link rel="stylesheet" href="styles.css">
-<link rel="stylesheet" href="slider.css">
-<script src="slider.js" defer></script>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Programs & Collaboration – USDt.z</title>
 <style>
- #msg_body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin:0; padding:0; }
- .nav { background-color: #1FBA9C; padding: 1rem 2rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; }
- .nav a { color:white; text-decoration:none; margin:0 1rem; font-weight:bold; }
- .nav-logo { height:40px; }
- .container { max-width:1200px; margin:2rem auto; padding:0 1rem; }
- .section { background-color:#f5f5f5; margin-bottom:2rem; padding:2rem; border-radius:10px; }
- .section h2 { color:#1FBA9C; margin-bottom:1rem; }
- .btn { background-color:#007BFF; color:white; padding:0.75rem 1.5rem; border:none; border-radius:5px; text-decoration:none; display:inline-block; margin-top:1rem; }
+/* Reset + základ */
+*{margin:0;padding:0;box-sizing:border-box}
+#msg_body {font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;background:#fff;color:#222;min-height:100vh;display:flex;flex-direction:column}
+
+/* Header / NAV */
+header{background:rgb(31,186,156);box-shadow:0 2px 5px rgba(0,0,0,.1);position:sticky;top:0;z-index:1100}
+nav{max-width:1200px;margin:0 auto;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap}
+.logo img{height:40px;cursor:pointer;filter:drop-shadow(0 0 5px rgba(0,0,0,.15))}
+ul.menu{list-style:none;display:flex;gap:1.5rem;align-items:center}
+ul.menu li a{color:#fff;font-weight:600;font-size:1rem;text-decoration:none;transition:color .3s ease;display:flex;align-items:center;gap:.3rem}
+ul.menu li a:hover,.menu li a.active{color:#004d40;font-weight:700}
+img.flag{width:24px;height:16px;object-fit:cover;border-radius:3px;border:1px solid rgba(255,255,255,.6)}
+#menu-toggle{display:none}
+label[for="menu-toggle"]{display:none;cursor:pointer;width:30px;height:25px;flex-direction:column;justify-content:space-between}
+label[for="menu-toggle"] span{display:block;height:3px;background:#fff;border-radius:2px}
+
+/* Responsive NAV */
+@media (max-width:768px){
+ label[for="menu-toggle"]{display:flex}
+ ul.menu{display:none;flex-direction:column;width:100%;margin-top:1rem;gap:1rem;background:rgb(31,186,156);border-radius:8px;padding:1rem 2rem}
+ ul.menu li{width:100%}
+ ul.menu li a{display:block;width:100%;font-size:1.1rem;padding:.5rem 0}
+ #menu-toggle:checked + label + ul.menu{display:flex}
+}
+
+/* Layout + rámečky */
+main{flex:1;max-width:1200px;margin:2rem auto 3rem;padding:0 1rem}
+.content-box{background:#fff;border:1px solid #ddd;border-radius:10px;box-shadow:0 0 12px rgb(31 186 156 / .15);padding:2rem 2.5rem;margin-bottom:2.5rem}
+h1,h2{color:rgb(31,186,156);margin-bottom:1rem}
+h1{font-size:2.5rem;text-align:center;margin-bottom:1.2rem}
+h2{font-size:2rem}
+p{font-size:1rem;line-height:1.6;margin-bottom:1rem}
+
+/* Grid helpers */
+.grid{display:grid;gap:1.2rem}
+.grid-3{grid-template-columns:repeat(3,1fr)}
+.grid-2{grid-template-columns:repeat(2,1fr)}
+@media (max-width:960px){.grid-3,.grid-2{grid-template-columns:1fr}}
+
+/* KPI karty */
+.kpi{border:1px solid #e7e7e7;border-radius:10px;padding:1rem 1.2rem;box-shadow:0 0 10px rgb(31 186 156 / .10)}
+.kpi .num{font-size:1.8rem;font-weight:800;color:rgb(31,186,156)}
+.kpi .label{font-weight:600;color:#333}
+
+/* Slider */
+.slider{position:relative;overflow:hidden;border-radius:10px;border:1px solid #ddd}
+.slides{display:flex;transition:transform .5s ease}
+.slide{min-width:100%;padding:1.5rem}
+.slide h3{color:rgb(31,186,156);margin-bottom:.6rem}
+.slider-btn{position:absolute;top:50%;transform:translateY(-50%);background:#fff;border:1px solid #ddd;border-radius:50%;width:38px;height:38px;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.slider-btn.prev{left:10px}
+.slider-btn.next{right:10px}
+
+/* Tabulky */
+xtable {border-collapse:collapse;width:100%}
+th,td{padding:.75rem 1rem;border-bottom:1px solid #eee;text-align:left}
+th{background:rgb(31,186,156);color:#fff}
+tbody tr:hover{background:#e8faf6}
+
+/* Karty programů */
+.card{border:1px solid #e7e7e7;border-radius:10px;padding:1.2rem;box-shadow:0 0 10px rgb(31 186 156 / .10)}
+.card h3{color:rgb(31,186,156);margin-bottom:.4rem}
+
+/* Tlačítka */
+.btn{background:rgb(31,186,156);color:#fff;padding:.8rem 1.2rem;border:none;border-radius:6px;font-weight:700;text-decoration:none;display:inline-block;cursor:pointer;transition:transform .05s ease,opacity .2s ease}
+.btn:hover{opacity:.9}
+.btn:active{transform:scale(.98)}
+.btn.secondary{background:#1e88e5}
+.btn.dark{background:#0f766e}
+
+/* Spodní rámeček – beze změn designu */
+#bottom-box{max-width:900px;margin:0 auto 2.5rem;background:#fff;border:1px solid #ddd;border-radius:10px;box-shadow:0 0 12px rgb(31 186 156 / .15);padding:1rem 2rem;display:flex;align-items:center;gap:1.5rem;justify-content:space-between}
+#bottom-box .logo{flex-shrink:0}
+#bottom-box .logo img{height:40px}
+#bottom-box .text{flex:1;font-weight:600;color:rgb(31,186,156);font-size:1.1rem}
+#bottom-box .btn-group{display:flex;gap:1rem}
+#bottom-box .btn-group a{padding:.5rem 1.2rem;border-radius:6px;font-weight:700;text-decoration:none;display:inline-block;cursor:pointer;color:#fff;transition:background-color .3s ease;white-space:nowrap}
+#bottom-box .btn-bsc{background:#f0b90b}
+#bottom-box .btn-bsc:hover{background:#d9a200}
+#bottom-box .btn-gecko{background:#1e88e5}
+#bottom-box .btn-gecko:hover{background:#1669bb}
+@media (max-width:960px){
+ #bottom-box{flex-direction:column;gap:1rem;text-align:center}
+ #bottom-box .btn-group{justify-content:center;width:100%}
+}
+
+/* Footer */
+footer{text-align:center;padding:1rem 2rem;background:#f0f0f0;font-size:.9rem;color:#555}
 </style>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" />
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js" defer></script>
 </head>
 <body>
 
-
-<nav class="nav">
- <a href="index.html"><img src="img/logo_white.png" alt="Logo" class="nav-logo"></a>
- <div>
-   <a href="program.html">Program</a>
-   <a href="pitch.html">Pitch Deck</a>
-   <a href="about.html">O nás</a>
-   <a href="contact.html">Kontakt</a>
- </div>
-</nav>
-
-<div class="container">
-
-
-<section class="section">
- <h2>Úvod do programu</h2>
- <p>Tento program je navržen pro obchodníky a investory, kteří chtějí porozumět tržní ekonomice, obchodním strategiím a využití našeho tokenu. Obsahuje školení, workshopy a praktické příklady, aby účastníci získali reálné dovednosti.</p>
- <a href="pitch.html" class="btn">Pitch Deck</a>
-</section>
-
-
-<section class="section">
- <h2>Bankovní sektor</h2>
- <p>Prozkoumáme hlavní finanční instituty, jejich likviditu a tržní kapitalizaci. Program zahrnuje grafy s přehledem likvidity v bilionech USD a ukázky investičních příležitostí.</p>
- <img src="img/graph_banking.png" alt="Graf bankovní sektor" style="width:100%; margin-top:1rem; border-radius:10px;">
-</section>
-
-<section class="section">
- <h2>Nebankovní sektor</h2>
- <p>Analyzujeme hlavní nebankovní finanční instituce, fondy a platformy pro decentralizované finance (DeFi). Grafy ukazují objemy likvidity, tržní kapitalizaci a potenciální růstové příležitosti.</p>
- <img src="img/graph_defi.png" alt="Graf nebankovní sektor" style="width:100%; margin-top:1rem; border-radius:10px;">
-</section>
-
-
-<section class="section">
- <h2>Vysokovýnosové programy (HYP)</h2>
- <p>Tyto programy jsou určeny pro pokročilé investory hledající maximální návratnost. Obsahují detailní školení, simulace obchodních strategií a praktické workshopy, kde si účastníci osvojí moderní investiční metody.</p>
- <ul>
-   <li>Simulace tržních scénářů</li>
-   <li>Rizikové a výnosové modelování</li>
-   <li>Pokročilé obchodní strategie</li>
- </ul>
- <img src="img/graph_hyp.png" alt="Graf HYP" style="width:100%; margin-top:1rem; border-radius:10px;">
-</section>
-
-
-<section class="section">
- <h2>Marketing a obchodní dovednosti</h2>
- <p>Hlavní nosná část programu – marketingové strategie, budování značky a obchodní dovednosti. Účastníci se naučí, jak efektivně propagovat produkty, analyzovat trhy a zvyšovat konverze.</p>
- <img src="img/graph_marketing.png" alt="Graf marketing" style="width:100%; margin-top:1rem; border-radius:10px;">
-</section>
-
-<section class="section">
- <h2>Výkonnost a statistiky</h2>
- <p>Tato tabulka zobrazuje klíčové ukazatele bankovního a nebankovního sektoru. Hodnoty lze filtrovat a řadit podle objemu, návratnosti a rizika.</p>
- <table class="interactive-table" style="width:100%; border-collapse: collapse; margin-top:1rem;">
-   <thead>
-     <tr>
-       <th>Program</th>
-       <th>Kapitalizace (USD)</th>
-       <th>ROI</th>
-       <th>Riziko</th>
-     </tr>
-   </thead>
-   <tbody>
-     <tr>
-       <td>Bankovní sektor A</td>
-       <td>5,000,000,000</td>
-       <td>8%</td>
-       <td>Střední</td>
-     </tr>
-     <tr>
-       <td>Nebankovní sektor B</td>
-       <td>3,200,000,000</td>
-       <td>12%</td>
-       <td>Vysoké</td>
-     </tr>
-     <tr>
-       <td>HYP Program</td>
-       <td>1,500,000,000</td>
-       <td>25%</td>
-       <td>Vysoké</td>
-     </tr>
-   </tbody>
- </table>
-</section>
-
-
-<section class="section">
- <h2>Budoucí generace</h2>
- <p>Slider prezentuje projekty, inovace a nadcházející produkty. Uživatel může posouvat jednotlivé karty a získat detailní přehled o nových příležitostech.</p>
- <div class="slider" style="display:flex; overflow-x:auto; gap:1rem; padding:1rem 0;">
-   <div class="slide-card" style="min-width:300px; border-radius:10px; background:#f2f2f2; padding:1rem;">
-     <h3>Projekt A</h3>
-     <p>Inovativní fintech platforma pro správu likvidity.</p>
-   </div>
-   <div class="slide-card" style="min-width:300px; border-radius:10px; background:#f2f2f2; padding:1rem;">
-     <h3>Projekt B</h3>
-     <p>Decentralizovaný finanční nástroj pro investory.</p>
-   </div>
-   <div class="slide-card" style="min-width:300px; border-radius:10px; background:#f2f2f2; padding:1rem;">
-     <h3>Projekt C</h3>
-     <p>Pokročilé modely rizikového řízení pro HYP.</p>
-   </div>
- </div>
-</section>
-
-
-<section class="section">
- <h2>Prozkoumejte token</h2>
- <p>Připojte se k programu a získejte přístup k podrobným analýzám a exkluzivním školením.</p>
- <a href="pages/pitch_en.html" class="cta-button" style="display:inline-block; padding:1rem 2rem; background:#1fba9c; color:white; border-radius:10px; text-decoration:none; margin-top:1rem;">Pitch Deck</a>
-</section>
-
-<footer style="background:#1f2e4a; color:white; padding:2rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap;">
- 
- <div class="footer-logo">
-   <a href="index_en.html">
-     <img src="../img/logo_white.png" alt="USDT.z Logo" style="height:50px;">
+<header>
+ <nav>
+   <a href="../index_en.html" class="logo" aria-label="Go to homepage">
+     <img src="../img/flags/logo-white.png" alt="USDt.z Logo">
    </a>
- </div>
 
- 
- <nav class="footer-nav" style="display:flex; gap:2rem; flex-wrap:wrap;">
-   <a href="programs_en.html" style="color:white; text-decoration:none;">Programs</a>
-   <a href="pitch_en.html" style="color:white; text-decoration:none;">Pitch Deck</a>
-   <a href="about_en.html" style="color:white; text-decoration:none;">About</a>
-   <a href="contact_en.html" style="color:white; text-decoration:none;">Contact</a>
+   <input type="checkbox" id="menu-toggle">
+   <label for="menu-toggle" aria-label="Open menu">
+     <span></span><span></span><span></span>
+   </label>
+
+   <ul class="menu" role="menubar" aria-label="Main navigation">
+     <li><a href="../index_en.html">Home</a></li>
+     <li><a href="about_en.html">About</a></li>
+     <li><a class="active" href="programs_en.html">Programs</a></li>
+     <li><a href="usecases_en.html">Use Cases</a></li>
+     <li><a href="docs_en.html">Documentation</a></li>
+     <li><a href="contact_en.html">Contact</a></li>
+     <li>
+       <a href="../index.html" title="Czech" aria-label="Czech version">
+         <img class="flag" src="../img/flags/cz.png" alt="Czech">
+       </a>
+     </li>
+     <li>
+       <a href="../index_en.html" title="English" aria-label="English version">
+         <img class="flag" src="../img/flags/en.png" alt="English">
+       </a>
+     </li>
+   </ul>
  </nav>
+</header>
+
+<main>
+ 
+ <section class="content-box">
+   <h1>Programs, Partnerships & Training</h1>
+   <p style="text-align:center;max-width:760px;margin:0 auto 1rem;">
+     Build with the next-generation stablecoin. From <strong>regulated banking integrations</strong> to <strong>DeFi rails</strong>,
+     our programs help institutions and innovators launch <em>faster, safer</em>, and at scale.
+   </p>
+   <div class="grid grid-3" style="margin-top:1rem;">
+     <div class="kpi">
+       <div class="num">$5B+</div>
+       <div class="label">Targeted Ecosystem Liquidity</div>
+       <p>Phased across core pools & market makers to ensure depth and tight spreads.</p>
+     </div>
+     <div class="kpi">
+       <div class="num">60+ ms</div>
+       <div class="label">Settlement Latency</div>
+       <p>Near-real-time finality via optimized BSC paths and bridging queues.</p>
+     </div>
+     <div class="kpi">
+       <div class="num">99.98%</div>
+       <div class="label">Historical Uptime</div>
+       <p>Redundant infra, monitored oracles, automated circuit-breakers.</p>
+     </div>
+   </div>
+ </section>
 
  
- <div class="footer-flags" style="display:flex; gap:0.5rem;">
-   <a href="../programs.html"><img src="../img/flags/cz.png" alt="CZ" style="height:30px;"></a>
-   <a href="../programs_en.html"><img src="../img/flags/uk.png" alt="EN" style="height:30px;"></a>
- </div>
+ <section class="content-box">
+   <div class="slider" id="programSlider" aria-label="Programs slider">
+     <button class="slider-btn prev" aria-label="Previous slide" id="slidePrev">&#10094;</button>
+     <div class="slides" id="slides">
+       <div class="slide">
+         <h3>Institutional Onboarding</h3>
+         <p>KYB flows, custody integrations, segregated treasuries, audit-ready reporting.</p>
+         <ul>
+           <li>API keys with role-based access</li>
+           <li>Cold / warm wallet policies</li>
+           <li>Daily reconciliation exports (CSV/JSON)</li>
+         </ul>
+       </div>
+       <div class="slide">
+         <h3>DeFi Liquidity Programs</h3>
+         <p>Bootstrapping pools with programmatic incentives and dynamic fee curves.</p>
+         <ul>
+           <li>Alpha & Beta pools with safeguards</li>
+           <li>MM rebates & inventory lending</li>
+           <li>Real-time slippage guardrails</li>
+         </ul>
+       </div>
+       <div class="slide">
+         <h3>Education & Workshops</h3>
+         <p>Executive briefings, risk frameworks, hands-on tokenization labs.</p>
+         <ul>
+           <li>Compliance & reporting templates</li>
+           <li>Smart-contract walkthroughs</li>
+           <li>Operational playbooks</li>
+         </ul>
+       </div>
+     </div>
+     <button class="slider-btn next" aria-label="Next slide" id="slideNext">&#10095;</button>
+   </div>
+ </section>
+
+ 
+ <section class="content-box">
+   <h2>Banking Programs</h2>
+   <div class="grid grid-2" style="align-items:start">
+     <div>
+       <p><strong>Connect core banking</strong> with token settlement: AML hooks, reserve attestations, and compliant rails.</p>
+       <table aria-label="Banking integrations">
+         <thead><tr><th>Module</th><th>Status</th><th>SLA</th></tr></thead>
+         <tbody>
+           <tr><td>Reserve Attestation</td><td>Live</td><td>Daily</td></tr>
+           <tr><td>Fiat On/Off-Ramp</td><td>Pilot</td><td>T+0</td></tr>
+           <tr><td>Treasury Segregation</td><td>Live</td><td>24/7</td></tr>
+           <tr><td>Ledger Exports</td><td>Live</td><td>Hourly</td></tr>
+         </tbody>
+       </table>
+       <p style="margin-top:.8rem">Outcome: <em>lower op-risk, faster close, automated proofs.</em></p>
+     </div>
+     <div>
+       <canvas id="bankingChart" width="520" height="300" aria-label="Bank liquidity chart" role="img"></canvas>
+       <p style="font-size:.9rem;color:#555">Projected bank-rail liquidity vs. settlement throughput (weekly).</p>
+     </div>
+   </div>
+ </section>
+
+ 
+ <section class="content-box">
+   <h2>Non-Banking & DeFi Programs</h2>
+   <div class="grid grid-2" style="align-items:start">
+     <div>
+       <p><strong>Plug-and-play DeFi</strong>: audited routers, oracle triads, and circuit-breaker swaps.</p>
+       <table aria-label="DeFi pools">
+         <thead><tr><th>Pool</th><th>Target Depth</th><th>Fee</th></tr></thead>
+         <tbody>
+           <tr><td>USDt.z / BNB</td><td>$1.5B</td><td>0.20%</td></tr>
+           <tr><td>USDt.z / USD</td><td>$1.2B</td><td>0.05%</td></tr>
+           <tr><td>USDt.z / EUR</td><td>$900M</td><td>0.10%</td></tr>
+           <tr><td>USDt.z / CZK</td><td>$300M</td><td>0.15%</td></tr>
+         </tbody>
+       </table>
+       <p style="margin-top:.8rem">Guarded launches, real-time alerts, rollover incentives.</p>
+     </div>
+     <div>
+       <canvas id="defiChart" width="520" height="300" aria-label="DeFi depth chart" role="img"></canvas>
+       <p style="font-size:.9rem;color:#555">Depth accumulation & TVL stabilization across core pairs (monthly).</p>
+     </div>
+   </div>
+ </section>
+
+ 
+ <section class="content-box">
+   <h2>Workshops, Training & Offers</h2>
+   <div class="grid grid-3">
+     <div class="card">
+       <h3>Executive Briefing</h3>
+       <p>60-minute C-level session: risk, compliance, and tokenized settlement strategy.</p>
+       <a class="btn" href="contact_en.html">Book Session</a>
+     </div>
+     <div class="card">
+       <h3>Developer Lab</h3>
+       <p>Hands-on smart-contract & API lab. Build, test, ship with guardrails.</p>
+       <a class="btn secondary" href="docs_en.html">Get Docs</a>
+     </div>
+     <div class="card">
+       <h3>Liquidity Design</h3>
+       <p>Pool topology, fee bands, inventory lending, market-maker SLAs.</p>
+       <a class="btn dark" href="usecases_en.html">Explore Use Cases</a>
+     </div>
+   </div>
+
+   <div style="margin-top:1.2rem;display:flex;gap:.8rem;flex-wrap:wrap">
+     <a class="btn secondary" href="/USDTz-Premium/pages/pitch_en.html">Pitch Deck</a>
+     <a class="btn" href="programs_en.html">Programs Overview</a>
+     <a class="btn dark" href="about_en.html">About the Token</a>
+     <a class="btn" href="docs_en.html">Compliance & Docs</a>
+   </div>
+ </section>
+
+ 
+ <section class="content-box">
+   <h2>Liquidity Roadmap</h2>
+   <p>Phased deployment towards a combined ecosystem target of <strong>$5B+</strong> across banking rails and DeFi pools.</p>
+   <canvas id="roadmapChart" width="900" height="320" aria-label="Liquidity roadmap chart" role="img"></canvas>
+ </section>
+
+ 
+ <section id="bottom-box" role="contentinfo" aria-label="Explore the USDt.z token">
+   <div class="logo">
+     <img src="../img/flags/logo.png" alt="USDt.z Logo">
+   </div>
+   <div class="text">Explore the USDt.z token on BscScan and GeckoTerminal</div>
+   <div class="btn-group">
+     <a class="btn-bsc" href="https://bscscan.com/token/0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" target="_blank" rel="noopener">BscScan</a>
+     <a class="btn-gecko" href="https://www.geckoterminal.com/bsc/pools/0x553b402b3d6f91ea2208c7df61a6d4aa96ccb6191787c20fedb7ae6c9823b280" target="_blank" rel="noopener">GeckoTerminal</a>
+   </div>
+ </section>
+</main>
+
+<footer>
+ &copy; 2025 USDt.z – Next Generation Stablecoin. All rights reserved.
 </footer>
 
+<script>
+/* Slider */
+(function(){
+ const slides = document.getElementById('slides');
+ const prev = document.getElementById('slidePrev');
+ const next = document.getElementById('slideNext');
+ let idx = 0;
+ const max = slides.children.length;
 
+ function go(i){
+   idx = (i + max) % max;
+   slides.style.transform = 'translateX(' + (-idx*100) + '%)';
+ }
+ prev.addEventListener('click', ()=>go(idx-1));
+ next.addEventListener('click', ()=>go(idx+1));
+ setInterval(()=>go(idx+1), 7000);
+})();
+
+/* Charts */
+document.addEventListener('DOMContentLoaded', () => {
+ // Banking chart
+ const bctx = document.getElementById('bankingChart').getContext('2d');
+ new Chart(bctx, {
+   type: 'line',
+   data: {
+     labels: ['W1','W2','W3','W4','W5','W6','W7','W8'],
+     datasets: [
+       {
+         label: 'Bank Liquidity ($B)',
+         data: [0.3,0.6,0.9,1.2,1.6,2.0,2.4,2.8],
+         borderColor: 'rgb(31,186,156)',
+         backgroundColor: 'rgba(31,186,156,.2)',
+         fill: true,
+         tension: .3
+       },
+       {
+         label: 'Settlements (k tx)',
+         data: [40,60,80,110,150,190,230,260],
+         borderColor: 'rgb(0,123,255)',
+         backgroundColor: 'rgba(0,123,255,.15)',
+         fill: true,
+         tension: .3,
+         yAxisID: 'y1'
+       }
+     ]
+   },
+   options: {
+     responsive: true,
+     scales: {
+       y: { beginAtZero: true, title: {display:true, text:'$ Billions'} },
+       y1:{ beginAtZero: true, position:'right', grid:{drawOnChartArea:false}, title:{display:true,text:'k transactions'} }
+     }
+   }
+ });
+
+ // DeFi chart
+ const dctx = document.getElementById('defiChart').getContext('2d');
+ new Chart(dctx, {
+   type: 'bar',
+   data: {
+     labels: ['BNB','USD','EUR','CZK'],
+     datasets: [{
+       label: 'Target Depth ($B)',
+       data: [1.5,1.2,0.9,0.3],
+       backgroundColor: [
+         'rgba(31,186,156,.7)',
+         'rgba(31,186,156,.55)',
+         'rgba(31,186,156,.4)',
+         'rgba(31,186,156,.25)'
+       ],
+       borderColor: 'rgb(31,186,156)',
+       borderWidth: 1
+     }]
+   },
+   options: { responsive:true, scales:{ y:{beginAtZero:true} } }
+ });
+
+ // Roadmap chart
+ const rctx = document.getElementById('roadmapChart').getContext('2d');
+ new Chart(rctx, {
+   type: 'line',
+   data: {
+     labels: ['Q1','Q2','Q3','Q4','Q1+','Q2+','Q3+','Q4+'],
+     datasets: [{
+       label: 'Cumulative Liquidity ($B)',
+       data: [0.8,1.6,2.4,3.0,3.6,4.2,4.7,5.2],
+       borderColor: 'rgb(31,186,156)',
+       backgroundColor: 'rgba(31,186,156,.22)',
+       fill:true,
+       tension:.35
+     }]
+   },
+   options: { responsive:true, scales:{ y:{beginAtZero:true} } }
+ });
+});
+</script>
 </body>
 </html>
-
-<section id="program-slider" style="margin:2rem 0;">
- <div class="slider-container" style="position:relative; overflow:hidden;">
-   <div class="slide" style="display:flex; transition:transform 0.5s ease;">
-     <div style="flex:1; padding:1rem;">
-       <h3>High Yield Programs</h3>
-       <p>Naše programy HYP poskytují vysoký výnos, školení a praktické workshopy pro obchodníky.</p>
-     </div>
-     <div style="flex:1;">
-       <img src="../img/programs/hyp.png" alt="HYP" style="width:100%;">
-     </div>
-   </div>
-   <div class="slide" style="display:flex; transition:transform 0.5s ease;">
-     <div style="flex:1; padding:1rem;">
-       <h3>Liquidity Management</h3>
-       <p>Efektivní správa likvidity s biliony USDt.z pro finanční instituce a partnery.</p>
-     </div>
-     <div style="flex:1;">
-       <img src="../img/programs/liquidity.png" alt="Liquidity" style="width:100%;">
-     </div>
-   </div>
-   
- </div>
- 
- <button class="prev-slide" style="position:absolute; top:50%; left:0;">&#10094;</button>
- <button class="next-slide" style="position:absolute; top:50%; right:0;">&#10095;</button>
-</section>
-
-
-<section id="program-table" style="margin:2rem 0;">
- <h2>Výhody našich programů</h2>
- <table style="width:100%; border-collapse:collapse; text-align:left;">
-   <thead style="background:#1f2e4a; color:white;">
-     <tr>
-       <th>Program</th>
-       <th>Výnos</th>
-       <th>Workshopy</th>
-       <th>Online školení</th>
-     </tr>
-   </thead>
-   <tbody>
-     <tr>
-       <td>HYP</td>
-       <td>12-15% ročně</td>
-       <td>Ano</td>
-       <td>Ano</td>
-     </tr>
-     <tr>
-       <td>Liquidity</td>
-       <td>8-10% ročně</td>
-       <td>Ano</td>
-       <td>Ne</td>
-     </tr>
-     <tr>
-       <td>Trading Academy</td>
-       <td>Rizikově řízené</td>
-       <td>Ano</td>
-       <td>Ano</td>
-     </tr>
-   </tbody>
- </table>
-</section>
-
-
-<section id="cta-pitch" style="text-align:center; margin:3rem 0;">
- <a href="pitch.html" style="background:#1fba9c; color:white; padding:1rem 2rem; font-size:1.2rem; text-decoration:none; border-radius:5px;">Prozkoumej náš Pitch Deck</a>
-</section>
-
-
-<style>
-.slider-container { display:flex; width:200%; } /* ukázka pro 2 slidy, přizpůsobit JS */
-.slide { min-width:50%; box-sizing:border-box; }
-.prev-slide, .next-slide { background:none; border:none; color:#1f2e4a; font-size:2rem; cursor:pointer; }
-table, th, td { border:1px solid #ccc; padding:0.5rem; }
-table tr:nth-child(even) { background:#f9f9f9; }
-</style>
-
-
-<script>
-let currentSlide = 0;
-const slides = document.querySelectorAll('.slide');
-const totalSlides = slides.length;
-
-document.querySelector('.next-slide').addEventListener('click', ()=> {
- currentSlide = (currentSlide + 1) % totalSlides;
- updateSlider();
-});
-document.querySelector('.prev-slide').addEventListener('click', ()=> {
- currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
- updateSlider();
-});
-
-function updateSlider(){
- const container = document.querySelector('.slider-container');
- container.style.transform = `translateX(-${currentSlide * 100}%)`;
-}
-</script>
