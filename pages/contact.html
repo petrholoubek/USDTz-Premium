@@ -1,121 +1,320 @@
-<nav class="navbar">
- <div class="container navbar-container">
-   
-   <a href="index.html" class="navbar-logo">
-     <img src="../img/logo_white.png" alt="Logo">
-   </a>
-
-   
-   <ul class="navbar-menu">
-     <li><a href="programs.html">Programy</a></li>
-     <li><a href="pitch.html">Pitch Deck</a></li>
-     <li><a href="contact.html">Kontakt</a></li>
-   </ul>
-
-   
-   <div class="navbar-lang">
-     <a href="index.html"><img src="../img/cz_flag.png" alt="CZ"></a>
-     <a href="index_en.html"><img src="../img/en_flag.png" alt="EN"></a>
-   </div>
-
-   
-   <div class="navbar-toggle" id="mobile-menu">
-     <span class="bar"></span>
-     <span class="bar"></span>
-     <span class="bar"></span>
-   </div>
- </div>
-</nav>
-
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>USDt.z – Next Generation Stablecoin</title>
 <style>
-/* --- Základní styl navigace --- */
-.navbar {
- background-color: #1fba9c; /* zelený pruh nahoře */
- padding: 1rem 2rem;
- position: sticky;
- top: 0;
- z-index: 1000;
- display: flex;
- justify-content: center;
-}
+  /* Reset */
+  * {
+    margin: 0; padding: 0; box-sizing: border-box;
+  }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f8f9fa;
+    color: #222;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
 
-.navbar-container {
- max-width: 1200px;
- width: 100%;
- display: flex;
- align-items: center;
- justify-content: space-between;
-}
+  header {
+    background: rgb(31,186,156);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1100;
+  }
+  nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
 
-.navbar-logo img {
- height: 50px;
-}
+  .logo img {
+    height: 40px;
+    cursor: pointer;
+    filter: drop-shadow(0 0 5px rgba(0,0,0,0.15));
+  }
 
-.navbar-menu {
- display: flex;
- list-style: none;
- gap: 2rem;
-}
+  /* Menu - desktop */
+  ul.menu {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+  }
+  ul.menu li a {
+    color: white;
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+  ul.menu li a:hover,
+  ul.menu li a.active {
+    color: #004d40;
+    font-weight: 700;
+  }
+  img.flag {
+    width: 24px;
+    height: 16px;
+    object-fit: cover;
+    border-radius: 3px;
+    border: 1px solid rgba(255,255,255,0.6);
+  }
 
-.navbar-menu li a {
- text-decoration: none;
- color: white;
- font-weight: 500;
- transition: color 0.3s;
-}
+  /* Hamburger button - mobile */
+  #menu-toggle {
+    display: none;
+  }
+  label[for="menu-toggle"] {
+    display: none;
+    cursor: pointer;
+    width: 30px;
+    height: 25px;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  label[for="menu-toggle"] span {
+    display: block;
+    height: 3px;
+    background: white;
+    border-radius: 2px;
+  }
 
-.navbar-menu li a:hover {
- color: #000; /* změna barvy při hoveru */
-}
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    label[for="menu-toggle"] {
+      display: flex;
+    }
+    ul.menu {
+      display: none;
+      flex-direction: column;
+      width: 100%;
+      margin-top: 1rem;
+      gap: 1rem;
+      background: rgb(31,186,156);
+      border-radius: 8px;
+      padding: 1rem 2rem;
+    }
+    ul.menu li {
+      width: 100%;
+    }
+    ul.menu li a {
+      display: block;
+      width: 100%;
+      font-size: 1.1rem;
+      padding: 0.5rem 0;
+    }
+    #menu-toggle:checked + label + ul.menu {
+      display: flex;
+    }
+  }
 
-.navbar-lang img {
- height: 25px;
- margin-left: 1rem;
- cursor: pointer;
-}
+  main {
+    flex: 1;
+    max-width: 1200px;
+    margin: 2rem auto 3rem;
+    padding: 0 1rem;
+  }
 
-.navbar-toggle {
- display: none;
- flex-direction: column;
- cursor: pointer;
- gap: 5px;
-}
+  /* Nalepený pás s aktuálním kurzem - pod menu, ne sticky */
+  #exchange-ticker {
+    background: #1fba9c;
+    color: white;
+    font-weight: 600;
+    padding: 0.4rem 0;
+    white-space: nowrap;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    font-size: 1rem;
+  }
+  #exchange-ticker span {
+    display: inline-block;
+    padding-right: 3rem;
+    animation: scroll-left 20s linear infinite;
+  }
+  @keyframes scroll-left {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+  }
 
-.bar {
- width: 25px;
- height: 3px;
- background-color: white;
- transition: all 0.3s;
-}
+  /* Rámečky sekcí */
+  section {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 12px rgb(31 186 156 / 0.15);
+    padding: 2rem 2.5rem;
+    margin-bottom: 2.5rem;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  h1, h2 {
+    color: rgb(31,186,156);
+    margin-bottom: 1rem;
+  }
+  h1 {
+    font-size: 2.8rem;
+    text-align: center;
+  }
+  h2 {
+    font-size: 2rem;
+  }
+  p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    margin-bottom: 1.25rem;
+  }
 
-/* --- Responzivní mobilní menu --- */
-@media screen and (max-width: 768px) {
- .navbar-menu {
-   position: absolute;
-   top: 70px;
-   left: -100%;
-   flex-direction: column;
-   background-color: #1fba9c;
-   width: 100%;
-   transition: 0.3s;
- }
+  /* Tlačítka */
+  .btn {
+    background-color: rgb(31,186,156);
+    color: white;
+    padding: 0.85rem 1.7rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+    margin-top: 1rem;
+  }
+  .btn:hover {
+    background-color: #1eab91;
+  }
+  .btn.audit {
+    background-color: #007acc;
+  }
+  .btn.audit:hover {
+    background-color: #005f99;
+  }
+  /* Flex box pro tlačítka */
+  .button-group {
+    display: flex;
+    gap: 1.3rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 
- .navbar-menu.active {
-   left: 0;
- }
+  /* Sekce kurzů a kalkulačky */
+  .flex-row {
+    display: flex;
+    gap: 3rem;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
 
- .navbar-toggle {
-   display: flex;
- }
-}
-</style>
+  /* Tabulka kurzů */
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 400px;
+  }
+  table th, table td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    font-size: 1rem;
+  }
+  table th {
+    background-color: rgb(31,186,156);
+    color: white;
+    font-weight: 600;
+  }
+  table tbody tr:hover {
+    background-color: #e0f2f1;
+  }
 
-<script>
-const mobileMenu = document.getElementById('mobile-menu');
-const navMenu = document.querySelector('.navbar-menu');
+  /* Kalkulačka */
+  .calculator {
+    background: #f4f9f8;
+    padding: 1.6rem 2rem;
+    border-radius: 10px;
+    box-shadow: inset 0 0 10px rgb(31 186 156 / 0.1);
+    max-width: 480px;
+    flex: 1;
+  }
+  .calculator label {
+    font-weight: 600;
+    margin-top: 1rem;
+    display: block;
+  }
+  .calculator input, .calculator select {
+    width: 100%;
+    padding: 0.5rem 0.7rem;
+    margin-top: 0.3rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+  .calculator output {
+    display: block;
+    margin-top: 0.6rem;
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: rgb(31,186,156);
+  }
 
-mobileMenu.addEventListener('click', () => {
- navMenu.classList.toggle('active');
- mobileMenu.classList.toggle('active');
-});
-</script>
+  /* Grafy */
+  canvas {
+    max-width: 100%;
+    margin-top: 1rem;
+  }
+
+  /* Bankovní a nebankovní sektor - vedle sebe */
+  .sectors {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 900px;
+    margin: 0 auto 2rem;
+  }
+  .sector-box {
+    flex: 1 1 45%;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 12px rgb(31 186 156 / 0.15);
+    padding: 1.5rem 2rem;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    min-width: 280px;
+  }
+  .sector-icon {
+    font-size: 3rem;
+    color: rgb(31,186,156);
+    min-width: 60px;
+    text-align: center;
+  }
+  .sector-content h3 {
+    margin-bottom: 0.5rem;
+    color: rgb(31,186,156);
+  }
+  .sector-content ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  .sector-content ul li {
+    margin-bottom: 0.3rem;
+    padding-left: 1.2rem;
+    position: relative;
+  }
+  .sector-content ul li::before {
+    content: "✔";
+    position: absolute;
+    left: 0;
+    color: rgb(31,186,156);
+  }
