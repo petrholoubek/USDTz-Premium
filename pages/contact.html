@@ -140,151 +140,129 @@ label[for="menu-toggle"] span {
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Program USDt.z – Česká verze</title>
+<title>Kontakt - USDt.z</title>
 <style>
-#msg_body { font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:#f4f7f9; margin:0; padding:0; color:#222;}
-main { max-width:1200px; margin:0 auto; padding:2rem;}
-section { background:#fff; border-radius:12px; padding:2rem; margin:2rem 0; box-shadow:0 4px 15px rgba(31,186,156,0.15);}
-h1,h2,h3 { color:rgb(31,186,156);}
-h1 { font-size:3rem; text-align:center; margin-bottom:1rem;}
-h2 { font-size:2rem; margin-bottom:1rem;}
-h3 { font-size:1.5rem; margin-bottom:0.8rem;}
-p { font-size:1.1rem; line-height:1.6; margin-bottom:1rem;}
-xtable { width:100%; border-collapse:collapse; margin:1rem 0; }
-table th, table td { padding:0.8rem 1rem; border-bottom:1px solid #ddd;}
-table th { background:rgb(31,186,156); color:#fff; font-weight:600;}
-table tbody tr:hover{ background:#e0f2f1;}
-.flex-row { display:flex; gap:2rem; flex-wrap:wrap; justify-content:space-between; }
-.flex-col { flex:1; min-width:280px;}
-.btn { background-color:rgb(31,186,156); color:#fff; padding:1rem 2rem; border:none; border-radius:6px; cursor:pointer; font-weight:700; text-decoration:none; display:inline-block; transition:0.3s;}
-.btn:hover{ background:#1eab91;}
-.btn-pitch { background:#1e88e5;}
-.btn-pitch:hover { background:#1565c0;}
-/* Slider */
-.slider { position:relative; overflow:hidden; border-radius:12px; margin:2rem 0;}
-.slides { display:flex; transition:transform 0.5s ease-in-out;}
-.slide { min-width:100%; flex-shrink:0; padding:2rem; background:#f0f9f8; text-align:center;}
-.slide h3{ color:#1fba9c; margin-bottom:0.5rem;}
-.slide p{ color:#333;}
-.dots { text-align:center; margin-top:0.5rem;}
-.dot { height:12px; width:12px; margin:0 5px; background:#bbb; border-radius:50%; display:inline-block; cursor:pointer;}
-.dot.active { background:rgb(31,186,156);}
-@media(max-width:768px){ .flex-row{ flex-direction:column; } xtable { font-size:0.9rem; } }
+ #msg_body {
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   margin: 0;
+   padding: 0;
+   background-color: #f7f7f7;
+   color: #222;
+ }
+ .container {
+   max-width: 1200px;
+   margin: 2rem auto;
+   padding: 1rem;
+ }
+ h1 {
+   text-align: center;
+   color: #1FBA9C;
+   margin-bottom: 2rem;
+ }
+ .contact-form {
+   background-color: #fff;
+   padding: 2rem;
+   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+   border-radius: 10px;
+ }
+ .form-group {
+   margin-bottom: 1.5rem;
+ }
+ label {
+   display: block;
+   margin-bottom: 0.5rem;
+   font-weight: 600;
+ }
+ input[type="text"],
+ input[type="email"],
+ textarea {
+   width: 100%;
+   padding: 0.75rem;
+   border-radius: 6px;
+   border: 1px solid #ccc;
+   font-size: 1rem;
+   box-sizing: border-box;
+ }
+ textarea {
+   resize: vertical;
+   min-height: 150px;
+ }
+ button {
+   background-color: #1FBA9C;
+   color: white;
+   padding: 0.75rem 2rem;
+   font-size: 1rem;
+   border: none;
+   border-radius: 6px;
+   cursor: pointer;
+   transition: background-color 0.3s ease;
+ }
+ button:hover {
+   background-color: #17a38a;
+ }
+ .info-box {
+   margin-top: 2rem;
+   background-color: #e6f7f1;
+   padding: 1.5rem;
+   border-radius: 10px;
+   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+ }
+ .info-box h2 {
+   margin-top: 0;
+   color: #1FBA9C;
+ }
+ .success-message {
+   display: none;
+   margin-top: 1rem;
+   padding: 1rem;
+   background-color: #d4edda;
+   border-left: 6px solid #28a745;
+   border-radius: 6px;
+   color: #155724;
+ }
 </style>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js" defer></script>
 </head>
 <body>
-<main>
+<div class="container">
+ <h1>Kontaktujte nás</h1>
 
-<section>
-<h1>Program USDt.z – Česká verze</h1>
-<p style="text-align:center; max-width:700px; margin:0 auto;">USDt.z je stabilní token nové generace. Nabízí bezpečné, rychlé a transparentní transakce pro bankovní i nebankovní sektor. Tento program prezentuje, jak investoři i instituce mohou využít náš ekosystém a jaké výhody přináší tokenomika, roadmapa a likvidita.</p>
-</section>
+ <div class="contact-form">
+   <div class="form-group">
+     <label for="name">Jméno</label>
+     <input type="text" id="name" placeholder="Vaše jméno">
+   </div>
+   <div class="form-group">
+     <label for="email">Email</label>
+     <input type="email" id="email" placeholder="Váš email">
+   </div>
+   <div class="form-group">
+     <label for="message">Zpráva</label>
+     <textarea id="message" placeholder="Vaše zpráva"></textarea>
+   </div>
+   <button type="button" onclick="submitForm()">Odeslat</button>
+   <div class="success-message" id="successMessage">
+     Děkujeme! Vaše zpráva byla odeslána.
+   </div>
+ </div>
 
-<section>
-<h2>Tokenomika</h2>
-<p>Rozložení tokenů zajišťuje dlouhodobou stabilitu a podporuje růst ekosystému.</p>
-<canvas id="tokenomicsChart" aria-label="Tokenomika tokenu USDt.z" role="img"></canvas>
-<table>
-<thead><tr><th>Segment</th><th>Procento</th></tr></thead>
-<tbody>
-<tr><td>Ekosystém</td><td>40%</td></tr>
-<tr><td>Rezerva</td><td>25%</td></tr>
-<tr><td>Tým</td><td>20%</td></tr>
-<tr><td>Marketing</td><td>15%</td></tr>
-</tbody>
-</table>
-</section>
-
-<section>
-<h2>Roadmapa projektu</h2>
-<p>Náš plán ukazuje růst uživatelů a likvidity od Q1 2024 až po Q2 2025.</p>
-<canvas id="roadmapChart" aria-label="Roadmapa USDt.z" role="img"></canvas>
-</section>
-
-<section class="flex-row">
-<div class="flex-col">
-<h3>Bankovní sektor</h3>
-<p>USDt.z podporuje tradiční finanční instituce s důrazem na stabilitu a bezpečnost:</p>
-<ul>
-<li>Transparentní a rychlé transakce</li>
-<li>Regulace a compliance</li>
-<li>Podpora bankovních plateb</li>
-<li>Integrace do stávajících systémů</li>
-</ul>
+ <div class="info-box">
+   <h2>Další informace</h2>
+   <p>Pro obchodní a partnerské záležitosti nás kontaktujte na email: <strong>info@usdtz.com</strong></p>
+   <p>Pro technickou podporu: <strong>support@usdtz.com</strong></p>
+   <p>Můžete nás také kontaktovat přímo přes naše sociální sítě nebo využít formulář výše.</p>
+ </div>
 </div>
-<div class="flex-col">
-<h3>Nebankovní sektor</h3>
-<p>Pro DeFi a nebankovní segment nabízíme flexibilitu a inovace:</p>
-<ul>
-<li>Decentralizované finance (DeFi)</li>
-<li>Globalizace plateb a přístup pro všechny</li>
-<li>Flexibilní obchodní modely</li>
-<li>Rychlé a bezpečné platby</li>
-</ul>
-</div>
-</section>
-
-<section style="text-align:center;">
-<h2>Pitch Deck</h2>
-<p>Pro detailní marketingové a obchodní informace si prohlédněte náš pitch deck.</p>
-<a href="/USDTz-Premium/pages/pitch.html" class="btn btn-pitch">Zobrazit Pitch Deck</a>
-</section>
-
-<section>
-<h2>Workshopy a školení</h2>
-<div class="slider">
-<div class="slides">
-<div class="slide"><h3>Workshop 1</h3><p>Seznámení s USDt.z a možnostmi integrace do vaší firmy.</p></div>
-<div class="slide"><h3>Workshop 2</h3><p>Bezpečnostní a compliance školení pro finanční instituce.</p></div>
-<div class="slide"><h3>Workshop 3</h3><p>Pokročilé využití tokenu v DeFi a digitálních platbách.</p></div>
-</div>
-<div class="dots"><span class="dot active"></span><span class="dot"></span><span class="dot"></span></div>
-</div>
-</section>
-
-<section>
-<h2>Statistiky a objemy</h2>
-<p>Celkový objem USDt.z v ekosystému: 5 miliard USDt.z</p>
-<table>
-<thead><tr><th>Kategorie</th><th>Objem (mil USDt.z)</th><th>Uživatelé</th></tr></thead>
-<tbody>
-<tr><td>Banky</td><td>2000</td><td>1500</td></tr>
-<tr><td>Nebanky</td><td>1500</td><td>6000</td></tr>
-<tr><td>Investoři</td><td>1000</td><td>2500</td></tr>
-<tr><td>Rezerva</td><td>500</td><td>-</td></tr>
-</tbody>
-</table>
-</section>
-
-<section>
-<h2>Výhody pro investory</h2>
-<ul>
-<li>Důvěra a stabilita tokenu</li>
-<li>Rychlé transakce s nízkými poplatky</li>
-<li>Přístup k novým obchodním příležitostem</li>
-<li>Podpora bankovního i nebankovního sektoru</li>
-</ul>
-</section>
-
-</main>
 
 <script>
-window.addEventListener('load',()=>{
-const ctxT=document.getElementById('tokenomicsChart').getContext('2d');
-new Chart(ctxT,{type:'doughnut',data:{labels:['Ekosystém','Rezerva','Tým','Marketing'],datasets:[{data:[40,25,20,15],backgroundColor:['#1fba9c','#ffc107','#ff5722','#2196f3'],borderWidth:1}]},options:{responsive:true,plugins:{legend:{position:'bottom'}}}});
-const ctxR=document.getElementById('roadmapChart').getContext('2d');
-new Chart(ctxR,{type:'line',data:{labels:['Q1 2024','Q2 2024','Q3 2024','Q4 2024','Q1 2025','Q2 2025'],datasets:[{label:'Uživatelé',data:[500,1500,2500,4500,6000,7500],borderColor:'#1fba9c',backgroundColor:'rgba(31,186,156,0.2)',fill:true,tension:0.3},{label:'Likvidita (mil USDt.z)',data:[100,300,600,1200,1800,2500],borderColor:'#2196f3',backgroundColor:'rgba(33,150,243,0.2)',fill:true,tension:0.3} ]},options:{responsive:true,scales:{y:{beginAtZero:true}},plugins:{legend:{position:'bottom'}}}});
-const slides=document.querySelectorAll('.slide');
-const dots=document.querySelectorAll('.dot');
-let current=0;
-function showSlide(n){ document.querySelector('.slides').style.transform=`translateX(-${n*100}%)`; dots.forEach(d=>d.classList.remove('active')); dots[n].classList.add('active'); }
-function nextSlide(){ current=(current+1)%slides.length; showSlide(current); }
-let slideInterval=setInterval(nextSlide,4000);
-dots.forEach((dot,i)=>{dot.addEventListener('click',()=>{current=i; showSlide(i); clearInterval(slideInterval); slideInterval=setInterval(nextSlide,4000);})});
-});
+function submitForm() {
+ // Zde můžeš přidat skutečný submit přes backend nebo email API
+ document.getElementById('successMessage').style.display = 'block';
+ // Vyčistí formulář
+ document.getElementById('name').value = '';
+ document.getElementById('email').value = '';
+ document.getElementById('message').value = '';
+}
 </script>
-
 </body>
 </html>
 
