@@ -1,120 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Programs – USDt.z Next Generation Stablecoin</title>
-<style>
-/* Reset */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-#msg_body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f9f9f9; color: #222; min-height: 100vh; display: flex; flex-direction: column; }
-header { background: rgb(31,186,156); box-shadow: 0 2px 5px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1100; }
-nav { max-width: 1200px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
-nav .logo img { height: 40px; cursor: pointer; }
-ul.menu { list-style: none; display: flex; gap: 1.5rem; align-items: center; }
-ul.menu li a { color: white; font-weight: 600; font-size: 1rem; text-decoration: none; transition: color 0.3s ease; display: flex; align-items: center; gap: 0.3rem; }
-ul.menu li a:hover, ul.menu li a.active { color: #004d40; font-weight: 700; }
-img.flag { width: 24px; height: 16px; object-fit: cover; border-radius: 3px; border: 1px solid rgba(255,255,255,0.6); }
-#menu-toggle { display: none; }
-label[for="menu-toggle"] { display: none; cursor: pointer; width: 30px; height: 25px; flex-direction: column; justify-content: space-between; }
-label[for="menu-toggle"] span { display: block; height: 3px; background: white; border-radius: 2px; }
-@media (max-width: 768px) {
- label[for="menu-toggle"] { display: flex; }
- ul.menu { display: none; flex-direction: column; width: 100%; margin-top: 1rem; gap: 1rem; background: rgb(31,186,156); border-radius: 8px; padding: 1rem 2rem; }
- ul.menu li { width: 100%; }
- ul.menu li a { display: block; width: 100%; font-size: 1.1rem; padding: 0.5rem 0; }
- #menu-toggle:checked + label + ul.menu { display: flex; }
-}
-main { flex: 1; max-width: 1200px; margin: 2rem auto 3rem; padding: 0 1rem; display: flex; flex-direction: column; gap: 2rem; }
-section.content-box { background: #fff; border: 1px solid #ddd; border-radius: 10px; box-shadow: 0 0 12px rgb(31 186 156 / 0.15); padding: 2rem 2.5rem; }
-h1, h2 { color: rgb(31,186,156); margin-bottom: 1rem; }
-h1 { font-size: 2.5rem; text-align: center; margin-bottom: 1.5rem; }
-h2 { font-size: 2rem; margin-bottom: 1rem; }
-p, ul li { margin-bottom: 1rem; font-size: 1rem; line-height: 1.5; }
-ul { margin-left: 1.5rem; }
-.btn-group { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem; }
-.btn { padding: 0.5rem 1.2rem; border-radius: 6px; font-weight: 700; text-decoration: none; display: inline-block; cursor: pointer; color: white; transition: background-color 0.3s ease; white-space: nowrap; }
-.btn-pitch { background-color: #1e88e5; }
-.btn-pitch:hover { background-color: #1669bb; }
-.btn-other { background-color: #f0b90b; }
-.btn-other:hover { background-color: #d9a200; }
-/* Rámečky grafů a sekcí */
-.graph-box { background: #e6f7f3; border-radius: 10px; padding: 1.5rem; margin: 1rem 0; }
-.graph-title { font-weight: 700; margin-bottom: 1rem; }
-.graph-placeholder { height: 200px; background: #b2dfdb; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: #004d40; font-weight: 700; }
-</style>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>USDt.z Pitch Deck – Next Generation Stablecoin</title>
+ <style>
+   /* Reset */
+   * { margin: 0; padding: 0; box-sizing: border-box; }
+   #msg_body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #fff; color: #222; line-height: 1.6; }
+   header { background: rgb(31,186,156); box-shadow: 0 2px 5px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
+   nav { max-width: 1200px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+   .logo img { height: 40px; cursor: pointer; }
+   ul.menu { list-style: none; display: flex; gap: 1.5rem; align-items: center; }
+   ul.menu li a { color: white; font-weight: 600; text-decoration: none; transition: color 0.3s ease; display: flex; align-items: center; gap: 0.3rem; }
+   ul.menu li a:hover, ul.menu li a.active { color: #004d40; font-weight: 700; }
+   img.flag { width: 24px; height: 16px; object-fit: cover; border-radius: 3px; border: 1px solid rgba(255,255,255,0.6); }
+   #menu-toggle { display: none; }
+   label[for="menu-toggle"] { display: none; cursor: pointer; width: 30px; height: 25px; flex-direction: column; justify-content: space-between; }
+   label[for="menu-toggle"] span { display: block; height: 3px; background: white; border-radius: 2px; }
+   @media (max-width: 768px) {
+     label[for="menu-toggle"] { display: flex; }
+     ul.menu { display: none; flex-direction: column; width: 100%; margin-top: 1rem; gap: 1rem; background: rgb(31,186,156); border-radius: 8px; padding: 1rem 2rem; }
+     ul.menu li a { display: block; width: 100%; font-size: 1.1rem; padding: 0.5rem 0; }
+     #menu-toggle:checked + label + ul.menu { display: flex; }
+   }
+   main { max-width: 1200px; margin: 2rem auto; padding: 0 1rem; display: flex; flex-direction: column; gap: 2rem; }
+   section.content-box { background: #fff; border: 1px solid #ddd; border-radius: 10px; box-shadow: 0 0 12px rgb(31 186 156 / 0.15); padding: 2rem 2.5rem; }
+   h1, h2 { color: rgb(31,186,156); margin-bottom: 1rem; }
+   h1 { font-size: 2.5rem; text-align: center; margin-bottom: 1.5rem; }
+   h2 { font-size: 2rem; margin-bottom: 1rem; }
+   p { margin-bottom: 1rem; font-size: 1rem; }
+   ul { margin-left: 1.5rem; margin-bottom: 1rem; }
+   ul li { margin-bottom: 0.5rem; font-size: 1rem; }
+   .graph-box { margin: 2rem 0; padding: 1rem; border: 1px solid #ccc; border-radius: 8px; text-align: center; background: rgb(240 248 255); }
+   .graph-box img { max-width: 100%; height: auto; }
+   .btn { padding: 0.6rem 1.2rem; border-radius: 6px; font-weight: 700; text-decoration: none; display: inline-block; cursor: pointer; color: white; transition: background-color 0.3s ease; }
+   .btn-blue { background-color: #1e88e5; }
+   .btn-blue:hover { background-color: #1669bb; }
+   #bottom-box { max-width: 1200px; margin: 0 auto 2.5rem; background: #fff; border: 1px solid #ddd; border-radius: 10px; box-shadow: 0 0 12px rgb(31 186 156 / 0.15); padding: 1rem 2rem; display: flex; align-items: center; gap: 1.5rem; justify-content: space-between; flex-wrap: wrap; }
+   #bottom-box .text { flex: 1; font-weight: 600; color: rgb(31,186,156); font-size: 1.1rem; }
+   #bottom-box .btn-group { display: flex; gap: 1rem; flex-wrap: wrap; }
+   footer { text-align: center; padding: 1rem 2rem; background: #f0f0f0; font-size: 0.9rem; color: #555; }
+ </style>
 </head>
 <body>
-<header>
-<nav>
-<a href="index_en.html" class="logo" aria-label="Go to homepage">
-<img src="../img/flags/logo-white.png" alt="USDt.z Logo" />
-</a>
-<input type="checkbox" id="menu-toggle" />
-<label for="menu-toggle" aria-label="Open menu"><span></span><span></span><span></span></label>
-<ul class="menu" role="menubar" aria-label="Main navigation">
-<li><a href="index_en.html">Home</a></li>
-<li><a href="about_en.html">About</a></li>
-<li><a href="programs_en.html" class="active">Programs</a></li>
-<li><a href="usecases_en.html">Use Cases</a></li>
-<li><a href="docs_en.html">Documentation</a></li>
-<li><a href="contact_en.html">Contact</a></li>
-<li><a href="index.html" title="Czech"><img src="../img/flags/cz.png" alt="Czech flag" class="flag" /></a></li>
-<li><a href="index_en.html" title="English"><img src="../img/flags/en.png" alt="English flag" class="flag" /></a></li>
-</ul>
-</nav>
-</header>
-<main>
-<section class="content-box">
-<h1>Programs & Cooperation – USDt.z</h1>
-<p>USDt.z offers a next-generation stablecoin platform with numerous applications across banking, non-banking, and DeFi sectors. Our mission is to provide secure, transparent, and scalable solutions for the future of finance.</p>
-<h2>Banking Sector Opportunities</h2>
-<div class="graph-box">
-<div class="graph-title">Bank Liquidity Overview (5 Trillion USD)</div>
-<div class="graph-placeholder">[Graph Placeholder]</div>
-<p>Banking institutions can leverage USDt.z for collateral, liquidity management, and seamless cross-border transactions. The platform ensures stability and compliance for high-value operations.</p>
-</div>
-<h2>Non-Banking Sector</h2>
-<div class="graph-box">
-<div class="graph-title">DeFi & Corporate Liquidity (2.5 Trillion USD)</div>
-<div class="graph-placeholder">[Graph Placeholder]</div>
-<p>Non-banking entities including startups, SMEs, and decentralized protocols can utilize USDt.z for trading, staking, and operational liquidity without relying on traditional banking guarantees.</p>
-</div>
-<h2>Additional Programs</h2>
-<div class="graph-box">
-<div class="graph-title">Liquidity Pools & Staking</div>
-<div class="graph-placeholder">[Graph Placeholder]</div>
-<p>Participants can contribute liquidity in decentralized pools to earn returns while helping stabilize the ecosystem. Our staking programs incentivize long-term adoption and growth.</p>
-</div>
-<div class="btn-group">
-<a href="pages/pitch_en.html" class="btn btn-pitch">Pitch Deck</a>
-<a href="usecases_en.html" class="btn btn-other">Explore Use Cases</a>
-<a href="docs_en.html" class="btn btn-other">Technical Docs</a>
-</div>
-</section>
-<section class="content-box">
-<h2>Future Generation & Technology</h2>
-<p>USDt.z is built with cutting-edge blockchain technology, ensuring fast, secure, and transparent operations. The ecosystem supports smart contracts, DeFi integrations, and innovative financial products.</p>
-<div class="graph-box">
-<div class="graph-title">Projected Market Adoption 2025-2030</div>
-<div class="graph-placeholder">[Graph Placeholder]</div>
-</div>
-</section>
-<section class="content-box">
-<h2>Security & Compliance</h2>
-<p>All transactions and token operations comply with regulatory standards. Security audits, multi-sig wallets, and monitored smart contracts ensure protection against fraud and hacking.</p>
-</section>
-<section class="content-box">
-<h2>Support for Startups & Innovations</h2>
-<p>Through our programs, startups can gain access to liquidity, financing, and a wide network of partners. USDt.z enables innovation without traditional financial barriers.</p>
-</section>
-</main>
-<footer class="content-box">
-<p>&copy; 2025 USDt.z – Next Generation Stablecoin. All rights reserved.</p>
-<div class="btn-group">
-<a href="https://bscscan.com/token/0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" target="_blank" rel="noopener" class="btn btn-other">BscScan</a>
-<a href="https://www.geckoterminal.com/bsc/pools/0x553b402b3d6f91ea2208c7df61a6d4aa96ccb6191787c20fedb7ae6c9823b280" target="_blank" rel="noopener" class="btn btn-other">GeckoTerminal</a>
-</div>
-</footer>
+ <header>
+   <nav>
+     <a href="index_en.html" class="logo" aria-label="Go to homepage">
+       <img src="../img/flags/logo-white.png" alt="USDt.z Logo">
+     </a>
+     <input type="checkbox" id="menu-toggle">
+     <label for="menu-toggle" aria-label="Open menu">
+       <span></span><span></span><span></span>
+     </label>
+     <ul class="menu">
+       <li><a href="index_en.html">Home</a></li>
+       <li><a href="about_en.html">About</a></li>
+       <li><a href="programs_en.html" class="active">Programs</a></li>
+       <li><a href="usecases_en.html">Use Cases</a></li>
+       <li><a href="docs_en.html">Documentation</a></li>
+       <li><a href="contact_en.html">Contact</a></li>
+       <li>
+         <a href="index.html"><img src="../img/flags/cz.png" alt="Czech flag" class="flag"></a>
+       </li>
+       <li>
+         <a href="index_en.html"><img src="../img/flags/en.png" alt="English flag" class="flag"></a>
+       </li>
+     </ul>
+   </nav>
+ </header>
+
+ <main>
+   <section class="content-box">
+     <h1>Banking Sector Collaboration</h1>
+     <p>We collaborate with leading banks to integrate USDt.z into traditional finance. The token allows stable liquidity, collateral usage, and modern financial solutions.</p>
+     <ul>
+       <li>Market capitalization tracked at $5 trillion potential.</li>
+       <li>High-liquidity pools providing secure and stable returns.</li>
+       <li>Cross-border transactions optimized with low fees.</li>
+       <li>Regulated compliance ensuring safety and trust.</li>
+     </ul>
+     <div class="graph-box">
+       <h2>Liquidity Growth Over Time</h2>
+       <img src="../img/graphs/liquidity_growth.png" alt="Liquidity Growth Graph">
+     </div>
+   </section>
+
+   <section class="content-box">
+     <h1>Non-Banking Sector Collaboration</h1>
+     <p>USDt.z enables partnerships with fintech, DeFi projects, and startups for innovative financial products and global liquidity access.</p>
+     <ul>
+       <li>DeFi integration for yield farming and swaps.</li>
+       <li>Smart contract collateralization options.</li>
+       <li>Real-time stablecoin transfers with minimal fees.</li>
+       <li>Support for youth and startup projects worldwide.</li>
+     </ul>
+     <div class="graph-box">
+       <h2>Global Non-Banking Adoption</h2>
+       <img src="../img/graphs/nonbanking_adoption.png" alt="Non-Banking Adoption Graph">
+     </div>
+   </section>
+
+   <section class="content-box">
+     <h1>Future-Ready Technology</h1>
+     <p>We deploy cutting-edge blockchain protocols, AI analytics, and secure smart contracts to ensure next-generation financial solutions.</p>
+     <ul>
+       <li>High-speed blockchain with low latency.</li>
+       <li>AI-driven risk management tools.</li>
+       <li>Enhanced security protocols and audits.</li>
+       <li>Scalable infrastructure for global adoption.</li>
+     </ul>
+     <div class="graph-box">
+       <h2>Projected Transaction Volume</h2>
+       <img src="../img/graphs/transaction_volume.png" alt="Projected Transaction Volume Graph">
+     </div>
+   </section>
+
+   <section class="content-box">
+     <h1>Pitch Deck</h1>
+     <p>Explore the complete USDt.z pitch deck for investors and partners. Learn about market potential, tokenomics, and strategic collaborations.</p>
+     <a href="pages/pitch_en.html" class="btn btn-blue">Open Pitch Deck</a>
+   </section>
+ </main>
+
+ <section id="bottom-box">
+   <div class="text">Explore USDt.z on BscScan and GeckoTerminal</div>
+   <div class="btn-group">
+     <a href="https://bscscan.com/token/0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" target="_blank" rel="noopener" class="btn btn-blue">BscScan</a>
+     <a href="https://www.geckoterminal.com/bsc/pools/0x553b402b3d6f91ea2208c7df61a6d4aa96ccb6191787c20fedb7ae6c9823b280" target="_blank" rel="noopener" class="btn btn-blue">GeckoTerminal</a>
+   </div>
+ </section>
+
+ <footer>
+   &copy; 2025 USDt.z – Next Generation Stablecoin. All rights reserved.
+ </footer>
 </body>
 </html>
