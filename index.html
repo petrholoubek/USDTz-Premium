@@ -134,70 +134,20 @@ label[for="menu-toggle"] span {
  }
 }
 </style>
-<input type="checkbox" id="menu-toggle" />
-<label for="menu-toggle" class="hamburger">
- <span></span>
- <span></span>
- <span></span>
-</label>
 
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+ const menuToggle = document.getElementById("menu-toggle");
+ const menu = document.querySelector("nav ul.menu"); // uprav podle své struktury
 
-<nav>
- <ul class="menu">
-   <li><a href="/USDTz-Premium/pages/about.html">O tokenu</a></li>
-   <li><a href="/USDTz-Premium/pages/usecases.html">Použití</a></li>
-   <li><a href="/USDTz-Premium/pages/programs.html">Programy</a></li>
-   <li><a href="/USDTz-Premium/pages/docs.html">Dokumentace</a></li>
-   <li><a href="/USDTz-Premium/pages/contact.html">Kontakt</a></li>
- </ul>
-</nav>
-
-<style>
-/* hamburger */
-#menu-toggle {
- display: none;
-}
-.hamburger {
- display: none;
- cursor: pointer;
- width: 30px;
- height: 25px;
- flex-direction: column;
- justify-content: space-between;
-}
-.hamburger span {
- display: block;
- height: 3px;
- background: rgb(31,186,156);
- border-radius: 2px;
-}
-
-/* menu desktop */
-ul.menu {
- list-style: none;
- display: flex;
- gap: 1.5rem;
- align-items: center;
-}
-ul.menu li a {
- text-decoration: none;
- color: black;
-}
-
-/* responsive */
-@media (max-width: 768px) {
- .hamburger {
-   display: flex;
+ if(menuToggle && menu) {
+   menuToggle.addEventListener("change", function() {
+     if(this.checked) {
+       menu.style.display = "flex";
+     } else {
+       menu.style.display = "none";
+     }
+   });
  }
- ul.menu {
-   display: none;
-   flex-direction: column;
-   width: 100%;
-   margin-top: 1rem;
-   gap: 1rem;
- }
- #menu-toggle:checked + .hamburger + nav ul.menu {
-   display: flex;
- }
-}
-</style>
+});
+</script>
