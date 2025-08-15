@@ -134,29 +134,59 @@ label[for="menu-toggle"] span {
  }
 }
 </style>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-   const menuToggle = document.getElementById('menu-toggle');
-   const menu = document.querySelector('ul.menu');
+<input type="checkbox" id="menu-toggle" />
+<label for="menu-toggle" aria-label="Otevřít menu">
+ <span></span>
+ <span></span>
+ <span></span>
+</label>
 
-   // Při kliknutí na checkbox menu se rozbalí nebo skryje
-   menuToggle.addEventListener('change', function() {
-       if(menuToggle.checked) {
-           menu.style.display = 'flex';
-       } else {
-           menu.style.display = 'none';
-       }
-   });
+<style>
+/* Hamburger button */
+#menu-toggle {
+ display: none;
+}
+label[for="menu-toggle"] {
+ display: none;
+ cursor: pointer;
+ width: 30px;
+ height: 25px;
+ flex-direction: column;
+ justify-content: space-between;
+}
+label[for="menu-toggle"] span {
+ display: block;
+ height: 3px;
+ background: white;
+ border-radius: 2px;
+}
 
-   // Pokud okno změní velikost, resetuj zobrazení menu
-   window.addEventListener('resize', function() {
-       if(window.innerWidth > 768) {
-           menu.style.display = 'flex';
-       } else {
-           if(!menuToggle.checked) {
-               menu.style.display = 'none';
-           }
-       }
-   });
-});
-</script>
+/* Responsivita - mobilní verze */
+@media (max-width: 768px) {
+ label[for="menu-toggle"] {
+   display: flex;
+ }
+ ul.menu {
+   display: none;
+   flex-direction: column;
+   width: 100%;
+   margin-top: 1rem;
+   gap: 1rem;
+   background: rgb(31,186,156);
+   border-radius: 8px;
+   padding: 1rem 2rem;
+ }
+ ul.menu li {
+   width: 100%;
+ }
+ ul.menu li a {
+   display: block;
+   width: 100%;
+   font-size: 1.1rem;
+   padding: 0.5rem 0;
+ }
+ #menu-toggle:checked + label + ul.menu {
+   display: flex;
+ }
+}
+</style>
