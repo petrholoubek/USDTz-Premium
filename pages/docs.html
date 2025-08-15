@@ -140,229 +140,235 @@ label[for="menu-toggle"] span {
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>USDt.z - Dokumentace</title>
+<title>USDt.z Dokumentace</title>
 <style>
    #msg_body {
        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
        margin: 0;
        padding: 0;
-       background-color: #f9f9f9;
+       background-color: #f5f5f5;
        color: #111;
    }
-   h1, h2, h3 {
-       margin: 0.5em 0;
+   header {
+       background-color: rgb(31,186,156);
+       padding: 2rem;
+       text-align: center;
+       color: white;
+   }
+   header h1 {
+       margin: 0;
+       font-size: 2rem;
    }
    .container {
        max-width: 1200px;
-       margin: 0 auto;
-       padding: 20px;
+       margin: 2rem auto;
+       padding: 0 1rem;
    }
    .section {
-       margin-bottom: 50px;
+       margin-bottom: 2rem;
    }
-   .frames {
+   .section h2 {
+       color: rgb(31,186,156);
+       margin-bottom: 1rem;
+       font-size: 1.5rem;
+   }
+   .box-wrapper {
        display: flex;
        flex-wrap: wrap;
-       gap: 20px;
-       justify-content: flex-start;
+       gap: 2rem;
+       justify-content: space-between;
    }
-   .frame {
-       background: #fff;
-       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-       padding: 20px;
-       width: 900px;
-       box-sizing: border-box;
-       flex: 1 1 900px;
+   .box {
+       background-color: white;
+       padding: 1.5rem;
+       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+       border-radius: 8px;
+       flex: 1 1 45%;
+       min-width: 300px;
    }
-   .frame h3 {
-       margin-top: 0;
-   }
-   .pdf-links, .slider {
-       margin-top: 15px;
-   }
-   .pdf-links a {
-       display: inline-block;
-       margin-right: 15px;
+   .box a {
+       color: rgb(31,186,156);
        text-decoration: none;
-       color: #1FBA9C;
        font-weight: bold;
    }
-   .slider-container {
-       position: relative;
-       overflow: hidden;
-       max-width: 100%;
-       background: #fff;
-       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-       margin-top: 20px;
+   .box a:hover {
+       text-decoration: underline;
    }
-   .slider-track {
-       display: flex;
-       transition: transform 0.5s ease;
+   ul {
+       padding-left: 1.5rem;
    }
-   .slider-item {
-       min-width: 900px;
-       padding: 20px;
-       box-sizing: border-box;
+   li {
+       margin-bottom: 0.5rem;
    }
-   .slider-button {
-       position: absolute;
-       top: 50%;
-       transform: translateY(-50%);
-       background: rgba(31,186,156,0.8);
-       color: #fff;
-       border: none;
-       padding: 10px 15px;
-       cursor: pointer;
-       font-size: 18px;
-       z-index: 10;
-   }
-   .prev { left: 10px; }
-   .next { right: 10px; }
-   @media(max-width: 950px) {
-       .frame, .slider-item { width: 100%; min-width: auto; }
+   @media (max-width: 900px) {
+       .box-wrapper {
+           flex-direction: column;
+       }
+       .box {
+           flex: 1 1 100%;
+       }
    }
 </style>
 </head>
 <body>
 
+<header>
+   <h1>USDt.z Dokumentace – Next Generation Stablecoin</h1>
+</header>
+
 <div class="container">
-   <h1>USDt.z - Technická dokumentace</h1>
 
    
-   <div class="section frames">
-       <div class="frame">
-           <h3>1. Smart kontrakt USDt.z</h3>
-           <p><strong>Adresa kontraktu:</strong> 0x913ef7244bEd019b95Ec5321408eE4CE83E25c01</p>
-           <p><strong>Blockchain:</strong> Binance Smart Chain (BSC)</p>
-           <p><strong>Standard tokenu:</strong> BEP-20</p>
-           <p><strong>Funkce:</strong> mint, burn, transfer, kolaterální operace</p>
-           <p><strong>Bezpečnostní audit:</strong> švýcarská firma, žádné kritické chyby, doporučené best practices</p>
-           <p><strong>Transparentnost:</strong> všechny transakce veřejné, statistika obratu a likvidity k dispozici</p>
-       </div>
-
-       <div class="frame">
-           <h3>2. Whitepaper / Bílá kniha</h3>
-           <p>Kompletní dokument shrnující projekt, účel tokenu, ekosystém, použití v bankovnictví i nebankovním sektoru a tokenomiku.</p>
-           <div class="pdf-links">
-               <a href="../docs/USDTz_Whitepaper_CS.pdf" target="_blank">Stáhnout Whitepaper (CS)</a>
-               <a href="../docs/USDTz_Whitepaper_EN.pdf" target="_blank">Stáhnout Whitepaper (EN)</a>
-               <a href="../docs/USDTz_Audit.pdf" target="_blank">Stáhnout Audit</a>
+   <div class="section">
+       <h2>1. Technická dokumentace</h2>
+       <div class="box-wrapper">
+           <div class="box">
+               <ul>
+                   <li><strong>Smart kontrakt USDt.z</strong></li>
+                   <li>Adresa kontraktu: 0x913ef7244bEd019b95Ec5321408eE4CE83E25c01</li>
+                   <li>Blockchain: Binance Smart Chain (BSC)</li>
+                   <li>Standard tokenu: BEP-20</li>
+                   <li>Přehled funkcí: mint, burn, transfer, kolaterální operace</li>
+                   <li>Bezpečnostní audit proveden švýcarskou firmou</li>
+                   <li>Závěry auditu: žádné kritické chyby, doporučené best practices</li>
+               </ul>
+           </div>
+           <div class="box">
+               <ul>
+                   <li>Transparentnost a monitoring</li>
+                   <li>Veškeré transakce jsou veřejně dostupné</li>
+                   <li>Statistika obratu a likvidity</li>
+                   <li>API a integrace pro monitoring a správu smart kontraktu</li>
+                   <li>Možnost implementace vlastních nástrojů pro analýzu</li>
+               </ul>
            </div>
        </div>
    </div>
 
    
-   <div class="section frames">
-       <div class="frame">
-           <h3>3. Pravidla a Governance</h3>
-           <p>Popis řízení tokenu a rozhodovacích mechanismů, mechanismus stabilizace a kolaterálního zajištění, transparentní procesy pro všechny uživatele.</p>
-       </div>
-
-       <div class="frame">
-           <h3>4. Regulační a právní dokumentace</h3>
-           <p>Soulad s evropskými a švýcarskými předpisy, přehled právních auditů a certifikací, registrace tokenu a compliance statusy.</p>
+   <div class="section">
+       <h2>2. Whitepaper / Bílá kniha</h2>
+       <div class="box-wrapper">
+           <div class="box">
+               <ul>
+                   <li>Kompletní dokument shrnující projekt</li>
+                   <li>Obsahuje: účel tokenu, ekosystém, použití v bankovnictví i nebankovním sektoru, tokenomiku</li>
+                   <li>Odkaz na PDF ke stažení: <a href="../docs/USDTz_Whitepaper_CS.pdf" target="_blank">Stáhnout whitepaper</a></li>
+               </ul>
+           </div>
+           <div class="box">
+               <ul>
+                   <li>Interaktivní shrnutí klíčových grafů a tabulek (objem, likvidita, transakce)</li>
+                   <li>Podrobné vysvětlení smart kontraktu a operací</li>
+                   <li>Vysvětlivky pro odborníky: kolaterální operace, mint, burn, tokenizované dluhopisy</li>
+               </ul>
+           </div>
        </div>
    </div>
 
    
-   <div class="section frames">
-       <div class="frame">
-           <h3>5. Technické specifikace tokenu</h3>
-           <p>Emise tokenu – celkové supply vs. circulating supply, podrobnosti o kolaterální rezervě, protokoly a smart kontrakty podporující token.</p>
+   <div class="section">
+       <h2>3. Pravidla a Governance</h2>
+       <div class="box-wrapper">
+           <div class="box">
+               <ul>
+                   <li>Popis řízení tokenu a rozhodovacích mechanismů</li>
+                   <li>Mechanismus stabilizace a kolaterálního zajištění</li>
+                   <li>Transparentní procesy pro všechny uživatele</li>
+               </ul>
+           </div>
+           <div class="box">
+               <ul>
+                   <li>Možnost integrace s bankami a nebankovními institucemi</li>
+                   <li>Řízení distribuce a správy tokenu</li>
+                   <li>Správa hlasovacích práv a governance protokolů</li>
+               </ul>
+           </div>
        </div>
+   </div>
 
-       <div class="frame">
-           <h3>6. API & Integrace</h3>
-           <p>API pro integraci a monitoring, interakce se smart kontraktem, přístup k datům o transakcích a likviditě.</p>
+   
+   <div class="section">
+       <h2>4. Regulační a právní dokumentace</h2>
+       <div class="box-wrapper">
+           <div class="box">
+               <ul>
+                   <li>Soulad s evropskými a švýcarskými předpisy</li>
+                   <li>Přehled právních auditů a certifikací</li>
+                   <li>Token registrován a compliance statusy</li>
+               </ul>
+           </div>
+           <div class="box">
+               <ul>
+                   <li>Odkaz na audit ke stažení: <a href="../docs/USDTz_Audit.pdf" target="_blank">Stáhnout audit</a></li>
+                   <li>Podpora při spolupráci s bankami a institucemi</li>
+               </ul>
+           </div>
+       </div>
+   </div>
+
+   
+   <div class="section">
+       <h2>5. Technické specifikace tokenu</h2>
+       <div class="box-wrapper">
+           <div class="box">
+               <ul>
+                   <li>Emise tokenu: celkové supply vs. circulating supply</li>
+                   <li>Podrobnosti o kolaterální rezervě</li>
+                   <li>Protokoly a smart kontrakty, které token podporuje</li>
+               </ul>
+           </div>
+           <div class="box">
+               <ul>
+                   <li>Možnost monetizace tokenu</li>
+                   <li>Rychlé půjčky, tokenizované dluhopisy, repo dohody, swap stablecoinů</li>
+                   <li>Integrace s DeFi platformami a likviditou</li>
+               </ul>
+           </div>
+       </div>
+   </div>
+
+   
+   <div class="section">
+       <h2>6. Ostatní podpora</h2>
+       <div class="box-wrapper">
+           <div class="box">
+               <ul>
+                   <li>FAQ pro investory a banky</li>
+                   <li>API pro integraci a monitoring smart kontraktu</li>
+                   <li>Odkazy na marketingové materiály, pitch decky, školení, workshopy</li>
+               </ul>
+           </div>
+           <div class="box">
+               <ul>
+                   <li>Vysvětlivky pro odborníky</li>
+                   <li>Kolaterální operace, mint/burn, stabilizace</li>
+                   <li>Výpočty RPSN, výnosů a likvidity</li>
+               </ul>
+           </div>
        </div>
    </div>
 
    
    <div class="section">
        <h2>7. Interaktivní prvky</h2>
-       <ul>
-           <li>Accordion pro rozbalení jednotlivých dokumentů a podrobností</li>
-           <li>Slider pro více PDF a grafů</li>
-           <li>Rámečky pro vizuální oddělení sekcí</li>
-           <li>Grafy pro statistiku obratu, likvidity a objemu emisí</li>
-       </ul>
-
-       <div class="slider-container">
-           <button class="slider-button prev">&#10094;</button>
-           <div class="slider-track">
-               <div class="slider-item">
-                   <h3>Whitepaper CS</h3>
-                   <p><a href="../docs/USDTz_Whitepaper_CS.pdf" target="_blank">Otevřít PDF</a></p>
-               </div>
-               <div class="slider-item">
-                   <h3>Audit</h3>
-                   <p><a href="../docs/USDTz_Audit.pdf" target="_blank">Otevřít PDF</a></p>
-               </div>
-               <div class="slider-item">
-                   <h3>Graf obratu</h3>
-                   <canvas id="chartObrat" width="400" height="200"></canvas>
-               </div>
-               <div class="slider-item">
-                   <h3>Graf likvidity</h3>
-                   <canvas id="chartLikvidita" width="400" height="200"></canvas>
-               </div>
+       <div class="box-wrapper">
+           <div class="box">
+               <ul>
+                   <li>Accordion pro rozbalení jednotlivých dokumentů a podrobností</li>
+                   <li>Slider pro více PDF a grafů</li>
+               </ul>
            </div>
-           <button class="slider-button next">&#10095;</button>
+           <div class="box">
+               <ul>
+                   <li>Rámečky pro vizuální oddělení sekcí</li>
+                   <li>Grafy pro statistiku obratu, likvidity a objemu emisí</li>
+               </ul>
+           </div>
        </div>
    </div>
+
 </div>
-
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script>
-   // Slider
-   const track = document.querySelector('.slider-track');
-   const prev = document.querySelector('.prev');
-   const next = document.querySelector('.next');
-   let index = 0;
-
-   function updateSlider() {
-       track.style.transform = 'translateX(' + (-index * 900) + 'px)';
-   }
-
-   prev.addEventListener('click', () => {
-       index = index > 0 ? index -1 : track.children.length - 1;
-       updateSlider();
-   });
-
-   next.addEventListener('click', () => {
-       index = index < track.children.length -1 ? index +1 : 0;
-       updateSlider();
-   });
-
-   // Grafy - fiktivní data
-   const ctxObrat = document.getElementById('chartObrat').getContext('2d');
-   const chartObrat = new Chart(ctxObrat, {
-       type: 'bar',
-       data: {
-           labels: ['Leden','Únor','Březen','Duben'],
-           datasets: [{
-               label: 'Obrat (v mil. USD)',
-               data: [120, 150, 180, 200],
-               backgroundColor: '#1FBA9C'
-           }]
-       }
-   });
-
-   const ctxLikvidita = document.getElementById('chartLikvidita').getContext('2d');
-   const chartLikvidita = new Chart(ctxLikvidita, {
-       type: 'line',
-       data: {
-           labels: ['Leden','Únor','Březen','Duben'],
-           datasets: [{
-               label: 'Likvidita (v mil. USD)',
-               data: [80, 90, 100, 120],
-               borderColor: '#1FBA9C',
-               fill: false
-           }]
-       }
-   });
-</script>
-
 </body>
 </html>
 
