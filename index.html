@@ -137,14 +137,24 @@ label[for="menu-toggle"] span {
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
- const menuToggle = document.getElementById("menu-toggle");
+ // Najdi hamburger a menu
+ const menuToggle = document.getElementById("menu-toggle"); // tvůj checkbox
  const menu = document.querySelector("nav ul.menu"); // uprav podle své struktury
 
  if(menuToggle && menu) {
+   // Nastav počáteční stav menu
+   if(window.innerWidth <= 768) menu.style.display = "none";
+
+   // Sleduj změnu checkboxu
    menuToggle.addEventListener("change", function() {
-     if(this.checked) {
+     menu.style.display = this.checked ? "flex" : "none";
+   });
+
+   // Při změně velikosti okna
+   window.addEventListener("resize", function() {
+     if(window.innerWidth > 768) {
        menu.style.display = "flex";
-     } else {
+     } else if(!menuToggle.checked) {
        menu.style.display = "none";
      }
    });
