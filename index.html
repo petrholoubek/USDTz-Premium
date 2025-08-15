@@ -140,214 +140,147 @@ label[for="menu-toggle"] span {
 <head>
  <meta charset="UTF-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>USDt.z - Next Generation Stablecoin</title>
+ <title>USDt.z - Next Generation</title>
  <style>
    #msg_body {
-     margin: 0;
      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-     background: #f8f9fa;
-     color: #333;
+     margin: 0;
+     padding: 0;
+     background-color: #f9f9f9;
+     color: #222;
    }
    header {
-     background: rgb(31,186,156);
-     color: white;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     padding: 2rem 1rem;
+     background-color: #fff;
+     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+   }
+   header img {
+     max-width: 200px;
+     height: auto;
+     margin-bottom: 1rem;
+   }
+   .slogan {
+     background-color: #1fba9c;
+     color: #fff;
+     padding: 0.8rem 1.5rem;
+     border-radius: 12px;
+     font-size: 1.5rem;
+     font-weight: bold;
      text-align: center;
-     padding: 3rem 1rem;
-   }
-   header h1 {
-     margin: 0;
-     font-size: 2.5rem;
-   }
-   header p {
-     margin-top: .5rem;
-     font-size: 1.2rem;
+     margin-bottom: 1rem;
    }
    nav {
      display: flex;
      flex-wrap: wrap;
      justify-content: center;
      gap: 1rem;
-     padding: 1rem;
-     background: #fff;
-     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+     margin-bottom: 2rem;
    }
    nav a {
      text-decoration: none;
-     padding: .8rem 1.2rem;
-     border-radius: 5px;
-     background: rgb(31,186,156);
-     color: white;
-     font-weight: bold;
-     transition: background .3s;
+     background-color: #fff;
+     padding: 0.8rem 1.2rem;
+     border-radius: 10px;
+     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+     color: #1fba9c;
+     font-weight: 600;
+     transition: transform 0.2s, box-shadow 0.2s;
    }
    nav a:hover {
-     background: rgb(26,156,131);
+     transform: translateY(-3px);
+     box-shadow: 0 5px 10px rgba(0,0,0,0.15);
    }
-   section {
+   main {
      max-width: 1200px;
-     margin: 2rem auto;
+     margin: 0 auto;
      padding: 1rem;
-   }
-   .cards {
-     display: grid;
-     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-     gap: 1.5rem;
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: center;
+     gap: 2rem;
    }
    .card {
-     background: white;
-     border-radius: 10px;
+     background-color: #fff;
+     border-radius: 12px;
      padding: 1.5rem;
-     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-   }
-   .card h2 {
-     margin-top: 0;
-     color: rgb(31,186,156);
-   }
-   xtable {
-     width: 100%;
-     border-collapse: collapse;
-     margin-top: 1rem;
-   }
-   th, td {
-     border: 1px solid #ddd;
-     padding: .75rem;
+     width: 280px;
+     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+     transition: transform 0.2s, box-shadow 0.2s;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
      text-align: center;
    }
-   th {
-     background: rgb(31,186,156);
-     color: white;
+   .card:hover {
+     transform: translateY(-5px);
+     box-shadow: 0 8px 15px rgba(0,0,0,0.15);
    }
-   footer {
-     text-align: center;
-     padding: 2rem 1rem;
-     background: #333;
-     color: white;
-     margin-top: 3rem;
+   .card h3 {
+     margin: 0.5rem 0 1rem 0;
+     color: #1fba9c;
    }
-   canvas {
-     width: 100% !important;
-     height: 300px !important;
+   .card p {
+     font-size: 0.95rem;
+     color: #555;
+   }
+
+   @media (max-width: 768px) {
+     main {
+       flex-direction: column;
+       align-items: center;
+     }
+     .card {
+       width: 90%;
+     }
+     .slogan {
+       font-size: 1.3rem;
+       padding: 0.6rem 1rem;
+     }
    }
  </style>
 </head>
 <body>
 
  <header>
-   <h1>USDt.z</h1>
-   <p>Next Generation Stablecoin</p>
+   <img src="../img/logo.png" alt="USDt.z Logo">
+   <div class="slogan">Next Generation</div>
+   <nav>
+     <a href="docs.html">Dokumentace</a>
+     <a href="../docs/USDt.z_Whitepaper_CS.pdf" target="_blank">Whitepaper</a>
+     <a href="graphs.html">Grafy</a>
+     <a href="tokenomics.html">Tokenomics</a>
+     <a href="contact.html">Kontakt</a>
+   </nav>
  </header>
 
- <nav>
-   <a href="docs.html">Dokumentace</a>
-   <a href="#tokenizace">Tokenizace</a>
-   <a href="#governance">Governance</a>
-   <a href="#banky">Bankovní sektor</a>
-   <a href="#graf">Graf</a>
-   <a href="#kontakt">Kontakt</a>
- </nav>
-
- <section id="tokenizace" class="cards">
+ <main>
    <div class="card">
-     <h2>Tokenizace</h2>
-     <p>Náš token USDt.z přináší plnou stabilitu, důvěru a využití v reálné ekonomice.
-     Je navržen jako most mezi bankovním a nebankovním sektorem.</p>
+     <h3>Technická dokumentace</h3>
+     <p>Podrobné informace o smart kontraktu, jeho funkcích, bezpečnostních auditech a transparentnosti tokenu USDt.z.</p>
    </div>
    <div class="card">
-     <h2>Výhody</h2>
-     <ul>
-       <li>Stabilita a transparentnost</li>
-       <li>Rychlé transakce</li>
-       <li>Možnost použití jako kolaterál</li>
-       <li>Integrace do bankovních systémů</li>
-     </ul>
-   </div>
- </section>
-
- <section id="governance" class="cards">
-   <div class="card">
-     <h2>Governance</h2>
-     <p>Model řízení USDt.z zajišťuje rovnováhu mezi bezpečností a flexibilitou.
-     Zapojení bank, institucí a držitelů tokenu tvoří transparentní ekosystém.</p>
+     <h3>Whitepaper</h3>
+     <p>Úplná bílá kniha projektu, ekosystém, použití tokenu v bankovnictví i nebankovním sektoru a tokenomika. Stažení PDF.</p>
    </div>
    <div class="card">
-     <h2>Technické parametry</h2>
-     <p>Smart kontrakt je postaven na BSC síti, auditovaný a s plnou možností rozšíření API pro finanční instituce.</p>
+     <h3>Grafy a statistiky</h3>
+     <p>Vizualizace tržní kapitalizace, likvidity a objemu emisí tokenu USDt.z.</p>
    </div>
- </section>
-
- <section id="banky" class="cards">
    <div class="card">
-     <h2>Bankovní sektor</h2>
-     <p>USDt.z nabízí bankám stabilní digitální aktivum, které lze snadno integrovat do
-     stávajících systémů a využít jako moderní nástroj pro půjčky i úschovu hodnoty.</p>
-     <table>
-       <tr>
-         <th>Sektor</th>
-         <th>Využití</th>
-       </tr>
-       <tr>
-         <td>Bankovní</td>
-         <td>Půjčky, kolaterál, platby</td>
-       </tr>
-       <tr>
-         <td>Nebankovní</td>
-         <td>DEX swapy, DeFi služby</td>
-       </tr>
-     </table>
+     <h3>Tokenomics</h3>
+     <p>Detaily o kolaterálních rezervách, emisi tokenů, správa a stabilizace USDt.z.</p>
    </div>
- </section>
-
- <section id="graf">
    <div class="card">
-     <h2>Růst a tržní kapitalizace</h2>
-     <canvas id="myChart"></canvas>
+     <h3>Kontakt</h3>
+     <p>Informace pro spolupráci, školení, workshopy a obchodní dotazy.</p>
    </div>
- </section>
-
- <section id="kontakt" class="cards">
-   <div class="card">
-     <h2>Kontakt</h2>
-     <p>Email: info@usdtz.com</p>
-     <p>Smart kontrakt: <br>
-     <code>0x913ef7244bEd019b95Ec5321408eE4CE83E25c01</code></p>
-     <p><a href="https://www.geckoterminal.com/bsc/pools/0x553b402b3d6f91ea2208c7df61a6d4aa96ccb6191787c20fedb7ae6c9823b280" target="_blank">GeckoTerminal Pool</a></p>
-   </div>
- </section>
-
- <footer>
-   <p>USDt.z – Stablecoin for Next Generation © 2025</p>
- </footer>
-
- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
- <script>
-   const ctx = document.getElementById('myChart').getContext('2d');
-   new Chart(ctx, {
-     type: 'line',
-     data: {
-       labels: ['2021','2022','2023','2024','2025'],
-       datasets: [{
-         label: 'Tržní kapitalizace (v mil. $)',
-         data: [50, 200, 500, 1000, 1800],
-         borderColor: 'rgb(31,186,156)',
-         backgroundColor: 'rgba(31,186,156,0.2)',
-         fill: true,
-         tension: 0.3
-       }]
-     },
-     options: {
-       responsive: true,
-       plugins: {
-         legend: {
-           position: 'top',
-         }
-       }
-     }
-   });
- </script>
+ </main>
 
 </body>
 </html>
-
 <section id="bottom-box" aria-label="Prozkoumej token USDt.z">
  <div class="logo">
    <img src="/USDTz-Premium/img/flags/logo.png" alt="USDt.z Logo" />
