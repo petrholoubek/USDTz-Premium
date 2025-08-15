@@ -179,42 +179,98 @@ label[for="menu-toggle"] span {
  </p>
 </section>
 
-<section style="padding: 60px 20px; background: #f9f9f9;">
- <div style="max-width: 1200px; margin: 0 auto; text-align: center;">
-   <h2 style="margin-bottom: 40px;">🤝 Doporučené projekty & partnerství</h2>
-   <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+<section style="max-width:1200px; margin:50px auto; padding:20px;">
+ <h2 style="color: rgb(31,186,156); font-weight:bold; text-align:center; font-size:2.2rem; margin-bottom:40px;">
+   Doporučené projekty & partnerství
+ </h2>
 
-     
-     <div style="flex: 1 1 250px; background: white; border: 1px solid #ddd; border-radius: 8px; padding: 20px;">
-       <img src="img/partners/bank.png" alt="Bankovní partner" style="max-width: 100px; margin-bottom: 15px;">
-       <h3>Bankovní instituce</h3>
-       <p>Strategické propojení s bankovními partnery umožňuje stabilitu a důvěru v náš stablecoin.</p>
+ <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:30px;">
+
+   
+   <div class="partner-block">
+     <div style="display:flex; align-items:center; justify-content:center; gap:10px; margin-bottom:10px;">
+       <img src="img/partners/bank.png" alt="Bankovní partner" style="width:40px; height:40px;">
+       <h3>Bankovní partner</h3>
      </div>
-
-     
-     <div style="flex: 1 1 250px; background: white; border: 1px solid #ddd; border-radius: 8px; padding: 20px;">
-       <img src="img/partners/fintech.png" alt="FinTech partner" style="max-width: 100px; margin-bottom: 15px;">
-       <h3>FinTech partneři</h3>
-       <p>Spolupracujeme s moderními technologickými firmami na inovativních řešeních plateb a tokenizace.</p>
-     </div>
-
-     
-     <div style="flex: 1 1 250px; background: white; border: 1px solid #ddd; border-radius: 8px; padding: 20px;">
-       <img src="img/partners/exchange.png" alt="Krypto burzy" style="max-width: 100px; margin-bottom: 15px;">
-       <h3>Krypto burzy</h3>
-       <p>Díky partnerství s DEX a CEX platformami je USDt.z snadno dostupný a obchodovatelný.</p>
-     </div>
-
-     
-     <div style="flex: 1 1 250px; background: white; border: 1px solid #ddd; border-radius: 8px; padding: 20px;">
-       <img src="img/partners/investor.png" alt="Investoři" style="max-width: 100px; margin-bottom: 15px;">
-       <h3>Institucionální investoři</h3>
-       <p>Dlouhodobé partnerství s investory pomáhá rozvíjet projekt a zajišťuje jeho růst.</p>
-     </div>
-
+     <p>Spolupráce s tradiční bankou pro zajištění stability a důvěry v ekosystém.</p>
    </div>
+
+   
+   <div class="partner-block">
+     <div style="display:flex; align-items:center; justify-content:center; gap:10px; margin-bottom:10px;">
+       <img src="img/partners/fintech.png" alt="Fintech partner" style="width:40px; height:40px;">
+       <h3>Fintech partner</h3>
+     </div>
+     <p>Inovativní fintech řešení pro rychlé a bezpečné platby v ekosystému.</p>
+   </div>
+
+   
+   <div class="partner-block">
+     <div style="display:flex; align-items:center; justify-content:center; gap:10px; margin-bottom:10px;">
+       <img src="img/partners/exchange.png" alt="Krypto burza" style="width:40px; height:40px;">
+       <h3>Krypto burza</h3>
+     </div>
+     <p>Partnerství s burzou pro likviditu a snadnou směnitelnost tokenů USDt.z.</p>
+   </div>
+
+   
+   <div class="partner-block">
+     <div style="display:flex; align-items:center; justify-content:center; gap:10px; margin-bottom:10px;">
+       <img src="img/influencers/influencer1.png" alt="Influencer 1" style="width:40px; height:40px;">
+       <h3>Influencer 1</h3>
+     </div>
+     <p>Influencer podporující projekt a informující komunitu o USDt.z.</p>
+   </div>
+
+   
+   <div class="partner-block">
+     <div style="display:flex; align-items:center; justify-content:center; gap:10px; margin-bottom:10px;">
+       <img src="img/investors/investor1.png" alt="Investor 1" style="width:40px; height:40px;">
+       <h3>Investor 1</h3>
+     </div>
+     <p>Klíčový investor podporující dlouhodobou stabilitu a růst USDt.z.</p>
+   </div>
+
+   
+   <div class="partner-block">
+     <div style="display:flex; align-items:center; justify-content:center; gap:10px; margin-bottom:10px;">
+       <img src="img/investors/investor2.png" alt="Investor 2" style="width:40px; height:40px;">
+       <h3>Investor 2</h3>
+     </div>
+     <p>Strategický partner s dlouhodobou vizí a podporou ekosystému USDt.z.</p>
+   </div>
+
  </div>
 </section>
+
+<style>
+.partner-block {
+ flex:1 1 250px;
+ max-width:300px;
+ background:#fff;
+ border-radius:12px;
+ padding:20px;
+ box-shadow:0 0 12px rgba(31,186,156,0.15);
+ text-align:center;
+ transition: all 0.3s ease;
+}
+
+.partner-block h3 {
+ color: rgb(31,186,156);
+ font-size:1.4rem;
+ margin:0;
+}
+
+.partner-block p {
+ color:#222;
+ font-size:1rem;
+}
+
+.partner-block:hover {
+ transform: translateY(-10px) scale(1.05);
+ box-shadow:0 0 20px rgba(31,186,156,0.3);
+}
+</style>
 
 <section id="token-stats" style="max-width:900px; margin:2rem auto; background:#fff; border-radius:10px; box-shadow:0 0 12px rgb(31 186 156 / 0.15); padding:2rem;">
  <h2 style="color:rgb(31,186,156); text-align:center; margin-bottom:1rem;">Aktuální údaje o tokenu USDt.z</h2>
@@ -682,213 +738,3 @@ document.addEventListener('DOMContentLoaded', () => {
  });
 });
 </script>
-
-<section class="flex-row" style="max-width: 1100px; margin: 0 auto 50px; gap: 30px; flex-wrap: wrap;">
- 
- 
- <div style="flex: 1 1 400px; background: #fff; border-radius: 12px; padding: 20px; box-shadow: 0 0 12px rgba(31,186,156,0.15);">
-   <h2 style="color: rgb(31,186,156); text-align:center;">Aktuální kurzy</h2>
-   <table style="width: 100%; border-collapse: collapse; margin-top: 15px;">
-     <thead>
-       <tr style="background-color: rgb(31,186,156); color:white;">
-         <th>Měna</th>
-         <th>Kurz</th>
-       </tr>
-     </thead>
-     <tbody>
-       <tr><td>USDt.z</td><td>1.0000</td></tr>
-       <tr><td>BNB</td><td>300.0000</td></tr>
-       <tr><td>USD</td><td>1.0000</td></tr>
-       <tr><td>EUR</td><td>1.1000</td></tr>
-       <tr><td>CZK</td><td>23.0000</td></tr>
-     </tbody>
-   </table>
- </div>
-
- 
- <div style="flex: 1 1 400px; background: #fff; border-radius: 12px; padding: 20px; box-shadow: 0 0 12px rgba(31,186,156,0.15);">
-   <h2 style="color: rgb(31,186,156); text-align:center;">Kalkulačka USDt.z</h2>
-   <label for="inputAmount">Částka:</label>
-   <input type="number" id="inputAmount" min="0" step="0.01" value="100" style="width:100%; padding:8px; margin:5px 0 15px; border-radius:6px; border:1px solid #ccc;" />
-
-   <label for="selectCurrency">Převést na:</label>
-   <select id="selectCurrency" style="width:100%; padding:8px; margin:5px 0 15px; border-radius:6px; border:1px solid #ccc;">
-     <option value="USDt">USDt.z</option>
-     <option value="BNB">BNB</option>
-     <option value="USD">USD</option>
-     <option value="EUR">EUR</option>
-     <option value="CZK">CZK</option>
-   </select>
-
-   <output id="resultOutput" style="display:block; margin-top:10px; font-weight:700; font-size:1.2rem; color: rgb(31,186,156);"></output>
- </div>
-</section>
-
-<script>
-document.addEventListener('DOMContentLoaded', () => {
- const rates = { USDt:1.0, BNB:300.0, USD:1.0, EUR:1.1, CZK:23.0 };
- const inputAmount = document.getElementById('inputAmount');
- const selectCurrency = document.getElementById('selectCurrency');
- const resultOutput = document.getElementById('resultOutput');
-
- function updateConversion() {
-   const amount = parseFloat(inputAmount.value);
-   const target = selectCurrency.value;
-   if(isNaN(amount) || amount < 0){ resultOutput.textContent=''; return; }
-   const result = amount * rates[target];
-   resultOutput.textContent = `${amount.toFixed(2)} USDt.z = ${result.toFixed(4)} ${target}`;
- }
-
- inputAmount.addEventListener('input', updateConversion);
- selectCurrency.addEventListener('change', updateConversion);
- updateConversion();
-});
-</script>
-
-<section style="max-width:900px; margin: 0 auto 50px; background:#fff; border-radius:12px; padding:20px; box-shadow:0 0 12px rgba(31,186,156,0.15);">
- <h2 style="color: rgb(31,186,156); text-align:center;">Tokenomics</h2>
- <p style="text-align:center; margin:10px 0 20px; font-size:1.1rem;">
-   Distribuce tokenů USDt.z je navržena tak, aby podporovala dlouhodobou stabilitu a růst ekosystému.
- </p>
- <canvas id="tokenomicsChart" aria-label="USDt.z Token Distribution Chart" role="img"></canvas>
-</section>
-
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js"></script>
-<script>
- const ctx = document.getElementById('tokenomicsChart').getContext('2d');
-
- const data = {
-   labels: ['Liquidity', 'Reserve', 'Team', 'Marketing', 'Community'],
-   datasets: [{
-     label: 'Rozložení tokenů',
-     data: [40, 30, 15, 10, 5],
-     backgroundColor: [
-       'rgb(31,186,156)',
-       'rgb(21,133,108)',
-       'rgb(88,176,170)',
-       'rgb(144,204,192)',
-       'rgb(198,233,229)'
-     ],
-     hoverOffset: 20
-   }]
- };
-
- new Chart(ctx, {
-   type: 'doughnut',
-   data: data,
-   options: {
-     responsive: true,
-     maintainAspectRatio: false,
-     plugins: {
-       legend: {
-         position: 'bottom',
-         labels: { color: '#222', font: { size:14 } }
-       },
-       tooltip: { enabled: true }
-     }
-   }
- });
-</script>
-
-<style>
- #tokenomicsChart {
-   width: 100%;
-   max-width: 400px;
-   height: 400px;
-   margin: 0 auto;
-   display: block;
- }
-</style>
-
-<section id="bottom-box" aria-label="Prozkoumej token USDt.z">
- <div class="logo">
-   <img src="/USDTz-Premium/img/flags/logo.png" alt="USDt.z Logo" />
- </div>
- <div class="text">Prozkoumejte token USDt.z na těchto platformách:</div>
- <div class="btn-group">
-   <a href="https://bscscan.com/token/0x913ef7244bEd019b95Ec5321408eE4CE83E25c01"
-      target="_blank" rel="noopener noreferrer"
-      class="btn-bsc" aria-label="Token na BscScan">
-      BscScan
-   </a>
-   <a href="https://www.geckoterminal.com/bsc/pools/0x553b402b3d6f91ea2208c7df61a6d4aa96ccb6191787c20fedb7ae6c9823b280"
-      target="_blank" rel="noopener noreferrer"
-      class="btn-gecko" aria-label="Token na GeckoTerminal">
-      GeckoTerminal
-   </a>
- </div>
-</section>
-
-<style>
-#bottom-box {
- max-width: 900px;
- margin: 2rem auto;
- background: #fff;
- border: 1px solid #ddd;
- border-radius: 10px;
- box-shadow: 0 0 12px rgb(31 186 156 / 0.15);
- padding: 1rem 2rem;
- display: flex;
- align-items: center;
- gap: 1.5rem;
- justify-content: space-between;
-}
-
-#bottom-box .logo {
- flex-shrink: 0;
-}
-#bottom-box .logo img {
- height: 40px;
-}
-
-#bottom-box .text {
- flex: 1;
- font-weight: 600;
- color: rgb(31,186,156);
- font-size: 1.1rem;
-}
-
-#bottom-box .btn-group {
- display: flex;
- gap: 1rem;
-}
-
-#bottom-box .btn-group a {
- padding: 0.5rem 1.2rem;
- border-radius: 6px;
- font-weight: 700;
- text-decoration: none;
- display: inline-block;
- cursor: pointer;
- color: white;
- transition: background-color 0.3s ease;
- white-space: nowrap;
-}
-
-#bottom-box .btn-bsc {
- background-color: #f0b90b;
-}
-#bottom-box .btn-bsc:hover {
- background-color: #d9a200;
-}
-
-#bottom-box .btn-gecko {
- background-color: #1e88e5;
-}
-#bottom-box .btn-gecko:hover {
- background-color: #1669bb;
-}
-
-/* Responzivita pro mobil */
-@media (max-width: 768px) {
- #bottom-box {
-   flex-direction: column;
-   gap: 1rem;
-   text-align: center;
- }
- #bottom-box .btn-group {
-   justify-content: center;
-   width: 100%;
- }
-}
-</style>
