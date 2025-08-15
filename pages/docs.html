@@ -142,200 +142,149 @@ label[for="menu-toggle"] span {
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>USDt.z Dokumentace</title>
 <style>
- #msg_body {
-   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-   margin: 0;
-   background-color: #f5f7fa;
-   color: #1f1f1f;
- }
- h1, h2, h3 {
-   color: #1fba9c;
- }
- .container {
-   max-width: 1200px;
-   margin: 0 auto;
-   padding: 2rem;
- }
- .section {
-   background-color: #ffffff;
-   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-   padding: 2rem;
-   margin-bottom: 2rem;
-   border-radius: 10px;
- }
- .flex-row {
-   display: flex;
-   flex-wrap: wrap;
-   gap: 2rem;
- }
- .flex-column {
-   flex: 1;
-   min-width: 300px;
- }
- iframe {
-   width: 100%;
-   height: 600px;
-   border: none;
-   border-radius: 8px;
- }
- xtable {
-   width: 100%;
-   border-collapse: collapse;
-   margin-top: 1rem;
- }
- table, th, td {
-   border: 1px solid #ddd;
- }
- th, td {
-   padding: 0.8rem;
-   text-align: left;
- }
- th {
-   background-color: #1fba9c;
-   color: #fff;
- }
- .btn {
-   display: inline-block;
-   background-color: #1fba9c;
-   color: #fff;
-   padding: 0.8rem 1.2rem;
-   border-radius: 6px;
-   text-decoration: none;
-   margin-top: 1rem;
-   transition: 0.3s;
- }
- .btn:hover {
-   background-color: #17a08b;
- }
- .slider {
-   display: flex;
-   overflow-x: auto;
-   gap: 1rem;
-   padding: 1rem 0;
- }
- .slide {
-   min-width: 300px;
-   background-color: #eef2f7;
-   padding: 1rem;
-   border-radius: 8px;
-   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
- }
- .graph {
-   height: 300px;
-   background-color: #eef2f7;
-   border-radius: 8px;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   color: #888;
-   font-size: 1.2rem;
-   margin-top: 1rem;
- }
+ #msg_body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin:0; padding:0; background:#f5f5f5; color:#222; }
+ .container { max-width:1200px; margin:2rem auto; padding:1rem; }
+ h1, h2, h3 { color:#1FBA9C; }
+ .section { background:#fff; padding:1.5rem; margin-bottom:2rem; box-shadow:0 4px 12px rgba(0,0,0,0.08); border-radius:8px; }
+ .flex { display:flex; flex-wrap:wrap; gap:1rem; }
+ .flex > div { flex:1 1 48%; background:#fafafa; padding:1rem; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.05); }
+ button.pdf-btn { background:#1FBA9C; color:#fff; border:none; padding:0.75rem 1.25rem; border-radius:6px; cursor:pointer; margin-top:0.5rem; }
+ .accordion { cursor:pointer; padding:1rem; border:none; text-align:left; outline:none; transition:0.3s; width:100%; background:#e9f5f2; margin-bottom:0.5rem; border-radius:6px; }
+ .panel { padding:0 1rem; display:none; background-color:#f1f1f1; overflow:hidden; border-radius:6px; margin-bottom:1rem; }
+ xtable { width:100%; border-collapse:collapse; margin-top:0.5rem; }
+ th, td { border:1px solid #ddd; padding:0.75rem; text-align:left; }
+ th { background:#1FBA9C; color:#fff; }
+ .slider { display:flex; overflow-x:auto; gap:1rem; padding:0.5rem 0; }
+ .slider div { min-width:250px; background:#f9f9f9; padding:1rem; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.05); }
+ .note { font-size:0.9rem; color:#555; margin-top:0.25rem; }
 </style>
 </head>
 <body>
-
 <div class="container">
 
- <div class="section">
-   <h1>USDt.z Dokumentace</h1>
-   <p>Kompletní technická a odborná dokumentace tokenu USDt.z, jeho architektura, tokenomics, použití v bankovním i nebankovním sektoru a mechanismy stabilizace.</p>
- </div>
+<h1>Technická Dokumentace USDt.z</h1>
 
- <div class="section">
-   <h2>Token Overview</h2>
-   <div class="flex-row">
-     <div class="flex-column">
-       <p><strong>Název tokenu:</strong> USDt.z</p>
-       <p><strong>Typ:</strong> Stablecoin pegged k USD</p>
-       <p><strong>Standard:</strong> BEP-20 (BSC)</p>
-       <p><strong>Celková nabídka:</strong> 1,000,000,000 USDt.z</p>
-       <p><strong>Zajištění stability:</strong> kolaterální rezervy + algoritmická podpora</p>
-     </div>
-     <div class="flex-column graph">
-       Animovaný graf stability tokenu
-     </div>
-   </div>
- </div>
 
- <div class="section">
-   <h2>Tokenomics & Governance</h2>
-   <div class="flex-row">
-     <div class="flex-column">
-       <p>Mechanismus emise a spalování (mint/burn), distribuce mezi seed, private, public, staking a treasury.</p>
-       <p>Likvidita na decentralizovaných a centralizovaných burzách.</p>
-       <p>Governance model: voting, treasury management, multi-sig rozhodování.</p>
-     </div>
-     <div class="flex-column graph">
-       Tabulka a graf distribuce tokenu
-     </div>
-   </div>
- </div>
+<div class="section">
+<h2>1. Smart kontrakt USDt.z</h2>
+<p>Token USDt.z je implementován na <strong>Binance Smart Chain (BSC)</strong> jako <strong>BEP-20</strong> token. Smart kontrakt zajišťuje:</p>
+<ul>
+ <li>Mint – vydávání nových tokenů</li>
+ <li>Burn – likvidace tokenů</li>
+ <li>Transfer – převody mezi peněženkami</li>
+ <li>Kolaterální operace – zajištění stability a možnost využití tokenu jako kolaterálu</li>
+</ul>
+<p>Adresa kontraktu: <code>0x913ef7244bEd019b95Ec5321408eE4CE83E25c01</code></p>
+<p>Bezpečnostní audit proveden švýcarskou auditní firmou, bez kritických chyb, doporučené best practices implementovány.</p>
+<button class="pdf-btn" onclick="window.open('docs/USDt.z_Audit.pdf','_blank')">Stáhnout audit</button>
+<div class="note">Všechny transakce jsou veřejně dostupné pro monitoring a transparentnost.</div>
+</div>
 
- <div class="section">
-   <h2>Smart Contract Architecture</h2>
-   <p>Smart kontrakt USDt.z je navržen s ohledem na bezpečnost a funkčnost:</p>
+
+<div class="section">
+<h2>2. Whitepaper / Bílá kniha</h2>
+<p>Whitepaper obsahuje kompletní přehled projektu:</p>
+<ul>
+ <li>Účel tokenu USDt.z</li>
+ <li>Ekosystém a využití v bankovnictví a nebankovním sektoru</li>
+ <li>Tokenomika a emise</li>
+ <li>Strategie stabilizace a kolaterální zajištění</li>
+</ul>
+<button class="pdf-btn" onclick="window.open('docs/USDt.z_Whitepaper.pdf','_blank')">Zobrazit whitepaper</button>
+<div class="note">Interaktivní grafy a tabulky pro snadné pochopení tokenomiky a objemu emisí.</div>
+</div>
+
+
+<div class="section">
+<h2>3. Governance a Pravidla</h2>
+<p>Popis mechanismů řízení tokenu a rozhodovacích procesů:</p>
+<ul>
+ <li>Mechanismus stabilizace</li>
+ <li>Kolaterální zajištění</li>
+ <li>Transparentní procesy pro všechny uživatele</li>
+</ul>
+<button class="accordion">Více o Governance</button>
+<div class="panel">
+<p>Token je řízen decentralizovanými pravidly s možností hlasování klíčových partnerů a institucí. Každé rozhodnutí je logováno na blockchainu.</p>
+</div>
+</div>
+
+
+<div class="section">
+<h2>4. Regulační a právní dokumentace</h2>
+<p>Token USDt.z je v souladu s evropskými a švýcarskými předpisy:</p>
+<ul>
+ <li>Právní audity a certifikace</li>
+ <li>Registrace tokenu a compliance statusy</li>
+ <li>Dodržování AML/KYC pravidel</li>
+</ul>
+</div>
+
+
+<div class="section">
+<h2>5. Technické specifikace tokenu</h2>
+<div class="flex">
+ <div>
+   <h3>Emise tokenu</h3>
+   <table>
+     <tr><th>Parametr</th><th>Hodnota</th></tr>
+     <tr><td>Celkové supply</td><td>1 000 000 000 USDt.z</td></tr>
+     <tr><td>Circulating supply</td><td>250 000 000 USDt.z</td></tr>
+     <tr><td>Kolaterální rezerva</td><td>50 % emise</td></tr>
+   </table>
+ </div>
+ <div>
+   <h3>Podpora protokolů</h3>
    <ul>
-     <li>Standardy: BEP-20, Ownable, Pausable</li>
-     <li>Funkce: transfer, mint, burn, approve, transferFrom</li>
-     <li>Bezpečnostní opatření: multi-sig, pausability, audit trails</li>
-     <li>Audit a formální verifikace kontraktu</li>
+     <li>BSC BEP-20 standard</li>
+     <li>Smart kontrakty pro kolaterál a zajištění stability</li>
+     <li>Integrace s likviditními pooly</li>
    </ul>
  </div>
+</div>
+</div>
 
- <div class="section">
-   <h2>Use Cases</h2>
-   <div class="flex-row">
-     <div class="flex-column">
-       <h3>Bankovní sektor</h3>
-       <p>Půjčky, kolaterální zajištění, správa likvidity a integrace do finančních systémů bank.</p>
-     </div>
-     <div class="flex-column">
-       <h3>Nebankovní sektor</h3>
-       <p>P2P lending, DeFi platformy, staking, využití tokenu jako záruky v obchodních operacích.</p>
-     </div>
-   </div>
- </div>
 
- <div class="section">
-   <h2>Technical Resources</h2>
-   <div class="flex-row">
-     <div class="flex-column">
-       <h3>Whitepaper</h3>
-       <iframe src="../files/USDt.z_Whitepaper.pdf"></iframe>
-       <a href="../files/USDt.z_Whitepaper.pdf" class="btn" target="_blank">Stáhnout PDF</a>
-     </div>
-     <div class="flex-column">
-       <h3>Audit</h3>
-       <iframe src="../files/USDt.z_Audit.pdf"></iframe>
-       <a href="../files/USDt.z_Audit.pdf" class="btn" target="_blank">Stáhnout Audit</a>
-     </div>
-   </div>
- </div>
+<div class="section">
+<h2>6. Ostatní podpora</h2>
+<p>Pro investory a banky nabízíme:</p>
+<ul>
+ <li>FAQ a vysvětlivky k tokenu</li>
+ <li>API pro integraci a monitoring tokenu</li>
+ <li>Marketingové a obchodní materiály (pitch deck, školení, workshopy)</li>
+</ul>
+<div class="slider">
+ <div>Pitch Deck – marketing a obchodní strategie</div>
+ <div>Workshop – školení a vzdělávání partnerů</div>
+ <div>Future – strategie a využití tokenu v praxi</div>
+</div>
+</div>
 
- <div class="section">
-   <h2>Advanced Technical Insights</h2>
-   <div class="slider">
-     <div class="slide">
-       <h3>Převody mezi fiat a crypto</h3>
-       <p>Liquidity pools a market making pro bezpečný swap mezi měnami.</p>
-     </div>
-     <div class="slide">
-       <h3>Interoperabilita s DeFi platformami</h3>
-       <p>Integrace s decentralizovanými protokoly a smart kontrakty.</p>
-     </div>
-     <div class="slide">
-       <h3>Risk Management</h3>
-       <p>Kolaterální stabilizace, kontrola volatility, monitorování rezerv.</p>
-     </div>
-     <div class="slide">
-       <h3>On-chain monitoring</h3>
-       <p>Analytika transakcí, sledování likvidity, reporty pro audit a governance.</p>
-     </div>
-   </div>
- </div>
+
+<div class="section">
+<h2>7. Interaktivní prvky</h2>
+<p>Stránka obsahuje:</p>
+<ul>
+ <li>Accordion pro rozbalení jednotlivých dokumentů a podrobností</li>
+ <li>Slider pro více PDF a grafů</li>
+ <li>Rámečky pro vizuální oddělení sekcí</li>
+ <li>Grafy pro statistiku obratu, likvidity a objemu emisí</li>
+</ul>
+</div>
 
 </div>
+
+<script>
+var acc = document.getElementsByClassName("accordion");
+for (var i = 0; i < acc.length; i++) {
+ acc[i].addEventListener("click", function() {
+   this.classList.toggle("active");
+   var panel = this.nextElementSibling;
+   if (panel.style.display === "block") { panel.style.display = "none"; }
+   else { panel.style.display = "block"; }
+ });
+}
+</script>
 
 </body>
 </html>
