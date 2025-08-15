@@ -137,203 +137,161 @@ label[for="menu-toggle"] span {
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>USDt.z Dokumentace</title>
-<style>
-#msg_body {
-   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-   margin: 0;
-   padding: 0;
-   background: #f9f9f9;
-   color: #222;
-}
-header {
-   background: #1fba9c;
-   color: #fff;
-   padding: 1.5rem 2rem;
-   text-align: center;
-   font-size: 2rem;
-   font-weight: bold;
-}
-.container {
-   max-width: 1200px;
-   margin: 2rem auto;
-   padding: 0 1rem;
-   display: flex;
-   flex-wrap: wrap;
-   gap: 2rem;
-}
-.card {
-   background: #fff;
-   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-   padding: 1.5rem;
-   width: 900px;
-   box-sizing: border-box;
-   flex: 1 1 900px;
-}
-.card h2 {
-   margin-top: 0;
-   color: #1fba9c;
-}
-.accordion {
-   cursor: pointer;
-   padding: 0.75rem;
-   background: #e6f7f2;
-   border: none;
-   text-align: left;
-   outline: none;
-   font-size: 1.1rem;
-   transition: background 0.3s;
-   width: 100%;
-}
-.accordion:hover {
-   background: #d0f0e6;
-}
-.panel {
-   padding: 0 1rem;
-   display: none;
-   background: #f9f9f9;
-   overflow: hidden;
-}
-.tooltip {
-   border-bottom: 1px dotted #000;
-   cursor: help;
-   position: relative;
-}
-.tooltip:hover::after {
-   content: attr(data-tip);
-   position: absolute;
-   left: 0;
-   bottom: 100%;
-   background: #222;
-   color: #fff;
-   padding: 0.5rem;
-   border-radius: 4px;
-   white-space: nowrap;
-   z-index: 10;
-}
-@media(max-width: 960px){
-   .container {
-       flex-direction: column;
-       align-items: center;
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <title>Technická dokumentace – USDt.z</title>
+ <style>
+   #msg_body {
+     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+     margin: 0; padding: 0;
+     background: #f8f9fa;
+     color: #333;
+   }
+   header {
+     background: #fff;
+     padding: 1.5rem;
+     text-align: center;
+     border-bottom: 1px solid #ddd;
+   }
+   header h1 {
+     margin: 0;
+     font-size: 2rem;
+     color: #1fba9c;
+   }
+   nav {
+     background: #1fba9c;
+     padding: 0.75rem;
+     text-align: center;
+   }
+   nav a {
+     color: #fff;
+     text-decoration: none;
+     margin: 0 0.75rem;
+     font-weight: bold;
+   }
+   nav a:hover {
+     text-decoration: underline;
+   }
+   main {
+     max-width: 1200px;
+     margin: 2rem auto;
+     padding: 0 1rem;
+     display: flex;
+     flex-wrap: wrap;
+     gap: 2rem;
+     justify-content: center;
    }
    .card {
-       width: 100%;
+     background: #fff;
+     border-radius: 8px;
+     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+     padding: 1.5rem;
+     flex: 1 1 900px;
+     max-width: 900px;
+     box-sizing: border-box;
    }
-}
-</style>
+   .card h2 {
+     margin-top: 0;
+     color: #1fba9c;
+   }
+   @media (min-width: 1900px) {
+     main { justify-content: space-between; }
+     .card { flex: 1 1 45%; }
+   }
+   footer {
+     text-align: center;
+     padding: 1rem;
+     background: #fff;
+     border-top: 1px solid #ddd;
+     margin-top: 2rem;
+     font-size: 0.9rem;
+   }
+ </style>
 </head>
 <body>
 
-<header>USDt.z – Next Generation Stablecoin</header>
+<header>
+ <h1>Technická dokumentace USDt.z</h1>
+</header>
+<nav>
+ <a href="index.html">Domů</a>
+ <a href="docs.html">Dokumentace</a>
+ <a href="usecases.html">Použití</a>
+ <a href="contact.html">Kontakt</a>
+</nav>
 
-<div class="container">
+<main>
+ <div class="card">
+   <h2>1. Smart kontrakt USDt.z</h2>
+   <p>Token USDt.z je implementován na Binance Smart Chain (BSC) jako BEP-20 token. Smart kontrakt zajišťuje:</p>
+   <ul>
+     <li>mint – vydávání nových tokenů</li>
+     <li>burn – likvidace tokenů</li>
+     <li>transfer – převody</li>
+     <li>kolaterální operace – stabilizace hodnoty</li>
+   </ul>
+   <p><strong>Adresa:</strong> <code>0x913ef7244bEd019b95Ec5321408eE4CE83E25c01</code></p>
+   <p>Audit provedla švýcarská firma – žádné kritické chyby, dostupné best practices.</p>
+ </div>
 
-<div class="card">
-   <h2>1. Technická dokumentace</h2>
-   <button class="accordion">Smart kontrakt</button>
-   <div class="panel">
-       <p><strong>Adresa:</strong> 0x913ef7244bEd019b95Ec5321408eE4CE83E25c01</p>
-       <p><strong>Blockchain:</strong> Binance Smart Chain (BSC)</p>
-       <p><strong>Standard:</strong> BEP-20</p>
-       <p><strong>Funkce:</strong> mint, burn, transfer, kolaterální operace</p>
-       <p><strong>Bezpečnostní audit:</strong> švýcarská firma, žádné kritické chyby</p>
-       <p><strong>Transparentnost:</strong> veškeré transakce veřejné</p>
-   </div>
+ <div class="card">
+   <h2>2. Whitepaper / Bílá kniha</h2>
+   <p>Obsahuje:</p>
+   <ul>
+     <li>Účel tokenu, ekosystém, využití v bankovnictví i nebankovním sektoru</li>
+     <li>Tokenomiku a emisi</li>
+     <li>Strategii stabilizace a kolaterální zajištění</li>
+   </ul>
+   <p><a href="whitepaper.pdf" target="_blank">Zobrazit whitepaper →</a></p>
+ </div>
 
-   <button class="accordion">API & Integrace</button>
-   <div class="panel">
-       <p>Podpora integrace s bankami a nebankovními partnery.</p>
-       <p>Možnost monitoringu transakcí a stavu kolaterálu přes API.</p>
-   </div>
-</div>
-
-<div class="card">
-   <h2>2. Whitepaper & Audit</h2>
-   <p>Celý projekt shrnutý v dokumentech. Obsahuje účel tokenu, ekosystém, použití v bankovnictví i nebankovním sektoru, tokenomiku.</p>
-   <p><a href="../docs/USDTz_Whitepaper_CS.pdf" target="_blank">Zobrazit Whitepaper (PDF)</a></p>
-   <p><a href="../docs/USDTz_Audit.pdf" target="_blank">Zobrazit Audit (PDF)</a></p>
-</div>
-
-<div class="card">
+ <div class="card">
    <h2>3. Governance & Pravidla</h2>
-   <button class="accordion">Stabilizace & Kolaterál</button>
-   <div class="panel">
-       <p>Mechanismus zajištění hodnoty tokenu prostřednictvím kolaterálu.</p>
-       <p>Transparentní procesy pro všechny uživatele.</p>
-   </div>
-</div>
+   <p>Transparentní rozhodovací mechanismus s kolaterální stabilizací. Decentralizované řízení se vším logem na blockchainu.</p>
+ </div>
 
-<div class="card">
-   <h2>4. Obchodní možnosti <span class="tooltip" data-tip="Klikni pro detailní vysvětlení mechanismů">?</span></h2>
-   <button class="accordion">Zajištěná mimoburzovní půjčka</button>
-   <div class="panel">
-       <p>Rychlost: 1–3 dny 🚀</p>
-       <p>Ochrana kapitálu: 100% jistina v úschově</p>
-       <p>Mechanismus: USDT.z jako zástava, obdržíte USDC/USDT</p>
-       <p>Podmínky: 110–150% zástava, RPSN 6–12 %, splatnost 30–90 dní</p>
-   </div>
+ <div class="card">
+   <h2>4. Regulační dokumentace</h2>
+   <ul>
+     <li>Soulad s evropskými & švýcarskými předpisy</li>
+     <li>Právní audity a certifikace</li>
+     <li>Compliance a AML/KYC standardy</li>
+   </ul>
+   <p><a href="audit.pdf" target="_blank">Zobrazit audit →</a></p>
+ </div>
 
-   <button class="accordion">Časově vázaný swap stablecoinů</button>
-   <div class="panel">
-       <p>Rychlost: tentýž den 🚀🚀</p>
-       <p>Ochrana kapitálu: jistina zůstává</p>
-       <p>Mechanismus: krátkodobá výměna USDT.z za likvidní stablecoiny</p>
-       <p>Poplatek: 0,5–2 % měsíčně</p>
-   </div>
+ <div class="card">
+   <h2>5. Technické specifikace</h2>
+   <p>Celkové supply: 1 000 000 000 USDt.z<br>
+      Circulating: 250 000 000<br>
+      Kolaterální rezerva: 50 %</p>
+ </div>
 
-   <button class="accordion">Výnos k hotovosti</button>
-   <div class="panel">
-       <p>Rychlost: rychlé nastavení ⚡</p>
-       <p>Jistina zůstává, možnost denního/týdenního výnosu</p>
-       <p>Výnos: 5–15 % RPY</p>
-   </div>
+ <div class="card">
+   <h2>6. Podpora & Integrace</h2>
+   <ul>
+     <li>FAQ, API pro monitoring</li>
+     <li>Odkazy na pitch deck, školení a webináře</li>
+   </ul>
+ </div>
 
-   <button class="accordion">Tokenizované dluhopisy</button>
-   <div class="panel">
-       <p>Rychlost: 1–2 týdny 🕓</p>
-       <p>Jistina: USDT.z uzamčeny v chytrých smlouvách</p>
-       <p>Výnos: fixní kupón 6–10 %, splatnost 90–180 dní</p>
-   </div>
+ <div class="card">
+   <h2>7. Interaktivní prvky</h2>
+   <ul>
+     <li>Accordion pro podrobnosti</li>
+     <li>Slider pro více PDF / grafů</li>
+     <li>Grafy – obrat, likvidita, emise</li>
+   </ul>
+ </div>
+</main>
 
-   <button class="accordion">Repo dohoda s odkupem</button>
-   <div class="panel">
-       <p>Rychlost: do 48 hodin 🚀🚀</p>
-       <p>Jistina: kontrolujete cenu zpětného odkupu</p>
-       <p>Poplatek: 0,5–1,5 % měsíčně</p>
-   </div>
-</div>
-
-<div class="card">
-   <h2>5. Technické specifikace tokenu</h2>
-   <p>Emise tokenu, kolaterální rezerva, podporované smart kontrakty.</p>
-</div>
-
-<div class="card">
-   <h2>6. FAQ & Podpora</h2>
-   <p>FAQ pro investory a banky, odkazy na školení, workshopy a obchodní materiály.</p>
-</div>
-
-</div>
-
-<script>
-var acc = document.getElementsByClassName("accordion");
-for (var i = 0; i < acc.length; i++) {
-   acc[i].addEventListener("click", function() {
-       this.classList.toggle("active");
-       var panel = this.nextElementSibling;
-       if (panel.style.display === "block") {
-           panel.style.display = "none";
-       } else {
-           panel.style.display = "block";
-       }
-   });
-}
-</script>
+<footer>
+ © 2025 USDt.z – Stablecoin for Next Generation
+</footer>
 
 </body>
 </html>
+
 <section id="bottom-box" aria-label="Prozkoumej token USDt.z">
  <div class="logo">
    <img src="/USDTz-Premium/img/flags/logo.png" alt="USDt.z Logo" />
