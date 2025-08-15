@@ -1,341 +1,765 @@
-<!DOCTYPE html>
-<html lang="cs">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>USDt.z – Next Generation Stablecoin</title>
-<style>
- * { margin:0; padding:0; box-sizing:border-box; }
- #msg_body { font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:#f8f9fa; color:#222; }
- main { max-width:1200px; margin:2rem auto; padding:0 1rem; display:flex; flex-direction:column; gap:2rem; }
+<section style="padding: 60px 20px; background: #f9f9f9;">
+ <div style="max-width: 1200px; margin: 0 auto; text-align: center;">
+   <h2 style="margin-bottom: 40px;">🤝 Doporučené projekty & partnerství</h2>
+   <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
 
- /* Úvodní sekce */
- .intro-box {
-   background:#fff; border-radius:12px; box-shadow:0 5px 15px rgba(0,0,0,0.05);
-   padding:3rem 2rem; text-align:center;
+     
+     <div style="flex: 1 1 250px; background: white; border: 1px solid #ddd; border-radius: 8px; padding: 20px;">
+       <img src="img/partners/bank.png" alt="Bankovní partner" style="max-width: 100px; margin-bottom: 15px;">
+       <h3>Bankovní instituce</h3>
+       <p>Strategické propojení s bankovními partnery umožňuje stabilitu a důvěru v náš stablecoin.</p>
+     </div>
+
+     
+     <div style="flex: 1 1 250px; background: white; border: 1px solid #ddd; border-radius: 8px; padding: 20px;">
+       <img src="img/partners/fintech.png" alt="FinTech partner" style="max-width: 100px; margin-bottom: 15px;">
+       <h3>FinTech partneři</h3>
+       <p>Spolupracujeme s moderními technologickými firmami na inovativních řešeních plateb a tokenizace.</p>
+     </div>
+
+     
+     <div style="flex: 1 1 250px; background: white; border: 1px solid #ddd; border-radius: 8px; padding: 20px;">
+       <img src="img/partners/exchange.png" alt="Krypto burzy" style="max-width: 100px; margin-bottom: 15px;">
+       <h3>Krypto burzy</h3>
+       <p>Díky partnerství s DEX a CEX platformami je USDt.z snadno dostupný a obchodovatelný.</p>
+     </div>
+
+     
+     <div style="flex: 1 1 250px; background: white; border: 1px solid #ddd; border-radius: 8px; padding: 20px;">
+       <img src="img/partners/investor.png" alt="Investoři" style="max-width: 100px; margin-bottom: 15px;">
+       <h3>Institucionální investoři</h3>
+       <p>Dlouhodobé partnerství s investory pomáhá rozvíjet projekt a zajišťuje jeho růst.</p>
+     </div>
+
+   </div>
+ </div>
+</section>
+<section style="padding: 60px 20px; background: #ffffff;">
+ <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 40px; align-items: center;">
+
+   
+   <div style="flex: 1 1 500px;">
+     <h2>💠 Tokenizace & Kalkulačka</h2>
+     <p>
+       Token USDt.z přináší stabilitu a transparentnost.  
+       Díky blockchainu můžete okamžitě převádět hodnotu, využívat ji jako kolaterál a zapojit se do moderního finančního systému.  
+     </p>
+     <ul style="margin-top: 20px; line-height: 1.8;">
+       <li>✅ Okamžité převody 24/7</li>
+       <li>✅ Transparentní rezervy</li>
+       <li>✅ Využití v bankovním i nebankovním sektoru</li>
+       <li>✅ Bezpečná alternativa k tradičním měnám</li>
+     </ul>
+   </div>
+
+   
+   <div style="flex: 1 1 400px; background: #f9f9f9; border: 1px solid #ddd; border-radius: 8px; padding: 20px; text-align: center;">
+     <h3>Převod na USDt.z</h3>
+     <p>Zadejte částku v USD a zjistěte ekvivalent v USDt.z</p>
+     
+     <input id="usdInput" type="number" placeholder="Zadejte částku v USD"
+            style="width: 100%; padding: 10px; margin: 10px 0; border-radius: 5px; border: 1px solid #ccc;">
+     
+     <button onclick="convertToUSDTz()"
+             style="background: rgb(31,186,156); color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">
+       Přepočítat
+     </button>
+
+     <p id="result" style="margin-top: 15px; font-weight: bold; font-size: 18px;"></p>
+   </div>
+
+ </div>
+</section>
+
+<script>
+ function convertToUSDTz() {
+   let usd = document.getElementById('usdInput').value;
+   if (usd && usd > 0) {
+     // 1 USD = 1 USDt.z (přímá vazba)
+     document.getElementById('result').innerText = usd + " USD = " + usd + " USDt.z";
+   } else {
+     document.getElementById('result').innerText = "Zadejte platnou částku.";
+   }
  }
- .intro-box img { max-height:120px; margin-bottom:1rem; }
- .intro-box h1 { font-size:2.5rem; color:rgb(31,186,156); margin-bottom:0.5rem; }
- .intro-box h2 { font-size:2rem; color:rgb(31,186,156); margin-bottom:1rem; }
- .intro-box p { font-size:1.1rem; color:#222; max-width:700px; margin:0 auto; line-height:1.5; }
+</script>
+<section style="padding: 60px 20px; background: #f4f8f9;">
+ <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 40px; align-items: center;">
 
- /* Sekce boxů a grafů */
- section { background:#fff; border-radius:12px; box-shadow:0 5px 15px rgba(0,0,0,0.05); padding:2rem; }
- h2.section-title { color:rgb(31,186,156); margin-bottom:1rem; font-size:1.8rem; text-align:center; }
+   
+   <div style="flex: 1 1 500px;">
+     <h2>🌍 O projektu & Proč to děláme</h2>
+     <p>
+       USDt.z vznikl s cílem nabídnout **bezpečnou, stabilní a dostupnou alternativu** k tradičním finančním nástrojům.  
+       Vidíme budoucnost, kde digitální měny umožní:
+     </p>
+     <ul style="margin-top: 20px; line-height: 1.8;">
+       <li>💡 Finanční svobodu a nezávislost</li>
+       <li>💡 Levnější a rychlejší přeshraniční platby</li>
+       <li>💡 Přístup k likviditě pro jednotlivce i banky</li>
+       <li>💡 Transparentní správu prostředků</li>
+     </ul>
+     <p style="margin-top: 15px;">
+       Naším cílem je propojit **klasické finance** s **novou digitální ekonomikou** a vytvořit most mezi bankovním a nebankovním světem.  
+     </p>
+   </div>
 
- /* Tokenomics donut graf */
- canvas { max-width:100%; margin:0 auto; display:block; }
+   
+   <div style="flex: 1 1 500px; text-align: center;">
+     <canvas id="purposeChart" width="400" height="300"></canvas>
+   </div>
 
- /* Flexbox pro dva boxy vedle sebe */
- .flex-row { display:flex; flex-wrap:wrap; gap:2rem; justify-content:center; }
+ </div>
+</section>
 
- @media(max-width:768px){
-   .flex-row { flex-direction:column; gap:1.5rem; }
-   .intro-box h1 { font-size:2rem; }
-   .intro-box h2 { font-size:1.6rem; }
- }
-</style>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js" defer></script>
-</head>
-<body>
-<main>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+ const ctx = document.getElementById('purposeChart').getContext('2d');
+ new Chart(ctx, {
+   type: 'line',
+   data: {
+     labels: ['2020', '2021', '2022', '2023', '2024', '2025'],
+     datasets: [{
+       label: 'Růst důvěry v digitální měny',
+       data: [20, 35, 50, 70, 85, 95],
+       borderColor: 'rgb(31,186,156)',
+       backgroundColor: 'rgba(31,186,156,0.2)',
+       fill: true,
+       tension: 0.3
+     }]
+   },
+   options: {
+     responsive: true,
+     plugins: {
+       legend: { display: false }
+     },
+     scales: {
+       y: { beginAtZero: true, max: 100 }
+     }
+   }
+ });
+</script>
+<section style="padding: 60px 20px; background: white;">
+ <div style="max-width: 1200px; margin: 0 auto; text-align: center;">
 
+   <h2>🤝 Jak s námi můžete spolupracovat</h2>
+   <p style="margin-top: 15px; max-width: 800px; margin-left: auto; margin-right: auto;">
+     USDt.z není jen stablecoin – je to **ekosystém pro všechny**, kdo chtějí využít výhody moderní digitální ekonomiky.  
+     Možnosti spolupráce jsou široké:
+   </p>
+
+   <div style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; margin-top: 40px;">
+
+     
+     <div style="flex: 1 1 220px; background: #f4f8f9; padding: 25px; border-radius: 10px;">
+       <h3>👤 Uživatelé</h3>
+       <p>
+         Snadné ukládání hodnoty, rychlé platby a možnost využívat USDt.z v DeFi aplikacích.
+       </p>
+     </div>
+
+     
+     <div style="flex: 1 1 220px; background: #f4f8f9; padding: 25px; border-radius: 10px;">
+       <h3>🏦 Banky & FinTech</h3>
+       <p>
+         Přístup k likviditě, kolaterál pro půjčky a možnost zapojení do nové generace stablecoinů.
+       </p>
+     </div>
+
+     
+     <div style="flex: 1 1 220px; background: #f4f8f9; padding: 25px; border-radius: 10px;">
+       <h3>🤝 Partneři</h3>
+       <p>
+         Společné projekty, podpora ekosystému a rozšiřování využití tokenu v reálné ekonomice.
+       </p>
+     </div>
+
+     
+     <div style="flex: 1 1 220px; background: #f4f8f9; padding: 25px; border-radius: 10px;">
+       <h3>🌐 Komunita</h3>
+       <p>
+         Aktivní role při rozhodování o budoucím směřování projektu prostřednictvím governance modelu.
+       </p>
+     </div>
+
+   </div>
+ </div>
+</section>
+<section style="padding: 70px 20px; background: #f9fafb;">
+ <div style="max-width: 1100px; margin: 0 auto; text-align: center;">
+
+   <h2>💸 Kde a jak koupit USDt.z</h2>
+   <p style="margin-top: 15px; max-width: 800px; margin-left: auto; margin-right: auto;">
+     Náš token USDt.z je dostupný na decentralizovaných burzách.  
+     Nákup je jednoduchý a zvládne jej každý ve **3 rychlých krocích**:
+   </p>
+
+   <div style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; margin-top: 40px;">
+
+     
+     <div style="flex: 1 1 280px; background: white; padding: 25px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+       <h3>1️⃣ Připojte peněženku</h3>
+       <p>
+         Použijte <strong>MetaMask</strong> nebo <strong>Trust Wallet</strong> a připojte se k síti BNB Smart Chain.
+       </p>
+     </div>
+
+     
+     <div style="flex: 1 1 280px; background: white; padding: 25px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+       <h3>2️⃣ Vyhledejte USDt.z</h3>
+       <p>
+         Otevřete <a href="https://www.geckoterminal.com/bsc/pools/0x553b402b3d6f91ea2208c7df61a6d4aa96ccb6191787c20fedb7ae6c9823b280" target="_blank">GeckoTerminal</a>  
+         nebo jiný DEX a zadejte náš kontrakt:
+         <br>
+         <code>0x913ef7244bEd019b95Ec5321408eE4CE83E25c01</code>
+       </p>
+     </div>
+
+     
+     <div style="flex: 1 1 280px; background: white; padding: 25px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+       <h3>3️⃣ Směňte a držte</h3>
+       <p>
+         Vyměňte BNB za USDt.z a token se automaticky zobrazí ve vaší peněžence.  
+         Gratulujeme – jste součástí ekosystému!
+       </p>
+     </div>
+
+   </div>
+
+   
+   <div style="margin-top: 50px;">
+     <a href="https://www.geckoterminal.com/bsc/pools/0x553b402b3d6f91ea2208c7df61a6d4aa96ccb6191787c20fedb7ae6c9823b280" target="_blank"
+        style="display: inline-block; padding: 15px 30px; margin: 10px; background: rgb(31,186,156); color: white; font-weight: bold; border-radius: 5px; text-decoration: none;">
+       📊 Otevřít GeckoTerminal
+     </a>
+
+     <a href="https://bscscan.com/token/0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" target="_blank"
+        style="display: inline-block; padding: 15px 30px; margin: 10px; background: #333; color: white; font-weight: bold; border-radius: 5px; text-decoration: none;">
+       🔎 Zobrazit na BscScan
+     </a>
+   </div>
+
+ </div>
+</section>
+<section style="padding: 70px 20px; background: white;">
+ <div style="max-width: 1100px; margin: 0 auto; text-align: center;">
+
+   <h2>⚡ Využití USDt.z v praxi</h2>
+   <p style="margin-top: 15px; max-width: 800px; margin-left: auto; margin-right: auto;">
+     USDt.z není jen další token – je to nástroj nové generace.  
+     Díky stabilitě, rychlosti a nízkým poplatkům má využití jak v <strong>osobních platbách</strong>,  
+     tak i v <strong>bankovním a firemním sektoru</strong>.
+   </p>
+
+   <div style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; margin-top: 40px;">
+
+     
+     <div style="flex: 1 1 220px; background: #f9fafb; padding: 25px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+       <h3>💳 Rychlé platby</h3>
+       <p>
+         Okamžité převody mezi uživateli i firmami bez čekání  
+         a s minimálními poplatky.
+       </p>
+     </div>
+
+     
+     <div style="flex: 1 1 220px; background: #f9fafb; padding: 25px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+       <h3>📈 Spoření & úroky</h3>
+       <p>
+         Využití USDt.z jako <strong>stabilního úložiště hodnoty</strong>  
+         s možností získat úrok při zapojení do DeFi.
+       </p>
+     </div>
+
+     
+     <div style="flex: 1 1 220px; background: #f9fafb; padding: 25px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+       <h3>🏦 Kolaterál & půjčky</h3>
+       <p>
+         Banky i nebankovní sektor mohou USDt.z využívat  
+         jako zajištění půjček a úvěrů.
+       </p>
+     </div>
+
+     
+     <div style="flex: 1 1 220px; background: #f9fafb; padding: 25px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+       <h3>🌍 Mezinárodní obchod</h3>
+       <p>
+         Bezpečné a transparentní transakce napříč hranicemi  
+         s pevnou hodnotou krytou USD.
+       </p>
+     </div>
+
+   </div>
+
+ </div>
+</section>
+<section style="padding: 70px 20px; background: #f4f9f8;">
+ <div style="max-width: 1100px; margin: 0 auto; text-align: center;">
+
+   <h2>🚀 Proč právě USDt.z</h2>
+   <p style="margin-top: 15px; max-width: 800px; margin-left: auto; margin-right: auto;">
+     USDt.z není jen další stablecoin.  
+     Stabilita, rychlost, transparentnost a široká použitelnost – to jsou hlavní přednosti, díky kterým si USDt.z vybírají uživatelé i profesionální instituce.
+   </p>
+
+   <div style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; margin-top: 40px;">
+
+     
+     <div style="flex: 1 1 220px; background: white; padding: 25px; border-radius: 10px; box-shadow: 0 3px 6px rgba(0,0,0,0.1);">
+       <h3>⚖️ Stabilní hodnota</h3>
+       <p>
+         Hodnota USDt.z je vždy krytá USD a pravidelně auditovaná.  
+         Minimalizuje riziko volatility.
+       </p>
+     </div>
+
+     
+     <div style="flex: 1 1 220px; background: white; padding: 25px; border-radius: 10px; box-shadow: 0 3px 6px rgba(0,0,0,0.1);">
+       <h3>⚡ Rychlé transakce</h3>
+       <p>
+         Převody jsou okamžité a s nízkými poplatky.  
+         Ideální pro každodenní platby i obchodní operace.
+       </p>
+     </div>
+
+     
+     <div style="flex: 1 1 220px; background: white; padding: 25px; border-radius: 10px; box-shadow: 0 3px 6px rgba(0,0,0,0.1);">
+       <h3>🔍 Transparentnost</h3>
+       <p>
+         Veškeré transakce jsou veřejné a auditovatelné.  
+         Už žádné skryté poplatky nebo nepřehledné procesy.
+       </p>
+     </div>
+
+     
+     <div style="flex: 1 1 220px; background: white; padding: 25px; border-radius: 10px; box-shadow: 0 3px 6px rgba(0,0,0,0.1);">
+       <h3>🌐 Široká použitelnost</h3>
+       <p>
+         Využití pro banky, firmy, DeFi i běžné uživatele.  
+         Snadná integrace do platebních systémů.
+       </p>
+     </div>
+
+   </div>
+
+ </div>
+</section>
+<section style="padding: 70px 20px; background: #ffffff;">
+ <div style="max-width: 1100px; margin: 0 auto; text-align: center;">
+
+   <h2>💰 Tokenomika USDt.z</h2>
+   <p style="margin-top: 15px; max-width: 800px; margin-left: auto; margin-right: auto;">
+     Distribuce tokenů byla navržena tak, aby podporovala dlouhodobou stabilitu a růst ekosystému.  
+     Přehledně vidíte, kolik procent tokenů je určeno na likviditu, rezervy, tým, marketing a komunitu.
+   </p>
+
+   
+   <canvas id="tokenomicsChart" width="400" height="400" style="margin-top: 40px;"></canvas>
+
+   
+   <table style="margin: 40px auto; border-collapse: collapse; width: 80%; max-width: 600px;">
+     <thead>
+       <tr style="background-color: rgb(31,186,156); color: white;">
+         <th style="padding: 12px 15px; text-align:left;">Kategorie</th>
+         <th style="padding: 12px 15px; text-align:right;">Procenta</th>
+       </tr>
+     </thead>
+     <tbody>
+       <tr><td style="padding: 10px 15px;">Likvidita</td><td style="padding: 10px 15px; text-align:right;">40%</td></tr>
+       <tr><td style="padding: 10px 15px;">Rezerva</td><td style="padding: 10px 15px; text-align:right;">30%</td></tr>
+       <tr><td style="padding: 10px 15px;">Tým</td><td style="padding: 10px 15px; text-align:right;">15%</td></tr>
+       <tr><td style="padding: 10px 15px;">Marketing</td><td style="padding: 10px 15px; text-align:right;">10%</td></tr>
+       <tr><td style="padding: 10px 15px;">Komunita</td><td style="padding: 10px 15px; text-align:right;">5%</td></tr>
+     </tbody>
+   </table>
+
+ </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js"></script>
+<script>
+ document.addEventListener('DOMContentLoaded', () => {
+   const ctx = document.getElementById('tokenomicsChart').getContext('2d');
+   new Chart(ctx, {
+     type: 'doughnut',
+     data: {
+       labels: ['Likvidita', 'Rezerva', 'Tým', 'Marketing', 'Komunita'],
+       datasets: [{
+         data: [40, 30, 15, 10, 5],
+         backgroundColor: [
+           'rgb(31,186,156)',
+           'rgb(21,133,108)',
+           'rgb(88,176,170)',
+           'rgb(144,204,192)',
+           'rgb(198,233,229)'
+         ],
+         hoverOffset: 10
+       }]
+     },
+     options: {
+       responsive: true,
+       plugins: {
+         legend: {
+           position: 'bottom',
+           labels: { padding: 20, usePointStyle: true }
+         },
+         tooltip: { enabled: true }
+       }
+     }
+   });
+ });
+</script>
+<section style="padding: 70px 20px; background: #f9f9f9;">
+ <div style="max-width: 1100px; margin: 0 auto; text-align: center;">
+
+   <h2>📈 Roadmapa USDt.z</h2>
+   <p style="margin-top: 15px; max-width: 800px; margin-left: auto; margin-right: auto;">
+     Sledujte vývoj projektu: růst uživatelů a likvidity v průběhu měsíců.  
+     Graf zobrazuje přehledné a snadno srozumitelné statistiky pro investory i komunitu.
+   </p>
+
+   
+   <canvas id="roadmapChart" width="800" height="400" style="margin-top: 40px;"></canvas>
+
+ </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+ const ctx = document.getElementById('roadmapChart').getContext('2d');
+ new Chart(ctx, {
+   type: 'line',
+   data: {
+     labels: ['Leden', 'Únor', 'Březen', 'Duben', 'Květen', 'Červen', 'Červenec', 'Srpen'],
+     datasets: [
+       {
+         label: 'Počet uživatelů (tis.)',
+         data: [20, 40, 70, 90, 130, 160, 200, 230],
+         borderColor: 'rgb(31,186,156)',
+         backgroundColor: 'rgba(31,186,156,0.2)',
+         fill: true,
+         tension: 0.3,
+         yAxisID: 'y'
+       },
+       {
+         label: 'Likvidita (mil. $)',
+         data: [5, 10, 25, 35, 50, 70, 95, 110],
+         borderColor: 'rgb(0,123,255)',
+         backgroundColor: 'rgba(0,123,255,0.2)',
+         fill: true,
+         tension: 0.3,
+         yAxisID: 'y1'
+       }
+     ]
+   },
+   options: {
+     responsive: true,
+     interaction: { mode: 'index', intersect: false },
+     stacked: false,
+     plugins: {
+       legend: { position: 'top' },
+       tooltip: { enabled: true }
+     },
+     scales: {
+       y: {
+         type: 'linear',
+         position: 'left',
+         title: { display: true, text: 'Počet uživatelů (tis.)' },
+         beginAtZero: true
+       },
+       y1: {
+         type: 'linear',
+         position: 'right',
+         title: { display: true, text: 'Likvidita (mil. $)' },
+         beginAtZero: true,
+         grid: { drawOnChartArea: false }
+       }
+     }
+   }
+ });
+});
+</script>
+<section class="flex-row" style="max-width: 1100px; margin: 0 auto 50px; gap: 30px; flex-wrap: wrap;">
  
- <div class="intro-box">
-   <img src="img/logo.png" alt="USDt.z Logo">
-   <h1>USDt.z</h1>
-   <h2>Stablecoin – Next Generation</h2>
-   <p>Stabilní a bezpečný token navržený pro bankovní i nebankovní sektor. Zaměřený na bezpečnost, transparentnost a dlouhodobou stabilitu.</p>
+ 
+ <div style="flex: 1 1 400px; background: #fff; border-radius: 12px; padding: 20px; box-shadow: 0 0 12px rgba(31,186,156,0.15);">
+   <h2 style="color: rgb(31,186,156); text-align:center;">Aktuální kurzy</h2>
+   <table style="width: 100%; border-collapse: collapse; margin-top: 15px;">
+     <thead>
+       <tr style="background-color: rgb(31,186,156); color:white;">
+         <th>Měna</th>
+         <th>Kurz</th>
+       </tr>
+     </thead>
+     <tbody>
+       <tr><td>USDt.z</td><td>1.0000</td></tr>
+       <tr><td>BNB</td><td>300.0000</td></tr>
+       <tr><td>USD</td><td>1.0000</td></tr>
+       <tr><td>EUR</td><td>1.1000</td></tr>
+       <tr><td>CZK</td><td>23.0000</td></tr>
+     </tbody>
+   </table>
  </div>
 
  
- <section aria-label="Tokenomics">
-   <h2 class="section-title">Tokenomics</h2>
-   <p style="text-align:center; max-width:700px; margin:0 auto 1.5rem;">Distribuce tokenů USDt.z podporuje dlouhodobou stabilitu a růst ekosystému.</p>
-   <canvas id="tokenomicsChart" width="400" height="400" aria-label="Tokenomics graf" role="img"></canvas>
- </section>
- 
- <section aria-label="Vývoj tokenu">
-   <h2 class="section-title">Roadmapa – Vývoj tokenu</h2>
-   <p style="text-align:center; max-width:700px; margin:0 auto 1.5rem;">Projekt roste každý měsíc, sledujte nárůst uživatelů a likviditu v milionech $.</p>
-   <canvas id="roadmapChart" width="600" height="300" aria-label="Roadmapa graf" role="img"></canvas>
- </section>
+ <div style="flex: 1 1 400px; background: #fff; border-radius: 12px; padding: 20px; box-shadow: 0 0 12px rgba(31,186,156,0.15);">
+   <h2 style="color: rgb(31,186,156); text-align:center;">Kalkulačka USDt.z</h2>
+   <label for="inputAmount">Částka:</label>
+   <input type="number" id="inputAmount" min="0" step="0.01" value="100" style="width:100%; padding:8px; margin:5px 0 15px; border-radius:6px; border:1px solid #ccc;" />
 
- 
- <section class="flex-row" aria-label="Bankovní a nebankovní sektor">
-   <div style="flex:1 1 45%; background:#fff; border-radius:12px; box-shadow:0 5px 15px rgba(0,0,0,0.05); padding:1.5rem;">
-     <h3 style="color:rgb(31,186,156); text-align:center;">Bankovní sektor</h3>
-     <ul style="list-style:none; padding-left:0; margin-top:1rem;">
-       <li>Bezpečné a stabilní transakce</li>
-       <li>Regulace a compliance</li>
-       <li>Integrace s bankovními systémy</li>
-       <li>Likvidita a kolaterál</li>
-     </ul>
-   </div>
-   <div style="flex:1 1 45%; background:#fff; border-radius:12px; box-shadow:0 5px 15px rgba(0,0,0,0.05); padding:1.5rem;">
-     <h3 style="color:rgb(31,186,156); text-align:center;">Nebankovní sektor</h3>
-     <ul style="list-style:none; padding-left:0; margin-top:1rem;">
-       <li>Rychlé swapy a přístup k likviditě</li>
-       <li>Decentralizované finance (DeFi)</li>
-       <li>Transparentnost a auditovatelnost</li>
-       <li>Komunitou řízený růst</li>
-     </ul>
-   </div>
- </section>
+   <label for="selectCurrency">Převést na:</label>
+   <select id="selectCurrency" style="width:100%; padding:8px; margin:5px 0 15px; border-radius:6px; border:1px solid #ccc;">
+     <option value="USDt">USDt.z</option>
+     <option value="BNB">BNB</option>
+     <option value="USD">USD</option>
+     <option value="EUR">EUR</option>
+     <option value="CZK">CZK</option>
+   </select>
 
- 
- <section class="flex-row" aria-label="Kurzy a kalkulačka">
-   <div style="flex:1 1 45%;">
-     <h2 class="section-title">Aktuální kurzy</h2>
-     <table aria-label="Aktuální kurzy" style="width:100%; border-collapse:collapse;">
-       <thead>
-         <tr style="background:rgb(31,186,156); color:white;">
-           <th>Měna</th><th>Kurz</th>
-         </tr>
-       </thead>
-       <tbody>
-         <tr><td>USDt.z</td><td>1.0000</td></tr>
-         <tr><td>BNB</td><td>300.0000</td></tr>
-         <tr><td>USD</td><td>1.0000</td></tr>
-         <tr><td>EUR</td><td>1.1000</td></tr>
-         <tr><td>CZK</td><td>23.0000</td></tr>
-       </tbody>
-     </table>
-   </div>
-   <div style="flex:1 1 45%; background:#f4f9f8; border-radius:12px; padding:1.5rem;">
-     <h2 class="section-title">Kalkulačka</h2>
-     <label for="inputAmount">Částka:</label>
-     <input type="number" id="inputAmount" min="0" step="0.01" value="100" style="width:100%; padding:0.5rem; margin-bottom:0.8rem; border-radius:6px; border:1px solid #ccc;">
-     <label for="selectCurrency">Převést na:</label>
-     <select id="selectCurrency" style="width:100%; padding:0.5rem; margin-bottom:0.8rem; border-radius:6px; border:1px solid #ccc;"></select>
-     <output id="resultOutput" style="display:block; font-weight:700; font-size:1.2rem; color:rgb(31,186,156); margin-top:0.5rem;" aria-live="polite"></output>
-   </div>
- </section>
+   <output id="resultOutput" style="display:block; margin-top:10px; font-weight:700; font-size:1.2rem; color: rgb(31,186,156);"></output>
+ </div>
+</section>
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
- // Tokenomics donut graf
- const tokenomicsData = {
-   labels: ['Likvidita', 'Rezerva', 'Tým', 'Marketing', 'Komunita'],
-   datasets:[{data:[40,30,15,10,5], backgroundColor:['rgb(31,186,156)','rgb(21,133,108)','rgb(88,176,170)','rgb(144,204,192)','rgb(198,233,229)'], hoverOffset:20}]
- };
- new Chart(document.getElementById('tokenomicsChart'), {type:'doughnut', data:tokenomicsData, options:{responsive:true, plugins:{legend:{position:'bottom'}}}});
+ const rates = { USDt:1.0, BNB:300.0, USD:1.0, EUR:1.1, CZK:23.0 };
+ const inputAmount = document.getElementById('inputAmount');
+ const selectCurrency = document.getElementById('selectCurrency');
+ const resultOutput = document.getElementById('resultOutput');
 
- // Roadmap line chart
- const roadmapData = {
-   labels:['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug'],
-   datasets:[
-     {label:'Počet uživatelů (tis.)', data:[20,40,70,90,130,160,200,230], borderColor:'rgb(31,186,156)', backgroundColor:'rgba(31,186,156,0.2)', fill:true, tension:0.3, yAxisID:'y'},
-     {label:'Likvidita (mil. $)', data:[5,10,25,35,50,70,95,110], borderColor:'rgb(0,123,255)', backgroundColor:'rgba(0,123,255,0.2)', fill:true, tension:0.3, yAxisID:'y1'}
-   ]
- };
- new Chart(document.getElementById('roadmapChart'), {type:'line', data:roadmapData, options:{responsive:true, scales:{y:{type:'linear', position:'left', beginAtZero:true}, y1:{type:'linear', position:'right', beginAtZero:true, grid:{drawOnChartArea:false}}}, plugins:{legend:{position:'top'}}}});
+ function updateConversion() {
+   const amount = parseFloat(inputAmount.value);
+   const target = selectCurrency.value;
+   if(isNaN(amount) || amount < 0){ resultOutput.textContent=''; return; }
+   const result = amount * rates[target];
+   resultOutput.textContent = `${amount.toFixed(2)} USDt.z = ${result.toFixed(4)} ${target}`;
+ }
 
- // Kalkulačka
- const rates={USDt:1, BNB:300, USD:1, EUR:1.1, CZK:23};
- const selectCurrency=document.getElementById('selectCurrency');
- Object.entries(rates).forEach(([code,rate])=>{const o=document.createElement('option'); o.value=code; o.textContent=code; selectCurrency.appendChild(o);});
- selectCurrency.value='USDt';
- const inputAmount=document.getElementById('inputAmount');
- const resultOutput=document.getElementById('resultOutput');
- function updateConversion(){const a=parseFloat(inputAmount.value),t=selectCurrency.value;if(isNaN(a)||a<0){resultOutput.textContent='';return;}resultOutput.textContent=`${a.toFixed(2)} USDt.z = ${(a*rates[t]).toFixed(4)} ${t}`;}
  inputAmount.addEventListener('input', updateConversion);
  selectCurrency.addEventListener('change', updateConversion);
  updateConversion();
 });
 </script>
- 
- <section aria-label="Proč USDt.z" style="margin-top:2rem;">
-   <h2 class="section-title">Proč USDt.z?</h2>
-   <p style="max-width:700px; margin:0 auto 1.5rem; text-align:center;">
-     USDt.z je navržen jako stabilní, bezpečný a flexibilní token, který podporuje růst ekosystému a umožňuje jednoduchou integraci jak pro bankovní, tak nebankovní sektor.
-   </p>
-   <div class="flex-row" style="justify-content:center; gap:2rem; flex-wrap:wrap;">
-     <div style="flex:1 1 28%; background:#fff; border-radius:12px; padding:1.5rem; box-shadow:0 5px 15px rgba(0,0,0,0.05);">
-       <h3 style="color:rgb(31,186,156); text-align:center;">Stabilita</h3>
-       <p>Token udržuje stabilní hodnotu a je auditovaný, aby zajistil důvěru všech uživatelů.</p>
-     </div>
-     <div style="flex:1 1 28%; background:#fff; border-radius:12px; padding:1.5rem; box-shadow:0 5px 15px rgba(0,0,0,0.05);">
-       <h3 style="color:rgb(31,186,156); text-align:center;">Bezpečnost</h3>
-       <p>Moderní smart kontrakty a monitoring likvidity zajišťují maximální bezpečí tokenu i uživatelů.</p>
-     </div>
-     <div style="flex:1 1 28%; background:#fff; border-radius:12px; padding:1.5rem; box-shadow:0 5px 15px rgba(0,0,0,0.05);">
-       <h3 style="color:rgb(31,186,156); text-align:center;">Použitelnost</h3>
-       <p>Token je možné využít pro platby, kolaterál, swapy nebo DeFi produkty – praktické a flexibilní řešení.</p>
-     </div>
-   </div>
- </section>
+<section style="max-width:900px; margin: 0 auto 50px; background:#fff; border-radius:12px; padding:20px; box-shadow:0 0 12px rgba(31,186,156,0.15);">
+ <h2 style="color: rgb(31,186,156); text-align:center;">Tokenomics</h2>
+ <p style="text-align:center; margin:10px 0 20px; font-size:1.1rem;">
+   Distribuce tokenů USDt.z je navržena tak, aby podporovala dlouhodobou stabilitu a růst ekosystému.
+ </p>
+ <canvas id="tokenomicsChart" width="400" height="400" aria-label="USDt.z Token Distribution Chart" role="img"></canvas>
+</section>
 
- 
- <section aria-label="Jak spolupracovat" style="margin-top:2rem;">
-   <h2 class="section-title">Jak můžeme spolupracovat</h2>
-   <p style="max-width:700px; margin:0 auto 1rem; text-align:center;">
-     Nabízíme několik možností spolupráce pro firmy, banky i jednotlivce. Zapojte se do ekosystému USDt.z a využijte jeho výhod.
-   </p>
-   <ul style="max-width:700px; margin:0 auto 2rem; padding-left:1.2rem;">
-     <li>Integrace tokenu do vaší platformy</li>
-     <li>Spolupráce na DeFi produktech</li>
-     <li>Podpora a marketing projektů s USDt.z</li>
-     <li>Likviditní partnerství</li>
-   </ul>
- </section>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+ const ctx = document.getElementById('tokenomicsChart').getContext('2d');
 
- 
- <section aria-label="Kde koupit token" style="margin-top:2rem;">
-   <h2 class="section-title">Kde koupit USDt.z</h2>
-   <p style="max-width:700px; margin:0 auto 1rem; text-align:center;">
-     Token je dostupný na decentralizovaných burzách a podporujeme snadný nákup přímo přes webové rozhraní.
-   </p>
-   <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; margin-top:1rem;">
-     <a href="https://pancakeswap.finance/" target="_blank" rel="noopener" style="background:rgb(31,186,156); color:white; padding:0.8rem 1.5rem; border-radius:6px; font-weight:700; text-decoration:none;">PancakeSwap</a>
-     <a href="https://www.geckoterminal.com/" target="_blank" rel="noopener" style="background:#1e88e5; color:white; padding:0.8rem 1.5rem; border-radius:6px; font-weight:700; text-decoration:none;">GeckoTerminal</a>
-     <a href="https://bscscan.com/token/0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" target="_blank" rel="noopener" style="background:#f0b90b; color:white; padding:0.8rem 1.5rem; border-radius:6px; font-weight:700; text-decoration:none;">BscScan</a>
-   </div>
- </section>
+ const data = {
+   labels: ['Liquidity', 'Reserve', 'Team', 'Marketing', 'Community'],
+   datasets: [{
+     label: 'Rozložení tokenů',
+     data: [40, 30, 15, 10, 5],
+     backgroundColor: [
+       'rgb(31,186,156)',
+       'rgb(21,133,108)',
+       'rgb(88,176,170)',
+       'rgb(144,204,192)',
+       'rgb(198,233,229)'
+     ],
+     hoverOffset: 20
+   }]
+ };
 
- 
- <section aria-label="Novinky" style="margin-top:2rem;">
-   <h2 class="section-title">Novinky</h2>
-   <p style="max-width:700px; margin:0 auto 1rem; text-align:center;">Sledujte aktuální zprávy, updaty projektu a novinky ze světa USDt.z.</p>
-   <ul style="max-width:700px; margin:0 auto 2rem; padding-left:1.2rem;">
-     <li>📌 01/2025 – Nová verze smart kontraktu pro vyšší bezpečnost</li>
-     <li>📌 02/2025 – Spuštění nových DeFi poolů</li>
-     <li>📌 03/2025 – Zapojení do partnerských bankovních projektů</li>
-     <li>📌 04/2025 – Přidání funkce kolaterálu pro půjčky</li>
-   </ul>
- </section>
+ new Chart(ctx, {
+   type: 'doughnut',
+   data: data,
+   options: {
+     responsive: true,
+     plugins: {
+       legend: { position: 'bottom', labels: { color: '#222', font: { size:14 } } },
+       tooltip: { enabled: true }
+     }
+   }
+ });
+});
+</script>
+<section style="max-width:900px; margin: 0 auto 50px; background:#fff; border-radius:12px; padding:20px; box-shadow:0 0 12px rgba(31,186,156,0.15);">
+ <h2 style="color: rgb(31,186,156); text-align:center;">Roadmap</h2>
+ <p style="text-align:center; margin:10px 0 20px; font-size:1.1rem;">
+   Vývoj projektu USDt.z: sledujeme růst uživatelské základny a likviditu v průběhu měsíců.
+ </p>
+ <canvas id="roadmapChart" width="600" height="300" aria-label="USDt.z Roadmap Chart" role="img"></canvas>
+</section>
 
- 
- <section aria-label="Využití tokenu" style="margin-top:2rem;">
-   <h2 class="section-title">Jak můžete využít USDt.z</h2>
-   <div class="flex-row" style="justify-content:center; gap:2rem; flex-wrap:wrap;">
-     <div style="flex:1 1 28%; background:#fff; border-radius:12px; padding:1.5rem; box-shadow:0 5px 15px rgba(0,0,0,0.05);">
-       <h3 style="color:rgb(31,186,156); text-align:center;">Platby a převody</h3>
-       <p>Rychlé a bezpečné převody mezi uživateli po celém světě.</p>
-     </div>
-     <div style="flex:1 1 28%; background:#fff; border-radius:12px; padding:1.5rem; box-shadow:0 5px 15px rgba(0,0,0,0.05);">
-       <h3 style="color:rgb(31,186,156); text-align:center;">Kolaterál</h3>
-       <p>Využijte token jako záruku pro půjčky nebo obchodování.</p>
-     </div>
-     <div style="flex:1 1 28%; background:#fff; border-radius:12px; padding:1.5rem; box-shadow:0 5px 15px rgba(0,0,0,0.05);">
-       <h3 style="color:rgb(31,186,156); text-align:center;">DeFi a swapy</h3>
-       <p>Přístup k decentralizovaným finančním nástrojům a likviditě.</p>
-     </div>
-   </div>
- </section>
- 
- <section aria-label="Statistiky a grafy" style="margin-top:2rem;">
-   <h2 class="section-title">Statistiky a grafy</h2>
-   <div class="flex-row" style="justify-content:center; gap:2rem; flex-wrap:wrap; margin-top:1rem;">
-     
-     <div style="flex:1 1 45%; background:#fff; border-radius:12px; padding:1.5rem; box-shadow:0 5px 15px rgba(0,0,0,0.05);">
-       <h3 style="text-align:center; color:rgb(31,186,156);">Rozložení tokenů</h3>
-       <canvas id="donutChart" width="300" height="300"></canvas>
-     </div>
-     
-     <div style="flex:1 1 45%; background:#fff; border-radius:12px; padding:1.5rem; box-shadow:0 5px 15px rgba(0,0,0,0.05);">
-       <h3 style="text-align:center; color:rgb(31,186,156);">Růst likvidity vs tržní kapitalizace</h3>
-       <canvas id="lineChart" width="300" height="300"></canvas>
-     </div>
-   </div>
- </section>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+ const ctx = document.getElementById('roadmapChart').getContext('2d');
 
- 
- <section aria-label="Roadmapa" style="margin-top:2rem;">
-   <h2 class="section-title">Roadmapa projektu</h2>
-   <ul style="max-width:800px; margin:1rem auto; padding-left:1.2rem;">
-     <li>Q1 2025 – Spuštění tokenu a první DeFi pooly</li>
-     <li>Q2 2025 – Partnerské projekty a integrace s bankami</li>
-     <li>Q3 2025 – Rozšíření likvidity a nové funkce kolaterálu</li>
-     <li>Q4 2025 – Další DeFi nástroje, NFT a rozšíření ekosystému</li>
-   </ul>
- </section>
-
- 
- <section aria-label="Tokenomika" style="margin-top:2rem;">
-   <h2 class="section-title">Tokenomika</h2>
-   <p style="max-width:700px; margin:0 auto 1rem; text-align:center;">
-     Token USDt.z je navržen s ohledem na stabilitu, likviditu a dlouhodobou udržitelnost. Rozdělení tokenů zajišťuje spravedlivou distribuci a podporuje aktivní zapojení komunity.
-   </p>
-   <table style="margin:0 auto 2rem; border-collapse:collapse; width:80%; max-width:700px;">
-     <tr style="background:rgb(31,186,156); color:white;">
-       <th style="padding:0.8rem; border:1px solid #ccc;">Kategorie</th>
-       <th style="padding:0.8rem; border:1px solid #ccc;">% Tokenů</th>
-     </tr>
-     <tr>
-       <td style="padding:0.8rem; border:1px solid #ccc;">Komunita a odměny</td>
-       <td style="padding:0.8rem; border:1px solid #ccc;">40%</td>
-     </tr>
-     <tr style="background:#f7f7f7;">
-       <td style="padding:0.8rem; border:1px solid #ccc;">Fond likvidity</td>
-       <td style="padding:0.8rem; border:1px solid #ccc;">30%</td>
-     </tr>
-     <tr>
-       <td style="padding:0.8rem; border:1px solid #ccc;">Tým a partneři</td>
-       <td style="padding:0.8rem; border:1px solid #ccc;">20%</td>
-     </tr>
-     <tr style="background:#f7f7f7;">
-       <td style="padding:0.8rem; border:1px solid #ccc;">Rezerva</td>
-       <td style="padding:0.8rem; border:1px solid #ccc;">10%</td>
-     </tr>
-   </table>
- </section>
-
- 
- <section aria-label="Doporučené projekty" style="margin-top:2rem;">
-   <h2 class="section-title">Doporučené projekty a partnerství</h2>
-   <p style="max-width:700px; margin:0 auto 1rem; text-align:center;">
-     Vybrané projekty, které spolupracují s USDt.z a rozvíjejí ekosystém.
-   </p>
-   <div class="flex-row" style="justify-content:center; gap:2rem; flex-wrap:wrap;">
-     <div style="flex:1 1 28%; background:#fff; border-radius:12px; padding:1rem; box-shadow:0 5px 15px rgba(0,0,0,0.05);">
-       <h3 style="text-align:center; color:rgb(31,186,156);">DeFi partner</h3>
-       <p style="text-align:center;">Podpora likvidity a swapů v rámci decentralizovaných finančních produktů.</p>
-     </div>
-     <div style="flex:1 1 28%; background:#fff; border-radius:12px; padding:1rem; box-shadow:0 5px 15px rgba(0,0,0,0.05);">
-       <h3 style="text-align:center; color:rgb(31,186,156);">Bankovní partner</h3>
-       <p style="text-align:center;">Integrace tokenu pro bankovní produkty a půjčky.</p>
-     </div>
-     <div style="flex:1 1 28%; background:#fff; border-radius:12px; padding:1rem; box-shadow:0 5px 15px rgba(0,0,0,0.05);">
-       <h3 style="text-align:center; color:rgb(31,186,156);">Komunitní projekty</h3>
-       <p style="text-align:center;">Odměny a soutěže pro aktivní uživatele a podporu komunity.</p>
-     </div>
-   </div>
- </section>
-
- 
- <section aria-label="Fototerapie" style="margin-top:2rem;">
-   <h2 class="section-title">Fototerapie</h2>
-   <p style="text-align:center; color:#999;">Obsah pro fototerapii bude vložen na konci stránky.</p>
- </section>
-
- 
- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
- <script>
-   const donutCtx = document.getElementById('donutChart').getContext('2d');
-   const donutChart = new Chart(donutCtx, {
-     type: 'doughnut',
-     data: {
-       labels: ['Komunita', 'Likvidita', 'Tým', 'Rezerva'],
-       datasets: [{
-         data: [40,30,20,10],
-         backgroundColor: ['#1fba9c','#1e88e5','#f0b90b','#ff6f61'],
-         borderWidth: 1
-       }]
+ const data = {
+   labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug'],
+   datasets: [
+     {
+       label: 'Uživatelé (tisíce)',
+       data: [20, 40, 70, 90, 130, 160, 200, 230],
+       borderColor: 'rgb(31,186,156)',
+       backgroundColor: 'rgba(31,186,156,0.2)',
+       fill: true,
+       tension: 0.3,
+       yAxisID: 'y',
      },
-     options: { responsive:true, plugins: { legend: { position:'bottom' } } }
-   });
+     {
+       label: 'Likvidita (mil. $)',
+       data: [5, 10, 25, 35, 50, 70, 95, 110],
+       borderColor: 'rgb(0,123,255)',
+       backgroundColor: 'rgba(0,123,255,0.2)',
+       fill: true,
+       tension: 0.3,
+       yAxisID: 'y1',
+     }
+   ]
+ };
 
-   const lineCtx = document.getElementById('lineChart').getContext('2d');
-   const lineChart = new Chart(lineCtx, {
-     type:'line',
-     data:{
-       labels:['Jan','Feb','Mar','Apr','May'],
-       datasets:[
-         { label:'Likvidita', data:[10,20,35,50,70], borderColor:'#1fba9c', tension:0.4 },
-         { label:'Tržní kapitalizace', data:[15,25,40,55,75], borderColor:'#1e88e5', tension:0.4 }
-       ]
+ new Chart(ctx, {
+   type: 'line',
+   data: data,
+   options: {
+     responsive: true,
+     scales: {
+       y: {
+         type: 'linear',
+         position: 'left',
+         title: { display: true, text: 'Uživatelé (tisíce)' },
+         beginAtZero: true
+       },
+       y1: {
+         type: 'linear',
+         position: 'right',
+         title: { display: true, text: 'Likvidita (mil. $)' },
+         beginAtZero: true,
+         grid: { drawOnChartArea: false }
+       }
      },
-     options:{ responsive:true, plugins:{ legend:{ position:'bottom' } } }
-   });
- </script>
+     plugins: {
+       legend: { position: 'top', labels: { color: '#222', font: { size:14 } } },
+       tooltip: { enabled: true }
+     }
+   }
+ });
+});
+</script>
+<section class="calculator-section" aria-label="Kalkulačka USDt.z">
+ <div class="calculator">
+   <h2>Kalkulačka USDt.z</h2>
+   <label for="amount">Částka:</label>
+   <input type="number" id="amount" min="0" step="0.01" value="100">
+   
+   <label for="currency">Převést na:</label>
+   <select id="currency"></select>
+   
+   <output id="result" aria-live="polite" aria-atomic="true"></output>
+ </div>
+</section>
+
+<style>
+.calculator-section {
+ max-width: 480px;
+ margin: 2rem auto;
+}
+.calculator {
+ background: #f4f9f8;
+ border-radius: 12px;
+ box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+ padding: 1.8rem 2rem;
+}
+.calculator h2 {
+ text-align: center;
+ color: rgb(31,186,156);
+ margin-bottom: 1rem;
+}
+.calculator label {
+ display: block;
+ font-weight: 600;
+ margin-top: 1rem;
+}
+.calculator input, .calculator select {
+ width: 100%;
+ padding: 0.5rem 0.8rem;
+ margin-top: 0.3rem;
+ border-radius: 6px;
+ border: 1px solid #ccc;
+ font-size: 1rem;
+}
+.calculator output {
+ display: block;
+ margin-top: 1rem;
+ font-weight: 700;
+ font-size: 1.2rem;
+ color: rgb(31,186,156);
+ text-align: center;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 480px) {
+ .calculator {
+   padding: 1.5rem 1.2rem;
+ }
+ .calculator h2 {
+   font-size: 1.5rem;
+ }
+}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+ const rates = {
+   'USDt.z': 1.0,
+   'BNB': 300.0,
+   'USD': 1.0,
+   'EUR': 1.1,
+   'CZK': 23.0
+ };
+
+ const currencySelect = document.getElementById('currency');
+ for (const code in rates) {
+   const option = document.createElement('option');
+   option.value = code;
+   option.textContent = code;
+   currencySelect.appendChild(option);
+ }
+ currencySelect.value = 'USDt.z';
+
+ const amountInput = document.getElementById('amount');
+ const resultOutput = document.getElementById('result');
+
+ function calculate() {
+   const amount = parseFloat(amountInput.value);
+   const target = currencySelect.value;
+   if (isNaN(amount) || amount < 0) {
+     resultOutput.textContent = '';
+     return;
+   }
+   const converted = amount * rates[target];
+   resultOutput.textContent = `${amount.toFixed(2)} USDt.z = ${converted.toFixed(4)} ${target}`;
+ }
+
+ amountInput.addEventListener('input', calculate);
+ currencySelect.addEventListener('change', calculate);
+
+ calculate(); // initial
+});
+</script>
+<section id="market-values" aria-label="Tržní hodnoty tokenu USDt.z">
+ <h2>Tržní hodnoty</h2>
+ <div class="market-boxes" style="display:flex; gap:2rem; flex-wrap:wrap;">
+   <div class="market-box" style="flex:1; min-width:200px; background:#fff; border-radius:10px; box-shadow:0 0 12px rgba(31,186,156,0.15); padding:1rem;">
+     <h3>Tržní kapitalizace</h3>
+     <p>769,08 M USD</p>
+   </div>
+   <div class="market-box" style="flex:1; min-width:200px; background:#fff; border-radius:10px; box-shadow:0 0 12px rgba(31,186,156,0.15); padding:1rem;">
+     <h3>Objem 24h</h3>
+     <p>0,00 M USD</p>
+   </div>
+   <div class="market-box" style="flex:1; min-width:200px; background:#fff; border-radius:10px; box-shadow:0 0 12px rgba(31,186,156,0.15); padding:1rem;">
+     <h3>Cena tokenu</h3>
+     <p>0,0001538 USD</p>
+   </div>
+ </div>
+</section>
