@@ -135,17 +135,41 @@ label[for="menu-toggle"] span {
 }
 </style>
 <input type="checkbox" id="menu-toggle" />
-<label for="menu-toggle" aria-label="Otevřít menu">
- <span></span>
- <span></span>
- <span></span>
+<label for="menu-toggle" aria-label="Otevřít menu" style="display:none; cursor:pointer; width:30px; height:25px; flex-direction:column; justify-content:space-between;">
+ <span style="display:block; height:3px; background:black; border-radius:2px;"></span>
+ <span style="display:block; height:3px; background:black; border-radius:2px;"></span>
+ <span style="display:block; height:3px; background:black; border-radius:2px;"></span>
 </label>
 
 
 <ul class="menu">
- <li><a href="#">O tokenu</a></li>
- <li><a href="#">Použití</a></li>
- <li><a href="#">Programy</a></li>
- <li><a href="#">Dokumentace</a></li>
- <li><a href="#">Kontakt</a></li>
+ <li><a href="/USDTz-Premium/pages/about.html">O tokenu</a></li>
+ <li><a href="/USDTz-Premium/pages/usecases.html">Použití</a></li>
+ <li><a href="/USDTz-Premium/pages/programs.html">Programy</a></li>
+ <li><a href="/USDTz-Premium/pages/docs.html">Dokumentace</a></li>
+ <li><a href="/USDTz-Premium/pages/contact.html">Kontakt</a></li>
 </ul>
+
+
+<style>
+ /* Základní menu - desktop */
+ ul.menu { list-style:none; display:flex; gap:1.5rem; }
+
+ /* Skryté menu na mobilu */
+ @media (max-width: 768px) {
+   label[for="menu-toggle"] { display:flex; }
+   ul.menu {
+     display:none;
+     flex-direction:column;
+     width:100%;
+     margin-top:1rem;
+     gap:1rem;
+     background: rgb(31,186,156);
+     border-radius:8px;
+     padding:1rem 2rem;
+   }
+   ul.menu li { width:100%; }
+   ul.menu li a { display:block; width:100%; font-size:1.1rem; padding:0.5rem 0; color:white; text-decoration:none; }
+   #menu-toggle:checked + label + ul.menu { display:flex; }
+ }
+</style>
