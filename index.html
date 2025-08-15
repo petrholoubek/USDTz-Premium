@@ -134,30 +134,52 @@ label[for="menu-toggle"] span {
  }
 }
 </style>
-
-<script>
-document.addEventListener("DOMContentLoaded", function() {
- // Najdi hamburger a menu
- const menuToggle = document.getElementById("menu-toggle"); // tvůj checkbox
- const menu = document.querySelector("nav ul.menu"); // uprav podle své struktury
-
- if(menuToggle && menu) {
-   // Nastav počáteční stav menu
-   if(window.innerWidth <= 768) menu.style.display = "none";
-
-   // Sleduj změnu checkboxu
-   menuToggle.addEventListener("change", function() {
-     menu.style.display = this.checked ? "flex" : "none";
-   });
-
-   // Při změně velikosti okna
-   window.addEventListener("resize", function() {
-     if(window.innerWidth > 768) {
-       menu.style.display = "flex";
-     } else if(!menuToggle.checked) {
-       menu.style.display = "none";
-     }
-   });
+<style>
+ /* Skrytí mobilního menu při startu */
+ #menu-toggle {
+   display: none;
  }
-});
-</script>
+ label[for="menu-toggle"] {
+   display: none;
+   cursor: pointer;
+   width: 30px;
+   height: 25px;
+   flex-direction: column;
+   justify-content: space-between;
+ }
+ label[for="menu-toggle"] span {
+   display: block;
+   height: 3px;
+   background: white;
+   border-radius: 2px;
+ }
+
+ /* Mobilní verze */
+ @media (max-width: 768px) {
+   label[for="menu-toggle"] {
+     display: flex;
+   }
+   ul.menu {
+     display: none;
+     flex-direction: column;
+     width: 100%;
+     margin-top: 1rem;
+     gap: 1rem;
+     background: rgb(31,186,156);
+     border-radius: 8px;
+     padding: 1rem 2rem;
+   }
+   ul.menu li {
+     width: 100%;
+   }
+   ul.menu li a {
+     display: block;
+     width: 100%;
+     font-size: 1.1rem;
+     padding: 0.5rem 0;
+   }
+   #menu-toggle:checked + label + ul.menu {
+     display: flex;
+   }
+ }
+</style>
