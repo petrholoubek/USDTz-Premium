@@ -137,88 +137,252 @@ label[for="menu-toggle"] span {
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>USDt.z – Next Generation Stablecoin</title>
-<style>
- #msg_body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin:0; padding:0; background:#f5f5f5; color:#111; }
- header { text-align:center; padding:2rem 1rem; background:#ffffff; border-bottom:2px solid #1FBA9C; border-radius:0 0 20px 20px; }
- header img { width:120px; margin-bottom:1rem; }
- header h1 { color:#1FBA9C; margin:0.2rem 0; }
- header h2 { color:#1FBA9C; margin:0.2rem 0; font-weight:normal; }
- header p { color:#333; max-width:800px; margin:0.5rem auto 0; font-size:1.1rem; }
-
- #ticker { background:#1FBA9C; color:#fff; padding:0.5rem; white-space:nowrap; overflow:hidden; font-weight:bold; }
- #ticker span { display:inline-block; padding-right:3rem; animation: tickerMove 30s linear infinite; }
- @keyframes tickerMove { 0% { transform:translateX(100%);} 100% { transform:translateX(-100%);} }
-
- main { padding:2rem 1rem; max-width:1200px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:2rem; }
-
- .card { background:#fff; padding:1.5rem; border-radius:15px; box-shadow:0 4px 10px rgba(0,0,0,0.1); }
- .card h3 { color:#1FBA9C; margin-top:0; }
- .card p { color:#333; font-size:0.95rem; line-height:1.5; }
- .card a { color:#1FBA9C; text-decoration:none; font-weight:bold; }
-
- iframe { width:100%; height:400px; border:1px solid #ccc; border-radius:15px; }
-
- xtable { width:100%; border-collapse:collapse; margin-top:1rem; }
- th, td { padding:0.5rem; border:1px solid #ccc; text-align:center; }
-
- @media(max-width:900px){
-   main { grid-template-columns:1fr; }
-   iframe { height:300px; }
- }
-</style>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>USDt.z – Next Generation Stablecoin</title>
+   <style>
+       #msg_body {
+           font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+           margin: 0;
+           padding: 0;
+           background-color: #f5f5f5;
+           color: #000;
+       }
+       /* Horní rámeček */
+       .header-box {
+           background-color: #1FBA9C;
+           border-radius: 15px;
+           padding: 20px;
+           text-align: center;
+           color: #fff;
+           margin: 20px;
+       }
+       .header-box img {
+           width: 150px;
+           margin-bottom: 10px;
+       }
+       .header-box h1 {
+           margin: 10px 0;
+           font-size: 2rem;
+           color: #fff;
+       }
+       .header-box h2 {
+           margin: 5px 0;
+           font-size: 1.2rem;
+           color: #fff;
+       }
+       .header-box p {
+           margin: 10px 0 0 0;
+           font-size: 1rem;
+           color: #fff;
+       }
+       /* Ticker */
+       .ticker-container {
+           background-color: #000;
+           color: #0f0;
+           padding: 10px;
+           overflow: hidden;
+           white-space: nowrap;
+           box-sizing: border-box;
+           margin: 20px;
+           border-radius: 10px;
+       }
+       .ticker-content {
+           display: inline-block;
+           padding-left: 100%;
+           animation: ticker 20s linear infinite;
+       }
+       @keyframes ticker {
+           0% { transform: translateX(0%); }
+           100% { transform: translateX(-100%); }
+       }
+       /* Úvodní text */
+       .intro-text {
+           background-color: #fff;
+           border-radius: 15px;
+           padding: 20px;
+           margin: 20px;
+       }
+       .intro-text h3 {
+           color: #1FBA9C;
+           margin-bottom: 10px;
+       }
+       .intro-text p {
+           margin: 5px 0;
+       }
+       /* Mobilní optimalizace */
+       @media (max-width: 768px) {
+           .header-box h1 { font-size: 1.5rem; }
+           .header-box h2 { font-size: 1rem; }
+           .intro-text { padding: 15px; margin: 10px; }
+           .ticker-container { padding: 8px; }
+       }
+   </style>
 </head>
 <body>
 
-<div id="ticker">
- <span>BTC/USD 34,500&nbsp;&nbsp;ETH/USD 2,450&nbsp;&nbsp;BUSD/USD 1.00&nbsp;&nbsp;USDT.z/USD 1.00&nbsp;&nbsp;BNB/USD 250</span>
-</div>
+   
+   <div class="header-box">
+       <img src="logo.png" alt="USDt.z Logo">
+       <h1>USDt.z – Next Generation</h1>
+       <h2>Stablecoin pro bankovní i nebankovní sektor</h2>
+       <p>A stable, secure, and innovative token designed for both banking and non-banking sectors. Focused on security, transparency, and long-term stability.</p>
+   </div>
 
-<header>
- <img src="logo.png" alt="USDt.z Logo">
- <h1>USDt.z – Next Generation Stablecoin</h1>
- <h2>Stable, secure, and innovative</h2>
- <p>A stable, secure, and innovative token designed for banking and non-banking sectors. Focused on security, transparency, and long-term stability.</p>
- <p>Celková hodnota tokenů: 5 bilionů USD</p>
-</header>
+   
+   <div class="ticker-container">
+       <div class="ticker-content">
+           BTC: $29,500 &nbsp;&nbsp;|&nbsp;&nbsp; ETH: $1,850 &nbsp;&nbsp;|&nbsp;&nbsp; BNB: $320 &nbsp;&nbsp;|&nbsp;&nbsp; USDt.z: $1.00 &nbsp;&nbsp;|&nbsp;&nbsp; Market Cap: $5T
+       </div>
+   </div>
 
-<main>
- <div class="card">
-   <h3>Technická dokumentace</h3>
-   <p>Smart kontrakt USDt.z, adresa kontraktu: <strong>0x913ef7244bEd019b95Ec5321408eE4CE83E25c01</strong>, blockchain: Binance Smart Chain (BSC), standard: BEP-20. Transparentní transakce a kolaterální operace.</p>
-   <p><a href="docs/USDTz_Whitepaper_CS.pdf" target="_blank">Stáhnout Whitepaper (PDF)</a></p>
- </div>
+   
+   <div class="intro-text">
+       <h3>Stabilní, bezpečný a moderní</h3>
+       <p>USDt.z je navržen pro dlouhodobou stabilitu a praktickou použitelnost v různých sektorech.</p>
+       <p>Celková tržní hodnota: <strong>$5 bilionů</strong></p>
+   </div>
+   
+   <div class="charts-section" style="margin: 20px; border-radius: 15px; background-color:#fff; padding:20px;">
+       <h3 style="color:#1FBA9C;">Vývoj USDt.z</h3>
+       <canvas id="usdTzChart" width="400" height="200"></canvas>
+   </div>
 
- <div class="card">
-   <h3>Tokenizace a finanční možnosti</h3>
-   <p>Možnosti práce s USDt.z: zajištěná mimoburzovní půjčka, krátkodobý swap stablecoinů, výnos k hotovosti, tokenizované dluhopisy, repo dohody s odkupem.</p>
- </div>
+   
+   <div class="tables-section" style="margin: 20px; border-radius: 15px; background-color:#fff; padding:20px;">
+       <h3 style="color:#1FBA9C;">Klíčové statistiky</h3>
+       <table style="width:100%; border-collapse: collapse;">
+           <tr style="background-color:#1FBA9C; color:#fff;">
+               <th>Parametr</th>
+               <th>Hodnota</th>
+           </tr>
+           <tr>
+               <td>Celková tržní hodnota</td>
+               <td>$5 bilionů</td>
+           </tr>
+           <tr>
+               <td>Stabilní cena</td>
+               <td>$1</td>
+           </tr>
+           <tr>
+               <td>Podpora bank</td>
+               <td>Ano</td>
+           </tr>
+           <tr>
+               <td>Likvidita</td>
+               <td>Vysoká</td>
+           </tr>
+       </table>
+   </div>
 
- <div class="card">
-   <h3>Výsledky a statistiky</h3>
-   <iframe src="https://www.tradingview.com/widgetembed/?frameElementId=tradingview_01&symbol=BINANCE:USDTZUSD&interval=D&symboledit=1&saveimage=1"></iframe>
-   <p>Obrat, likvidita a statistiky emisí jsou monitorovány v reálném čase.</p>
- </div>
+   
+   <div class="calculator-section" style="margin: 20px; border-radius: 15px; background-color:#fff; padding:20px;">
+       <h3 style="color:#1FBA9C;">Výpočet výnosu USDt.z</h3>
+       <label for="amount">Zadejte částku (USDt.z): </label>
+       <input type="number" id="amount" value="1000">
+       <label for="rate">Roční procentní výnos (%): </label>
+       <input type="number" id="rate" value="10">
+       <button onclick="calculateYield()">Spočítat výnos</button>
+       <p id="yieldResult"></p>
+   </div>
 
- <div class="card">
-   <h3>Kalkulačka stablecoinu</h3>
-   <p>Pro rychlé výpočty návratnosti a kolaterálního pokrytí tokenu USDt.z.</p>
-   <iframe src="calculator.html"></iframe>
- </div>
+   
+   <div class="topics-section" style="margin: 20px; border-radius: 15px; background-color:#fff; padding:20px;">
+       <h3 style="color:#1FBA9C;">Hlavní témata a obchodní možnosti</h3>
+       <ul>
+           <li>Zajištěná mimoburzovní půjčka</li>
+           <li>Časově vázaný swap stablecoinů</li>
+           <li>Výnos k hotovosti</li>
+           <li>Tokenizované dluhopisy</li>
+           <li>Repo dohoda s odkupem</li>
+       </ul>
+   </div>
 
- <div class="card">
-   <h3>Spokojení klienti</h3>
-   <p>Banky, investiční fondy a nebankovní instituce využívají USDt.z pro zajištění kapitálu a financování projektů.</p>
- </div>
+   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   <script>
+       // Graf USDt.z
+       const ctx = document.getElementById('usdTzChart').getContext('2d');
+       const usdTzChart = new Chart(ctx, {
+           type: 'line',
+           data: {
+               labels: ['Leden','Únor','Březen','Duben','Květen','Červen'],
+               datasets: [{
+                   label: 'Cena USDt.z (USD)',
+                   data: [1, 1, 1, 1, 1, 1],
+                   borderColor: '#1FBA9C',
+                   backgroundColor: 'rgba(31,186,156,0.2)',
+                   fill: true,
+                   tension: 0.4
+               }]
+           },
+           options: {
+               responsive: true,
+               plugins: {
+                   legend: {
+                       display: false
+                   }
+               }
+           }
+       });
 
- <div class="card">
-   <h3>API & Integrace</h3>
-   <p>Možnost napojení na smart kontrakt pro monitoring, transakce a integrace do vlastních aplikací.</p>
- </div>
-</main>
+       // Kalkulačka výnosu
+       function calculateYield() {
+           const amount = parseFloat(document.getElementById('amount').value);
+           const rate = parseFloat(document.getElementById('rate').value);
+           const result = amount * rate / 100;
+           document.getElementById('yieldResult').innerText = `Roční výnos: $${result.toFixed(2)}`;
+       }
+   </script>
+   
+   <div class="whitepaper-section" style="margin: 20px; border-radius: 15px; background-color:#fff; padding:20px;">
+       <h3 style="color:#1FBA9C;">Technická dokumentace</h3>
+       <p>Stáhněte si kompletní whitepaper USDt.z:</p>
+       <a href="docs/USDTz_Whitepaper_CS.pdf" target="_blank" style="color:#1FBA9C; text-decoration:none; font-weight:bold;">
+           Otevřít PDF v novém okně
+       </a>
+   </div>
 
+   
+   <div class="clients-section" style="margin: 20px; border-radius: 15px; background-color:#fff; padding:20px;">
+       <h3 style="color:#1FBA9C;">Spokojení klienti</h3>
+       <div class="client-slider" style="display:flex; overflow-x:auto;">
+           <div style="min-width:250px; margin-right:10px; padding:10px; background-color:#e8f5f2; border-radius:10px;">
+               <p><strong>Bankovní skupina Alfa</strong></p>
+               <p>"USDt.z nám přinesl stabilitu a rychlou likviditu."</p>
+           </div>
+           <div style="min-width:250px; margin-right:10px; padding:10px; background-color:#e8f5f2; border-radius:10px;">
+               <p><strong>Krypto fond Beta</strong></p>
+               <p>"Výkonnost tokenu je přesně to, co jsme hledali."</p>
+           </div>
+           <div style="min-width:250px; margin-right:10px; padding:10px; background-color:#e8f5f2; border-radius:10px;">
+               <p><strong>Investiční společnost Gama</strong></p>
+               <p>"Transparentní a bezpečný stablecoin pro naše projekty."</p>
+           </div>
+       </div>
+   </div>
+
+   
+   <footer style="background-color:#1FBA9C; color:#fff; text-align:center; padding:20px; margin-top:20px; border-radius:15px;">
+       <p>© 2025 USDt.z – Next Generation Stablecoin</p>
+       <p>Všechny práva vyhrazena</p>
+   </footer>
+
+   
+   <style>
+       @media only screen and (max-width: 768px) {
+           .client-slider {
+               flex-direction: column;
+           }
+           .charts-section, .tables-section, .calculator-section, .topics-section, .whitepaper-section, .clients-section {
+               margin: 10px;
+               padding: 15px;
+           }
+           footer {
+               font-size: 14px;
+               padding: 15px;
+           }
+       }
+   </style>
 </body>
 </html>
 <section id="bottom-box" aria-label="Prozkoumej token USDt.z">
