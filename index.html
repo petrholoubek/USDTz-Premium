@@ -134,13 +134,30 @@ label[for="menu-toggle"] span {
  }
 }
 </style>
+<input type="checkbox" id="menu-toggle" />
+<label for="menu-toggle" class="hamburger">
+ <span></span>
+ <span></span>
+ <span></span>
+</label>
+
+
+<nav>
+ <ul class="menu">
+   <li><a href="/USDTz-Premium/pages/about.html">O tokenu</a></li>
+   <li><a href="/USDTz-Premium/pages/usecases.html">Použití</a></li>
+   <li><a href="/USDTz-Premium/pages/programs.html">Programy</a></li>
+   <li><a href="/USDTz-Premium/pages/docs.html">Dokumentace</a></li>
+   <li><a href="/USDTz-Premium/pages/contact.html">Kontakt</a></li>
+ </ul>
+</nav>
 
 <style>
-/* Hamburger - mobile */
+/* hamburger */
 #menu-toggle {
  display: none;
 }
-label[for="menu-toggle"] {
+.hamburger {
  display: none;
  cursor: pointer;
  width: 30px;
@@ -148,16 +165,28 @@ label[for="menu-toggle"] {
  flex-direction: column;
  justify-content: space-between;
 }
-label[for="menu-toggle"] span {
+.hamburger span {
  display: block;
  height: 3px;
- background: white;
+ background: rgb(31,186,156);
  border-radius: 2px;
 }
 
-/* Responsive */
+/* menu desktop */
+ul.menu {
+ list-style: none;
+ display: flex;
+ gap: 1.5rem;
+ align-items: center;
+}
+ul.menu li a {
+ text-decoration: none;
+ color: black;
+}
+
+/* responsive */
 @media (max-width: 768px) {
- label[for="menu-toggle"] {
+ .hamburger {
    display: flex;
  }
  ul.menu {
@@ -165,8 +194,9 @@ label[for="menu-toggle"] span {
    flex-direction: column;
    width: 100%;
    margin-top: 1rem;
+   gap: 1rem;
  }
- #menu-toggle:checked + label + ul.menu {
+ #menu-toggle:checked + .hamburger + nav ul.menu {
    display: flex;
  }
 }
