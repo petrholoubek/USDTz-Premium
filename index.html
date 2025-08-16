@@ -1,102 +1,55 @@
-<header>
- <nav class="navbar">
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>USDTz Premium</title>
+ <style>
+   #msg_body { margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+   nav {
+     background: rgb(31,186,156);
+     padding: 0.5rem 1rem;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+   }
+   .logo img { height: 40px; }
+   .menu { display: flex; gap: 1rem; }
+   .menu a { color: white; text-decoration: none; font-weight: bold; }
+   .flags img { height: 20px; cursor: pointer; }
+   .hamburger { display: none; cursor: pointer; font-size: 26px; color: white; }
    
-   <a href="#" class="logo">
+   /* Mobilní verze */
+   @media (max-width: 768px) {
+     .menu { display: none; flex-direction: column; background: rgb(31,186,156); padding: 1rem; }
+     .menu.active { display: flex; }
+     .hamburger { display: block; }
+   }
+ </style>
+</head>
+<body>
+ <nav>
+   <div class="logo">
      <img src="img/logo-white.png" alt="Logo">
-   </a>
+   </div>
 
-   
-   <input type="checkbox" id="menu-toggle">
-   <label for="menu-toggle" class="menu-icon">☰</label>
+   <div class="hamburger" onclick="toggleMenu()">☰</div>
 
-   
-   <ul class="menu">
-     <li><a href="#">Domů</a></li>
-     <li><a href="#">O nás</a></li>
-     <li><a href="#">Token</a></li>
-     <li><a href="#">Kontakt</a></li>
-     <li class="flags">
-       <a href="#"><img src="img/flags/cz.png" alt="CZ"></a>
-       <a href="#"><img src="img/flags/gb.png" alt="EN"></a>
-     </li>
-   </ul>
+   <div class="menu" id="navMenu">
+     <a href="#">Home</a>
+     <a href="#">O nás</a>
+     <a href="#">Kontakt</a>
+     <div class="flags">
+       <img src="img/flags/cz.png" alt="CZ">
+       <img src="img/flags/en.png" alt="EN">
+     </div>
+   </div>
  </nav>
-</header>
 
-<style>
-/* Navbar základ */
-.navbar {
- display: flex;
- justify-content: space-between;
- align-items: center;
- background: rgb(31,186,156);
- padding: 0.5rem 1rem;
-}
-
-.logo img {
- height: 40px;
-}
-
-/* Menu standard */
-.menu {
- display: flex;
- list-style: none;
- margin: 0;
- padding: 0;
-}
-
-.menu li {
- margin-left: 20px;
-}
-
-.menu li a {
- color: white;
- text-decoration: none;
- font-weight: 500;
-}
-
-.flags img {
- height: 20px;
- margin-left: 10px;
-}
-
-/* Hamburger button */
-.menu-icon {
- display: none;
- font-size: 28px;
- cursor: pointer;
- color: white;
-}
-
-/* Skrytý checkbox */
-#menu-toggle {
- display: none;
-}
-
-/* Mobilní verze */
-@media (max-width: 768px) {
- .menu {
-   display: none;
-   flex-direction: column;
-   width: 100%;
-   background: rgb(31,186,156);
-   position: absolute;
-   top: 60px;
-   left: 0;
-   padding: 1rem 0;
- }
-
- .menu li {
-   margin: 10px 0;
-   text-align: center;
- }
-
- .menu-icon {
-   display: block;
- }
-
- #menu-toggle:checked ~ .menu {
-   display: flex;
- }
-}
-</style>
+ <script>
+   function toggleMenu() {
+     document.getElementById('navMenu').classList.toggle('active');
+   }
+ </script>
+</body>
+</html>
