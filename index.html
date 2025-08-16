@@ -85,158 +85,221 @@
 </body>
 </html>
 
-<!-- HORNI RAMECEK -->
-<section id="header-box" style="
-   max-width: 1200px;
-   margin: 2rem auto;
-   padding: 1.5rem 2rem;
-   display: flex;
-   align-items: center;
-   background: #fff;
-   border-radius: 12px;
-   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-">
-  <img src="/USDTz-Premium/img/flags/logo.png" alt="USDt.z Logo" style="
-     width: 180px;
-     max-width: 25%;
-     margin-right: 1.5rem;
-  "/>
-  <div style="flex:1;">
-    <h1 style="color: rgb(31,186,156); margin:0; font-size:2.8rem;">USDt.z</h1>
-    <h2 style="color: rgb(31,186,156); margin:5px 0 10px 0; font-size:2rem;">Stablecoin – Next Generation</h2>
-    <p style="color:#222; font-size:1rem; line-height:1.4; margin:0;">
-      Stabilní, bezpečný a inovativní token navržený pro bankovní i nebankovní sektor. Zaměřený na bezpečnost, transparentnost a dlouhodobou stabilitu.
-    </p>
-  </div>
-</section>
-
-<!-- DOPORUCENE PROJEKTY -->
-<section style="max-width:1200px; margin:50px auto; padding:20px;">
-  <h2 style="color: rgb(31,186,156); font-weight:bold; text-align:center; font-size:2.2rem; margin-bottom:40px;">
-    Doporučené projekty & partnerství
-  </h2>
-
-  <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:30px;">
-
-    <a href="pages/bankovni_partner.html" class="partner-block">
-      <h3>Bankovní partner</h3>
-      <p>Spolupráce s tradiční bankou pro zajištění stability a důvěry v ekosystém.</p>
-    </a>
-
-    <a href="pages/fintech_partner.html" class="partner-block">
-      <h3>Fintech partner</h3>
-      <p>Inovativní fintech řešení pro rychlé a bezpečné platby v ekosystému.</p>
-    </a>
-
-    <a href="pages/krypto_burza.html" class="partner-block">
-      <h3>Krypto burza</h3>
-      <p>Partnerství s burzou pro likviditu a snadnou směnitelnost tokenů USDt.z.</p>
-    </a>
-
-    <a href="pages/influencer1.html" class="partner-block">
-      <h3>Influencer 1</h3>
-      <p>Influencer podporující projekt a informující komunitu o USDt.z.</p>
-    </a>
-
-    <a href="pages/investor1.html" class="partner-block">
-      <h3>Investor 1</h3>
-      <p>Klíčový investor podporující dlouhodobou stabilitu a růst USDt.z.</p>
-    </a>
-
-    <a href="pages/investor2.html" class="partner-block">
-      <h3>Investor 2</h3>
-      <p>Strategický partner s dlouhodobou vizí a podporou ekosystému USDt.z.</p>
-    </a>
-
-  </div>
-</section>
-
-<!-- HODNOTY A MARKET CAP -->
-<section style="max-width:1200px; margin:50px auto; padding:20px;">
-  <h2 style="color: rgb(31,186,156); font-weight:bold; text-align:center; font-size:2.2rem; margin-bottom:40px;">
-    Hodnoty
-  </h2>
-
-  <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:20px; text-align:center;">
-    <!-- Boxy hodnot -->
-    <div class="value-box"><h3>$2.5M</h3><p>Tržní kapitalizace</p></div>
-    <div class="value-box"><h3>$850K</h3><p>Likvidita</p></div>
-    <div class="value-box"><h3>1,240</h3><p>Držitelé</p></div>
-    <div class="value-box"><h3>12,560</h3><p>Transakce</p></div>
-  </div>
-
-  <h2 style="color: rgb(31,186,156); font-weight:bold; text-align:center; font-size:2.2rem; margin:40px 0 20px 0;">
-    Tržní kapitalizace USDt.z
-  </h2>
-
-  <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:20px; text-align:center;">
-    <!-- Market Cap boxy -->
-    <div class="value-box"><h3>1.006 USD / USDT.z</h3><p>Aktuální cena</p></div>
-    <div class="value-box"><h3>5B</h3><p>Celkový objem</p></div>
-  </div>
-</section>
-
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>USDt.z – Stablecoin</title>
 <style>
-/* Partner block */
+#msg_body {
+ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ margin:0;
+ background:#f9fafb;
+ color:#222;
+}
+
+/* --- Bloky partnerů --- */
 .partner-block {
-  flex: 1 1 30%;
-  max-width: 350px;
-  background: #fff;
-  border-radius: 12px;
-  padding: 20px;
-  box-shadow: 0 0 12px rgba(31,186,156,0.15);
-  text-align: center;
-  text-decoration: none;
-  color: #222;
-  transition: all 0.3s ease;
+ flex: 1 1 280px;
+ max-width: 280px;
+ background:#fff;
+ border-radius:12px;
+ padding:20px;
+ box-shadow:0 0 12px rgba(31,186,156,0.15);
+ text-align:center;
+ transition: all 0.3s ease;
 }
 
 .partner-block h3 {
-  color: rgb(31,186,156);
-  font-size:1.4rem;
-  margin:0 0 10px 0;
+ color: rgb(31,186,156);
+ font-size:1.4rem;
+ margin:0;
 }
 
 .partner-block p {
-  font-size:1rem;
+ color:#222;
+ font-size:1rem;
 }
 
 .partner-block:hover {
-  transform: translateY(-10px) scale(1.05);
-  box-shadow: 0 0 20px rgba(31,186,156,0.3);
+ transform: translateY(-5px) scale(1.03);
+ box-shadow:0 0 15px rgba(31,186,156,0.3);
 }
 
-/* Hodnoty boxy */
-.value-box {
-  flex: 1 1 200px;
-  max-width: 220px;
-  background:#fff;
-  border-radius:12px;
-  padding:20px;
-  box-shadow: 0 4px 12px rgba(31,186,156,0.15);
+@media (max-width: 992px) {
+ .partner-block { flex: 1 1 45%; max-width:45%; }
 }
 
-.value-box h3 {
-  font-size:1.8rem;
-  color: rgb(31,186,156);
-  margin:0 0 5px 0;
+@media (max-width: 600px) {
+ .partner-block { flex: 1 1 100%; max-width:100%; }
 }
 
-.value-box p {
-  font-size:1rem;
-  color:#333;
-  margin:0;
+/* --- Společné bloky --- */
+.section-container {
+ max-width:1200px;
+ margin:50px auto;
+ padding:20px;
 }
 
-/* Responsivita */
-@media (max-width:992px) {
-  .partner-block, .value-box { flex:1 1 45%; max-width:45%; }
+.section-container h2 {
+ color: rgb(31,186,156);
+ font-weight:bold;
+ text-align:center;
+ font-size:2.2rem;
+ margin-bottom:30px;
 }
 
-@media (max-width:600px) {
-  .partner-block, .value-box { flex:1 1 100%; max-width:100%; }
+.card {
+ background:#fff;
+ padding:20px;
+ border-radius:12px;
+ box-shadow:0 0 12px rgba(31,186,156,0.15);
+ text-align:center;
+ transition: all 0.3s ease;
+}
+
+.card h3 {
+ color: rgb(31,186,156);
+ margin-bottom:10px;
+}
+
+.card p {
+ margin:0;
+ font-size:1rem;
+}
+
+.card:hover {
+ transform: translateY(-5px) scale(1.03);
+ box-shadow:0 0 15px rgba(31,186,156,0.3);
+}
+
+.flex-container {
+ display:flex;
+ flex-wrap:wrap;
+ justify-content:center;
+ gap:20px;
+}
+
+input, button {
+ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Responzivní text a bloky */
+@media(max-width:800px){
+ .flex-container {flex-direction:column; align-items:center;}
 }
 </style>
+</head>
+<body>
 
 
+<section class="section-container">
+ <h2>Aktuální údaje o tokenu USDt.z</h2>
+ <div class="flex-container" style="justify-content:space-around; font-size:1.2rem;">
+   <div class="card" style="max-width:300px;">
+     <strong>Cena:</strong>
+     <div style="color:rgb(31,186,156); font-size:1.5rem;">1,0063 USD</div>
+   </div>
+   <div class="card" style="max-width:300px;">
+     <strong>Tržní hodnota:</strong>
+     <div style="color:rgb(31,186,156); font-size:1.5rem;">5 000 000 000 000 USD</div>
+   </div>
+ </div>
+</section>
+
+
+<section class="section-container">
+ <h2>Doporučené projekty & partnerství</h2>
+ <div class="flex-container">
+   <div class="partner-block">
+     <div style="display:flex; align-items:center; justify-content:center; gap:10px; margin-bottom:10px;">
+       <img src="img/partners/bank.png" alt="Bankovní partner" style="width:40px; height:40px;">
+       <h3>Bankovní partner</h3>
+     </div>
+     <p>Spolupráce s tradiční bankou pro zajištění stability a důvěry v ekosystém.</p>
+   </div>
+
+   <div class="partner-block">
+     <div style="display:flex; align-items:center; justify-content:center; gap:10px; margin-bottom:10px;">
+       <img src="img/partners/fintech.png" alt="Fintech partner" style="width:40px; height:40px;">
+       <h3>Fintech partner</h3>
+     </div>
+     <p>Inovativní fintech řešení pro rychlé a bezpečné platby v ekosystému.</p>
+   </div>
+
+   <div class="partner-block">
+     <div style="display:flex; align-items:center; justify-content:center; gap:10px; margin-bottom:10px;">
+       <img src="img/partners/exchange.png" alt="Krypto burza" style="width:40px; height:40px;">
+       <h3>Krypto burza</h3>
+     </div>
+     <p>Partnerství s burzou pro likviditu a snadnou směnitelnost tokenů USDt.z.</p>
+   </div>
+
+   <div class="partner-block">
+     <div style="display:flex; align-items:center; justify-content:center; gap:10px; margin-bottom:10px;">
+       <img src="img/influencers/influencer1.png" alt="Influencer 1" style="width:40px; height:40px;">
+       <h3>Influencer 1</h3>
+     </div>
+     <p>Influencer podporující projekt a informující komunitu o USDt.z.</p>
+   </div>
+
+   <div class="partner-block">
+     <div style="display:flex; align-items:center; justify-content:center; gap:10px; margin-bottom:10px;">
+       <img src="img/investors/investor1.png" alt="Investor 1" style="width:40px; height:40px;">
+       <h3>Investor 1</h3>
+     </div>
+     <p>Klíčový investor podporující dlouhodobou stabilitu a růst USDt.z.</p>
+   </div>
+
+   <div class="partner-block">
+     <div style="display:flex; align-items:center; justify-content:center; gap:10px; margin-bottom:10px;">
+       <img src="img/investors/investor2.png" alt="Investor 2" style="width:40px; height:40px;">
+       <h3>Investor 2</h3>
+     </div>
+     <p>Strategický partner s dlouhodobou vizí a podporou ekosystému USDt.z.</p>
+   </div>
+ </div>
+</section>
+
+
+<section class="section-container" style="background:#f4f9f8;">
+ <div class="flex-container" style="gap:40px; align-items:center;">
+   <div style="flex:1 1 500px;">
+     <h2>💠 Tokenizace & Kalkulačka</h2>
+     <p>
+       Token USDt.z přináší stabilitu a transparentnost.  
+       Díky blockchainu můžete okamžitě převádět hodnotu, využívat ji jako kolaterál a zapojit se do moderního finančního systému.
+     </p>
+     <ul style="margin-top:20px; line-height:1.8;">
+       <li>✅ Okamžité převody 24/7</li>
+       <li>✅ Transparentní rezervy</li>
+       <li>✅ Využití v bankovním i nebankovním sektoru</li>
+       <li>✅ Bezpečná alternativa k tradičním měnám</li>
+     </ul>
+   </div>
+
+   <div style="flex:1 1 400px; background:#fff; border:1px solid #ddd; border-radius:8px; padding:20px;">
+     <h3>Převod na USDt.z</h3>
+     <p>Zadejte částku v USD a zjistěte ekvivalent v USDt.z</p>
+     <input id="usdInput" type="number" placeholder="Zadejte částku v USD"
+            style="width: 100%; padding: 10px; margin:10px 0; border-radius:5px; border:1px solid #ccc;">
+     <button onclick="convertToUSDTz()"
+             style="background: rgb(31,186,156); color:white; padding:10px 20px; border:none; border-radius:5px; cursor:pointer;">
+       Přepočítat
+     </button>
+     <p id="result" style="margin-top:15px; font-weight:bold; font-size:18px;"></p>
+   </div>
+ </div>
+</section>
+
+<script>
+function convertToUSDTz() {
+ let usd = document.getElementById('usdInput').value;
+ if(usd && usd>0){
+   document.getElementById('result').innerText = usd+" USD = "+usd+" USDt.z";
+ } else {
+   document.getElementById('result').innerText = "Zadejte platnou částku.";
+ }
+}
+</script>
