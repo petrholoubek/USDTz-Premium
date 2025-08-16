@@ -1,25 +1,59 @@
+<input type="checkbox" id="menu-toggle" />
+<label for="menu-toggle" class="hamburger" aria-label="Otevřít menu">
+ <span></span>
+ <span></span>
+ <span></span>
+</label>
+
+<style>
+/* Skrytí checkboxu */
+#menu-toggle {
+ display: none;
+}
+
+/* Styl hamburgeru */
+.hamburger {
+ display: none;
+ cursor: pointer;
+ width: 30px;
+ height: 25px;
+ flex-direction: column;
+ justify-content: space-between;
+}
+.hamburger span {
+ display: block;
+ height: 3px;
+ background: white;
+ border-radius: 2px;
+}
+
+/* Responsivní pravidla */
+@media (max-width: 768px) {
+ .hamburger {
+   display: flex;
+ }
+}
+</style>
 <header>
  <nav>
    <a href="/USDTz-Premium/index.html" class="logo" aria-label="Přejít na domovskou stránku">
      <img src="/USDTz-Premium/img/flags/logo-white.png" alt="USDt.z Logo" />
    </a>
 
-   
    <input type="checkbox" id="menu-toggle" />
-   <label for="menu-toggle" aria-label="Otevřít menu" class="hamburger">
+   <label for="menu-toggle" aria-label="Otevřít menu">
      <span></span>
      <span></span>
      <span></span>
    </label>
 
-   
    <ul class="menu" role="menubar" aria-label="Hlavní navigace">
      <li role="none"><a href="/USDTz-Premium/pages/about.html" role="menuitem">O tokenu</a></li>
      <li role="none"><a href="/USDTz-Premium/pages/usecases.html" role="menuitem">Použití</a></li>
      <li role="none"><a href="/USDTz-Premium/pages/programs.html" role="menuitem">Programy</a></li>
      <li role="none"><a href="/USDTz-Premium/pages/docs.html" role="menuitem">Dokumentace</a></li>
      <li role="none"><a href="/USDTz-Premium/pages/contact.html" role="menuitem">Kontakt</a></li>
-     
+
      <li role="none">
        <a href="/USDTz-Premium/index.html" title="Česky" role="menuitem" aria-label="Česká verze">
          <img src="/USDTz-Premium/img/flags/cz.png" alt="Česká vlajka" class="flag" />
@@ -35,6 +69,7 @@
 </header>
 
 <style>
+/* Základní styly menu */
 header {
  background: rgb(31,186,156);
  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -57,7 +92,7 @@ nav {
  filter: drop-shadow(0 0 5px rgba(0,0,0,0.15));
 }
 
-/* Desktop menu */
+/* Menu - desktop */
 ul.menu {
  list-style: none;
  display: flex;
@@ -69,6 +104,7 @@ ul.menu li a {
  font-weight: 600;
  font-size: 1rem;
  text-decoration: none;
+ transition: color 0.3s ease;
  display: flex;
  align-items: center;
  gap: 0.3rem;
@@ -86,11 +122,11 @@ img.flag {
  border: 1px solid rgba(255,255,255,0.6);
 }
 
-/* Hamburger */
+/* Hamburger button - mobile */
 #menu-toggle {
  display: none;
 }
-label.hamburger {
+label[for="menu-toggle"] {
  display: none;
  cursor: pointer;
  width: 30px;
@@ -98,16 +134,16 @@ label.hamburger {
  flex-direction: column;
  justify-content: space-between;
 }
-label.hamburger span {
+label[for="menu-toggle"] span {
  display: block;
  height: 3px;
  background: white;
  border-radius: 2px;
 }
 
-/* Mobilní verze */
+/* Responsive styles */
 @media (max-width: 768px) {
- label.hamburger {
+ label[for="menu-toggle"] {
    display: flex;
  }
  ul.menu {
