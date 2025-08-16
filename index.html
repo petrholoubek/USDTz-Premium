@@ -1,11 +1,9 @@
 <header>
  <nav>
-   
-   <a href="index.html" class="logo">
+   <a href="index.html" class="logo" aria-label="Přejít na domovskou stránku">
      <img src="img/logo-white.png" alt="USDt.z Logo" />
    </a>
 
-   
    <input type="checkbox" id="menu-toggle" />
    <label for="menu-toggle" aria-label="Otevřít menu">
      <span></span>
@@ -13,42 +11,123 @@
      <span></span>
    </label>
 
-   
-   <ul class="menu">
-     <li><a href="pages/about.html">O tokenu</a></li>
-     <li><a href="pages/usecases.html">Použití</a></li>
-     <li><a href="pages/programs.html">Programy</a></li>
-     <li><a href="pages/docs.html">Dokumentace</a></li>
-     <li><a href="pages/contact.html">Kontakt</a></li>
-     <li>
-       <a href="index.html"><img src="img/flags/cz.png" alt="Česká vlajka" class="flag" /></a>
+   <ul class="menu" role="menubar" aria-label="Hlavní navigace">
+     <li role="none"><a href="pages/about.html" role="menuitem">O tokenu</a></li>
+     <li role="none"><a href="pages/usecases.html" role="menuitem">Použití</a></li>
+     <li role="none"><a href="pages/programs.html" role="menuitem">Programy</a></li>
+     <li role="none"><a href="pages/docs.html" role="menuitem">Dokumentace</a></li>
+     <li role="none"><a href="pages/contact.html" role="menuitem">Kontakt</a></li>
+     <li role="none">
+       <a href="index.html" title="Česky" role="menuitem" aria-label="Česká verze">
+         <img src="img/flags/cz.png" alt="Česká vlajka" class="flag" />
+       </a>
      </li>
-     <li>
-       <a href="index_en.html"><img src="img/flags/en.png" alt="Anglická vlajka" class="flag" /></a>
+     <li role="none">
+       <a href="index_en.html" title="English" role="menuitem" aria-label="Anglická verze">
+         <img src="img/flags/en.png" alt="Anglická vlajka" class="flag" />
+       </a>
      </li>
    </ul>
  </nav>
 </header>
 
 <style>
-header { background: rgb(31,186,156); position: sticky; top:0; z-index:1100; }
-nav { max-width:1200px; margin:0 auto; padding:1rem 2rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; }
-.logo img { height:40px; cursor:pointer; }
-ul.menu { list-style:none; display:flex; gap:1.5rem; align-items:center; }
-ul.menu li a { color:white; text-decoration:none; display:flex; align-items:center; gap:0.3rem; }
-img.flag { width:24px; height:16px; object-fit:cover; border-radius:3px; border:1px solid rgba(255,255,255,0.6); }
+/* Základní styly menu */
+header {
+ background: rgb(31,186,156);
+ box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+ position: sticky;
+ top: 0;
+ z-index: 1100;
+}
+nav {
+ max-width: 1200px;
+ margin: 0 auto;
+ padding: 1rem 2rem;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ flex-wrap: wrap;
+}
+.logo img {
+ height: 40px;
+ cursor: pointer;
+}
 
-/* Hamburger - mobile */
-#menu-toggle { display:none; }
-label[for="menu-toggle"] { display:none; cursor:pointer; flex-direction:column; justify-content:space-between; width:30px; height:25px; }
-label[for="menu-toggle"] span { display:block; height:3px; background:white; border-radius:2px; }
+/* Menu - desktop */
+ul.menu {
+ list-style: none;
+ display: flex;
+ gap: 1.5rem;
+ align-items: center;
+}
+ul.menu li a {
+ color: white;
+ font-weight: 600;
+ font-size: 1rem;
+ text-decoration: none;
+ display: flex;
+ align-items: center;
+ gap: 0.3rem;
+}
+ul.menu li a:hover,
+ul.menu li a.active {
+ color: #004d40;
+ font-weight: 700;
+}
+img.flag {
+ width: 24px;
+ height: 16px;
+ object-fit: cover;
+ border-radius: 3px;
+ border: 1px solid rgba(255,255,255,0.6);
+}
 
-/* Mobilní styly */
-@media(max-width:768px){
- label[for="menu-toggle"] { display:flex; }
- ul.menu { display:none; flex-direction:column; width:100%; margin-top:1rem; background:rgb(31,186,156); padding:1rem 0; }
- ul.menu li { width:100%; }
- ul.menu li a { display:block; width:100%; padding:0.5rem 1rem; font-size:1.1rem; }
- #menu-toggle:checked + label + ul.menu { display:flex; }
+/* Hamburger button - mobile */
+#menu-toggle {
+ display: none;
+}
+label[for="menu-toggle"] {
+ display: none;
+ cursor: pointer;
+ width: 30px;
+ height: 25px;
+ flex-direction: column;
+ justify-content: space-between;
+}
+label[for="menu-toggle"] span {
+ display: block;
+ height: 3px;
+ background: white;
+ border-radius: 2px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+ label[for="menu-toggle"] {
+   display: flex;
+ }
+ ul.menu {
+   display: none;
+   flex-direction: column;
+   width: 100%;
+   margin-top: 1rem;
+   gap: 1rem;
+   background: rgb(31,186,156);
+   border-radius: 8px;
+   padding: 1rem 2rem;
+ }
+ ul.menu li {
+   width: 100%;
+ }
+ ul.menu li a {
+   display: block;
+   width: 100%;
+   font-size: 1.1rem;
+   padding: 0.5rem 0;
+ }
+ #menu-toggle:checked + label + ul.menu {
+   display: flex;
+ }
 }
 </style>
