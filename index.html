@@ -1,102 +1,141 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Test Mobilní Menu</title>
+<style>
+/* Základní styly */
+#msg_body {
+ margin: 0;
+ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+header {
+ background: rgb(31,186,156);
+ box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+ position: sticky;
+ top: 0;
+ z-index: 1100;
+}
+
+nav {
+ max-width: 1200px;
+ margin: 0 auto;
+ padding: 1rem 2rem;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ flex-wrap: wrap;
+}
+
+.logo img {
+ height: 40px;
+ cursor: pointer;
+}
+
+/* Menu - desktop */
+ul.menu {
+ list-style: none;
+ display: flex;
+ gap: 1.5rem;
+ align-items: center;
+ margin: 0;
+ padding: 0;
+}
+
+ul.menu li a {
+ color: white;
+ font-weight: 600;
+ text-decoration: none;
+ display: flex;
+ align-items: center;
+ gap: 0.3rem;
+}
+
+ul.menu li a:hover,
+ul.menu li a.active {
+ color: #004d40;
+ font-weight: 700;
+}
+
+/* Hamburger button - mobile */
+#menu-toggle {
+ display: none;
+}
+
+label[for="menu-toggle"] {
+ display: none;
+ cursor: pointer;
+ width: 30px;
+ height: 25px;
+ flex-direction: column;
+ justify-content: space-between;
+}
+
+label[for="menu-toggle"] span {
+ display: block;
+ height: 3px;
+ background: white;
+ border-radius: 2px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+ label[for="menu-toggle"] {
+   display: flex;
+ }
+ ul.menu {
+   display: none;
+   flex-direction: column;
+   width: 100%;
+   margin-top: 1rem;
+   gap: 1rem;
+   background: rgb(31,186,156);
+   border-radius: 8px;
+   padding: 1rem 2rem;
+ }
+ ul.menu li {
+   width: 100%;
+ }
+ ul.menu li a {
+   display: block;
+   width: 100%;
+   font-size: 1.1rem;
+   padding: 0.5rem 0;
+ }
+ #menu-toggle:checked + label + ul.menu {
+   display: flex;
+ }
+}
+</style>
+</head>
+<body>
+
 <header>
  <nav>
-   <a href="/USDTz-Premium/index.html" class="logo">
-     <img src="/USDTz-Premium/img/logo-white.png" alt="USDt.z Logo" />
+   <a href="#" class="logo">
+     <img src="img/flags/logo-white.png" alt="USDt.z Logo">
    </a>
 
    <input type="checkbox" id="menu-toggle">
-   <label for="menu-toggle" aria-label="Otevřít menu">
+   <label for="menu-toggle">
      <span></span>
      <span></span>
      <span></span>
    </label>
 
    <ul class="menu">
-     <li><a href="/USDTz-Premium/pages/about.html">O tokenu</a></li>
-     <li><a href="/USDTz-Premium/pages/usecases.html">Použití</a></li>
-     <li><a href="/USDTz-Premium/pages/programs.html">Programy</a></li>
-     <li><a href="/USDTz-Premium/pages/docs.html">Dokumentace</a></li>
-     <li><a href="/USDTz-Premium/pages/contact.html">Kontakt</a></li>
-     <li><a href="/USDTz-Premium/index.html"><img src="/USDTz-Premium/img/flags/cz.png" alt="CZ"></a></li>
-     <li><a href="/USDTz-Premium/index_en.html"><img src="/USDTz-Premium/img/flags/en.png" alt="EN"></a></li>
+     <li><a href="#">O tokenu</a></li>
+     <li><a href="#">Použití</a></li>
+     <li><a href="#">Programy</a></li>
+     <li><a href="#">Dokumentace</a></li>
+     <li><a href="#">Kontakt</a></li>
+     <li><a href="#"><img src="img/flags/cz.png" alt="Česká vlajka" style="width:24px;height:16px;"></a></li>
+     <li><a href="#"><img src="img/flags/en.png" alt="Anglická vlajka" style="width:24px;height:16px;"></a></li>
    </ul>
  </nav>
 </header>
 
-<style>
-header {
- background: rgb(31,186,156);
- position: sticky;
- top:0;
- z-index: 1100;
-}
-nav {
- max-width: 1200px;
- margin:0 auto;
- padding:1rem 2rem;
- display:flex;
- justify-content:space-between;
- align-items:center;
- flex-wrap:wrap;
-}
-.logo img {
- height:40px;
- cursor:pointer;
-}
-
-/* Menu desktop */
-ul.menu {
- list-style:none;
- display:flex;
- gap:1.5rem;
- align-items:center;
- margin:0;
- padding:0;
-}
-ul.menu li a {
- color:white;
- text-decoration:none;
- display:flex;
- align-items:center;
- gap:0.3rem;
- font-weight:600;
-}
-ul.menu li a:hover { color:#004d40; font-weight:700; }
-img { display:block; }
-
-/* Hamburger */
-#menu-toggle { display:none; }
-label[for="menu-toggle"] {
- display:none;
- cursor:pointer;
- width:30px;
- height:25px;
- flex-direction:column;
- justify-content:space-between;
-}
-label[for="menu-toggle"] span {
- display:block;
- height:3px;
- background:white;
- border-radius:2px;
-}
-
-/* Mobilní verze */
-@media (max-width:768px){
- label[for="menu-toggle"] { display:flex; }
- ul.menu {
-   display:none;
-   flex-direction:column;
-   width:100%;
-   background:rgb(31,186,156);
-   margin-top:1rem;
-   border-radius:8px;
- }
- ul.menu li a {
-   padding:0.5rem 1.5rem;
-   font-size:1.1rem;
-   width:100%;
- }
- #menu-toggle:checked + label + ul.menu { display:flex; }
-}
-</style>
+</body>
+</html>
