@@ -33,6 +33,7 @@
 </header>
 
 <style>
+/* Základní styly menu */
 header {
  background: rgb(31,186,156);
  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -52,8 +53,9 @@ nav {
 .logo img {
  height: 40px;
  cursor: pointer;
- filter: drop-shadow(0 0 5px rgba(0,0,0,0.15));
 }
+
+/* Menu - desktop */
 ul.menu {
  list-style: none;
  display: flex;
@@ -65,7 +67,6 @@ ul.menu li a {
  font-weight: 600;
  font-size: 1rem;
  text-decoration: none;
- transition: color 0.3s ease;
  display: flex;
  align-items: center;
  gap: 0.3rem;
@@ -80,8 +81,10 @@ img.flag {
  height: 16px;
  object-fit: cover;
  border-radius: 3px;
- border: 1px solid rgba(255,255,255,0.6);
+ border: 1px solid white;
 }
+
+/* Hamburger button - mobile */
 #menu-toggle {
  display: none;
 }
@@ -99,10 +102,10 @@ label[for="menu-toggle"] span {
  background: white;
  border-radius: 2px;
 }
+
+/* Responsive styles */
 @media (max-width: 768px) {
- label[for="menu-toggle"] {
-   display: flex;
- }
+ label[for="menu-toggle"] { display: flex; flex-direction: column; justify-content: space-between; }
  ul.menu {
    display: none;
    flex-direction: column;
@@ -110,20 +113,10 @@ label[for="menu-toggle"] span {
    margin-top: 1rem;
    gap: 1rem;
    background: rgb(31,186,156);
-   border-radius: 8px;
-   padding: 1rem 2rem;
+   border-radius: 0;
+   padding: 1rem 0;
  }
- ul.menu li {
-   width: 100%;
- }
- ul.menu li a {
-   display: block;
-   width: 100%;
-   font-size: 1.1rem;
-   padding: 0.5rem 0;
- }
- #menu-toggle:checked + label + ul.menu {
-   display: flex;
- }
+ ul.menu li a { padding: 0.5rem 2rem; }
+ #menu-toggle:checked + label + ul.menu { display: flex; }
 }
 </style>
