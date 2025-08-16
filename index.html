@@ -90,122 +90,210 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>USDt.z Stablecoin</title>
+<title>USDt.z - Stablecoin Next Generation</title>
 <style>
-#msg_body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin:0; padding:0; background:#f4f8f9; color:#222; }
-h2 { font-weight:bold; }
-a { text-decoration:none; color:inherit; }
-.partner-block { flex:1 1 250px; max-width:300px; background:#fff; border-radius:12px; padding:20px; box-shadow:0 0 12px rgba(31,186,156,0.15); text-align:center; transition: all 0.3s ease; margin-bottom:20px;}
-.partner-block h3 { color: rgb(31,186,156); font-size:1.4rem; margin-bottom:10px; }
-.partner-block p { color:#222; font-size:1rem; margin:0; }
-.partner-block:hover { transform: translateY(-5px) scale(1.02); box-shadow: 0 0 18px rgba(31,186,156,0.25); }
-@media (max-width: 992px) { .partner-block { flex: 1 1 45%; max-width: 45%; } }
-@media (max-width: 600px) { .partner-block { flex: 1 1 100%; max-width: 100%; } }
+#msg_body {
+ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ margin: 0;
+ padding: 0;
+ background: #f4f8f9;
+ color: #222;
+}
+
+/* Horni ramecek */
+.header-box {
+ max-width: 1200px;
+ margin: 50px auto;
+ padding: 20px;
+ background: #fff;
+ border-radius: 12px;
+ box-shadow: 0 0 12px rgba(31,186,156,0.15);
+ display: flex;
+ align-items: center;
+ gap: 20px;
+}
+
+.header-box img {
+ width: 60px;
+ height: 60px;
+}
+
+.header-box h1 {
+ font-size: 2rem;
+ color: rgb(31,186,156);
+ margin: 0;
+}
+
+/* Doporučene projekty */
+.partner-section {
+ max-width: 1200px;
+ margin: 50px auto;
+ padding: 20px;
+}
+
+.partner-section h2 {
+ color: rgb(31,186,156);
+ font-weight: bold;
+ text-align: center;
+ font-size: 2.2rem;
+ margin-bottom: 40px;
+}
+
+.partner-blocks {
+ display: flex;
+ flex-wrap: wrap;
+ justify-content: center;
+ gap: 20px;
+}
+
+.partner-block {
+ flex: 1 1 250px;
+ max-width: 300px;
+ background: #fff;
+ border-radius: 12px;
+ padding: 20px;
+ box-shadow: 0 0 12px rgba(31,186,156,0.15);
+ text-align: center;
+ transition: all 0.3s ease;
+}
+
+.partner-block h3 {
+ color: rgb(31,186,156);
+ font-size:1.4rem;
+ margin: 10px 0;
+}
+
+.partner-block p {
+ font-size:1rem;
+}
+
+.partner-block:hover {
+ transform: translateY(-10px) scale(1.05);
+ box-shadow: 0 0 20px rgba(31,186,156,0.3);
+}
+
+/* Tabulka tokenu */
+.token-stats {
+ max-width: 900px;
+ margin: 50px auto;
+ background:#fff;
+ border-radius:10px;
+ box-shadow:0 0 12px rgb(31 186 156 / 0.15);
+ padding:2rem;
+ text-align: center;
+}
+
+.token-stats h2 {
+ color:rgb(31,186,156);
+ margin-bottom: 1rem;
+}
+
+.token-stats .values {
+ display:flex;
+ flex-wrap:wrap;
+ justify-content:space-around;
+ gap:2rem;
+ font-size:1.2rem;
+ margin-bottom: 20px;
+}
+
+.token-stats xtable {
+ margin: 0 auto;
+ border-collapse: collapse;
+ width: 80%;
+ max-width: 600px;
+}
+
+.token-stats table th {
+ background-color: rgb(31,186,156);
+ color: white;
+ padding: 12px 15px;
+ text-align:left;
+}
+
+.token-stats table td {
+ padding: 10px 15px;
+ text-align:right;
+}
+
+@media (max-width: 992px) {
+ .partner-block { flex: 1 1 45%; max-width: 45%; }
+ .header-box { flex-direction: column; text-align: center; }
+}
+
+@media (max-width: 600px) {
+ .partner-block { flex: 1 1 100%; max-width: 100%; }
+}
 </style>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
 
-<section style="max-width:1200px; margin:50px auto; padding:20px; background:#fff; border-radius:12px; box-shadow:0 0 15px rgba(31,186,156,0.2);">
- <div style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between;">
-   <img src="img/logo.png" alt="Logo USDt.z" style="height:60px;">
-   <div style="text-align:right;">
-     <h1 style="color:rgb(31,186,156); margin:0; font-size:2rem;">USDt.z Stablecoin</h1>
-     <p style="margin:5px 0 0; color:#555;">Bezpečná a stabilní digitální měna nové generace</p>
+<div class="header-box">
+ <img src="img/logo.png" alt="USDt.z Logo">
+ <h1>USDt.z – Stablecoin Next Generation</h1>
+</div>
+
+
+<section class="partner-section">
+ <h2>Doporučené projekty & partnerství</h2>
+ <div class="partner-blocks">
+   <div class="partner-block">
+     <h3>Bankovní partner</h3>
+     <p>Spolupráce s tradiční bankou pro zajištění stability a důvěry v ekosystém.</p>
+   </div>
+   <div class="partner-block">
+     <h3>Fintech partner</h3>
+     <p>Inovativní fintech řešení pro rychlé a bezpečné platby v ekosystému.</p>
+   </div>
+   <div class="partner-block">
+     <h3>Krypto burza</h3>
+     <p>Partnerství s burzou pro likviditu a snadnou směnitelnost tokenů USDt.z.</p>
+   </div>
+   <div class="partner-block">
+     <h3>Influencer 1</h3>
+     <p>Influencer podporující projekt a informující komunitu o USDt.z.</p>
+   </div>
+   <div class="partner-block">
+     <h3>Investor 1</h3>
+     <p>Klíčový investor podporující dlouhodobou stabilitu a růst USDt.z.</p>
+   </div>
+   <div class="partner-block">
+     <h3>Investor 2</h3>
+     <p>Strategický partner s dlouhodobou vizí a podporou ekosystému USDt.z.</p>
    </div>
  </div>
 </section>
 
 
-<section style="max-width:1200px; margin:50px auto; padding:20px;">
- <h2 style="color: rgb(31,186,156); text-align:center; font-size:2.2rem; margin-bottom:40px;">
-   Doporučené projekty & partnerství
- </h2>
- <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:30px;">
-   <div class="partner-block"><h3>Bankovní partner</h3><p>Spolupráce s tradiční bankou pro zajištění stability a důvěry v ekosystém.</p></div>
-   <div class="partner-block"><h3>Fintech partner</h3><p>Inovativní fintech řešení pro rychlé a bezpečné platby v ekosystému.</p></div>
-   <div class="partner-block"><h3>Krypto burza</h3><p>Partnerství s burzou pro likviditu a snadnou směnitelnost tokenů USDt.z.</p></div>
-   <div class="partner-block"><h3>Influencer 1</h3><p>Influencer podporující projekt a informující komunitu o USDt.z.</p></div>
-   <div class="partner-block"><h3>Investor 1</h3><p>Klíčový investor podporující dlouhodobou stabilitu a růst USDt.z.</p></div>
-   <div class="partner-block"><h3>Investor 2</h3><p>Strategický partner s dlouhodobou vizí a podporou ekosystému USDt.z.</p></div>
- </div>
-</section>
-
-
-<section id="token-stats" style="max-width:900px; margin:50px auto; background:#fff; border-radius:10px; box-shadow:0 0 12px rgba(31,186,156,0.15); padding:2rem; text-align:center;">
- <h2 style="color:rgb(31,186,156); margin-bottom:2rem;">Aktuální údaje o tokenu USDt.z</h2>
- <div style="display:flex; flex-wrap:wrap; justify-content:space-around; gap:2rem; font-size:1.2rem;">
-   <div><strong>Cena:</strong><div style="color:rgb(31,186,156); font-size:1.5rem;">1,0063 USD</div></div>
-   <div><strong>Tržní hodnota:</strong><div style="color:rgb(31,186,156); font-size:1.5rem;">5 000 000 000 000 USD</div></div>
-   <div><strong>Obchodní objem 24h:</strong><div style="color:rgb(31,186,156); font-size:1.5rem;">1 200 000 000 USD</div></div>
-   <div><strong>Celkové tokeny v oběhu:</strong><div style="color:rgb(31,186,156); font-size:1.5rem;">4 950 000 000</div></div>
- </div>
-</section>
-
-
-<section style="padding:60px 20px; background:#ffffff;">
- <div style="max-width:1200px; margin:0 auto; display:flex; flex-wrap:wrap; gap:40px; align-items:center;">
-   <div style="flex:1 1 500px;">
-     <h2>💠 Tokenizace & Kalkulačka</h2>
-     <p>Token USDt.z přináší stabilitu a transparentnost. Díky blockchainu můžete okamžitě převádět hodnotu, využívat ji jako kolaterál a zapojit se do moderního finančního systému.</p>
-     <ul style="margin-top:20px; line-height:1.8;">
-       <li>✅ Okamžité převody 24/7</li>
-       <li>✅ Transparentní rezervy</li>
-       <li>✅ Využití v bankovním i nebankovním sektoru</li>
-       <li>✅ Bezpečná alternativa k tradičním měnám</li>
-     </ul>
+<section class="token-stats">
+ <h2>Aktuální údaje o tokenu USDt.z</h2>
+ <div class="values">
+   <div>
+     <strong>Cena:</strong>
+     <div style="color:rgb(31,186,156); font-size:1.5rem;">1,0063 USD</div>
    </div>
-   <div style="flex:1 1 400px; background:#f9f9f9; border:1px solid #ddd; border-radius:8px; padding:20px; text-align:center;">
-     <h3>Převod na USDt.z</h3>
-     <p>Zadejte částku v USD a zjistěte ekvivalent v USDt.z</p>
-     <input id="usdInput" type="number" placeholder="Zadejte částku v USD"
-            style="width:100%; padding:10px; margin:10px 0; border-radius:5px; border:1px solid #ccc;">
-     <button onclick="convertToUSDTz()"
-             style="background: rgb(31,186,156); color:white; padding:10px 20px; border:none; border-radius:5px; cursor:pointer;">
-       Přepočítat
-     </button>
-     <p id="result" style="margin-top:15px; font-weight:bold; font-size:18px;"></p>
+   <div>
+     <strong>Tržní hodnota:</strong>
+     <div style="color:rgb(31,186,156); font-size:1.5rem;">5 000 000 000 000 USD</div>
    </div>
  </div>
+ <table>
+   <thead>
+     <tr>
+       <th>Kategorie</th>
+       <th>Procenta</th>
+     </tr>
+   </thead>
+   <tbody>
+     <tr><td>Likvidita</td><td>40%</td></tr>
+     <tr><td>Rezerva</td><td>30%</td></tr>
+     <tr><td>Tým</td><td>15%</td></tr>
+     <tr><td>Marketing</td><td>10%</td></tr>
+     <tr><td>Komunita</td><td>5%</td></tr>
+   </tbody>
+ </table>
 </section>
-
-<script>
-function convertToUSDTz() {
- let usd = document.getElementById('usdInput').value;
- if(usd && usd>0){ document.getElementById('result').innerText = usd + " USD = " + usd + " USDt.z"; }
- else{ document.getElementById('result').innerText = "Zadejte platnou částku."; }
-}
-</script>
-
-
-<section style="padding:60px 20px; background:#f4f8f9;">
- <div style="max-width:1200px; margin:0 auto; display:flex; flex-wrap:wrap; gap:40px; align-items:center;">
-   <div style="flex:1 1 500px;">
-     <h2>🌍 O projektu & Proč to děláme</h2>
-     <p>USDt.z vznikl s cílem nabídnout <strong>bezpečnou, stabilní a dostupnou alternativu</strong> k tradičním finančním nástrojům. Vidíme budoucnost, kde digitální měny umožní:</p>
-     <ul style="margin-top:20px; line-height:1.8;">
-       <li>💡 Finanční svobodu a nezávislost</li>
-       <li>💡 Levnější a rychlejší přeshraniční platby</li>
-       <li>💡 Přístup k likviditě pro jednotlivce i banky</li>
-       <li>💡 Transparentní správu prostředků</li>
-     </ul>
-     <p style="margin-top:15px;">Naším cílem je propojit <strong>klasické finance</strong> s <strong>novou digitální ekonomikou</strong> a vytvořit most mezi bankovním a nebankovním světem.</p>
-   </div>
-   <div style="flex:1 1 500px; text-align:center;">
-     <canvas id="purposeChart" width="400" height="300"></canvas>
-   </div>
- </div>
-</section>
-
-<script>
-const ctx = document.getElementById('purposeChart').getContext('2d');
-new Chart(ctx,{
- type:'line',
- data:{ labels:['2020','2021','2022','2023','2024','2025'], datasets:[{ label:'Růst důvěry v digitální měny', data:[20,35,50,70,85,95], borderColor:'rgb(31,186,156)', backgroundColor:'rgba(31,186,156,0.2)', fill:true, tension:0.3 }] },
- options:{ responsive:true, plugins:{ legend:{display:false} }, scales:{ y:{beginAtZero:true,max:100} } }
-});
-</script>
 
 </body>
 </html>
