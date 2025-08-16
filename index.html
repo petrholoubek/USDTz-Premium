@@ -214,8 +214,8 @@
 }
 </style>
 
-<section id="values-block" style="
-   max-width: 900px;
+<section id="values-marketcap" style="
+   max-width: 1200px;
    margin: 50px auto;
    padding: 2rem;
    background: #fff;
@@ -223,67 +223,68 @@
    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 ">
+
+ 
  <h2 style="text-align:center; font-size:2.4rem; color: rgb(31,186,156); margin-bottom:2rem;">
-   Hodnoty a tržní kapitalizace USDt.z
+   Hodnoty a tržní kapitalizace
  </h2>
 
  
- <table style="width:100%; border-collapse: collapse; margin-bottom:2rem;">
+ <div style="
+     display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+     gap: 1.5rem;
+     text-align: center;
+     margin-bottom: 3rem;
+ ">
+   <div style="background:#f9f9f9; border-radius:12px; padding:1.5rem; box-shadow:0 4px 10px rgba(0,0,0,0.1);">
+     <h3 style="font-size:1.8rem; color: rgb(31,186,156); margin:0;">$2.5M</h3>
+     <p style="margin:0.5rem 0 0; font-size:1rem; color:#333;">Tržní kapitalizace</p>
+   </div>
+   <div style="background:#f9f9f9; border-radius:12px; padding:1.5rem; box-shadow:0 4px 10px rgba(0,0,0,0.1);">
+     <h3 style="font-size:1.8rem; color: rgb(31,186,156); margin:0;">$850K</h3>
+     <p style="margin:0.5rem 0 0; font-size:1rem; color:#333;">Likvidita</p>
+   </div>
+   <div style="background:#f9f9f9; border-radius:12px; padding:1.5rem; box-shadow:0 4px 10px rgba(0,0,0,0.1);">
+     <h3 style="font-size:1.8rem; color: rgb(31,186,156); margin:0;">1,240</h3>
+     <p style="margin:0.5rem 0 0; font-size:1rem; color:#333;">Držitelé</p>
+   </div>
+   <div style="background:#f9f9f9; border-radius:12px; padding:1.5rem; box-shadow:0 4px 10px rgba(0,0,0,0.1);">
+     <h3 style="font-size:1.8rem; color: rgb(31,186,156); margin:0;">12,560</h3>
+     <p style="margin:0.5rem 0 0; font-size:1rem; color:#333;">Transakce</p>
+   </div>
+ </div>
+
+ 
+ <table style="width:100%; border-collapse: collapse; text-align:center; margin-bottom:2rem;">
    <thead>
-     <tr style="background: rgb(31,186,156); color:#fff;">
-       <th style="padding:10px; text-align:center;">Kategorie</th>
-       <th style="padding:10px; text-align:center;">Hodnota</th>
+     <tr style="background: rgb(31,186,156); color:white;">
+       <th style="padding:12px; border-radius: 6px 6px 0 0;">Ukazatel</th>
+       <th style="padding:12px;">Hodnota</th>
      </tr>
    </thead>
    <tbody>
-     <tr style="text-align:center; border-bottom:1px solid #ddd;">
-       <td>Tržní kapitalizace</td>
-       <td>$2.5M</td>
+     <tr style="background:#f9f9f9;">
+       <td style="padding:12px;">Aktuální cena</td>
+       <td style="padding:12px;">1.006 USDt.z / USD</td>
      </tr>
-     <tr style="text-align:center; border-bottom:1px solid #ddd;">
-       <td>Likvidita</td>
-       <td>$850K</td>
+     <tr>
+       <td style="padding:12px; background:#f9f9f9;">Celkový objem</td>
+       <td style="padding:12px; background:#f9f9f9;">5B</td>
      </tr>
-     <tr style="text-align:center; border-bottom:1px solid #ddd;">
-       <td>Držitelé</td>
-       <td>1,240</td>
-     </tr>
-     <tr style="text-align:center; border-bottom:1px solid #ddd;">
-       <td>Transakce</td>
-       <td>12,560</td>
-     </tr>
-     <tr style="text-align:center; border-bottom:1px solid #ddd;">
-       <td>Aktuální cena</td>
-       <td>1.006 USDt.z/USD</td>
-     </tr>
-     <tr style="text-align:center;">
-       <td>Celkový objem</td>
-       <td>5B</td>
+     <tr>
+       <td style="padding:12px; background:#f9f9f9;">Tržní kapitalizace</td>
+       <td style="padding:12px; background:#f9f9f9;">$2.5M</td>
      </tr>
    </tbody>
  </table>
 
  
- <div style="display:flex; justify-content:space-around; align-items:flex-end; height:250px; gap:1rem;">
-   <div style="flex:1; text-align:center;">
-     <div style="background:#1FBA9C; height:70%; border-radius:6px 6px 0 0;"></div>
-     <span style="display:block; margin-top:0.5rem;">Tržní kapitalizace</span>
-   </div>
-   <div style="flex:1; text-align:center;">
-     <div style="background:#FFB74D; height:25%; border-radius:6px 6px 0 0;"></div>
-     <span style="display:block; margin-top:0.5rem;">Likvidita</span>
-   </div>
-   <div style="flex:1; text-align:center;">
-     <div style="background:#64B5F6; height:35%; border-radius:6px 6px 0 0;"></div>
-     <span style="display:block; margin-top:0.5rem;">Držitelé</span>
-   </div>
-   <div style="flex:1; text-align:center;">
-     <div style="background:#BA68C8; height:50%; border-radius:6px 6px 0 0;"></div>
-     <span style="display:block; margin-top:0.5rem;">Transakce</span>
-   </div>
-   <div style="flex:1; text-align:center;">
-     <div style="background:#E57373; height:40%; border-radius:6px 6px 0 0;"></div>
-     <span style="display:block; margin-top:0.5rem;">Objem</span>
-   </div>
+ <div style="display:flex; justify-content:space-around; gap:1rem; text-align:center;">
+   <div style="flex:1; background:rgb(31,186,156); border-radius:6px; height:80px;">&nbsp;</div>
+   <div style="flex:1; background:rgb(0,150,136); border-radius:6px; height:50px;">&nbsp;</div>
+   <div style="flex:1; background:rgb(0,121,107); border-radius:6px; height:120px;">&nbsp;</div>
+   <div style="flex:1; background:rgb(0,96,100); border-radius:6px; height:70px;">&nbsp;</div>
  </div>
+
 </section>
