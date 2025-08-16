@@ -40,12 +40,13 @@ header.nav-mobile {
  position: sticky;
  top: 0;
  z-index: 1100;
+ width: 100%; /* celá šířka */
 }
 
 nav {
  max-width: 1200px;
  margin: 0 auto;
- padding: 1.5rem 2rem; /* vyšší lišta */
+ padding: 1.8rem 2rem; /* vyšší lišta */
  display: flex;
  justify-content: space-between;
  align-items: center;
@@ -53,7 +54,7 @@ nav {
 }
 
 .logo img {
- height: 50px; /* větší logo */
+ height: 50px; /* správná velikost loga */
  cursor: pointer;
  filter: drop-shadow(0 0 5px rgba(0,0,0,0.15));
 }
@@ -82,11 +83,11 @@ ul.menu li a.active {
 }
 
 img.flag {
- width: 24px;
- height: 16px;
+ width: 28px;  /* stejné pro CZ i EN */
+ height: 18px; /* stejné pro CZ i EN */
  object-fit: cover;
  border-radius: 3px;
- border: 1px solid rgba(255,255,255,0.6);
+ border: 2px solid white; /* bílý rámeček */
 }
 
 /* Hamburger button - mobile */
@@ -96,8 +97,8 @@ img.flag {
 label.hamburger {
  display: none;
  cursor: pointer;
- width: 35px; /* širší */
- height: 30px; /* vyšší */
+ width: 40px; /* širší */
+ height: 35px; /* vyšší */
  flex-direction: column;
  justify-content: space-between;
 }
