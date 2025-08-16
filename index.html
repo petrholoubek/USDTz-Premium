@@ -351,33 +351,30 @@ document.getElementById('convertBtn').addEventListener('click',()=>{
      </ul>
    </div>
 
-<section class="tokenomics-section">
- <div class="tokenomics-container">
+<section class="tokenomics-section" style="width:100%; display:flex; justify-content:center; margin:60px 0; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+ <div class="tokenomics-container" style="display:flex; max-width:1200px; width:100%; gap:40px; margin:0 auto;">
    
    
-   <div class="tokenomics-left">
-     <h2>Stablecoin – nové generace</h2>
-     <p>
-       USDt.z představuje stabilní digitální aktivum, které lze využít
-       jak v bankovním, tak v nebankovním sektoru. Díky své stabilitě a
-       transparentnosti přináší možnosti použití jako kolaterál,
-       nástroj pro půjčky, platební prostředek i prostředek správy
-       likvidity.
-     </p>
+   <div class="tokenomics-left" style="flex:1 1 0; min-width:0; background:#f9f9f9; border-radius:12px; padding:20px; box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+     <h2 style="color: rgb(31,186,156); text-align:center; margin-bottom:20px;">Stablecoin – nové generace</h2>
+     <p><strong>Využití tokenu USDt.z:</strong></p>
      <ul>
-       <li>✔ Bankovní využití – kolaterál, půjčky, clearing</li>
-       <li>✔ Nebankovní sektor – DEX swapy, likvidita, staking</li>
-       <li>✔ Praktické využití – platební brána, tokenizace aktiv</li>
+       <li>Bankovní sektor: zajištění kolaterálu, půjčky, transparentní sledování transakcí</li>
+       <li>Nebankovní sektor: fintech platby, obchodní partnerství, likvidita</li>
+       <li>Dlouhodobá stabilita a bezpečnost</li>
      </ul>
+     <p>Důraz na transparentnost, snadnou integraci a praktickou použitelnost ve všech segmentech.</p>
    </div>
 
    
-   <div class="tokenomics-right">
-     <h3 class="green-heading">Tokenomics – donut graf</h3>
-     <canvas id="donutChart" width="350" height="350"></canvas>
+   <div class="tokenomics-right" style="flex:1 1 0; min-width:0; background:#f9f9f9; border-radius:12px; padding:20px; box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+     <h2 style="color: rgb(31,186,156); text-align:center; margin-bottom:20px;">Analytika a roadmapa</h2>
+     
+     
+     <canvas id="donutChart" style="width:100%; height:250px; margin-bottom:30px;"></canvas>
 
-     <h3 class="green-heading">Roadmapa – křivkový graf</h3>
-     <canvas id="lineChart" width="350" height="220"></canvas>
+     
+     <canvas id="lineChart" style="width:100%; height:250px;"></canvas>
    </div>
 
  </div>
@@ -386,15 +383,15 @@ document.getElementById('convertBtn').addEventListener('click',()=>{
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
- // Donut graf
+ // Donut graf - rozložení tokenů
  const ctxDonut = document.getElementById('donutChart').getContext('2d');
- new Chart(ctxDonut, {
+ const donutChart = new Chart(ctxDonut, {
    type: 'doughnut',
    data: {
-     labels: ['Bankovní sektor', 'Nebankovní sektor', 'Kolaterál', 'Likvidita'],
+     labels: ['Bankovní sektor', 'Nebankovní sektor', 'Rezerva', 'Marketing'],
      datasets: [{
-       data: [30, 25, 25, 20],
-       backgroundColor: ['#1fba9c', '#3c8dbc', '#f39c12', '#d9534f']
+       data: [40, 30, 20, 10],
+       backgroundColor: ['#1fba9c', '#28c76f', '#ff9f43', '#ea5455']
      }]
    },
    options: {
@@ -405,25 +402,27 @@ document.getElementById('convertBtn').addEventListener('click',()=>{
    }
  });
 
- // Křivkový graf
+ // Křivkový graf roadmapy
  const ctxLine = document.getElementById('lineChart').getContext('2d');
- new Chart(ctxLine, {
+ const lineChart = new Chart(ctxLine, {
    type: 'line',
    data: {
      labels: ['Q1', 'Q2', 'Q3', 'Q4'],
      datasets: [
        {
-         label: 'Implementace banky',
-         data: [10, 30, 55, 80],
+         label: 'Vývoj produktu',
+         data: [10, 30, 50, 70],
          borderColor: '#1fba9c',
-         fill: false,
+         backgroundColor: 'rgba(31,186,156,0.1)',
+         fill: true,
          tension: 0.4
        },
        {
-         label: 'Nebankovní sektor',
-         data: [5, 20, 40, 65],
-         borderColor: '#3c8dbc',
-         fill: false,
+         label: 'Partnerské projekty',
+         data: [5, 20, 40, 60],
+         borderColor: '#28c76f',
+         backgroundColor: 'rgba(40,199,111,0.1)',
+         fill: true,
          tension: 0.4
        }
      ]
@@ -432,33 +431,10 @@ document.getElementById('convertBtn').addEventListener('click',()=>{
      responsive: true,
      plugins: {
        legend: { position: 'bottom' }
+     },
+     scales: {
+       y: { beginAtZero: true }
      }
    }
  });
 </script>
-
-<style>
-.tokenomics-section {
- width: 100%;
- display: flex;
- justify-content: center;   /* zarovnání do středu */
- margin: 60px 0;
-}
-
-.tokenomics-container {
- max-width: 1200px;
- width: 100%;
- display: flex;
- gap: 40px;
- margin: 0 auto;            /* udržení na středu */
-}
-
-.tokenomics-left, .tokenomics-right {
- flex: 1;
-}
-
-.green-heading {
- color: rgb(31, 186, 156);
- margin: 20px 0 10px;
-}
-</style>
