@@ -81,6 +81,9 @@
  });
 </script>
 
+</body>
+</html>
+
 <section id="header-box" style="
     background: #fff;
     border-radius: 12px;
@@ -126,74 +129,87 @@
 }
 </style>
 
- <section style="max-width:1200px; margin:50px auto; padding:20px;">
-  <h2 style="color: rgb(31,186,156); font-weight:bold; text-align:center; font-size:2.2rem; margin-bottom:40px;">
-    Recommended Projects & Partnerships
-  </h2>
+<section style="max-width:1200px; margin:50px auto; padding:20px; background:#f9f9f9; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+ <h2 style="color: rgb(31,186,156); font-weight:bold; text-align:center; font-size:2.2rem; margin-bottom:40px;">
+   Recommended Projects & Partnerships
+ </h2>
 
-  <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:30px;">
+ <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:30px;">
 
-    <a href="pages/bank_partner_en.html" class="partner-block">
-      <h3>Bank Partner</h3>
-      <p>Collaboration with a traditional bank to ensure ecosystem stability and trust.</p>
-    </a>
+   <a href="pages/bank_partner.html" class="partner-block">
+     <h3>Bank Partner</h3>
+     <p>Collaboration with a traditional bank to ensure ecosystem stability and trust.</p>
+   </a>
 
-    <a href="pages/fintech_partner_en.html" class="partner-block">
-      <h3>Fintech Partner</h3>
-      <p>Innovative fintech solutions for fast and secure payments in the ecosystem.</p>
-    </a>
+   <a href="pages/fintech_partner.html" class="partner-block">
+     <h3>Fintech Partner</h3>
+     <p>Innovative fintech solutions for fast and secure payments within the ecosystem.</p>
+   </a>
 
-    <a href="pages/exchange_en.html" class="partner-block">
-      <h3>Crypto Exchange</h3>
-      <p>Partnership with an exchange for liquidity and easy token swapping.</p>
-    </a>
+   <a href="pages/crypto_exchange.html" class="partner-block">
+     <h3>Crypto Exchange</h3>
+     <p>Partnership with an exchange to provide liquidity and easy convertibility of USDt.z tokens.</p>
+   </a>
 
-    <a href="pages/influencer1_en.html" class="partner-block">
-      <h3>Influencer 1</h3>
-      <p>Influencer supporting the project and informing the community about USDt.z.</p>
-    </a>
+   <a href="pages/influencer1.html" class="partner-block">
+     <h3>Influencer 1</h3>
+     <p>Influencer supporting the project and informing the community about USDt.z.</p>
+   </a>
 
-    <a href="pages/investor1_en.html" class="partner-block">
-      <h3>Investor 1</h3>
-      <p>Key investor supporting long-term stability and growth of USDt.z.</p>
-    </a>
+   <a href="pages/investor1.html" class="partner-block">
+     <h3>Investor 1</h3>
+     <p>Key investor supporting the long-term stability and growth of USDt.z.</p>
+   </a>
 
-    <a href="pages/investor2_en.html" class="partner-block">
-      <h3>Investor 2</h3>
-      <p>Strategic partner with a long-term vision and ecosystem support.</p>
-    </a>
+   <a href="pages/investor2.html" class="partner-block">
+     <h3>Investor 2</h3>
+     <p>Strategic partner with a long-term vision and support for the USDt.z ecosystem.</p>
+   </a>
 
-  </div>
+ </div>
 </section>
 
 <style>
 .partner-block {
-  flex: 0 1 calc(33.333% - 20px);
-  max-width: calc(33.333% - 20px);
-  background:#fff;
-  border-radius:12px;
-  padding:20px;
-  box-shadow:0 0 12px rgba(31,186,156,0.15);
-  text-align:center;
-  transition: all 0.3s ease;
-  margin-bottom:20px;
-  text-decoration: none;
-  color: inherit;
+ flex: 1 1 30%;
+ max-width: 350px;
+ background: #fff;
+ border-radius: 12px;
+ padding: 20px;
+ box-shadow: 0 0 12px rgba(31,186,156,0.15);
+ text-align: center;
+ text-decoration: none;
+ color: #222;
+ transition: all 0.3s ease;
 }
 
 .partner-block h3 {
-  color: rgb(31,186,156);
-  font-size:1.4rem;
-  margin:0 0 10px 0;
+ color: rgb(31,186,156);
+ font-size:1.4rem;
+ margin:0 0 10px 0;
 }
 
 .partner-block p {
-  color:#222;
-  font-size:1rem;
+ font-size:1rem;
 }
 
 .partner-block:hover {
-  transform: translateY(-10px) scale(1.05);
-  box-shadow:0 0 20px rgba(31,186,156,0.3);
+ transform: translateY(-10px) scale(1.05);
+ box-shadow: 0 0 20px rgba(31,186,156,0.3);
+}
+
+@media (max-width: 992px) {
+ .partner-block {
+   flex: 1 1 45%;
+   max-width: 45%;
+ }
+}
+
+@media (max-width: 600px) {
+ .partner-block {
+   flex: 1 1 100%;
+   max-width: 100%;
+ }
 }
 </style>
+
