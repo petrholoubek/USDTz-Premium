@@ -6,7 +6,7 @@
  <title>USDt.z - Domů</title>
  <link rel="stylesheet" href="css/styles.css">
  <style>
-   /* Hamburger menu specifické styly */
+   /* Hamburger menu */
    .hamburger {
      display: none;
      flex-direction: column;
@@ -22,7 +22,7 @@
 
    @media (max-width: 768px) {
      nav ul {
-       display: none; /* default zavřené */
+       display: none;
        flex-direction: column;
        gap: 0.8rem;
        width: 100%;
@@ -35,22 +35,15 @@
        display: flex;
      }
    }
-
-   /* Styling pro desktop */
-   @media (min-width: 769px) {
-     #nav-links {
-       display: flex;
-     }
-   }
  </style>
 </head>
 <body>
 
 <header>
- <nav style="background: rgb(31,186,156); padding: 1rem 2rem; box-shadow: 0 2px 5px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000;">
-   <div class="logo" style="flex-shrink: 0;">
+ <nav>
+   <div class="logo">
      <a href="index.html">
-       <img src="img/flags/logo-white.png" alt="USDt.z Logo" style="height: 40px; cursor: pointer;">
+       <img src="img/flags/logo-white.png" alt="USDt.z Logo" style="height: 40px;">
      </a>
    </div>
 
@@ -60,20 +53,20 @@
      <span></span>
    </div>
 
-   <ul id="nav-links" style="list-style: none; display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap; margin: 0; padding: 0;">
-     <li><a href="pages/about.html" style="color: white; font-weight: 600; text-decoration: none;">O tokenu</a></li>
-     <li><a href="pages/usecases.html" style="color: white; font-weight: 600; text-decoration: none;">Použití</a></li>
-     <li><a href="pages/programs.html" style="color: white; font-weight: 600; text-decoration: none;">Programy</a></li>
-     <li><a href="pages/docs.html" style="color: white; font-weight: 600; text-decoration: none;">Dokumentace</a></li>
-     <li><a href="pages/contact.html" style="color: white; font-weight: 600; text-decoration: none;">Kontakt</a></li>
+   <ul id="nav-links">
+     <li><a href="pages/about.html">O tokenu</a></li>
+     <li><a href="pages/usecases.html">Použití</a></li>
+     <li><a href="pages/programs.html">Programy</a></li>
+     <li><a href="pages/docs.html">Dokumentace</a></li>
+     <li><a href="pages/contact.html">Kontakt</a></li>
      <li>
        <a href="index.html" title="Česky">
-         <img src="img/flags/cz.png" alt="Česky" style="width: 24px; height: 16px; border-radius: 3px;">
+         <img src="img/flags/cz.png" alt="Česky" class="flag" style="width:24px; height:16px;">
        </a>
      </li>
      <li>
        <a href="index_en.html" title="English">
-         <img src="img/flags/en.png" alt="English" style="width: 24px; height: 16px; border-radius: 3px;">
+         <img src="img/flags/en.png" alt="English" class="flag" style="width:24px; height:16px;">
        </a>
      </li>
    </ul>
