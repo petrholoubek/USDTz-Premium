@@ -332,3 +332,124 @@ document.getElementById('convertBtn').addEventListener('click',()=>{
    usdtzInput.value = (usd/price).toFixed(3);
 });
 </script>
+<section class="tokenomics-section">
+ <div class="tokenomics-container">
+   
+   
+   <div class="tokenomics-left">
+     <h2>Stablecoin – nové generace</h2>
+     <p>
+       Náš token <strong>USDt.z</strong> představuje stabilní a spolehlivý nástroj
+       pro moderní finanční trhy. Umožňuje:
+     </p>
+     <ul>
+       <li>✔ Použití jako kolaterál v bankovním i nebankovním sektoru</li>
+       <li>✔ Možnost půjček a úvěrů zajištěných tokenem</li>
+       <li>✔ Podpora fintech aplikací a digitálních plateb</li>
+       <li>✔ Přímá směna na DEX a další využití v DeFi</li>
+       <li>✔ Transparentní a auditovatelný smart kontrakt</li>
+     </ul>
+   </div>
+
+   
+   <div class="tokenomics-right">
+     <h3>Tokenomics</h3>
+     <canvas id="donutChart"></canvas>
+
+     <h3>Roadmapa</h3>
+     <canvas id="lineChart"></canvas>
+   </div>
+
+ </div>
+</section>
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+// Donut graf - Tokenomics
+const ctxDonut = document.getElementById('donutChart').getContext('2d');
+new Chart(ctxDonut, {
+   type: 'doughnut',
+   data: {
+       labels: ['Reserve', 'Liquidity', 'Development', 'Marketing'],
+       datasets: [{
+           data: [40, 30, 20, 10],
+           backgroundColor: ['#1fba9c', '#4bc0c0', '#36a2eb', '#ffcd56'],
+       }]
+   },
+   options: {
+       responsive: true,
+       plugins: {
+           legend: { position: 'bottom' }
+       }
+   }
+});
+
+// Line graf - Roadmapa
+const ctxLine = document.getElementById('lineChart').getContext('2d');
+new Chart(ctxLine, {
+   type: 'line',
+   data: {
+       labels: ['Q1 2025', 'Q2 2025', 'Q3 2025', 'Q4 2025'],
+       datasets: [{
+           label: 'Milníky',
+           data: [20, 40, 70, 100],
+           borderColor: '#1fba9c',
+           fill: false,
+           tension: 0.3
+       }]
+   },
+   options: {
+       responsive: true,
+       plugins: {
+           legend: { display: false }
+       }
+   }
+});
+</script>
+
+<style>
+.tokenomics-section {
+ width: 100%;
+ display: flex;
+ justify-content: center;
+ margin: 60px 0;
+ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.tokenomics-container {
+ max-width: 1200px;
+ width: 100%;
+ display: flex;
+ gap: 40px;
+}
+
+.tokenomics-left, .tokenomics-right {
+ flex: 1;
+}
+
+.tokenomics-left h2 {
+ color: #1fba9c;
+ margin-bottom: 15px;
+}
+
+.tokenomics-left ul {
+ list-style: none;
+ padding: 0;
+}
+
+.tokenomics-left ul li {
+ margin-bottom: 8px;
+}
+
+.tokenomics-right h3 {
+ margin: 20px 0 10px;
+ color: #333;
+}
+
+.tokenomics-right canvas {
+ width: 100% !important;
+ max-height: 300px;
+}
+</style>
