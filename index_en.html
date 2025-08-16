@@ -84,74 +84,61 @@
 </body>
 </html>
 
-<section style="max-width:1200px; margin:50px auto; padding:20px;">
-  <h2 style="color: rgb(31,186,156); font-weight:bold; text-align:center; font-size:2.2rem; margin-bottom:40px;">
-    Recommended Projects & Partnerships
-  </h2>
+<section id="header-box" style="
+   background: #fff;
+   border-radius: 12px;
+   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+   max-width: 900px;
+   margin: 2rem auto;
+   padding: 2rem 1.5rem;
+   text-align: center;
+">
+  <img src="/USDTz-Premium/img/flags/logo.png" alt="USDt.z Logo" style="
+     width: 180px;
+     max-width: 45%;
+     margin-bottom: 1rem;
+     display: inline-block;
+  "/>
 
-  <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:30px;">
+  <h1 id="header-h1" style="
+     font-size: 3.2rem;
+     color: rgb(31,186,156);
+     margin-bottom: 0.2rem;
+  ">USDt.z</h1>
 
-    <a href="pages/bank_partner_en.html" class="partner-block">
-      <h3>Bank Partner</h3>
-      <p>Collaboration with a traditional bank to ensure ecosystem stability and trust.</p>
-    </a>
+  <h2 id="header-h2" style="
+     font-size: 2.6rem;
+     color: rgb(31,186,156);
+     margin-top: 0;
+     margin-bottom: 0.4rem;
+  ">Stablecoin – Next Generation</h2>
 
-    <a href="pages/fintech_partner_en.html" class="partner-block">
-      <h3>Fintech Partner</h3>
-      <p>Innovative fintech solutions for fast and secure payments in the ecosystem.</p>
-    </a>
+  <p id="header-p" style="
+     font-size: 1rem;
+     color: #222;
+     max-width: 580px;
+     margin: 0 auto;
+     line-height: 1.35;
+  ">
+    Stabilní, bezpečný a inovativní token navržený pro bankovní i nebankovní sektor. Zaměřený na bezpečnost, transparentnost a dlouhodobou stabilitu.
+  </p>
 
-    <a href="pages/exchange_en.html" class="partner-block">
-      <h3>Crypto Exchange</h3>
-      <p>Partnership with an exchange for liquidity and easy token swapping.</p>
-    </a>
-
-    <a href="pages/influencer1_en.html" class="partner-block">
-      <h3>Influencer 1</h3>
-      <p>Influencer supporting the project and informing the community about USDt.z.</p>
-    </a>
-
-    <a href="pages/investor1_en.html" class="partner-block">
-      <h3>Investor 1</h3>
-      <p>Key investor supporting long-term stability and growth of USDt.z.</p>
-    </a>
-
-    <a href="pages/investor2_en.html" class="partner-block">
-      <h3>Investor 2</h3>
-      <p>Strategic partner with a long-term vision and ecosystem support.</p>
-    </a>
-
+  <div style="margin-top:20px;">
+    <button onclick="setLanguage('cz')" style="margin-right:10px; padding:8px 15px; cursor:pointer;">Čeština</button>
+    <button onclick="setLanguage('en')" style="padding:8px 15px; cursor:pointer;">English</button>
   </div>
 </section>
 
-<style>
-.partner-block {
-  flex: 0 1 calc(33.333% - 20px);
-  max-width: calc(33.333% - 20px);
-  background:#fff;
-  border-radius:12px;
-  padding:20px;
-  box-shadow:0 0 12px rgba(31,186,156,0.15);
-  text-align:center;
-  transition: all 0.3s ease;
-  margin-bottom:20px;
-  text-decoration: none;
-  color: inherit;
+<script>
+function setLanguage(lang) {
+  if(lang === 'cz') {
+    document.getElementById('header-h1').innerText = 'USDt.z';
+    document.getElementById('header-h2').innerText = 'Stablecoin – Next Generation';
+    document.getElementById('header-p').innerText = 'Stabilní, bezpečný a inovativní token navržený pro bankovní i nebankovní sektor. Zaměřený na bezpečnost, transparentnost a dlouhodobou stabilitu.';
+  } else if(lang === 'en') {
+    document.getElementById('header-h1').innerText = 'USDt.z';
+    document.getElementById('header-h2').innerText = 'Stablecoin – Next Generation';
+    document.getElementById('header-p').innerText = 'Stable, secure and innovative token designed for both banking and non-banking sectors. Focused on security, transparency, and long-term stability.';
+  }
 }
-
-.partner-block h3 {
-  color: rgb(31,186,156);
-  font-size:1.4rem;
-  margin:0 0 10px 0;
-}
-
-.partner-block p {
-  color:#222;
-  font-size:1rem;
-}
-
-.partner-block:hover {
-  transform: translateY(-10px) scale(1.05);
-  box-shadow:0 0 20px rgba(31,186,156,0.3);
-}
-</style>
+</script>
