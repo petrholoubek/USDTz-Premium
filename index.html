@@ -1,43 +1,88 @@
-<input type="checkbox" id="menu-toggle">
-<label for="menu-toggle" class="menu-icon">
- <span></span>
- <span></span>
- <span></span>
-</label>
+<header>
+ <a href="/USDTz-Premium/index.html" class="logo">
+   <img src="/USDTz-Premium/img/flags/logo-white.png" alt="USDt.z Logo" />
+ </a>
 
-<ul class="menu">
- <li><a href="/USDTz-Premium/pages/about.html">O tokenu</a></li>
- <li><a href="/USDTz-Premium/pages/usecases.html">Použití</a></li>
- <li><a href="/USDTz-Premium/pages/programs.html">Programy</a></li>
- <li><a href="/USDTz-Premium/pages/docs.html">Dokumentace</a></li>
- <li><a href="/USDTz-Premium/pages/contact.html">Kontakt</a></li>
-</ul>
+ <input type="checkbox" id="menu-toggle" />
+ <label for="menu-toggle" class="menu-icon">
+   <span></span>
+   <span></span>
+   <span></span>
+ </label>
+
+ <ul class="menu">
+   <li><a href="/USDTz-Premium/pages/about.html">O tokenu</a></li>
+   <li><a href="/USDTz-Premium/pages/usecases.html">Použití</a></li>
+   <li><a href="/USDTz-Premium/pages/programs.html">Programy</a></li>
+   <li><a href="/USDTz-Premium/pages/docs.html">Dokumentace</a></li>
+   <li><a href="/USDTz-Premium/pages/contact.html">Kontakt</a></li>
+   <li>
+     <a href="/USDTz-Premium/index.html">
+       <img src="/USDTz-Premium/img/flags/cz.png" alt="Česká vlajka" class="flag" />
+     </a>
+   </li>
+   <li>
+     <a href="/USDTz-Premium/index_en.html">
+       <img src="/USDTz-Premium/img/flags/en.png" alt="Anglická vlajka" class="flag" />
+     </a>
+   </li>
+ </ul>
+</header>
 
 <style>
-/* Skryté menu pro mobil a desktop */
+/* Základní styly */
+header {
+ background: rgb(31,186,156);
+ padding: 1rem 2rem;
+ position: sticky;
+ top: 0;
+ z-index: 1100;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ flex-wrap: wrap;
+}
+.logo img {
+ height: 40px;
+}
+
+/* Menu - desktop */
 ul.menu {
  list-style: none;
  display: flex;
  gap: 1.5rem;
  align-items: center;
+ margin: 0;
+ padding: 0;
 }
 ul.menu li a {
+ color: white;
  text-decoration: none;
- color: #fff;
  font-weight: 600;
+ transition: color 0.3s ease;
+}
+ul.menu li a:hover {
+ color: #004d40;
+}
+img.flag {
+ width: 24px;
+ height: 16px;
+ object-fit: cover;
+ border-radius: 3px;
+ border: 1px solid rgba(255,255,255,0.6);
 }
 
-/* Hamburger button */
+/* Hamburger button - mobile */
 #menu-toggle {
  display: none;
 }
 .menu-icon {
  display: none;
  flex-direction: column;
+ cursor: pointer;
  width: 30px;
  height: 25px;
  justify-content: space-between;
- cursor: pointer;
 }
 .menu-icon span {
  display: block;
@@ -46,19 +91,27 @@ ul.menu li a {
  border-radius: 2px;
 }
 
-/* Mobilní verze */
+/* Responsive */
 @media (max-width: 768px) {
- .menu-icon { display: flex; }
-
+ .menu-icon {
+   display: flex;
+ }
  ul.menu {
    display: none;
    flex-direction: column;
+   width: 100%;
+   margin-top: 1rem;
    gap: 1rem;
    background: rgb(31,186,156);
-   padding: 1rem;
    border-radius: 8px;
+   padding: 1rem 2rem;
  }
-
+ ul.menu li a {
+   display: block;
+   width: 100%;
+   font-size: 1.1rem;
+   padding: 0.5rem 0;
+ }
  #menu-toggle:checked + .menu-icon + ul.menu {
    display: flex;
  }
