@@ -113,211 +113,227 @@ body {
     color: #222;
 }
 
-/* Horní rámec */
-#header-box {
-    max-width: 900px;
+<!-- Horní rámec -->
+<section id="header-box" style="
+    max-width: 1100px;
     margin: 2rem auto;
-    padding: 2rem 1.5rem;
+    padding: 2rem;
     display: flex;
     align-items: center;
-    gap: 2rem;
     background: #fff;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-}
-
-#header-box img {
-    width: 150px;
-    max-width: 30%;
-}
-
-#header-text h1 {
-    font-size: 3rem;
-    color: rgb(31,186,156);
-    margin: 0;
-}
-
-#header-text h2 {
-    font-size: 2rem;
-    color: rgb(31,186,156);
-    margin: 0.2rem 0;
-}
-
-#header-text p {
-    font-size: 1rem;
-    margin: 0.5rem 0 0;
-}
-
-/* Sekce nadpisy */
-.section-title {
-    max-width: 1100px;
-    margin: 3rem auto 1rem;
-    font-size: 2rem;
-    color: rgb(31,186,156);
-}
-
-/* Doporučené projekty */
-.project-grid {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 1rem;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* desktop: 3 boxy vedle sebe */
-    gap: 1.5rem;
-    text-align: center;
-}
-
-.project-grid div {
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    padding: 1.5rem;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.project-grid div:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
-}
-
-/* Sekce Hodnoty */
-.stats-grid {
-    max-width: 1100px;
-    margin: 0 auto 3rem;
-    padding: 1rem;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-    text-align: center;
-}
-
-.stats-grid .stat-box {
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    padding: 1.5rem;
-}
-
-.stats-grid .stat-box h3 {
-    font-size: 1.8rem;
-    color: rgb(31,186,156);
-    margin: 0;
-}
-
-.stats-grid .stat-box p {
-    margin: 0.5rem 0 0;
-    font-size: 1rem;
-    color: #333;
-}
-
-/* Market Cap Boxy */
-.market-grid {
-    max-width: 1100px;
-    margin: 2rem auto 5rem;
-    padding: 1rem;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 boxy vedle sebe */
-    gap: 1.5rem;
-    text-align: center;
-}
-
-.market-grid .market-box {
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    padding: 1.5rem;
-}
-
-.market-grid .market-box h3 {
-    font-size: 1.5rem;
-    color: rgb(31,186,156);
-    margin: 0.5rem 0;
-}
-
-.market-grid .market-box p {
-    margin: 0.3rem 0 0;
-    font-size: 1rem;
-    color: #333;
-}
-
-/* Responsivita */
-@media (max-width: 768px) {
-    #header-box {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .project-grid, .stats-grid {
-        grid-template-columns: 1fr; /* mobil – boxy pod sebou */
-    }
-
-    .market-grid {
-        grid-template-columns: 1fr;
-    }
-}
-</style>
-</head>
-<body>
-
-<!-- Horní rámec -->
-<section id="header-box">
-    <img src="/USDTz-Premium/img/flags/logo.png" alt="USDt.z Logo">
-    <div id="header-text">
-        <h1>USDt.z</h1>
-        <h2>Stablecoin – Next Generation</h2>
-        <p>Stabilní, bezpečný a inovativní token navržený pro bankovní i nebankovní sektor. Zaměřený na bezpečnost, transparentnost a dlouhodobou stabilitu.</p>
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+">
+    <img src="/USDTz-Premium/img/flags/logo.png" alt="USDt.z Logo" style="
+        width: 120px;
+        margin-right: 1.5rem;
+    "/>
+    <div>
+        <h1 style="font-size: 2.8rem; color: rgb(31,186,156); margin:0;">USDt.z</h1>
+        <h2 style="font-size: 2rem; color: rgb(31,186,156); margin:0.2rem 0;">Stablecoin – Next Generation</h2>
+        <p style="font-size: 1rem; color:#222; margin-top:0.5rem;">
+            Stabilní, bezpečný a inovativní token navržený pro bankovní i nebankovní sektor. Zaměřený na bezpečnost, transparentnost a dlouhodobou stabilitu.
+        </p>
     </div>
 </section>
 
 <!-- Doporučené projekty -->
-<h2 class="section-title">Doporučené projekty</h2>
-<section class="project-grid">
-    <div onclick="location.href='pages/bankovni_partner.html'">Bankovní partner</div>
-    <div onclick="location.href='pages/investor1.html'">Investor 1</div>
-    <div onclick="location.href='pages/investor2.html'">Investor 2</div>
-    <div onclick="location.href='pages/partner1.html'">Partner 1</div>
-    <div onclick="location.href='pages/partner2.html'">Partner 2</div>
-    <div onclick="location.href='pages/partner3.html'">Partner 3</div>
+<section id="recommended-projects" style="
+    max-width: 1100px;
+    margin: 2rem auto;
+    text-align: center;
+">
+    <h2 style="font-size: 2.2rem; color: rgb(31,186,156); margin-bottom: 1rem;">Doporučené projekty</h2>
+    <div style="
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 1rem;
+    ">
+        <!-- 6 rámečků po 3 -->
+        <a href="pages/bankovni_partner.html" style="flex:1 1 32%; text-decoration:none;">
+            <div style="
+                background:#fff;
+                border-radius:12px;
+                box-shadow:0 4px 10px rgba(0,0,0,0.1);
+                height:150px;
+                display:flex;
+                justify-content:center;
+                align-items:center;
+                color:#333;
+                font-size:1rem;
+            ">Bankovní partner</div>
+        </a>
+        <a href="pages/investor.html" style="flex:1 1 32%; text-decoration:none;">
+            <div style="
+                background:#fff;
+                border-radius:12px;
+                box-shadow:0 4px 10px rgba(0,0,0,0.1);
+                height:150px;
+                display:flex;
+                justify-content:center;
+                align-items:center;
+                color:#333;
+                font-size:1rem;
+            ">Investor</div>
+        </a>
+        <a href="pages/partner.html" style="flex:1 1 32%; text-decoration:none;">
+            <div style="
+                background:#fff;
+                border-radius:12px;
+                box-shadow:0 4px 10px rgba(0,0,0,0.1);
+                height:150px;
+                display:flex;
+                justify-content:center;
+                align-items:center;
+                color:#333;
+                font-size:1rem;
+            ">Spolupráce</div>
+        </a>
+        <a href="pages/project1.html" style="flex:1 1 32%; text-decoration:none;">
+            <div style="
+                background:#fff;
+                border-radius:12px;
+                box-shadow:0 4px 10px rgba(0,0,0,0.1);
+                height:150px;
+                display:flex;
+                justify-content:center;
+                align-items:center;
+                color:#333;
+                font-size:1rem;
+            ">Projekt 1</div>
+        </a>
+        <a href="pages/project2.html" style="flex:1 1 32%; text-decoration:none;">
+            <div style="
+                background:#fff;
+                border-radius:12px;
+                box-shadow:0 4px 10px rgba(0,0,0,0.1);
+                height:150px;
+                display:flex;
+                justify-content:center;
+                align-items:center;
+                color:#333;
+                font-size:1rem;
+            ">Projekt 2</div>
+        </a>
+        <a href="pages/project3.html" style="flex:1 1 32%; text-decoration:none;">
+            <div style="
+                background:#fff;
+                border-radius:12px;
+                box-shadow:0 4px 10px rgba(0,0,0,0.1);
+                height:150px;
+                display:flex;
+                justify-content:center;
+                align-items:center;
+                color:#333;
+                font-size:1rem;
+            ">Projekt 3</div>
+        </a>
+    </div>
 </section>
 
 <!-- Hodnoty -->
-<h2 class="section-title">Hodnoty</h2>
-<section class="stats-grid">
-    <div class="stat-box">
-        <h3>$2.5M</h3>
-        <p>Tržní kapitalizace</p>
+<section id="stats" style="
+    max-width: 1100px;
+    margin: 2rem auto;
+    text-align:center;
+">
+    <h2 style="font-size: 2.2rem; color: rgb(31,186,156); margin-bottom: 1rem;">Hodnoty</h2>
+    <div style="
+        display:flex;
+        flex-wrap:wrap;
+        gap:1rem;
+        justify-content:space-between;
+    ">
+        <!-- Box 1 -->
+        <div style="
+            background:#fff;
+            border-radius:12px;
+            box-shadow:0 4px 10px rgba(0,0,0,0.1);
+            flex:1 1 22%;
+            height:120px;
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+        ">
+            <h3 style="font-size:1.8rem; color: rgb(31,186,156); margin:0;">$2.5M</h3>
+            <p style="margin:0.5rem 0 0; font-size:1rem; color:#333;">Tržní kapitalizace</p>
+        </div>
+        <!-- Box 2 -->
+        <div style="
+            background:#fff;
+            border-radius:12px;
+            box-shadow:0 4px 10px rgba(0,0,0,0.1);
+            flex:1 1 22%;
+            height:120px;
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+        ">
+            <h3 style="font-size:1.8rem; color: rgb(31,186,156); margin:0;">$850K</h3>
+            <p style="margin:0.5rem 0 0; font-size:1rem; color:#333;">Likvidita</p>
+        </div>
+        <!-- Box 3 -->
+        <div style="
+            background:#fff;
+            border-radius:12px;
+            box-shadow:0 4px 10px rgba(0,0,0,0.1);
+            flex:1 1 22%;
+            height:120px;
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+        ">
+            <h3 style="font-size:1.8rem; color: rgb(31,186,156); margin:0;">1,240</h3>
+            <p style="margin:0.5rem 0 0; font-size:1rem; color:#333;">Držitelé</p>
+        </div>
+        <!-- Box 4 -->
+        <div style="
+            background:#fff;
+            border-radius:12px;
+            box-shadow:0 4px 10px rgba(0,0,0,0.1);
+            flex:1 1 22%;
+            height:120px;
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+        ">
+            <h3 style="font-size:1.8rem; color: rgb(31,186,156); margin:0;">12,560</h3>
+            <p style="margin:0.5rem 0 0; font-size:1rem; color:#333;">Transakce</p>
+        </div>
     </div>
-    <div class="stat-box">
-        <h3>$850K</h3>
-        <p>Likvidita</p>
-    </div>
-    <div class="stat-box">
-        <h3>1,240</h3>
-        <p>Držitelé</p>
-    </div>
-    <div class="stat-box">
-        <h3>12,560</h3>
-        <p>Transakce</p>
+
+    <!-- Market Cap -->
+    <h2 style="font-size: 2.2rem; color: rgb(31,186,156); margin:2rem 0 1rem;">Tržní kapitalizace USDT.z</h2>
+    <div style="display:flex; flex-wrap:wrap; gap:1rem; justify-content:space-between;">
+        <!-- Cena -->
+        <div style="
+            background:#fff;
+            border-radius:12px;
+            box-shadow:0 4px 10px rgba(0,0,0,0.1);
+            flex:1 1 48%;
+            height:100px;
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+        ">
+            <h3 style="font-size:1.5rem; color: rgb(31,186,156); margin:0;">1.006 USD / USDT.z</h3>
+            <p style="margin:0.5rem 0 0; font-size:1rem; color:#333;">Aktuální cena</p>
+        </div>
+        <!-- Objem -->
+        <div style="
+            background:#fff;
+            border-radius:12px;
+            box-shadow:0 4px 10px rgba(0,0,0,0.1);
+            flex:1 1 48%;
+            height:100px;
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+        ">
+            <h3 style="font-size:1.5rem; color: rgb(31,186,156); margin:0;">5B</h3>
+            <p style="margin:0.5rem 0 0; font-size:1rem; color:#333;">Celkový objem</p>
+        </div>
     </div>
 </section>
-
-<!-- Market Cap -->
-<h2 class="section-title">Tržní kapitalizace USDt.z</h2>
-<section class="market-grid">
-    <div class="market-box">
-        <h3>$2.5M</h3>
-        <p>Tržní kapitalizace</p>
-    </div>
-    <div class="market-box">
-        <h3>1.006 USD / USDT.z</h3>
-        <p>Aktuální cena</p>
-        <h3>5B</h3>
-        <p>Celkový objem</p>
-    </div>
-</section>
-
-</body>
-</html>
-
