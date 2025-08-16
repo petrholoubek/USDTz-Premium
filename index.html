@@ -1,120 +1,93 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>USDt.z - Domů</title>
+ <link rel="stylesheet" href="css/styles.css">
+ <style>
+   /* Hamburger menu specifické styly */
+   .hamburger {
+     display: none;
+     flex-direction: column;
+     cursor: pointer;
+     gap: 5px;
+   }
+   .hamburger span {
+     height: 3px;
+     width: 25px;
+     background: white;
+     border-radius: 3px;
+   }
+   @media (max-width: 768px) {
+     nav ul {
+       display: none;
+       flex-direction: column;
+       gap: 0.8rem;
+       width: 100%;
+       margin-top: 0.5rem;
+     }
+     nav ul.show {
+       display: flex;
+     }
+     .hamburger {
+       display: flex;
+     }
+   }
+ </style>
+</head>
+<body>
+
 <header>
  <nav>
-   <div class="nav-container">
-     
-     <a href="index.html" class="logo">
-       <img src="img/logo-white.png" alt="USDt.z Logo">
+   <div class="logo">
+     <a href="index.html">
+       <img src="img/flags/logo-white.png" alt="USDt.z Logo">
      </a>
-
-     
-     <button id="hamburger" aria-label="Toggle menu">&#9776;</button>
-
-     
-     <ul id="nav-menu">
-       <li><a href="pages/about.html">O tokenu</a></li>
-       <li><a href="pages/usecases.html">Použití</a></li>
-       <li><a href="pages/programs.html">Programy</a></li>
-       <li><a href="pages/docs.html">Dokumentace</a></li>
-       <li><a href="pages/contact.html">Kontakt</a></li>
-       <li>
-         <a href="index.html" title="Česky">
-           <img src="img/cz.png" alt="Česky">
-         </a>
-       </li>
-       <li>
-         <a href="index_en.html" title="English">
-           <img src="img/uk.png" alt="English">
-         </a>
-       </li>
-     </ul>
    </div>
+
+   <div class="hamburger" id="hamburger">
+     <span></span>
+     <span></span>
+     <span></span>
+   </div>
+
+   <ul id="nav-links">
+     <li><a href="pages/about.html">O tokenu</a></li>
+     <li><a href="pages/usecases.html">Použití</a></li>
+     <li><a href="pages/programs.html">Programy</a></li>
+     <li><a href="pages/docs.html">Dokumentace</a></li>
+     <li><a href="pages/contact.html">Kontakt</a></li>
+     <li>
+       <a href="index.html" title="Česky">
+         <img src="img/flags/cz.png" alt="Česky" class="flag">
+       </a>
+     </li>
+     <li>
+       <a href="index_en.html" title="English">
+         <img src="img/flags/uk.png" alt="English" class="flag">
+       </a>
+     </li>
+   </ul>
  </nav>
 </header>
 
-<link rel="stylesheet" href="css/styles.css">
+<main>
+ <div class="big-logo-container">
+   <img src="img/flags/logo-white.png" alt="USDt.z Logo">
+ </div>
+ <h1>Vítejte na USDt.z</h1>
+ <p>Domovská stránka vašeho stabilního tokenu.</p>
+</main>
 
 <script>
-const hamburger = document.getElementById('hamburger');
-const navMenu = document.getElementById('nav-menu');
+ const hamburger = document.getElementById('hamburger');
+ const navLinks = document.getElementById('nav-links');
 
-hamburger.addEventListener('click', () => {
- navMenu.classList.toggle('show');
-});
+ hamburger.addEventListener('click', () => {
+   navLinks.classList.toggle('show');
+ });
 </script>
 
-<style>
-/* Navigace v řádku */
-.nav-container {
- display: flex;
- justify-content: space-between; /* Logo vlevo, menu vpravo */
- align-items: center;
- max-width: 1200px;
- margin: 0 auto;
- padding: 1rem 2rem;
- background: rgb(31,186,156);
-}
-
-/* Navigační menu */
-#nav-menu {
- display: flex;
- gap: 1.5rem;
- align-items: center;
- list-style: none;
- margin: 0;
- padding: 0;
-}
-
-/* Odkazy a vlajky */
-#nav-menu li a {
- color: white;
- font-weight: 600;
- text-decoration: none;
- display: flex;
- align-items: center;
- gap: 0.3rem;
-}
-
-#nav-menu li a:hover {
- color: #004d40;
-}
-
-#nav-menu li img {
- width: 24px;
- height: 16px;
- border-radius: 3px;
-}
-
-/* Hamburger na desktopu skrytý */
-#hamburger {
- display: none;
- font-size: 2rem;
- color: white;
- background: none;
- border: none;
- cursor: pointer;
-}
-
-/* Mobilní menu */
-@media (max-width: 768px) {
- #hamburger {
-   display: block;
- }
-
- #nav-menu {
-   display: none;
-   flex-direction: column;
-   width: 100%;
-   background: rgb(31,186,156);
-   margin-top: 1rem;
-   padding: 1rem 0;
- }
-
- #nav-menu.show {
-   display: flex;
- }
-
- #nav-menu li {
-   text-align: center;
- }
-}
-</style>
+</body>
+</html>
