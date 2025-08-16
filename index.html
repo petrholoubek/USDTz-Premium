@@ -1,16 +1,40 @@
-<!DOCTYPE html>
-<html lang="cs">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Test Mobilní Menu</title>
-<style>
-/* Základní styly */
-#msg_body {
- margin: 0;
- font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
+<header>
+ <nav>
+   <a href="/USDTz-Premium/index.html" class="logo" aria-label="Přejít na domovskou stránku">
+     <img src="/USDTz-Premium/img/flags/logo-white.png" alt="USDt.z Logo" />
+   </a>
 
+   
+   <input type="checkbox" id="menu-toggle" />
+   <label for="menu-toggle" aria-label="Otevřít menu" class="hamburger">
+     <span></span>
+     <span></span>
+     <span></span>
+   </label>
+
+   
+   <ul class="menu" role="menubar" aria-label="Hlavní navigace">
+     <li role="none"><a href="/USDTz-Premium/pages/about.html" role="menuitem">O tokenu</a></li>
+     <li role="none"><a href="/USDTz-Premium/pages/usecases.html" role="menuitem">Použití</a></li>
+     <li role="none"><a href="/USDTz-Premium/pages/programs.html" role="menuitem">Programy</a></li>
+     <li role="none"><a href="/USDTz-Premium/pages/docs.html" role="menuitem">Dokumentace</a></li>
+     <li role="none"><a href="/USDTz-Premium/pages/contact.html" role="menuitem">Kontakt</a></li>
+     
+     <li role="none">
+       <a href="/USDTz-Premium/index.html" title="Česky" role="menuitem" aria-label="Česká verze">
+         <img src="/USDTz-Premium/img/flags/cz.png" alt="Česká vlajka" class="flag" />
+       </a>
+     </li>
+     <li role="none">
+       <a href="/USDTz-Premium/index_en.html" title="English" role="menuitem" aria-label="Anglická verze">
+         <img src="/USDTz-Premium/img/flags/en.png" alt="Anglická vlajka" class="flag" />
+       </a>
+     </li>
+   </ul>
+ </nav>
+</header>
+
+<style>
 header {
  background: rgb(31,186,156);
  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -18,7 +42,6 @@ header {
  top: 0;
  z-index: 1100;
 }
-
 nav {
  max-width: 1200px;
  margin: 0 auto;
@@ -28,43 +51,46 @@ nav {
  align-items: center;
  flex-wrap: wrap;
 }
-
 .logo img {
  height: 40px;
  cursor: pointer;
+ filter: drop-shadow(0 0 5px rgba(0,0,0,0.15));
 }
 
-/* Menu - desktop */
+/* Desktop menu */
 ul.menu {
  list-style: none;
  display: flex;
  gap: 1.5rem;
  align-items: center;
- margin: 0;
- padding: 0;
 }
-
 ul.menu li a {
  color: white;
  font-weight: 600;
+ font-size: 1rem;
  text-decoration: none;
  display: flex;
  align-items: center;
  gap: 0.3rem;
 }
-
 ul.menu li a:hover,
 ul.menu li a.active {
  color: #004d40;
  font-weight: 700;
 }
+img.flag {
+ width: 24px;
+ height: 16px;
+ object-fit: cover;
+ border-radius: 3px;
+ border: 1px solid rgba(255,255,255,0.6);
+}
 
-/* Hamburger button - mobile */
+/* Hamburger */
 #menu-toggle {
  display: none;
 }
-
-label[for="menu-toggle"] {
+label.hamburger {
  display: none;
  cursor: pointer;
  width: 30px;
@@ -72,17 +98,16 @@ label[for="menu-toggle"] {
  flex-direction: column;
  justify-content: space-between;
 }
-
-label[for="menu-toggle"] span {
+label.hamburger span {
  display: block;
  height: 3px;
  background: white;
  border-radius: 2px;
 }
 
-/* Responsive styles */
+/* Mobilní verze */
 @media (max-width: 768px) {
- label[for="menu-toggle"] {
+ label.hamburger {
    display: flex;
  }
  ul.menu {
@@ -109,33 +134,3 @@ label[for="menu-toggle"] span {
  }
 }
 </style>
-</head>
-<body>
-
-<header>
- <nav>
-   <a href="#" class="logo">
-     <img src="img/flags/logo-white.png" alt="USDt.z Logo">
-   </a>
-
-   <input type="checkbox" id="menu-toggle">
-   <label for="menu-toggle">
-     <span></span>
-     <span></span>
-     <span></span>
-   </label>
-
-   <ul class="menu">
-     <li><a href="#">O tokenu</a></li>
-     <li><a href="#">Použití</a></li>
-     <li><a href="#">Programy</a></li>
-     <li><a href="#">Dokumentace</a></li>
-     <li><a href="#">Kontakt</a></li>
-     <li><a href="#"><img src="img/flags/cz.png" alt="Česká vlajka" style="width:24px;height:16px;"></a></li>
-     <li><a href="#"><img src="img/flags/en.png" alt="Anglická vlajka" style="width:24px;height:16px;"></a></li>
-   </ul>
- </nav>
-</header>
-
-</body>
-</html>
