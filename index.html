@@ -1,11 +1,11 @@
-<header class="nav-mobile">
+<header>
  <nav>
    <a href="/USDTz-Premium/index.html" class="logo" aria-label="Přejít na domovskou stránku">
-     <img src="/USDTz-Premium/logo-white.png" alt="USDt.z Logo" />
+     <img src="/USDTz-Premium/img/logo-white.png" alt="USDt.z Logo" />
    </a>
 
    <input type="checkbox" id="menu-toggle" />
-   <label for="menu-toggle" class="hamburger" aria-label="Otevřít menu">
+   <label for="menu-toggle" aria-label="Otevřít menu">
      <span></span>
      <span></span>
      <span></span>
@@ -20,12 +20,12 @@
 
      <li role="none">
        <a href="/USDTz-Premium/index.html" title="Česky" role="menuitem" aria-label="Česká verze">
-         <img src="/USDTz-Premium/img/flags/cz.png" alt="Česká vlajka" class="flag" />
+         <img src="/USDTz-Premium/img/cz.png" alt="Česká vlajka" class="flag" />
        </a>
      </li>
      <li role="none">
        <a href="/USDTz-Premium/index_en.html" title="English" role="menuitem" aria-label="Anglická verze">
-         <img src="/USDTz-Premium/img/flags/en.png" alt="Anglická vlajka" class="flag" />
+         <img src="/USDTz-Premium/img/en.png" alt="Anglická vlajka" class="flag" />
        </a>
      </li>
    </ul>
@@ -33,38 +33,34 @@
 </header>
 
 <style>
-/* Základní styly menu */
-header.nav-mobile {
+header {
  background: rgb(31,186,156);
  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
  position: sticky;
  top: 0;
  z-index: 1100;
- width: 100%; /* celá šířka */
 }
-
 nav {
  max-width: 1200px;
  margin: 0 auto;
- padding: 1.8rem 2rem; /* vyšší lišta */
+ padding: 1rem 2rem;
  display: flex;
  justify-content: space-between;
  align-items: center;
  flex-wrap: wrap;
 }
-
 .logo img {
- height: 50px; /* správná velikost loga */
+ height: 40px;
  cursor: pointer;
  filter: drop-shadow(0 0 5px rgba(0,0,0,0.15));
 }
-
-/* Menu - desktop */
 ul.menu {
  list-style: none;
  display: flex;
  gap: 1.5rem;
  align-items: center;
+ margin: 0;
+ padding: 0;
 }
 ul.menu li a {
  color: white;
@@ -81,37 +77,36 @@ ul.menu li a.active {
  color: #004d40;
  font-weight: 700;
 }
-
 img.flag {
- width: 28px;  /* stejné pro CZ i EN */
- height: 18px; /* stejné pro CZ i EN */
+ width: 24px;
+ height: 16px;
  object-fit: cover;
  border-radius: 3px;
- border: 2px solid white; /* bílý rámeček */
+ border: 2px solid white;
 }
 
 /* Hamburger button - mobile */
 #menu-toggle {
  display: none;
 }
-label.hamburger {
+label[for="menu-toggle"] {
  display: none;
  cursor: pointer;
- width: 40px; /* širší */
- height: 35px; /* vyšší */
+ width: 30px;
+ height: 25px;
  flex-direction: column;
  justify-content: space-between;
 }
-label.hamburger span {
+label[for="menu-toggle"] span {
  display: block;
- height: 4px; /* silnější čárky */
+ height: 3px;
  background: white;
  border-radius: 2px;
 }
 
 /* Responsive styles */
 @media (max-width: 768px) {
- label.hamburger {
+ label[for="menu-toggle"] {
    display: flex;
  }
  ul.menu {
