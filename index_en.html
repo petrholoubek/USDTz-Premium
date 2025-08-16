@@ -84,123 +84,86 @@
 </body>
 </html>
 
-<!DOCTYPE html>
-<html lang="cs">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>USDt.z - Doporučené projekty</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f4f8f9;
-      color: #222;
-    }
+<section style="max-width:1200px; margin:50px auto; padding:20px;">
+  <h2 style="color: rgb(31,186,156); font-weight:bold; text-align:center; font-size:2.2rem; margin-bottom:40px;">
+    Doporučené projekty & partnerství
+  </h2>
 
-    h1, h2, h3 {
-      margin: 0;
-      padding: 0;
-    }
+  <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:30px;">
 
-    h2 {
-      color: rgb(31,186,156);
-      font-weight: bold;
-      text-align: center;
-      font-size: 2.2rem;
-      margin-bottom: 40px;
-    }
+    <a href="pages/bankovni_partner.html" class="partner-block">
+      <h3>Bankovní partner</h3>
+      <p>Spolupráce s tradiční bankou pro zajištění stability a důvěry v ekosystém.</p>
+    </a>
 
-    .partner-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 30px;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 20px;
-    }
+    <a href="pages/fintech_partner.html" class="partner-block">
+      <h3>Fintech partner</h3>
+      <p>Inovativní fintech řešení pro rychlé a bezpečné platby v ekosystému.</p>
+    </a>
 
-    .partner-block {
-      flex: 1 1 30%;
-      max-width: 350px;
-      background: #fff;
-      border-radius: 12px;
-      padding: 20px;
-      box-shadow: 0 0 12px rgba(31,186,156,0.15);
-      text-align: center;
-      transition: all 0.3s ease;
-      text-decoration: none;
-      color: #222;
-    }
+    <a href="pages/krypto_burza.html" class="partner-block">
+      <h3>Krypto burza</h3>
+      <p>Partnerství s burzou pro likviditu a snadnou směnitelnost tokenů USDt.z.</p>
+    </a>
 
-    .partner-block h3 {
-      color: rgb(31,186,156);
-      font-size: 1.4rem;
-      margin-bottom: 10px;
-    }
+    <a href="pages/influencer1.html" class="partner-block">
+      <h3>Influencer 1</h3>
+      <p>Influencer podporující projekt a informující komunitu o USDt.z.</p>
+    </a>
 
-    .partner-block p {
-      font-size: 1rem;
-    }
+    <a href="pages/investor1.html" class="partner-block">
+      <h3>Investor 1</h3>
+      <p>Klíčový investor podporující dlouhodobou stabilitu a růst USDt.z.</p>
+    </a>
 
-    .partner-block:hover {
-      transform: translateY(-10px) scale(1.05);
-      box-shadow: 0 0 20px rgba(31,186,156,0.3);
-    }
+    <a href="pages/investor2.html" class="partner-block">
+      <h3>Investor 2</h3>
+      <p>Strategický partner s dlouhodobou vizí a podporou ekosystému USDt.z.</p>
+    </a>
 
-    @media (max-width: 992px) {
-      .partner-block {
-        flex: 1 1 45%; /* 2 boxy na řádek */
-        max-width: 45%;
-      }
-    }
+  </div>
+</section>
 
-    @media (max-width: 600px) {
-      .partner-block {
-        flex: 1 1 100%; /* 1 box na řádek pro malé obrazovky */
-        max-width: 100%;
-      }
-    }
-  </style>
-</head>
-<body>
+<style>
+.partner-block {
+  flex: 1 1 30%;
+  max-width: 350px;
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 0 12px rgba(31,186,156,0.15);
+  text-align: center;
+  text-decoration: none;
+  color: #222;
+  transition: all 0.3s ease;
+}
 
-  <section style="padding:50px 0; background:#f4f8f9;">
-    <h2>Doporučené projekty & partnerství</h2>
-    <div class="partner-container">
-      <a href="pages/bankovni_partner.html" class="partner-block">
-        <h3>Bankovní partner</h3>
-        <p>Spolupráce s tradiční bankou pro zajištění stability a důvěry v ekosystém.</p>
-      </a>
+.partner-block h3 {
+  color: rgb(31,186,156);
+  font-size:1.4rem;
+  margin:0 0 10px 0;
+}
 
-      <a href="pages/fintech_partner.html" class="partner-block">
-        <h3>Fintech partner</h3>
-        <p>Inovativní fintech řešení pro rychlé a bezpečné platby v ekosystému.</p>
-      </a>
+.partner-block p {
+  font-size:1rem;
+}
 
-      <a href="pages/krypto_burza.html" class="partner-block">
-        <h3>Krypto burza</h3>
-        <p>Partnerství s burzou pro likviditu a snadnou směnitelnost tokenů USDt.z.</p>
-      </a>
+.partner-block:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 0 20px rgba(31,186,156,0.3);
+}
 
-      <a href="pages/influencer1.html" class="partner-block">
-        <h3>Influencer 1</h3>
-        <p>Influencer podporující projekt a informující komunitu o USDt.z.</p>
-      </a>
+@media (max-width: 992px) {
+  .partner-block {
+    flex: 1 1 45%;
+    max-width: 45%;
+  }
+}
 
-      <a href="pages/investor1.html" class="partner-block">
-        <h3>Investor 1</h3>
-        <p>Klíčový investor podporující dlouhodobou stabilitu a růst USDt.z.</p>
-      </a>
-
-      <a href="pages/investor2.html" class="partner-block">
-        <h3>Investor 2</h3>
-        <p>Strategický partner s dlouhodobou vizí a podporou ekosystému USDt.z.</p>
-      </a>
-    </div>
-  </section>
-
-</body>
-</html>
+@media (max-width: 600px) {
+  .partner-block {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}
+</style>
