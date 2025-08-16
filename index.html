@@ -1,9 +1,11 @@
 <header>
  <nav>
-   <a href="index.html" class="logo" aria-label="Přejít na domovskou stránku">
+   
+   <a href="index.html" class="logo">
      <img src="img/logo-white.png" alt="USDt.z Logo" />
    </a>
 
+   
    <input type="checkbox" id="menu-toggle" />
    <label for="menu-toggle" aria-label="Otevřít menu">
      <span></span>
@@ -11,19 +13,20 @@
      <span></span>
    </label>
 
-   <ul class="menu" role="menubar" aria-label="Hlavní navigace">
-     <li role="none"><a href="pages/about.html" role="menuitem">O tokenu</a></li>
-     <li role="none"><a href="pages/usecases.html" role="menuitem">Použití</a></li>
-     <li role="none"><a href="pages/programs.html" role="menuitem">Programy</a></li>
-     <li role="none"><a href="pages/docs.html" role="menuitem">Dokumentace</a></li>
-     <li role="none"><a href="pages/contact.html" role="menuitem">Kontakt</a></li>
-     <li role="none">
-       <a href="index.html" title="Česky" role="menuitem" aria-label="Česká verze">
+   
+   <ul class="menu">
+     <li><a href="pages/about.html">O tokenu</a></li>
+     <li><a href="pages/usecases.html">Použití</a></li>
+     <li><a href="pages/programs.html">Programy</a></li>
+     <li><a href="pages/docs.html">Dokumentace</a></li>
+     <li><a href="pages/contact.html">Kontakt</a></li>
+     <li>
+       <a href="index.html" title="Česky">
          <img src="img/cz.png" alt="Česká vlajka" class="flag" />
        </a>
      </li>
-     <li role="none">
-       <a href="index_en.html" title="English" role="menuitem" aria-label="Anglická verze">
+     <li>
+       <a href="index_en.html" title="English">
          <img src="img/en.png" alt="Anglická vlajka" class="flag" />
        </a>
      </li>
@@ -32,7 +35,7 @@
 </header>
 
 <style>
-/* Header a navigace */
+/* Header */
 header {
  background: rgb(31,186,156);
  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -49,10 +52,18 @@ nav {
  align-items: center;
  flex-wrap: wrap;
 }
+
+/* Logo a vlajky */
 .logo img {
  height: 40px;
  cursor: pointer;
- filter: drop-shadow(0 0 5px rgba(0,0,0,0.15));
+}
+img.flag {
+ width: 24px;
+ height: 16px;
+ object-fit: cover;
+ border-radius: 3px;
+ border: 1px solid rgba(255,255,255,0.6);
 }
 
 /* Menu - desktop */
@@ -61,8 +72,6 @@ ul.menu {
  display: flex;
  gap: 1.5rem;
  align-items: center;
- margin: 0;
- padding: 0;
 }
 ul.menu li a {
  color: white;
@@ -78,13 +87,6 @@ ul.menu li a:hover,
 ul.menu li a.active {
  color: #004d40;
  font-weight: 700;
-}
-img.flag {
- width: 24px;
- height: 16px;
- object-fit: cover;
- border-radius: 3px;
- border: 1px solid rgba(255,255,255,0.6);
 }
 
 /* Hamburger - mobile */
@@ -120,6 +122,9 @@ label[for="menu-toggle"] span {
    background: rgb(31,186,156);
    border-radius: 8px;
    padding: 1rem 2rem;
+ }
+ ul.menu li {
+   width: 100%;
  }
  ul.menu li a {
    display: block;
