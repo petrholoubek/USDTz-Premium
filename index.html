@@ -134,16 +134,16 @@ label[for="menu-toggle"] span {
  }
 }
 </style>
-<input type="checkbox" id="menu-toggle" />
-<label for="menu-toggle" class="menu-hamburger" aria-label="Otevřít menu">
+<input type="checkbox" id="mobile-menu-toggle" />
+<label for="mobile-menu-toggle" class="mobile-menu-btn" aria-label="Otevřít menu">
  <span></span>
  <span></span>
  <span></span>
 </label>
 
 <style>
-/* Základní styl pro hamburger */
-.menu-hamburger {
+/* Hamburger button */
+.mobile-menu-btn {
  display: none;
  cursor: pointer;
  width: 30px;
@@ -151,21 +151,21 @@ label[for="menu-toggle"] span {
  flex-direction: column;
  justify-content: space-between;
 }
-.menu-hamburger span {
+.mobile-menu-btn span {
  display: block;
  height: 3px;
  background: white;
  border-radius: 2px;
 }
 
-/* Mobilní zobrazení */
+/* Mobilní menu */
 @media (max-width: 768px) {
- .menu-hamburger {
+ .mobile-menu-btn {
    display: flex;
  }
-
+ 
  nav ul.menu {
-   display: none;
+   display: none; /* skryje původní menu na mobilu */
    flex-direction: column;
    width: 100%;
    background: rgb(31,186,156);
@@ -175,14 +175,7 @@ label[for="menu-toggle"] span {
    gap: 1rem;
  }
 
- nav ul.menu li a {
-   display: block;
-   width: 100%;
-   font-size: 1.1rem;
-   padding: 0.5rem 0;
- }
-
- #menu-toggle:checked + .menu-hamburger + ul.menu {
+ #mobile-menu-toggle:checked + .mobile-menu-btn + ul.menu {
    display: flex;
  }
 }
