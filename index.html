@@ -1,114 +1,54 @@
-<nav>
- <div class="logo">
-   <a href="index.html">
-     <img src="img/flags/logo-white.png" alt="USDt.z Logo">
-   </a>
- </div>
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>USDt.z - Domů</title>
+ <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
 
- <div class="hamburger" id="hamburger">
-   <span></span>
-   <span></span>
-   <span></span>
- </div>
-
- <ul id="nav-links">
-   <li><a href="pages/about.html">O tokenu</a></li>
-   <li><a href="pages/usecases.html">Použití</a></li>
-   <li><a href="pages/programs.html">Programy</a></li>
-   <li><a href="pages/docs.html">Dokumentace</a></li>
-   <li><a href="pages/contact.html">Kontakt</a></li>
-   <li>
-     <a href="index.html" title="Česky">
-       <img src="img/flags/cz.png" alt="Česky" class="flag">
+<header>
+ <nav>
+   <div class="logo">
+     <a href="index.html">
+       <img src="img/flags/logo-white.png" alt="USDt.z Logo">
      </a>
-   </li>
-   <li>
-     <a href="index_en.html" title="English">
-       <img src="img/flags/en.png" alt="English" class="flag">
-     </a>
-   </li>
- </ul>
-</nav>
+   </div>
 
-<style>
- nav {
-   background: rgb(31,186,156);
-   padding: 1rem 2rem;
-   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-   flex-wrap: wrap;
-   position: sticky;
-   top: 0;
-   z-index: 1000;
- }
+   <div class="hamburger" id="hamburger">
+     <span></span>
+     <span></span>
+     <span></span>
+   </div>
 
- nav .logo img {
-   height: 40px;
-   cursor: pointer;
- }
+   <ul id="nav-links">
+     <li><a href="pages/about.html">O tokenu</a></li>
+     <li><a href="pages/usecases.html">Použití</a></li>
+     <li><a href="pages/programs.html">Programy</a></li>
+     <li><a href="pages/docs.html">Dokumentace</a></li>
+     <li><a href="pages/contact.html">Kontakt</a></li>
+     <li>
+       <a href="index.html" title="Česky">
+         <img src="img/flags/cz.png" alt="Česky" class="flag">
+       </a>
+     </li>
+     <li>
+       <a href="index_en.html" title="English">
+         <img src="img/flags/en.png" alt="English" class="flag">
+       </a>
+     </li>
+   </ul>
+ </nav>
+</header>
 
- nav ul {
-   list-style: none;
-   display: flex;
-   gap: 1.5rem;
-   align-items: center;
- }
-
- nav ul li a {
-   text-decoration: none;
-   color: white;
-   font-weight: 600;
-   transition: color 0.3s ease;
-   font-size: 1rem;
-   display: flex;
-   align-items: center;
-   gap: 0.3rem;
- }
-
- nav ul li a:hover,
- nav ul li a.active {
-   color: #004d40;
- }
-
- nav ul li img.flag {
-   width: 24px;
-   height: 16px;
-   object-fit: cover;
-   border-radius: 3px;
- }
-
- .hamburger {
-   display: none;
-   flex-direction: column;
-   cursor: pointer;
-   gap: 5px;
- }
-
- .hamburger span {
-   height: 3px;
-   width: 25px;
-   background: white;
-   border-radius: 3px;
- }
-
- @media (max-width: 768px) {
-   nav ul {
-     display: none;
-     flex-direction: column;
-     gap: 0.8rem;
-     width: 100%;
-     margin-top: 0.5rem;
-   }
-   nav ul.show {
-     display: flex;
-   }
-   .hamburger {
-     display: flex;
-   }
- }
-</style>
+<main>
+ <div class="big-logo-container">
+   <img src="img/flags/logo-white.png" alt="USDt.z Logo">
+ </div>
+ <h1>Vítejte na USDt.z</h1>
+ <p>Domovská stránka vašeho stabilního tokenu.</p>
+</main>
 
 <script>
  const hamburger = document.getElementById('hamburger');
@@ -118,3 +58,6 @@
    navLinks.classList.toggle('show');
  });
 </script>
+
+</body>
+</html>
