@@ -220,42 +220,39 @@
    padding: 1.5rem;
    display: flex;
    gap: 20px;
-   flex-wrap: wrap;
    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   flex-wrap: wrap;
 ">
 
  
- <div style="flex:1 1 380px; min-width:300px; background:#fff; border-radius:12px; padding:20px; box-shadow:0 4px 12px rgba(0,0,0,0.15);">
+ <div style="flex:1 1 360px; min-width:300px; background:#f9f9f9; border-radius:12px; padding:20px; box-shadow:0 4px 12px rgba(0,0,0,0.15);">
    <h2 style="color: rgb(31,186,156); text-align:center; margin-bottom:20px;">Hodnoty a tržní kapitalizace</h2>
 
-   <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 15px; text-align:center; margin-bottom:30px;">
-     <div style="background:#f9f9f9; border-radius:8px; padding:10px;">
-       <h3 style="color: #1fba9c; margin:0;">$2.5M</h3>
+   <div style="display:grid; grid-template-columns: repeat(2, 1fr); gap: 15px; text-align:center; margin-bottom:20px;">
+     <div style="background:#fff; border-radius:8px; padding:10px;">
+       <h3 style="color: rgb(31,186,156); margin:0;">$2.5M</h3>
        <p style="margin:5px 0 0; font-size:0.9rem;">Tržní kapitalizace</p>
      </div>
-     <div style="background:#f9f9f9; border-radius:8px; padding:10px;">
-       <h3 style="color: #1fba9c; margin:0;">$850K</h3>
+     <div style="background:#fff; border-radius:8px; padding:10px;">
+       <h3 style="color: rgb(31,186,156); margin:0;">$850K</h3>
        <p style="margin:5px 0 0; font-size:0.9rem;">Likvidita</p>
      </div>
-     <div style="background:#f9f9f9; border-radius:8px; padding:10px;">
-       <h3 style="color: #1fba9c; margin:0;">1,240</h3>
+     <div style="background:#fff; border-radius:8px; padding:10px;">
+       <h3 style="color: rgb(31,186,156); margin:0;">1,240</h3>
        <p style="margin:5px 0 0; font-size:0.9rem;">Držitelé</p>
      </div>
-     <div style="background:#f9f9f9; border-radius:8px; padding:10px;">
-       <h3 style="color: #1fba9c; margin:0;">12,560</h3>
+     <div style="background:#fff; border-radius:8px; padding:10px;">
+       <h3 style="color: rgb(31,186,156); margin:0;">12,560</h3>
        <p style="margin:5px 0 0; font-size:0.9rem;">Transakce</p>
      </div>
    </div>
 
-   
-   <canvas id="marketCapChart" style="width:100%; height:200px;"></canvas>
-
-   
-   <p style="text-align:center; margin-top:15px; font-size:1rem;">Aktuální cena: <strong>1.006 USDt.z / USD</strong></p>
+   <canvas id="marketCapChart" style="width:100%; height:200px; margin-bottom:15px;"></canvas>
+   <p style="text-align:center; font-size:1rem;">Aktuální cena: <strong>1.006 USDt.z / USD</strong></p>
  </div>
 
  
- <div style="flex:1 1 380px; min-width:300px; background:#fff; border-radius:12px; padding:20px; box-shadow:0 4px 12px rgba(0,0,0,0.15);">
+ <div style="flex:1 1 360px; min-width:300px; background:#f9f9f9; border-radius:12px; padding:20px; box-shadow:0 4px 12px rgba(0,0,0,0.15);">
    <h2 style="color: rgb(31,186,156); text-align:center; margin-bottom:20px;">Kalkulačka</h2>
 
    <label for="usdAmount">USD:</label>
@@ -264,91 +261,73 @@
    <label for="usdtzAmount">USDt.z:</label>
    <input type="number" id="usdtzAmount" value="1.006" style="width:100%; padding:8px; margin-bottom:10px; border-radius:6px; border:1px solid #ccc;">
 
-   <button id="convertBtn" style="width:100%; padding:10px; background: rgb(31,186,156); color:#fff; border:none; border-radius:6px; cursor:pointer;">Přepočítat</button>
+   <button id="convertBtn" style="width:100%; padding:10px; background: rgb(31,186,156); color:#fff; border:none; border-radius:6px; cursor:pointer; margin-bottom:20px;">Přepočítat</button>
 
    
-   <p style="margin-top:20px; font-size:0.95rem; color:#333; text-align:center;">
-     Přepočítejte libovolnou částku mezi USD a USDt.z. Aktuální cena je vždy aktualizována.
-   </p>
+   <div style="background:#fff; border-radius:8px; padding:10px; text-align:center;">
+     <h3 style="color: rgb(31,186,156); margin:0 0 10px 0;">Dodatečné statistiky</h3>
+     <p style="font-size:0.9rem; margin:0;">Graf trendu transakcí nebo jiné informace</p>
+   </div>
  </div>
 
  
- <div style="flex:1 1 380px; min-width:300px; background:#fff; border-radius:12px; padding:20px; box-shadow:0 4px 12px rgba(0,0,0,0.15);">
+ <div style="flex:1 1 360px; min-width:300px; background:#f9f9f9; border-radius:12px; padding:20px; box-shadow:0 4px 12px rgba(0,0,0,0.15);">
    <h2 style="color: rgb(31,186,156); text-align:center; margin-bottom:20px;">Aktuální kurzy měn</h2>
 
-   
-   <table style="width:100%; border-collapse: collapse; text-align:center;">
-     <thead>
-       <tr>
-         <th style="border-bottom:1px solid #ccc; padding:8px;">Měna</th>
-         <th style="border-bottom:1px solid #ccc; padding:8px;">Kurz</th>
-       </tr>
-     </thead>
-     <tbody>
-       <tr>
-         <td>USD</td>
-         <td>1.006</td>
-       </tr>
-       <tr>
-         <td>EUR</td>
-         <td>0.92</td>
-       </tr>
-       <tr>
-         <td>GBP</td>
-         <td>0.81</td>
-       </tr>
-       <tr>
-         <td>JPY</td>
-         <td>142.3</td>
-       </tr>
-     </tbody>
+   <table style="width:100%; border-collapse: collapse; text-align:center; margin-bottom:15px;">
+     <tr style="background:#1fba9c; color:white;">
+       <th>USD</th>
+       <th>EUR</th>
+       <th>BTC</th>
+     </tr>
+     <tr>
+       <td>1.00</td>
+       <td>0.92</td>
+       <td>0.000024</td>
+     </tr>
+     <tr>
+       <td>1.01</td>
+       <td>0.93</td>
+       <td>0.000025</td>
+     </tr>
    </table>
 
-   
-   <canvas id="currencyChart" style="width:100%; height:180px; margin-top:20px;"></canvas>
+   <div style="background:#fff; border-radius:8px; padding:10px; text-align:center;">
+     <h3 style="color: rgb(31,186,156); margin:0 0 10px 0;">Doplněk k kurzům</h3>
+     <p style="font-size:0.9rem; margin:0;">Další informace, např. volatilita nebo historické trendy</p>
+   </div>
  </div>
 
 </section>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
- // Graf tržní kapitalizace
+ // Sloupcový graf tržní kapitalizace
  const ctx = document.getElementById('marketCapChart').getContext('2d');
- const marketCapChart = new Chart(ctx, {
-   type: 'bar',
-   data: {
-     labels: ['Tržní kapitalizace', 'Likvidita', 'Držitelé', 'Transakce'],
-     datasets: [{
-       label: 'USDt.z',
-       data: [2.5, 0.85, 1240, 12560],
-       backgroundColor: ['#1fba9c','#ff9800','#2196f3','#9c27b0']
-     }]
-   },
-   options: { responsive: true, plugins:{ legend:{ display:false }}, scales:{y:{ beginAtZero:true } } }
+ const chart = new Chart(ctx, {
+     type: 'bar',
+     data: {
+         labels: ['Tržní kapitalizace', 'Likvidita', 'Držitelé', 'Transakce'],
+         datasets: [{
+             label: 'USDt.z',
+             data: [2.5, 0.85, 1240, 12560],
+             backgroundColor: ['#1fba9c','#00b894','#ffeaa7','#fd79a8']
+         }]
+     },
+     options: {
+         responsive: true,
+         plugins: { legend: { display: false } },
+         scales: { y: { beginAtZero: true } }
+     }
  });
 
- // Kalkulačka USD → USDt.z
+ // Kalkulačka
  const usdInput = document.getElementById('usdAmount');
  const usdtzInput = document.getElementById('usdtzAmount');
  const button = document.getElementById('convertBtn');
  button.addEventListener('click', () => {
-   const usd = parseFloat(usdInput.value);
-   const price = 1.006;
-   usdtzInput.value = (usd / price).toFixed(3);
- });
-
- // Graf kurzů měn
- const ctx2 = document.getElementById('currencyChart').getContext('2d');
- const currencyChart = new Chart(ctx2, {
-   type: 'bar',
-   data: {
-     labels: ['USD','EUR','GBP','JPY'],
-     datasets: [{
-       label: 'Kurz',
-       data: [1.006,0.92,0.81,142.3],
-       backgroundColor: ['#4caf50','#ff5722','#03a9f4','#ffc107']
-     }]
-   },
-   options: { responsive:true, plugins:{ legend:{ display:false } }, scales:{ y:{ beginAtZero:true } } }
+     const usd = parseFloat(usdInput.value);
+     const price = 1.006;
+     usdtzInput.value = (usd / price).toFixed(3);
  });
 </script>
