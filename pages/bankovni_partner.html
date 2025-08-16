@@ -1,232 +1,73 @@
-<header>
- <nav>
-   <a href="/USDTz-Premium/index.html" class="logo" aria-label="Přejít na domovskou stránku">
-     <img src="/USDTz-Premium/img/flags/logo-white.png" alt="USDt.z Logo" />
-   </a>
-
-   <input type="checkbox" id="menu-toggle" />
-   <label for="menu-toggle" aria-label="Otevřít menu">
-     <span></span>
-     <span></span>
-     <span></span>
-   </label>
-
-   <ul class="menu" role="menubar" aria-label="Hlavní navigace">
-     <li role="none"><a href="/USDTz-Premium/pages/about.html" role="menuitem">O tokenu</a></li>
-     <li role="none"><a href="/USDTz-Premium/pages/usecases.html" role="menuitem">Použití</a></li>
-     <li role="none"><a href="/USDTz-Premium/pages/programs.html" role="menuitem">Programy</a></li>
-     <li role="none"><a href="/USDTz-Premium/pages/docs.html" role="menuitem">Dokumentace</a></li>
-     <li role="none"><a href="/USDTz-Premium/pages/contact.html" role="menuitem">Kontakt</a></li>
-
-     <li role="none">
-       <a href="/USDTz-Premium/index.html" title="Česky" role="menuitem" aria-label="Česká verze">
-         <img src="/USDTz-Premium/img/flags/cz.png" alt="Česká vlajka" class="flag" />
-       </a>
-     </li>
-     <li role="none">
-       <a href="/USDTz-Premium/index_en.html" title="English" role="menuitem" aria-label="Anglická verze">
-         <img src="/USDTz-Premium/img/flags/en.png" alt="Anglická vlajka" class="flag" />
-       </a>
-     </li>
-   </ul>
- </nav>
-</header>
-
-<style>
-/* Základní styly menu */
-header {
- background: rgb(31,186,156);
- box-shadow: 0 2px 5px rgba(0,0,0,0.1);
- position: sticky;
- top: 0;
- z-index: 1100;
-}
-nav {
- max-width: 1200px;
- margin: 0 auto;
- padding: 1rem 2rem;
- display: flex;
- justify-content: space-between;
- align-items: center;
- flex-wrap: wrap;
-}
-.logo img {
- height: 40px;
- cursor: pointer;
- filter: drop-shadow(0 0 5px rgba(0,0,0,0.15));
-}
-
-/* Menu - desktop */
-ul.menu {
- list-style: none;
- display: flex;
- gap: 1.5rem;
- align-items: center;
-}
-ul.menu li a {
- color: white;
- font-weight: 600;
- font-size: 1rem;
- text-decoration: none;
- transition: color 0.3s ease;
- display: flex;
- align-items: center;
- gap: 0.3rem;
-}
-ul.menu li a:hover,
-ul.menu li a.active {
- color: #004d40;
- font-weight: 700;
-}
-img.flag {
- width: 24px;
- height: 16px;
- object-fit: cover;
- border-radius: 3px;
- border: 1px solid rgba(255,255,255,0.6);
-}
-
-/* Hamburger button - mobile */
-#menu-toggle {
- display: none;
-}
-label[for="menu-toggle"] {
- display: none;
- cursor: pointer;
- width: 30px;
- height: 25px;
- flex-direction: column;
- justify-content: space-between;
-}
-label[for="menu-toggle"] span {
- display: block;
- height: 3px;
- background: white;
- border-radius: 2px;
-}
-
-/* Responsive styles */
-@media (max-width: 768px) {
- label[for="menu-toggle"] {
-   display: flex;
- }
- ul.menu {
-   display: none;
-   flex-direction: column;
-   width: 100%;
-   margin-top: 1rem;
-   gap: 1rem;
-   background: rgb(31,186,156);
-   border-radius: 8px;
-   padding: 1rem 2rem;
- }
- ul.menu li {
-   width: 100%;
- }
- ul.menu li a {
-   display: block;
-   width: 100%;
-   font-size: 1.1rem;
-   padding: 0.5rem 0;
- }
- #menu-toggle:checked + label + ul.menu {
-   display: flex;
- }
-}
-</style>
-
-<!-- Sekce: Hodnoty -->
-<section id="stats" style="
-    max-width: 1100px;
-    margin: 2rem auto;
-    padding: 1rem;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+<section id="values-block" style="
+   max-width: 900px;
+   margin: 50px auto;
+   padding: 2rem;
+   background: #fff;
+   border-radius: 12px;
+   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 ">
-  <!-- Nadpis sekce Hodnoty -->
-  <h2 style="text-align:center; font-size:2.4rem; color: rgb(31,186,156); margin-bottom:2rem;">Hodnoty</h2>
+ <h2 style="text-align:center; font-size:2.4rem; color: rgb(31,186,156); margin-bottom:2rem;">
+   Hodnoty a tržní kapitalizace USDt.z
+ </h2>
 
-  <!-- Grid boxů Hodnoty -->
-  <div style="
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.5rem;
-      text-align: center;
-  ">
-    <!-- Box 1 -->
-    <div style="
-        background: #fff;
-        border-radius: 12px;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        padding: 1.5rem;
-    ">
-      <h3 style="font-size:1.8rem; color: rgb(31,186,156); margin:0;">$2.5M</h3>
-      <p style="margin:0.5rem 0 0; font-size:1rem; color:#333;">Tržní kapitalizace</p>
-    </div>
+ 
+ <table style="width:100%; border-collapse: collapse; margin-bottom:2rem;">
+   <thead>
+     <tr style="background: rgb(31,186,156); color:#fff;">
+       <th style="padding:10px; text-align:center;">Kategorie</th>
+       <th style="padding:10px; text-align:center;">Hodnota</th>
+     </tr>
+   </thead>
+   <tbody>
+     <tr style="text-align:center; border-bottom:1px solid #ddd;">
+       <td>Tržní kapitalizace</td>
+       <td>$2.5M</td>
+     </tr>
+     <tr style="text-align:center; border-bottom:1px solid #ddd;">
+       <td>Likvidita</td>
+       <td>$850K</td>
+     </tr>
+     <tr style="text-align:center; border-bottom:1px solid #ddd;">
+       <td>Držitelé</td>
+       <td>1,240</td>
+     </tr>
+     <tr style="text-align:center; border-bottom:1px solid #ddd;">
+       <td>Transakce</td>
+       <td>12,560</td>
+     </tr>
+     <tr style="text-align:center; border-bottom:1px solid #ddd;">
+       <td>Aktuální cena</td>
+       <td>1.006 USDt.z/USD</td>
+     </tr>
+     <tr style="text-align:center;">
+       <td>Celkový objem</td>
+       <td>5B</td>
+     </tr>
+   </tbody>
+ </table>
 
-    <!-- Box 2 -->
-    <div style="
-        background: #fff;
-        border-radius: 12px;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        padding: 1.5rem;
-    ">
-      <h3 style="font-size:1.8rem; color: rgb(31,186,156); margin:0;">$850K</h3>
-      <p style="margin:0.5rem 0 0; font-size:1rem; color:#333;">Likvidita</p>
-    </div>
-
-    <!-- Box 3 -->
-    <div style="
-        background: #fff;
-        border-radius: 12px;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        padding: 1.5rem;
-    ">
-      <h3 style="font-size:1.8rem; color: rgb(31,186,156); margin:0;">1,240</h3>
-      <p style="margin:0.5rem 0 0; font-size:1rem; color:#333;">Držitelé</p>
-    </div>
-
-    <!-- Box 4 -->
-    <div style="
-        background: #fff;
-        border-radius: 12px;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        padding: 1.5rem;
-    ">
-      <h3 style="font-size:1.8rem; color: rgb(31,186,156); margin:0;">12,560</h3>
-      <p style="margin:0.5rem 0 0; font-size:1rem; color:#333;">Transakce</p>
-    </div>
-  </div>
-
-  <!-- Nadpis sekce Market Cap -->
-  <h2 style="text-align:center; font-size:2.4rem; color: rgb(31,186,156); margin:3rem 0 1.5rem;">Tržní kapitalizace USDt.z</h2>
-
-  <!-- Grid boxů Market Cap -->
-  <div style="
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.5rem;
-      text-align: center;
-  ">
-    <!-- Box Cena -->
-    <div style="
-        background: #fff;
-        border-radius: 12px;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        padding: 1.5rem;
-    ">
-      <h3 style="font-size:1.5rem; color: rgb(31,186,156); margin:0;">1.006 USD / USDT.z</h3>
-      <p style="margin:0.5rem 0 0; font-size:1rem; color:#333;">Aktuální cena</p>
-    </div>
-
-    <!-- Box Objem -->
-    <div style="
-        background: #fff;
-        border-radius: 12px;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        padding: 1.5rem;
-    ">
-      <h3 style="font-size:1.5rem; color: rgb(31,186,156); margin:0;">5B</h3>
-      <p style="margin:0.5rem 0 0; font-size:1rem; color:#333;">Celkový objem</p>
-    </div>
-  </div>
+ 
+ <div style="display:flex; justify-content:space-around; align-items:flex-end; height:250px; gap:1rem;">
+   <div style="flex:1; text-align:center;">
+     <div style="background:#1FBA9C; height:70%; border-radius:6px 6px 0 0;"></div>
+     <span style="display:block; margin-top:0.5rem;">Tržní kapitalizace</span>
+   </div>
+   <div style="flex:1; text-align:center;">
+     <div style="background:#FFB74D; height:25%; border-radius:6px 6px 0 0;"></div>
+     <span style="display:block; margin-top:0.5rem;">Likvidita</span>
+   </div>
+   <div style="flex:1; text-align:center;">
+     <div style="background:#64B5F6; height:35%; border-radius:6px 6px 0 0;"></div>
+     <span style="display:block; margin-top:0.5rem;">Držitelé</span>
+   </div>
+   <div style="flex:1; text-align:center;">
+     <div style="background:#BA68C8; height:50%; border-radius:6px 6px 0 0;"></div>
+     <span style="display:block; margin-top:0.5rem;">Transakce</span>
+   </div>
+   <div style="flex:1; text-align:center;">
+     <div style="background:#E57373; height:40%; border-radius:6px 6px 0 0;"></div>
+     <span style="display:block; margin-top:0.5rem;">Objem</span>
+   </div>
+ </div>
 </section>
