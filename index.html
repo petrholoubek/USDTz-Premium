@@ -24,21 +24,91 @@
 </header>
 
 <style>
-header { background: rgb(31,186,156); position: sticky; top: 0; z-index: 1000; }
-nav { max-width: 1200px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
-.logo img { height: 40px; cursor: pointer; }
-ul.menu { list-style: none; display: flex; gap: 1.5rem; align-items: center; margin:0; padding:0; }
-ul.menu li a { color: white; text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 0.3rem; }
-ul.menu li a:hover { color: #004d40; font-weight: 700; }
-.flag { width: 24px; height: 16px; border-radius: 3px; border: 1px solid rgba(255,255,255,0.6); }
-#menu-toggle { display: none; }
-.hamburger { display: none; cursor: pointer; flex-direction: column; justify-content: space-between; width: 30px; height: 25px; }
-.hamburger span { display: block; height: 3px; background: white; border-radius: 2px; }
+header {
+ background: rgb(31,186,156);
+ position: sticky;
+ top: 0;
+ z-index: 1000;
+}
+nav {
+ max-width: 1200px;
+ margin: 0 auto;
+ padding: 1rem 2rem;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ flex-wrap: wrap;
+}
+.logo img {
+ height: 40px;
+ cursor: pointer;
+}
+ul.menu {
+ list-style: none;
+ display: flex;
+ gap: 1.5rem;
+ align-items: center;
+ margin: 0;
+ padding: 0;
+}
+ul.menu li a {
+ color: white;
+ text-decoration: none;
+ font-weight: 600;
+ display: flex;
+ align-items: center;
+ gap: 0.3rem;
+}
+ul.menu li a:hover {
+ color: #004d40;
+ font-weight: 700;
+}
+.flag {
+ width: 24px;
+ height: 16px;
+ border-radius: 3px;
+ border: 1px solid rgba(255,255,255,0.6);
+}
+#menu-toggle {
+ display: none;
+}
+.hamburger {
+ display: none;
+ cursor: pointer;
+ flex-direction: column;
+ justify-content: space-between;
+ width: 30px;
+ height: 25px;
+}
+.hamburger span {
+ display: block;
+ height: 3px;
+ background: white;
+ border-radius: 2px;
+}
 
 @media(max-width:768px){
- .hamburger { display: flex; }
- ul.menu { display: none; flex-direction: column; width: 100%; background: rgb(31,186,156); padding: 1rem 2rem; border-radius: 8px; margin-top: 0.5rem; gap: 1rem; }
- ul.menu li a { display: block; width: 100%; font-size: 1.1rem; padding: 0.5rem 0; }
- #menu-toggle:checked + .hamburger + ul.menu { display: flex; }
+ .hamburger {
+   display: flex;
+ }
+ ul.menu {
+   display: none;
+   flex-direction: column;
+   width: 100%;
+   background: rgb(31,186,156);
+   padding: 1rem 2rem;
+   border-radius: 8px;
+   margin-top: 0.5rem;
+   gap: 1rem;
+ }
+ ul.menu li a {
+   display: block;
+   width: 100%;
+   font-size: 1.1rem;
+   padding: 0.5rem 0;
+ }
+ #menu-toggle:checked + .hamburger + ul.menu {
+   display: flex;
+ }
 }
 </style>
