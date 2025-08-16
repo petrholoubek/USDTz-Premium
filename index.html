@@ -351,12 +351,31 @@ document.getElementById('convertBtn').addEventListener('click',()=>{
      </ul>
    </div>
 
+  <section class="tokenomics-section">
+ <div class="tokenomics-container">
+   
+   
+   <div class="tokenomics-left">
+     <h2>Stablecoin – nové generace</h2>
+     <p>
+       Náš token <strong>USDt.z</strong> představuje stabilní a spolehlivý nástroj
+       pro moderní finanční trhy. Umožňuje:
+     </p>
+     <ul>
+       <li>✔ Použití jako kolaterál v bankovním i nebankovním sektoru</li>
+       <li>✔ Možnost půjček a úvěrů zajištěných tokenem</li>
+       <li>✔ Podpora fintech aplikací a digitálních plateb</li>
+       <li>✔ Přímá směna na DEX a další využití v DeFi</li>
+       <li>✔ Transparentní a auditovatelný smart kontrakt</li>
+     </ul>
+   </div>
+
    
    <div class="tokenomics-right">
-     <h3>Tokenomics</h3>
+     <h3 class="green-heading">Tokenomics</h3>
      <canvas id="donutChart"></canvas>
 
-     <h3>Roadmapa</h3>
+     <h3 class="green-heading">Roadmapa</h3>
      <canvas id="lineChart"></canvas>
    </div>
 
@@ -365,6 +384,7 @@ document.getElementById('convertBtn').addEventListener('click',()=>{
 
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
 
 <script>
 // Donut graf - Tokenomics
@@ -372,7 +392,7 @@ const ctxDonut = document.getElementById('donutChart').getContext('2d');
 new Chart(ctxDonut, {
    type: 'doughnut',
    data: {
-       labels: ['Reserve', 'Liquidity', 'Development', 'Marketing'],
+       labels: ['Reserve 40%', 'Liquidity 30%', 'Development 20%', 'Marketing 10%'],
        datasets: [{
            data: [40, 30, 20, 10],
            backgroundColor: ['#1fba9c', '#4bc0c0', '#36a2eb', '#ffcd56'],
@@ -381,29 +401,44 @@ new Chart(ctxDonut, {
    options: {
        responsive: true,
        plugins: {
-           legend: { position: 'bottom' }
+           legend: { position: 'bottom' },
+           datalabels: {
+               color: '#fff',
+               font: { weight: 'bold' },
+               formatter: (value) => value + '%'
+           }
        }
-   }
+   },
+   plugins: [ChartDataLabels]
 });
 
-// Line graf - Roadmapa
+// Line graf - Roadmapa (dvě křivky)
 const ctxLine = document.getElementById('lineChart').getContext('2d');
 new Chart(ctxLine, {
    type: 'line',
    data: {
        labels: ['Q1 2025', 'Q2 2025', 'Q3 2025', 'Q4 2025'],
-       datasets: [{
-           label: 'Milníky',
-           data: [20, 40, 70, 100],
-           borderColor: '#1fba9c',
-           fill: false,
-           tension: 0.3
-       }]
+       datasets: [
+           {
+               label: 'Adopce',
+               data: [10, 30, 60, 90],
+               borderColor: '#1fba9c',
+               fill: false,
+               tension: 0.3
+           },
+           {
+               label: 'Implementace',
+               data: [5, 20, 50, 80],
+               borderColor: '#36a2eb',
+               fill: false,
+               tension: 0.3
+           }
+       ]
    },
    options: {
        responsive: true,
        plugins: {
-           legend: { display: false }
+           legend: { position: 'bottom' }
        }
    }
 });
@@ -443,13 +478,14 @@ new Chart(ctxLine, {
  margin-bottom: 8px;
 }
 
-.tokenomics-right h3 {
+.green-heading {
  margin: 20px 0 10px;
- color: #333;
+ color: #1fba9c;
 }
 
 .tokenomics-right canvas {
  width: 100% !important;
  max-height: 300px;
 }
-</style>
+</style> 
+  
