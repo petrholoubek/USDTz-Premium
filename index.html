@@ -351,128 +351,114 @@ document.getElementById('convertBtn').addEventListener('click',()=>{
      </ul>
    </div>
 
- <!DOCTYPE html>
-<html lang="cs">
-<head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>Stablecoin nové generace</title>
- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
- <style>
-   #msg_body {
-     margin: 0;
-     padding: 0;
-     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-   }
-
-   .tokenomics-section {
-     width: 100%;
-     display: flex;
-     justify-content: center;
-     margin: 60px 0;
-   }
-
-   .tokenomics-container {
-     max-width: 1200px;
-     width: 100%;
-     display: flex;
-     gap: 40px;       /* mezera mezi sloupci */
-     margin: 0 auto;
-   }
-
-   .tokenomics-left,
-   .tokenomics-right {
-     flex: 1;         /* 50 % pro každý sloupec */
-   }
-
-   .tokenomics-right canvas {
-     width: 100% !important;
-     max-width: 500px;
-     height: auto !important;
-     margin-top: 20px;
-   }
- </style>
-</head>
-<body>
-
- <section class="tokenomics-section">
-   <div class="tokenomics-container">
-
-     
-     <div class="tokenomics-left">
-       <h2>Stablecoin – nové generace</h2>
-       <p>
-         Náš token USDt.z představuje stabilní řešení pro bankovní i nebankovní sektor.
-         Může být použit jako kolaterál, pro půjčky, správu likvidity a pro platební transakce
-         s vysokou rychlostí a nízkými náklady.
-       </p>
-       <p>
-         Díky stabilitě a transparentnosti je vhodný pro instituce i jednotlivce,
-         kteří hledají moderní a bezpečné řešení.
-       </p>
-     </div>
-
-     
-     <div class="tokenomics-right">
-       <h3 style="color: rgb(31,186,156);">Tokenomics</h3>
-       <canvas id="donutChart"></canvas>
-       <h3 style="color: rgb(31,186,156); margin-top: 30px;">Roadmapa</h3>
-       <canvas id="lineChart"></canvas>
-     </div>
-
+<section class="tokenomics-section">
+ <div class="tokenomics-container">
+   
+   
+   <div class="tokenomics-left">
+     <h2>Stablecoin – nové generace</h2>
+     <p>
+       USDt.z představuje stabilní digitální aktivum, které lze využít
+       jak v bankovním, tak v nebankovním sektoru. Díky své stabilitě a
+       transparentnosti přináší možnosti použití jako kolaterál,
+       nástroj pro půjčky, platební prostředek i prostředek správy
+       likvidity.
+     </p>
+     <ul>
+       <li>✔ Bankovní využití – kolaterál, půjčky, clearing</li>
+       <li>✔ Nebankovní sektor – DEX swapy, likvidita, staking</li>
+       <li>✔ Praktické využití – platební brána, tokenizace aktiv</li>
+     </ul>
    </div>
- </section>
 
- <script>
-   // Donut graf
-   const ctxDonut = document.getElementById('donutChart').getContext('2d');
-   new Chart(ctxDonut, {
-     type: 'doughnut',
-     data: {
-       labels: ['Bankovní sektor', 'Nebankovní sektor', 'Kolaterál', 'Likvidita'],
-       datasets: [{
-         data: [40, 25, 20, 15],
-         backgroundColor: ['#1FBA9C', '#4AD9C7', '#8EE5DD', '#C6F5EF'],
-         borderWidth: 1
-       }]
-     },
-     options: {
-       responsive: true,
-       plugins: { legend: { position: 'bottom' } }
+   
+   <div class="tokenomics-right">
+     <h3 class="green-heading">Tokenomics – donut graf</h3>
+     <canvas id="donutChart" width="350" height="350"></canvas>
+
+     <h3 class="green-heading">Roadmapa – křivkový graf</h3>
+     <canvas id="lineChart" width="350" height="220"></canvas>
+   </div>
+
+ </div>
+</section>
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+ // Donut graf
+ const ctxDonut = document.getElementById('donutChart').getContext('2d');
+ new Chart(ctxDonut, {
+   type: 'doughnut',
+   data: {
+     labels: ['Bankovní sektor', 'Nebankovní sektor', 'Kolaterál', 'Likvidita'],
+     datasets: [{
+       data: [30, 25, 25, 20],
+       backgroundColor: ['#1fba9c', '#3c8dbc', '#f39c12', '#d9534f']
+     }]
+   },
+   options: {
+     responsive: true,
+     plugins: {
+       legend: { position: 'bottom' }
      }
-   });
+   }
+ });
 
-   // Line graf (roadmapa se dvěma křivkami)
-   const ctxLine = document.getElementById('lineChart').getContext('2d');
-   new Chart(ctxLine, {
-     type: 'line',
-     data: {
-       labels: ['Q1', 'Q2', 'Q3', 'Q4'],
-       datasets: [
-         {
-           label: 'Plán',
-           data: [10, 30, 50, 80],
-           borderColor: '#1FBA9C',
-           borderWidth: 2,
-           fill: false,
-           tension: 0.3
-         },
-         {
-           label: 'Skutečnost',
-           data: [8, 25, 45, 70],
-           borderColor: '#4AD9C7',
-           borderWidth: 2,
-           fill: false,
-           tension: 0.3
-         }
-       ]
-     },
-     options: {
-       responsive: true,
-       plugins: { legend: { position: 'bottom' } }
+ // Křivkový graf
+ const ctxLine = document.getElementById('lineChart').getContext('2d');
+ new Chart(ctxLine, {
+   type: 'line',
+   data: {
+     labels: ['Q1', 'Q2', 'Q3', 'Q4'],
+     datasets: [
+       {
+         label: 'Implementace banky',
+         data: [10, 30, 55, 80],
+         borderColor: '#1fba9c',
+         fill: false,
+         tension: 0.4
+       },
+       {
+         label: 'Nebankovní sektor',
+         data: [5, 20, 40, 65],
+         borderColor: '#3c8dbc',
+         fill: false,
+         tension: 0.4
+       }
+     ]
+   },
+   options: {
+     responsive: true,
+     plugins: {
+       legend: { position: 'bottom' }
      }
-   });
- </script>
+   }
+ });
+</script>
 
-</body>
-</html>
+<style>
+.tokenomics-section {
+ width: 100%;
+ display: flex;
+ justify-content: center;   /* zarovnání do středu */
+ margin: 60px 0;
+}
+
+.tokenomics-container {
+ max-width: 1200px;
+ width: 100%;
+ display: flex;
+ gap: 40px;
+ margin: 0 auto;            /* udržení na středu */
+}
+
+.tokenomics-left, .tokenomics-right {
+ flex: 1;
+}
+
+.green-heading {
+ color: rgb(31, 186, 156);
+ margin: 20px 0 10px;
+}
+</style>
