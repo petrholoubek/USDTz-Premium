@@ -3,7 +3,7 @@
 <head>
  <meta charset="UTF-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>USDt.z - Domů</title>
+ <title>USDt.z</title>
  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -42,17 +42,12 @@
  </nav>
 </header>
 
-<main>
- <div class="big-logo-container">
-   <img src="img/flags/logo-white.png" alt="USDt.z Logo">
- </div>
- <h1>Vítejte na USDt.z</h1>
- <p>Domovská stránka vašeho stabilního tokenu.</p>
-</main>
-
 <script>
  const hamburger = document.getElementById('hamburger');
  const navLinks = document.getElementById('nav-links');
+
+ // Zajistí, že hamburger je zavřený při načtení stránky
+ navLinks.classList.remove('show');
 
  hamburger.addEventListener('click', () => {
    navLinks.classList.toggle('show');
