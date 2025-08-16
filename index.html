@@ -1,7 +1,7 @@
 <header>
  <nav>
    <a href="/USDTz-Premium/index.html" class="logo" aria-label="Přejít na domovskou stránku">
-     <img src="/USDTz-Premium/img/flags/logo-white.png" alt="USDt.z Logo" />
+     <img src="/USDTz-Premium/logo-white.png" alt="USDt.z Logo" />
    </a>
 
    <input type="checkbox" id="menu-toggle" />
@@ -33,7 +33,7 @@
 </header>
 
 <style>
-/* Header a logo */
+/* Základní styly menu */
 header {
  background: rgb(31,186,156);
  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -41,7 +41,6 @@ header {
  top: 0;
  z-index: 1100;
 }
-
 nav {
  max-width: 1200px;
  margin: 0 auto;
@@ -51,11 +50,10 @@ nav {
  align-items: center;
  flex-wrap: wrap;
 }
-
 .logo img {
  height: 40px;
  cursor: pointer;
- filter: none; /* bílé logo bez stínu */
+ filter: drop-shadow(0 0 5px rgba(0,0,0,0.15));
 }
 
 /* Menu - desktop */
@@ -65,7 +63,6 @@ ul.menu {
  gap: 1.5rem;
  align-items: center;
 }
-
 ul.menu li a {
  color: white;
  font-weight: 600;
@@ -76,13 +73,11 @@ ul.menu li a {
  align-items: center;
  gap: 0.3rem;
 }
-
 ul.menu li a:hover,
 ul.menu li a.active {
  color: #004d40;
  font-weight: 700;
 }
-
 img.flag {
  width: 24px;
  height: 16px;
@@ -95,7 +90,6 @@ img.flag {
 #menu-toggle {
  display: none;
 }
-
 label[for="menu-toggle"] {
  display: none;
  cursor: pointer;
@@ -104,7 +98,6 @@ label[for="menu-toggle"] {
  flex-direction: column;
  justify-content: space-between;
 }
-
 label[for="menu-toggle"] span {
  display: block;
  height: 3px;
@@ -112,35 +105,31 @@ label[for="menu-toggle"] span {
  border-radius: 2px;
 }
 
-/* Responsive */
+/* Responsive styles */
 @media (max-width: 768px) {
  label[for="menu-toggle"] {
    display: flex;
  }
-
  ul.menu {
    display: none;
    flex-direction: column;
    width: 100%;
-   margin-top: 1rem;
-   gap: 1rem;
+   margin-top: 0.5rem;
    background: rgb(31,186,156);
-   border-radius: 8px;
    padding: 1rem 2rem;
+   gap: 0.5rem;
  }
-
  ul.menu li {
    width: 100%;
  }
-
  ul.menu li a {
    display: block;
    width: 100%;
    font-size: 1.1rem;
    padding: 0.5rem 0;
  }
-
- #menu-toggle:checked + label + ul.menu {
+ /* Opravené rozbalení menu */
+ #menu-toggle:checked ~ ul.menu {
    display: flex;
  }
 }
