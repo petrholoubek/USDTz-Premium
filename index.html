@@ -84,121 +84,186 @@
 
 </body>
 </html>
-<!-- HORNI RAMECEK -->
-<section id="header-box" style="
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>USDt.z - Česká verze</title>
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f9f9f9;
+  }
+
+  /* Horní rámeček */
+  #header-box {
     max-width: 1100px;
     margin: 2rem auto;
-    padding: 2rem;
-    display: flex;
-    align-items: center;
     background: #fff;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-">
-    <img src="/USDTz-Premium/img/flags/logo.png" alt="USDt.z Logo" style="
-        width: 150px;
-        max-width: 20%;
-        margin-right: 2rem;
-    "/>
-    <div style="flex: 1;">
-        <h1 style="margin:0; font-size:2.8rem; color: rgb(31,186,156);">USDt.z</h1>
-        <h2 style="margin:0.2rem 0; font-size:2rem; color: rgb(31,186,156);">Stablecoin – Next Generation</h2>
-        <p style="margin-top:0.5rem; font-size:1rem; color:#222;">
-            Stabilní, bezpečný a inovativní token navržený pro bankovní i nebankovní sektor. Zaměřený na bezpečnost, transparentnost a dlouhodobou stabilitu.
-        </p>
-    </div>
-</section>
+    display: flex;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    flex-wrap: wrap;
+  }
+  #header-box img {
+    width: 120px;
+    margin-right: 2rem;
+  }
+  #header-texts {
+    display: flex;
+    flex-direction: column;
+  }
+  #header-texts h1 {
+    font-size: 2.8rem;
+    color: rgb(31,186,156);
+    margin: 0;
+  }
+  #header-texts h2 {
+    font-size: 1.8rem;
+    color: rgb(31,186,156);
+    margin: 0.2rem 0;
+  }
+  #header-texts p {
+    font-size: 1rem;
+    color: #222;
+    margin-top: 0.4rem;
+  }
 
-<!-- SEKCE: Doporučené projekty -->
-<section id="projects" style="
+  /* Doporučené projekty */
+  #projects {
     max-width: 1100px;
-    margin: 3rem auto;
+    margin: 2rem auto;
     padding: 1rem;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-">
-    <h2 style="color: rgb(31,186,156); font-size:2.2rem; text-align:center; margin-bottom:2rem;">Doporučené projekty</h2>
-    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap:1.5rem;">
-        <!-- Projekt 1 -->
-        <a href="pages/bankovni_partner.html" style="text-decoration:none;">
-            <div style="background:#fff; padding:1.5rem; border-radius:12px; box-shadow:0 4px 10px rgba(0,0,0,0.1); text-align:center; color:#333;">
-                Bankovní partner
-            </div>
-        </a>
-        <!-- Projekt 2 -->
-        <a href="pages/investor.html" style="text-decoration:none;">
-            <div style="background:#fff; padding:1.5rem; border-radius:12px; box-shadow:0 4px 10px rgba(0,0,0,0.1); text-align:center; color:#333;">
-                Investor
-            </div>
-        </a>
-        <!-- Projekt 3 -->
-        <a href="pages/fintech.html" style="text-decoration:none;">
-            <div style="background:#fff; padding:1.5rem; border-radius:12px; box-shadow:0 4px 10px rgba(0,0,0,0.1); text-align:center; color:#333;">
-                Fintech
-            </div>
-        </a>
-        <!-- Projekt 4 -->
-        <a href="pages/nebankovni_partner.html" style="text-decoration:none;">
-            <div style="background:#fff; padding:1.5rem; border-radius:12px; box-shadow:0 4px 10px rgba(0,0,0,0.1); text-align:center; color:#333;">
-                Nebankovní partner
-            </div>
-        </a>
-        <!-- Projekt 5 -->
-        <a href="pages/partner_projekty.html" style="text-decoration:none;">
-            <div style="background:#fff; padding:1.5rem; border-radius:12px; box-shadow:0 4px 10px rgba(0,0,0,0.1); text-align:center; color:#333;">
-                Partnerské projekty
-            </div>
-        </a>
-        <!-- Projekt 6 -->
-        <a href="pages/specialni_projekt.html" style="text-decoration:none;">
-            <div style="background:#fff; padding:1.5rem; border-radius:12px; box-shadow:0 4px 10px rgba(0,0,0,0.1); text-align:center; color:#333;">
-                Speciální projekt
-            </div>
-        </a>
-    </div>
-</section>
+  }
+  #projects h2 {
+    font-size: 2rem;
+    color: rgb(31,186,156);
+    margin-bottom: 1rem;
+  }
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+  }
+  .project-box {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.2s;
+    cursor: pointer;
+  }
+  .project-box:hover {
+    transform: translateY(-5px);
+  }
 
-<!-- SEKCE: Hodnoty a Market Cap -->
-<section id="stats" style="
+  /* Hodnoty */
+  #stats {
     max-width: 1100px;
-    margin: 3rem auto;
+    margin: 2rem auto;
     padding: 1rem;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-">
-    <h2 style="color: rgb(31,186,156); font-size:2.2rem; text-align:center; margin-bottom:2rem;">Hodnoty</h2>
-    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap:1.5rem; text-align:center;">
-        <!-- Box 1 -->
-        <div style="background:#fff; border-radius:12px; box-shadow:0 4px 10px rgba(0,0,0,0.1); padding:1.5rem;">
-            <h3 style="font-size:1.8rem; color: rgb(31,186,156); margin:0;">$2.5M</h3>
-            <p style="margin:0.5rem 0 0; font-size:1rem; color:#333;">Tržní kapitalizace</p>
-        </div>
-        <!-- Box 2 -->
-        <div style="background:#fff; border-radius:12px; box-shadow:0 4px 10px rgba(0,0,0,0.1); padding:1.5rem;">
-            <h3 style="font-size:1.8rem; color: rgb(31,186,156); margin:0;">$850K</h3>
-            <p style="margin:0.5rem 0 0; font-size:1rem; color:#333;">Likvidita</p>
-        </div>
-        <!-- Box 3 -->
-        <div style="background:#fff; border-radius:12px; box-shadow:0 4px 10px rgba(0,0,0,0.1); padding:1.5rem;">
-            <h3 style="font-size:1.8rem; color: rgb(31,186,156); margin:0;">1,240</h3>
-            <p style="margin:0.5rem 0 0; font-size:1rem; color:#333;">Držitelé</p>
-        </div>
-        <!-- Box 4 -->
-        <div style="background:#fff; border-radius:12px; box-shadow:0 4px 10px rgba(0,0,0,0.1); padding:1.5rem;">
-            <h3 style="font-size:1.8rem; color: rgb(31,186,156); margin:0;">12,560</h3>
-            <p style="margin:0.5rem 0 0; font-size:1rem; color:#333;">Transakce</p>
-        </div>
-    </div>
+  }
+  #stats h2 {
+    font-size: 2rem;
+    color: rgb(31,186,156);
+    margin-bottom: 1rem;
+  }
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    text-align: center;
+  }
+  .stats-box {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    padding: 1.5rem;
+  }
+  .stats-box h3 {
+    font-size: 1.8rem;
+    color: rgb(31,186,156);
+    margin: 0;
+  }
+  .stats-box p {
+    margin: 0.5rem 0 0;
+    font-size: 1rem;
+    color: #333;
+  }
 
-    <!-- Market Cap -->
-    <h2 style="color: rgb(31,186,156); font-size:2.2rem; text-align:center; margin:3rem 0 1.5rem;">Tržní kapitalizace USDt.z</h2>
-    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap:1.5rem; text-align:center;">
-        <div style="background:#fff; border-radius:12px; box-shadow:0 4px 10px rgba(0,0,0,0.1); padding:1.5rem;">
-            <h3 style="font-size:1.5rem; color: rgb(31,186,156); margin:0;">1.006 USD / USDT.z</h3>
-            <p style="margin:0.5rem 0 0; font-size:1rem; color:#333;">Aktuální cena</p>
-        </div>
-        <div style="background:#fff; border-radius:12px; box-shadow:0 4px 10px rgba(0,0,0,0.1); padding:1.5rem;">
-            <h3 style="font-size:1.5rem; color: rgb(31,186,156); margin:0;">5B</h3>
-            <p style="margin:0.5rem 0 0; font-size:1rem; color:#333;">Celkový objem</p>
-        </div>
-    </div>
+  @media (max-width: 768px) {
+    #header-box {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    #header-box img {
+      margin: 0 0 1rem 0;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- Horní rámeček -->
+<section id="header-box">
+  <img src="/USDTz-Premium/img/flags/logo.png" alt="USDt.z Logo">
+  <div id="header-texts">
+    <h1>USDt.z</h1>
+    <h2>Stablecoin – Next Generation</h2>
+    <p>Stabilní, bezpečný a inovativní token navržený pro bankovní i nebankovní sektor. Zaměřený na bezpečnost, transparentnost a dlouhodobou stabilitu.</p>
+  </div>
 </section>
+
+<!-- Doporučené projekty -->
+<section id="projects">
+  <h2>Doporučené projekty</h2>
+  <div class="project-grid">
+    <a href="pages/bankovni_partner.html" class="project-box">Bankovní partner</a>
+    <a href="pages/investor1.html" class="project-box">Investor 1</a>
+    <a href="pages/investor2.html" class="project-box">Investor 2</a>
+    <a href="pages/nebankovni_partner1.html" class="project-box">Nebankovní partner 1</a>
+    <a href="pages/nebankovni_partner2.html" class="project-box">Nebankovní partner 2</a>
+    <a href="pages/nebankovni_partner3.html" class="project-box">Nebankovní partner 3</a>
+  </div>
+</section>
+
+<!-- Hodnoty -->
+<section id="stats">
+  <h2>Hodnoty</h2>
+  <div class="stats-grid">
+    <div class="stats-box">
+      <h3>$2.5M</h3>
+      <p>Tržní kapitalizace</p>
+    </div>
+    <div class="stats-box">
+      <h3>$850K</h3>
+      <p>Likvidita</p>
+    </div>
+    <div class="stats-box">
+      <h3>1,240</h3>
+      <p>Držitelé</p>
+    </div>
+    <div class="stats-box">
+      <h3>12,560</h3>
+      <p>Transakce</p>
+    </div>
+    <div class="stats-box">
+      <h3>1.006 USD / USDT.z</h3>
+      <p>Aktuální cena</p>
+    </div>
+    <div class="stats-box">
+      <h3>5B</h3>
+      <p>Celkový objem</p>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
