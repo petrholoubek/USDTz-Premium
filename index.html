@@ -351,141 +351,128 @@ document.getElementById('convertBtn').addEventListener('click',()=>{
      </ul>
    </div>
 
-  <section class="tokenomics-section">
- <div class="tokenomics-container">
-   
-   
-   <div class="tokenomics-left">
-     <h2>Stablecoin – nové generace</h2>
-     <p>
-       Náš token <strong>USDt.z</strong> představuje stabilní a spolehlivý nástroj
-       pro moderní finanční trhy. Umožňuje:
-     </p>
-     <ul>
-       <li>✔ Použití jako kolaterál v bankovním i nebankovním sektoru</li>
-       <li>✔ Možnost půjček a úvěrů zajištěných tokenem</li>
-       <li>✔ Podpora fintech aplikací a digitálních plateb</li>
-       <li>✔ Přímá směna na DEX a další využití v DeFi</li>
-       <li>✔ Transparentní a auditovatelný smart kontrakt</li>
-     </ul>
-   </div>
-
-   
-   <div class="tokenomics-right">
-     <h3 class="green-heading">Tokenomics</h3>
-     <canvas id="donutChart"></canvas>
-
-     <h3 class="green-heading">Roadmapa</h3>
-     <canvas id="lineChart"></canvas>
-   </div>
-
- </div>
-</section>
-
-
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
-
-<script>
-// Donut graf - Tokenomics
-const ctxDonut = document.getElementById('donutChart').getContext('2d');
-new Chart(ctxDonut, {
-   type: 'doughnut',
-   data: {
-       labels: ['Reserve 40%', 'Liquidity 30%', 'Development 20%', 'Marketing 10%'],
-       datasets: [{
-           data: [40, 30, 20, 10],
-           backgroundColor: ['#1fba9c', '#4bc0c0', '#36a2eb', '#ffcd56'],
-       }]
-   },
-   options: {
-       responsive: true,
-       plugins: {
-           legend: { position: 'bottom' },
-           datalabels: {
-               color: '#fff',
-               font: { weight: 'bold' },
-               formatter: (value) => value + '%'
-           }
-       }
-   },
-   plugins: [ChartDataLabels]
-});
-
-// Line graf - Roadmapa (dvě křivky)
-const ctxLine = document.getElementById('lineChart').getContext('2d');
-new Chart(ctxLine, {
-   type: 'line',
-   data: {
-       labels: ['Q1 2025', 'Q2 2025', 'Q3 2025', 'Q4 2025'],
-       datasets: [
-           {
-               label: 'Adopce',
-               data: [10, 30, 60, 90],
-               borderColor: '#1fba9c',
-               fill: false,
-               tension: 0.3
-           },
-           {
-               label: 'Implementace',
-               data: [5, 20, 50, 80],
-               borderColor: '#36a2eb',
-               fill: false,
-               tension: 0.3
-           }
-       ]
-   },
-   options: {
-       responsive: true,
-       plugins: {
-           legend: { position: 'bottom' }
-       }
+ <!DOCTYPE html>
+<html lang="cs">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Stablecoin nové generace</title>
+ <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+ <style>
+   #msg_body {
+     margin: 0;
+     padding: 0;
+     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
    }
-});
-</script>
 
-<style>
-.tokenomics-section {
- width: 100%;
- display: flex;
- justify-content: center;
- margin: 60px 0;
- font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
+   .tokenomics-section {
+     width: 100%;
+     display: flex;
+     justify-content: center;
+     margin: 60px 0;
+   }
 
-.tokenomics-container {
- max-width: 1200px;
- width: 100%;
- display: flex;
- gap: 40px;
-}
+   .tokenomics-container {
+     max-width: 1200px;
+     width: 100%;
+     display: flex;
+     gap: 40px;       /* mezera mezi sloupci */
+     margin: 0 auto;
+   }
 
-.tokenomics-left, .tokenomics-right {
- flex: 1;
-}
+   .tokenomics-left,
+   .tokenomics-right {
+     flex: 1;         /* 50 % pro každý sloupec */
+   }
 
-.tokenomics-left h2 {
- color: #1fba9c;
- margin-bottom: 15px;
-}
+   .tokenomics-right canvas {
+     width: 100% !important;
+     max-width: 500px;
+     height: auto !important;
+     margin-top: 20px;
+   }
+ </style>
+</head>
+<body>
 
-.tokenomics-left ul {
- list-style: none;
- padding: 0;
-}
+ <section class="tokenomics-section">
+   <div class="tokenomics-container">
 
-.tokenomics-left ul li {
- margin-bottom: 8px;
-}
+     
+     <div class="tokenomics-left">
+       <h2>Stablecoin – nové generace</h2>
+       <p>
+         Náš token USDt.z představuje stabilní řešení pro bankovní i nebankovní sektor.
+         Může být použit jako kolaterál, pro půjčky, správu likvidity a pro platební transakce
+         s vysokou rychlostí a nízkými náklady.
+       </p>
+       <p>
+         Díky stabilitě a transparentnosti je vhodný pro instituce i jednotlivce,
+         kteří hledají moderní a bezpečné řešení.
+       </p>
+     </div>
 
-.green-heading {
- margin: 20px 0 10px;
- color: #1fba9c;
-}
+     
+     <div class="tokenomics-right">
+       <h3 style="color: rgb(31,186,156);">Tokenomics</h3>
+       <canvas id="donutChart"></canvas>
+       <h3 style="color: rgb(31,186,156); margin-top: 30px;">Roadmapa</h3>
+       <canvas id="lineChart"></canvas>
+     </div>
 
-.tokenomics-right canvas {
- width: 100% !important;
- max-height: 300px;
-}
-</style> 
-  
+   </div>
+ </section>
+
+ <script>
+   // Donut graf
+   const ctxDonut = document.getElementById('donutChart').getContext('2d');
+   new Chart(ctxDonut, {
+     type: 'doughnut',
+     data: {
+       labels: ['Bankovní sektor', 'Nebankovní sektor', 'Kolaterál', 'Likvidita'],
+       datasets: [{
+         data: [40, 25, 20, 15],
+         backgroundColor: ['#1FBA9C', '#4AD9C7', '#8EE5DD', '#C6F5EF'],
+         borderWidth: 1
+       }]
+     },
+     options: {
+       responsive: true,
+       plugins: { legend: { position: 'bottom' } }
+     }
+   });
+
+   // Line graf (roadmapa se dvěma křivkami)
+   const ctxLine = document.getElementById('lineChart').getContext('2d');
+   new Chart(ctxLine, {
+     type: 'line',
+     data: {
+       labels: ['Q1', 'Q2', 'Q3', 'Q4'],
+       datasets: [
+         {
+           label: 'Plán',
+           data: [10, 30, 50, 80],
+           borderColor: '#1FBA9C',
+           borderWidth: 2,
+           fill: false,
+           tension: 0.3
+         },
+         {
+           label: 'Skutečnost',
+           data: [8, 25, 45, 70],
+           borderColor: '#4AD9C7',
+           borderWidth: 2,
+           fill: false,
+           tension: 0.3
+         }
+       ]
+     },
+     options: {
+       responsive: true,
+       plugins: { legend: { position: 'bottom' } }
+     }
+   });
+ </script>
+
+</body>
+</html>
