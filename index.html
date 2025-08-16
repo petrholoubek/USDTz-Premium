@@ -1,139 +1,146 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>USDTz-Premium Test Menu</title>
+<style>
+ #msg_body {
+   margin: 0;
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ }
+
+ /* Header a menu */
+ header {
+   background: rgb(31,186,156);
+   position: sticky;
+   top: 0;
+   z-index: 1100;
+   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+ }
+ nav {
+   max-width: 1200px;
+   margin: 0 auto;
+   padding: 1rem 2rem;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   flex-wrap: wrap;
+ }
+ .logo img {
+   height: 40px;
+   cursor: pointer;
+ }
+
+ /* Menu desktop */
+ ul.menu {
+   list-style: none;
+   display: flex;
+   gap: 1.5rem;
+   align-items: center;
+   margin: 0;
+   padding: 0;
+ }
+ ul.menu li a {
+   color: white;
+   font-weight: 600;
+   text-decoration: none;
+   display: flex;
+   align-items: center;
+   gap: 0.3rem;
+   padding: 0.3rem 0;
+ }
+ ul.menu li a:hover {
+   color: #004d40;
+ }
+ .flag {
+   width: 24px;
+   height: 16px;
+   object-fit: cover;
+   border-radius: 3px;
+   border: 1px solid white;
+ }
+
+ /* Hamburger */
+ #menu-toggle {
+   display: none;
+ }
+ label[for="menu-toggle"] {
+   display: none;
+   cursor: pointer;
+   width: 30px;
+   height: 25px;
+   flex-direction: column;
+   justify-content: space-between;
+ }
+ label[for="menu-toggle"] span {
+   display: block;
+   height: 3px;
+   background: white;
+   border-radius: 2px;
+ }
+
+ /* Mobile */
+ @media (max-width: 768px) {
+   label[for="menu-toggle"] {
+     display: flex;
+   }
+   ul.menu {
+     display: none;
+     flex-direction: column;
+     width: 100%;
+     margin-top: 1rem;
+     gap: 1rem;
+     background: rgb(31,186,156);
+     border-radius: 8px;
+     padding: 1rem 2rem;
+   }
+   ul.menu li {
+     width: 100%;
+   }
+   ul.menu li a {
+     display: block;
+     width: 100%;
+     font-size: 1.1rem;
+   }
+   #menu-toggle:checked + label + ul.menu {
+     display: flex;
+   }
+ }
+</style>
+</head>
+<body>
+
 <header>
  <nav>
-   
-   <a href="index.html" class="logo">
-     <img src="img/logo-white.png" alt="USDt.z Logo" />
+   <a href="#" class="logo">
+     <img src="img/logo-white.png" alt="USDt.z Logo">
    </a>
 
-   
-   <input type="checkbox" id="menu-toggle" />
-   <label for="menu-toggle" aria-label="Otevřít menu">
+   <input type="checkbox" id="menu-toggle">
+   <label for="menu-toggle">
      <span></span>
      <span></span>
      <span></span>
    </label>
 
-   
    <ul class="menu">
      <li><a href="pages/about.html">O tokenu</a></li>
      <li><a href="pages/usecases.html">Použití</a></li>
      <li><a href="pages/programs.html">Programy</a></li>
      <li><a href="pages/docs.html">Dokumentace</a></li>
      <li><a href="pages/contact.html">Kontakt</a></li>
-     <li>
-       <a href="index.html" title="Česky">
-         <img src="img/cz.png" alt="Česká vlajka" class="flag" />
-       </a>
-     </li>
-     <li>
-       <a href="index_en.html" title="English">
-         <img src="img/en.png" alt="Anglická vlajka" class="flag" />
-       </a>
-     </li>
+     <li><a href="index.html"><img src="img/cz.png" alt="CZ" class="flag"></a></li>
+     <li><a href="index_en.html"><img src="img/en.png" alt="EN" class="flag"></a></li>
    </ul>
  </nav>
 </header>
 
-<style>
-/* Header */
-header {
- background: rgb(31,186,156);
- box-shadow: 0 2px 5px rgba(0,0,0,0.1);
- position: sticky;
- top: 0;
- z-index: 1100;
-}
-nav {
- max-width: 1200px;
- margin: 0 auto;
- padding: 1rem 2rem;
- display: flex;
- justify-content: space-between;
- align-items: center;
- flex-wrap: wrap;
-}
 
-/* Logo a vlajky */
-.logo img {
- height: 40px;
- cursor: pointer;
-}
-img.flag {
- width: 24px;
- height: 16px;
- object-fit: cover;
- border-radius: 3px;
- border: 1px solid rgba(255,255,255,0.6);
-}
+<main>
+ <h1>Test obsahu</h1>
+ <p>Tady bude tvůj obsah stránky.</p>
+</main>
 
-/* Menu - desktop */
-ul.menu {
- list-style: none;
- display: flex;
- gap: 1.5rem;
- align-items: center;
-}
-ul.menu li a {
- color: white;
- font-weight: 600;
- font-size: 1rem;
- text-decoration: none;
- transition: color 0.3s ease;
- display: flex;
- align-items: center;
- gap: 0.3rem;
-}
-ul.menu li a:hover,
-ul.menu li a.active {
- color: #004d40;
- font-weight: 700;
-}
-
-/* Hamburger - mobile */
-#menu-toggle {
- display: none;
-}
-label[for="menu-toggle"] {
- display: none;
- cursor: pointer;
- width: 30px;
- height: 25px;
- flex-direction: column;
- justify-content: space-between;
-}
-label[for="menu-toggle"] span {
- display: block;
- height: 3px;
- background: white;
- border-radius: 2px;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
- label[for="menu-toggle"] {
-   display: flex;
- }
- ul.menu {
-   display: none;
-   flex-direction: column;
-   width: 100%;
-   margin-top: 1rem;
-   gap: 1rem;
-   background: rgb(31,186,156);
-   border-radius: 8px;
-   padding: 1rem 2rem;
- }
- ul.menu li {
-   width: 100%;
- }
- ul.menu li a {
-   display: block;
-   width: 100%;
-   font-size: 1.1rem;
-   padding: 0.5rem 0;
- }
- #menu-toggle:checked + label + ul.menu {
-   display: flex;
- }
-}
-</style>
+</body>
+</html>
