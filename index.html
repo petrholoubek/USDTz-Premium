@@ -1,99 +1,57 @@
 <header>
  <nav>
-   <div class="logo">
-     <a href="index.html">
+   <div class="nav-container">
+     <a href="index.html" class="logo">
        <img src="img/logo-white.png" alt="USDt.z Logo">
      </a>
      <button id="hamburger" aria-label="Toggle menu">&#9776;</button>
-   </div>
 
-   <ul id="nav-menu">
-     <li><a href="pages/about.html">O tokenu</a></li>
-     <li><a href="pages/usecases.html">Použití</a></li>
-     <li><a href="pages/programs.html">Programy</a></li>
-     <li><a href="pages/docs.html">Dokumentace</a></li>
-     <li><a href="pages/contact.html">Kontakt</a></li>
-     <li>
-       <a href="index.html" title="Česky">
-         <img src="img/cz.png" alt="Česky">
-       </a>
-     </li>
-     <li>
-       <a href="index_en.html" title="English">
-         <img src="img/uk.png" alt="English">
-       </a>
-     </li>
-   </ul>
+     <ul id="nav-menu">
+       <li><a href="pages/about.html">O tokenu</a></li>
+       <li><a href="pages/usecases.html">Použití</a></li>
+       <li><a href="pages/programs.html">Programy</a></li>
+       <li><a href="pages/docs.html">Dokumentace</a></li>
+       <li><a href="pages/contact.html">Kontakt</a></li>
+       <li>
+         <a href="index.html" title="Česky">
+           <img src="img/cz.png" alt="Česky">
+         </a>
+       </li>
+       <li>
+         <a href="index_en.html" title="English">
+           <img src="img/uk.png" alt="English">
+         </a>
+       </li>
+     </ul>
+   </div>
  </nav>
 </header>
 
+<link rel="stylesheet" href="css/styles.css">
+
+<script>
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('nav-menu');
+
+hamburger.addEventListener('click', () => {
+ navMenu.classList.toggle('show');
+});
+</script>
+
 <style>
-/* Základní styly pro navigaci */
-nav {
- display: flex;
- justify-content: space-between;
- align-items: center;
- flex-wrap: wrap;
- background: rgb(31,186,156);
- padding: 1rem 2rem;
- box-shadow: 0 2px 5px rgba(0,0,0,0.1);
- position: sticky;
- top: 0;
- z-index: 1000;
+/* Přidáme lokální responzivitu hamburgeru */
+#nav-menu.show {
+ display: flex !important;
 }
 
-nav .logo {
- display: flex;
- align-items: center;
- gap: 1rem;
-}
-
-nav .logo img {
- height: 40px;
-}
-
-#hamburger {
- display: none;
- font-size: 1.5rem;
- background: none;
- border: none;
- color: white;
- cursor: pointer;
-}
-
-nav ul {
- list-style: none;
- display: flex;
- gap: 1.5rem;
- align-items: center;
- margin: 0;
- padding: 0;
-}
-
-nav ul li a {
- text-decoration: none;
- color: white;
- font-weight: 600;
- display: flex;
- align-items: center;
- gap: 0.3rem;
-}
-
-nav ul li a:hover {
- color: #004d40;
-}
-
-nav ul li img {
- width: 24px;
- height: 16px;
- object-fit: cover;
- border-radius: 3px;
-}
-
-/* Responzivita pro mobil */
 @media (max-width: 768px) {
  #hamburger {
    display: block;
+   background: none;
+   border: none;
+   font-size: 2rem;
+   color: white;
+   cursor: pointer;
  }
 
  #nav-menu {
@@ -105,18 +63,5 @@ nav ul li img {
    margin-top: 1rem;
    padding: 1rem 0;
  }
-
- #nav-menu.show {
-   display: flex;
- }
 }
 </style>
-
-<script>
-const hamburger = document.getElementById('hamburger');
-const navMenu = document.getElementById('nav-menu');
-
-hamburger.addEventListener('click', () => {
- navMenu.classList.toggle('show');
-});
-</script>
