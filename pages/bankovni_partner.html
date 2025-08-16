@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>USDt.z - Domů</title>
+ <link rel="stylesheet" href="css/styles.css">
+ <style>
+   /* Hamburger menu */
+   .hamburger {
+     display: none;
+     flex-direction: column;
+     cursor: pointer;
+     gap: 5px;
+   }
+   .hamburger span {
+     height: 3px;
+     width: 25px;
+     background: white;
+     border-radius: 3px;
+   }
+
+   @media (max-width: 768px) {
+     nav ul {
+       display: none;
+       flex-direction: column;
+       gap: 0.8rem;
+       width: 100%;
+       margin-top: 0.5rem;
+     }
+     nav ul.show {
+       display: flex;
+     }
+     .hamburger {
+       display: flex;
+     }
+   }
+ </style>
+</head>
+<body>
+
+<header>
+ <nav>
+   <div class="logo">
+     <a href="index.html">
+       <img src="img/flags/logo-white.png" alt="USDt.z Logo" style="height: 40px;">
+     </a>
+   </div>
+
+   <div class="hamburger" id="hamburger">
+     <span></span>
+     <span></span>
+     <span></span>
+   </div>
+
+   <ul id="nav-links">
+     <li><a href="pages/about.html">O tokenu</a></li>
+     <li><a href="pages/usecases.html">Použití</a></li>
+     <li><a href="pages/programs.html">Programy</a></li>
+     <li><a href="pages/docs.html">Dokumentace</a></li>
+     <li><a href="pages/contact.html">Kontakt</a></li>
+     <li>
+       <a href="index.html" title="Česky">
+         <img src="img/flags/cz.png" alt="Česky" class="flag" style="width:24px; height:16px;">
+       </a>
+     </li>
+     <li>
+       <a href="index_en.html" title="English">
+         <img src="img/flags/en.png" alt="English" class="flag" style="width:24px; height:16px;">
+       </a>
+     </li>
+   </ul>
+ </nav>
+</header>
+
+<script>
+ const hamburger = document.getElementById('hamburger');
+ const navLinks = document.getElementById('nav-links');
+
+ hamburger.addEventListener('click', () => {
+   navLinks.classList.toggle('show');
+ });
+</script>
+
+</body>
+</html>
+
+<section id="hero" style="
+    position: relative;
+    width: 100%;
+    height: 400px;
+    background: url('/USDTz-Premium/img/flags/logo.png') no-repeat center center;
+    background-size: 200px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    margin-bottom: 50px;
+">
+    <div style="
+        background: rgba(0,0,0,0.5);
+        padding: 20px 40px;
+        border-radius: 12px;
+    ">
+        <h1 style="font-size: 3rem; margin: 0; color: rgb(31,186,156);">Vítejte na stránce</h1>
+        <p style="font-size: 1.2rem; margin-top: 10px; color: #fff;">
+            Prozkoumejte svět USDt.z – stabilního a bezpečného tokenu pro moderní finance.
+        </p>
+    </div>
+</section>
