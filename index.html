@@ -1,7 +1,7 @@
 <header>
  <nav>
    <a href="index.html" class="logo" aria-label="Přejít na domovskou stránku">
-     <img src="img/logo-white.png" alt="USDt.z Logo" />
+     <img src="img/flags/logo-white.png" alt="USDt.z Logo" />
    </a>
 
    <input type="checkbox" id="menu-toggle" />
@@ -33,6 +33,7 @@
 </header>
 
 <style>
+/* Základní styly menu */
 header {
  background: rgb(31,186,156);
  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -54,13 +55,13 @@ nav {
  cursor: pointer;
  filter: drop-shadow(0 0 5px rgba(0,0,0,0.15));
 }
+
+/* Menu - desktop */
 ul.menu {
  list-style: none;
  display: flex;
  gap: 1.5rem;
  align-items: center;
- margin: 0;
- padding: 0;
 }
 ul.menu li a {
  color: white;
@@ -84,6 +85,8 @@ img.flag {
  border-radius: 3px;
  border: 1px solid rgba(255,255,255,0.6);
 }
+
+/* Hamburger button - mobile */
 #menu-toggle {
  display: none;
 }
@@ -101,7 +104,8 @@ label[for="menu-toggle"] span {
  background: white;
  border-radius: 2px;
 }
-/* Responsive */
+
+/* Responsive styles */
 @media (max-width: 768px) {
  label[for="menu-toggle"] {
    display: flex;
