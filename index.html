@@ -1,96 +1,100 @@
 <header>
- <nav>
-   <a href="/USDTz-Premium/index.html" class="logo">
-     <img src="/USDTz-Premium/img/flags/logo-white.png" alt="USDt.z Logo">
+ <nav class="navbar">
+   
+   <a href="#" class="logo">
+     <img src="img/logo-white.png" alt="Logo">
    </a>
 
    
    <input type="checkbox" id="menu-toggle">
-   <label for="menu-toggle" class="hamburger">
-     <span></span>
-     <span></span>
-     <span></span>
-   </label>
+   <label for="menu-toggle" class="menu-icon">☰</label>
 
    
    <ul class="menu">
-     <li><a href="/USDTz-Premium/pages/about.html">O tokenu</a></li>
-     <li><a href="/USDTz-Premium/pages/usecases.html">Použití</a></li>
-     <li><a href="/USDTz-Premium/pages/programs.html">Programy</a></li>
-     <li><a href="/USDTz-Premium/pages/docs.html">Dokumentace</a></li>
-     <li><a href="/USDTz-Premium/pages/contact.html">Kontakt</a></li>
-     <li><a href="/USDTz-Premium/index.html"><img src="/USDTz-Premium/img/flags/cz.png" alt="CZ" class="flag"></a></li>
-     <li><a href="/USDTz-Premium/index_en.html"><img src="/USDTz-Premium/img/flags/en.png" alt="EN" class="flag"></a></li>
+     <li><a href="#">Domů</a></li>
+     <li><a href="#">O nás</a></li>
+     <li><a href="#">Token</a></li>
+     <li><a href="#">Kontakt</a></li>
+     <li class="flags">
+       <a href="#"><img src="img/flags/cz.png" alt="CZ"></a>
+       <a href="#"><img src="img/flags/gb.png" alt="EN"></a>
+     </li>
    </ul>
  </nav>
 </header>
 
 <style>
-/* základní layout */
-header {
- background: rgb(31,186,156);
- position: sticky;
- top: 0;
- z-index: 1000;
-}
-nav {
+/* Navbar základ */
+.navbar {
  display: flex;
- align-items: center;
  justify-content: space-between;
- padding: 1rem 2rem;
+ align-items: center;
+ background: rgb(31,186,156);
+ padding: 0.5rem 1rem;
 }
+
 .logo img {
  height: 40px;
 }
 
-/* menu desktop */
+/* Menu standard */
 .menu {
  display: flex;
- gap: 1.5rem;
  list-style: none;
-}
-.menu li a {
- color: #fff;
- text-decoration: none;
- font-weight: 600;
-}
-.flag {
- width: 24px;
- height: 16px;
+ margin: 0;
+ padding: 0;
 }
 
-/* hamburger button */
+.menu li {
+ margin-left: 20px;
+}
+
+.menu li a {
+ color: white;
+ text-decoration: none;
+ font-weight: 500;
+}
+
+.flags img {
+ height: 20px;
+ margin-left: 10px;
+}
+
+/* Hamburger button */
+.menu-icon {
+ display: none;
+ font-size: 28px;
+ cursor: pointer;
+ color: white;
+}
+
+/* Skrytý checkbox */
 #menu-toggle {
  display: none;
 }
-.hamburger {
- display: none;
- flex-direction: column;
- justify-content: space-between;
- width: 25px;
- height: 18px;
- cursor: pointer;
-}
-.hamburger span {
- height: 3px;
- background: #fff;
- border-radius: 2px;
-}
 
-/* mobilní verze */
+/* Mobilní verze */
 @media (max-width: 768px) {
- .hamburger {
-   display: flex;
- }
  .menu {
    display: none;
    flex-direction: column;
    width: 100%;
-   margin-top: 1rem;
    background: rgb(31,186,156);
-   padding: 1rem;
-   border-radius: 8px;
+   position: absolute;
+   top: 60px;
+   left: 0;
+   padding: 1rem 0;
  }
+
+ .menu li {
+   margin: 10px 0;
+   text-align: center;
+ }
+
+ .menu-icon {
+   display: block;
+ }
+
  #menu-toggle:checked ~ .menu {
    display: flex;
  }
