@@ -17,6 +17,7 @@
      <li role="none"><a href="pages/programs.html" role="menuitem">Programy</a></li>
      <li role="none"><a href="pages/docs.html" role="menuitem">Dokumentace</a></li>
      <li role="none"><a href="pages/contact.html" role="menuitem">Kontakt</a></li>
+
      <li role="none">
        <a href="index.html" title="Česky" role="menuitem" aria-label="Česká verze">
          <img src="img/flags/cz.png" alt="Česká vlajka" class="flag" />
@@ -32,7 +33,6 @@
 </header>
 
 <style>
-/* Základní styly menu */
 header {
  background: rgb(31,186,156);
  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -52,20 +52,22 @@ nav {
 .logo img {
  height: 40px;
  cursor: pointer;
+ filter: drop-shadow(0 0 5px rgba(0,0,0,0.15));
 }
-
-/* Menu - desktop */
 ul.menu {
  list-style: none;
  display: flex;
  gap: 1.5rem;
  align-items: center;
+ margin: 0;
+ padding: 0;
 }
 ul.menu li a {
  color: white;
  font-weight: 600;
  font-size: 1rem;
  text-decoration: none;
+ transition: color 0.3s ease;
  display: flex;
  align-items: center;
  gap: 0.3rem;
@@ -82,8 +84,6 @@ img.flag {
  border-radius: 3px;
  border: 1px solid rgba(255,255,255,0.6);
 }
-
-/* Hamburger button - mobile */
 #menu-toggle {
  display: none;
 }
@@ -101,8 +101,7 @@ label[for="menu-toggle"] span {
  background: white;
  border-radius: 2px;
 }
-
-/* Responsive styles */
+/* Responsive */
 @media (max-width: 768px) {
  label[for="menu-toggle"] {
    display: flex;
