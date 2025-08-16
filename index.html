@@ -135,20 +135,15 @@ label[for="menu-toggle"] span {
 }
 </style>
 <input type="checkbox" id="menu-toggle" />
-<label for="menu-toggle" class="menu-icon" aria-label="Otevřít menu">
+<label for="menu-toggle" class="menu-hamburger" aria-label="Otevřít menu">
  <span></span>
  <span></span>
  <span></span>
 </label>
 
 <style>
-/* Skryje checkbox */
-#menu-toggle {
- display: none;
-}
-
-/* Hamburger tlačítko */
-.menu-icon {
+/* Základní styl pro hamburger */
+.menu-hamburger {
  display: none;
  cursor: pointer;
  width: 30px;
@@ -156,47 +151,47 @@ label[for="menu-toggle"] span {
  flex-direction: column;
  justify-content: space-between;
 }
-.menu-icon span {
+.menu-hamburger span {
  display: block;
  height: 3px;
  background: white;
  border-radius: 2px;
 }
 
-/* Menu pro mobil - výchozí skryté */
-ul.menu {
- display: flex;
- gap: 1.5rem;
- align-items: center;
-}
+/* Mobilní zobrazení */
 @media (max-width: 768px) {
- .menu-icon {
+ .menu-hamburger {
    display: flex;
  }
- ul.menu {
+
+ nav ul.menu {
    display: none;
    flex-direction: column;
    width: 100%;
-   margin-top: 1rem;
-   gap: 1rem;
    background: rgb(31,186,156);
    border-radius: 8px;
    padding: 1rem 2rem;
+   margin-top: 0.5rem;
+   gap: 1rem;
  }
- ul.menu li a {
+
+ nav ul.menu li a {
    display: block;
    width: 100%;
    font-size: 1.1rem;
    padding: 0.5rem 0;
  }
- /* Zobrazí menu po kliknutí na hamburger */
- #menu-toggle:checked + label + ul.menu {
+
+ #menu-toggle:checked + .menu-hamburger + ul.menu {
    display: flex;
  }
 }
 
-/* Vlajky */
-img.flag {
+/* Volitelné: úprava vlajek a loga */
+nav .logo img {
+ height: 40px;
+}
+nav img.flag {
  width: 24px;
  height: 16px;
  object-fit: cover;
