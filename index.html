@@ -1,11 +1,9 @@
 <header>
  <nav>
-   
-   <a href="index.html" class="logo" aria-label="Přejít na domovskou stránku">
-     <img src="img/logo-white.png" alt="USDt.z Logo" />
+   <a href="/USDTz-Premium/index.html" class="logo" aria-label="Přejít na domovskou stránku">
+     <img src="/USDTz-Premium/img/flags/logo-white.png" alt="USDt.z Logo" />
    </a>
 
-   
    <input type="checkbox" id="menu-toggle" />
    <label for="menu-toggle" aria-label="Otevřít menu">
      <span></span>
@@ -13,23 +11,21 @@
      <span></span>
    </label>
 
-   
    <ul class="menu" role="menubar" aria-label="Hlavní navigace">
-     <li role="none"><a href="pages/about.html" role="menuitem">O tokenu</a></li>
-     <li role="none"><a href="pages/usecases.html" role="menuitem">Použití</a></li>
-     <li role="none"><a href="pages/programs.html" role="menuitem">Programy</a></li>
-     <li role="none"><a href="pages/docs.html" role="menuitem">Dokumentace</a></li>
-     <li role="none"><a href="pages/contact.html" role="menuitem">Kontakt</a></li>
+     <li role="none"><a href="/USDTz-Premium/pages/about.html" role="menuitem">O tokenu</a></li>
+     <li role="none"><a href="/USDTz-Premium/pages/usecases.html" role="menuitem">Použití</a></li>
+     <li role="none"><a href="/USDTz-Premium/pages/programs.html" role="menuitem">Programy</a></li>
+     <li role="none"><a href="/USDTz-Premium/pages/docs.html" role="menuitem">Dokumentace</a></li>
+     <li role="none"><a href="/USDTz-Premium/pages/contact.html" role="menuitem">Kontakt</a></li>
 
-     
      <li role="none">
-       <a href="index.html" title="Česky" role="menuitem" aria-label="Česká verze">
-         <img src="img/cz.png" alt="Česká vlajka" class="flag" />
+       <a href="/USDTz-Premium/index.html" title="Česky" role="menuitem" aria-label="Česká verze">
+         <img src="/USDTz-Premium/img/flags/cz.png" alt="Česká vlajka" class="flag" />
        </a>
      </li>
      <li role="none">
-       <a href="index_en.html" title="English" role="menuitem" aria-label="Anglická verze">
-         <img src="img/en.png" alt="Anglická vlajka" class="flag" />
+       <a href="/USDTz-Premium/index_en.html" title="English" role="menuitem" aria-label="Anglická verze">
+         <img src="/USDTz-Premium/img/flags/en.png" alt="Anglická vlajka" class="flag" />
        </a>
      </li>
    </ul>
@@ -66,8 +62,6 @@ ul.menu {
  display: flex;
  gap: 1.5rem;
  align-items: center;
- margin: 0;
- padding: 0;
 }
 ul.menu li a {
  color: white;
@@ -140,3 +134,19 @@ label[for="menu-toggle"] span {
  }
 }
 </style>
+<script>
+ document.addEventListener('DOMContentLoaded', function() {
+   const toggle = document.getElementById('menu-toggle');
+   const menu = document.querySelector('ul.menu');
+
+   if(toggle && menu){
+     toggle.addEventListener('change', function() {
+       if(this.checked){
+         menu.style.display = 'flex';
+       } else {
+         menu.style.display = 'none';
+       }
+     });
+   }
+ });
+</script>
