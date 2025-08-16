@@ -1,9 +1,10 @@
 <header>
  <nav>
    <a href="/USDTz-Premium/index.html" class="logo" aria-label="Přejít na domovskou stránku">
-     <img src="/USDTz-Premium/logo-white.png" alt="USDt.z Logo" />
+     <img src="/USDTz-Premium/img/logo-white.png" alt="USDt.z Logo" />
    </a>
 
+   
    <input type="checkbox" id="menu-toggle" />
    <label for="menu-toggle" aria-label="Otevřít menu">
      <span></span>
@@ -11,29 +12,19 @@
      <span></span>
    </label>
 
+   
    <ul class="menu" role="menubar" aria-label="Hlavní navigace">
      <li role="none"><a href="/USDTz-Premium/pages/about.html" role="menuitem">O tokenu</a></li>
      <li role="none"><a href="/USDTz-Premium/pages/usecases.html" role="menuitem">Použití</a></li>
      <li role="none"><a href="/USDTz-Premium/pages/programs.html" role="menuitem">Programy</a></li>
      <li role="none"><a href="/USDTz-Premium/pages/docs.html" role="menuitem">Dokumentace</a></li>
      <li role="none"><a href="/USDTz-Premium/pages/contact.html" role="menuitem">Kontakt</a></li>
-
-     <li role="none">
-       <a href="/USDTz-Premium/index.html" title="Česky" role="menuitem" aria-label="Česká verze">
-         <img src="/USDTz-Premium/img/flags/cz.png" alt="Česká vlajka" class="flag" />
-       </a>
-     </li>
-     <li role="none">
-       <a href="/USDTz-Premium/index_en.html" title="English" role="menuitem" aria-label="Anglická verze">
-         <img src="/USDTz-Premium/img/flags/en.png" alt="Anglická vlajka" class="flag" />
-       </a>
-     </li>
    </ul>
  </nav>
 </header>
 
 <style>
-/* Základní styly menu */
+/* Základní styly header */
 header {
  background: rgb(31,186,156);
  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -71,19 +62,11 @@ ul.menu li a {
  transition: color 0.3s ease;
  display: flex;
  align-items: center;
- gap: 0.3rem;
 }
 ul.menu li a:hover,
 ul.menu li a.active {
  color: #004d40;
  font-weight: 700;
-}
-img.flag {
- width: 24px;
- height: 16px;
- object-fit: cover;
- border-radius: 3px;
- border: 1px solid rgba(255,255,255,0.6);
 }
 
 /* Hamburger button - mobile */
@@ -129,6 +112,7 @@ label[for="menu-toggle"] span {
    font-size: 1.1rem;
    padding: 0.5rem 0;
  }
+ /* Zajištění, že se menu zobrazí po kliknutí */
  #menu-toggle:checked + label + ul.menu {
    display: flex;
  }
