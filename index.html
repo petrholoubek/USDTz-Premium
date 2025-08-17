@@ -473,17 +473,17 @@ document.getElementById('convertBtn').addEventListener('click',()=>{
  <div class="right-side">
    <a href="https://bscscan.com/token/0x913ef7244bEd019b95Ec5321408eE4CE83E25c01"
       target="_blank" rel="noopener noreferrer"
-      class="btn-bsc" aria-label="Token na BscScan">
+      class="btn-bsc">
       BscScan
    </a>
    <a href="https://www.geckoterminal.com/bsc/pools/0x553b402b3d6f91ea2208c7df61a6d4aa96ccb6191787c20fedb7ae6c9823b280"
       target="_blank" rel="noopener noreferrer"
-      class="btn-gecko" aria-label="Token na GeckoTerminal">
+      class="btn-gecko">
       GeckoTerminal
    </a>
    <a href="/USDTz-Premium/docs/USDTz_Whitepaper_CZ.pdf"
       target="_blank" rel="noopener noreferrer"
-      class="btn-pdf" aria-label="Whitepaper PDF">
+      class="btn-pdf">
       Whitepaper PDF
    </a>
  </div>
@@ -499,8 +499,8 @@ document.getElementById('convertBtn').addEventListener('click',()=>{
  box-shadow: 0 0 12px rgb(31 186 156 / 0.15);
  padding: 1rem 2rem;
  display: flex;
- align-items: center;
  justify-content: space-between;
+ align-items: center;
  gap: 1.5rem;
  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -538,32 +538,18 @@ document.getElementById('convertBtn').addEventListener('click',()=>{
  white-space: nowrap;
 }
 
-#bottom-box .btn-bsc {
- background-color: #f0b90b;
-}
-#bottom-box .btn-bsc:hover {
- background-color: #d9a200;
-}
+#bottom-box .btn-bsc { background-color: #f0b90b; }
+#bottom-box .btn-bsc:hover { background-color: #d9a200; }
 
-#bottom-box .btn-gecko {
- background-color: #1e88e5;
-}
-#bottom-box .btn-gecko:hover {
- background-color: #1669bb;
-}
+#bottom-box .btn-gecko { background-color: #1e88e5; }
+#bottom-box .btn-gecko:hover { background-color: #1669bb; }
 
-#bottom-box .btn-pdf {
- background-color: #28a745;
-}
-#bottom-box .btn-pdf:hover {
- background-color: #1e7e34;
-}
+#bottom-box .btn-pdf { background-color: #28a745; }
+#bottom-box .btn-pdf:hover { background-color: #1e7e34; }
 
-/* Responzivita pro mobil */
 @media (max-width: 768px) {
  #bottom-box {
    flex-direction: column;
-   gap: 1rem;
    text-align: center;
  }
  #bottom-box .left-side, #bottom-box .right-side {
