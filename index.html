@@ -351,90 +351,85 @@ document.getElementById('convertBtn').addEventListener('click',()=>{
      </ul>
    </div>
 
-<section class="tokenomics-section" style="width:100%; display:flex; justify-content:center; margin:60px 0; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
- <div class="tokenomics-container" style="display:flex; max-width:1200px; width:100%; gap:40px; margin:0 auto;">
-   
-   
-   <div class="tokenomics-left" style="flex:1 1 0; min-width:0; background:#f9f9f9; border-radius:12px; padding:20px; box-shadow:0 2px 8px rgba(0,0,0,0.08);">
-     <h2 style="color: rgb(31,186,156); text-align:center; margin-bottom:20px;">Stablecoin – nové generace</h2>
-     <p><strong>Využití tokenu USDt.z:</strong></p>
-     <ul>
-       <li>Bankovní sektor: zajištění kolaterálu, půjčky, transparentní sledování transakcí</li>
-       <li>Nebankovní sektor: fintech platby, obchodní partnerství, likvidita</li>
-       <li>Dlouhodobá stabilita a bezpečnost</li>
-     </ul>
-     <p>Důraz na transparentnost, snadnou integraci a praktickou použitelnost ve všech segmentech.</p>
-   </div>
+<section style="
+   max-width: 1200px;
+   margin: 2rem auto;
+   padding: 1.5rem;
+   display: flex;
+   gap: 20px;
+   flex-wrap: wrap;
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+">
 
-   
-   <div class="tokenomics-right" style="flex:1 1 0; min-width:0; background:#f9f9f9; border-radius:12px; padding:20px; box-shadow:0 2px 8px rgba(0,0,0,0.08);">
-     <h2 style="color: rgb(31,186,156); text-align:center; margin-bottom:20px;">Analytika a roadmapa</h2>
-     
-     
-     <canvas id="donutChart" style="width:100%; height:250px; margin-bottom:30px;"></canvas>
-
-     
-     <canvas id="lineChart" style="width:100%; height:250px;"></canvas>
-   </div>
-
+ 
+ <div style="flex:1 1 580px; min-width:300px; background:#f9f9f9; border-radius:12px; padding:20px; box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+   <h2 style="color: rgb(31,186,156); text-align:center; margin-bottom:20px;">Stablecoin – nové generace</h2>
+   <p style="margin-bottom:15px;">Token USDt.z přináší revoluční řešení pro bankovní i nebankovní sektor. Poskytuje bezpečný a transparentní způsob správy aktiv a transakcí, přičemž umožňuje využití tokenu jako kolaterálu, zajištění likvidity a podporu inovativních fintech řešení.</p>
+   <p style="margin-bottom:15px;">Bankovní instituce mohou token využít k optimalizaci úvěrových produktů a správy kapitálu, zatímco nebankovní subjekty získávají možnost rychlých a bezpečných plateb, snadné tokenizace aktiv a přímého propojení s burzami a investory.</p>
+   <p>Token USDt.z je stabilní, zabezpečený a navržený pro dlouhodobou udržitelnost, přičemž jeho využití je plně flexibilní pro různé scénáře v ekosystému moderního financování.</p>
  </div>
+
+ 
+ <div style="flex:1 1 580px; min-width:300px; background:#f9f9f9; border-radius:12px; padding:20px; box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+
+   <h2 style="color: rgb(31,186,156); text-align:center; margin-bottom:20px;">Tokenomics</h2>
+   <canvas id="donutChart" style="width:100%; height:250px; margin-bottom:30px;"></canvas>
+
+   <h2 style="color: rgb(31,186,156); text-align:center; margin-bottom:20px;">Roadmapa</h2>
+   <canvas id="lineChart" style="width:100%; height:250px;"></canvas>
+ </div>
+
 </section>
 
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
- // Donut graf - rozložení tokenů
- const ctxDonut = document.getElementById('donutChart').getContext('2d');
- const donutChart = new Chart(ctxDonut, {
-   type: 'doughnut',
-   data: {
-     labels: ['Bankovní sektor', 'Nebankovní sektor', 'Rezerva', 'Marketing'],
-     datasets: [{
-       data: [40, 30, 20, 10],
-       backgroundColor: ['#1fba9c', '#28c76f', '#ff9f43', '#ea5455']
-     }]
-   },
-   options: {
-     responsive: true,
-     plugins: {
-       legend: { position: 'bottom' }
+ // Donut graf Tokenomics
+ const donutCtx = document.getElementById('donutChart').getContext('2d');
+ const donutChart = new Chart(donutCtx, {
+     type: 'doughnut',
+     data: {
+         labels: ['Likvidita', 'Rezervy', 'Vývoj', 'Marketing'],
+         datasets: [{
+             data: [40, 25, 20, 15],
+             backgroundColor: ['#1fba9c','#2ecc71','#f39c12','#e74c3c']
+         }]
+     },
+     options: {
+         responsive: true,
+         plugins: { legend: { position: 'bottom' } }
      }
-   }
  });
 
- // Křivkový graf roadmapy
- const ctxLine = document.getElementById('lineChart').getContext('2d');
- const lineChart = new Chart(ctxLine, {
-   type: 'line',
-   data: {
-     labels: ['Q1', 'Q2', 'Q3', 'Q4'],
-     datasets: [
-       {
-         label: 'Vývoj produktu',
-         data: [10, 30, 50, 70],
-         borderColor: '#1fba9c',
-         backgroundColor: 'rgba(31,186,156,0.1)',
-         fill: true,
-         tension: 0.4
-       },
-       {
-         label: 'Partnerské projekty',
-         data: [5, 20, 40, 60],
-         borderColor: '#28c76f',
-         backgroundColor: 'rgba(40,199,111,0.1)',
-         fill: true,
-         tension: 0.4
-       }
-     ]
-   },
-   options: {
-     responsive: true,
-     plugins: {
-       legend: { position: 'bottom' }
+ // Křivkový graf Roadmapa
+ const lineCtx = document.getElementById('lineChart').getContext('2d');
+ const lineChart = new Chart(lineCtx, {
+     type: 'line',
+     data: {
+         labels: ['Q1', 'Q2', 'Q3', 'Q4'],
+         datasets: [
+             {
+                 label: 'Fáze 1',
+                 data: [10, 30, 50, 70],
+                 borderColor: '#1fba9c',
+                 backgroundColor: 'rgba(31,186,156,0.1)',
+                 tension: 0.4
+             },
+             {
+                 label: 'Fáze 2',
+                 data: [5, 20, 40, 60],
+                 borderColor: '#2ecc71',
+                 backgroundColor: 'rgba(46,204,113,0.1)',
+                 tension: 0.4
+             }
+         ]
      },
-     scales: {
-       y: { beginAtZero: true }
+     options: {
+         responsive: true,
+         plugins: { legend: { position: 'bottom' } },
+         scales: {
+             y: { beginAtZero: true }
+         }
      }
-   }
  });
 </script>
