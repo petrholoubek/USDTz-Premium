@@ -460,30 +460,31 @@ document.getElementById('convertBtn').addEventListener('click',()=>{
 
 </section>
 
-<section id="bottom-box" aria-label="Prozkoumej token USDt.z">
+<section id="bottom-box" aria-label="Explore USDt.z Token">
  <div class="left-side">
    <div class="logo">
      <img src="/USDTz-Premium/img/flags/logo.png" alt="USDt.z Logo" />
    </div>
    <div class="text">
-     Prozkoumejte token USDt.z na těchto platformách:
+     Explore the USDt.z token and download our whitepaper:
    </div>
  </div>
+
  <div class="right-side">
    <div class="btn-group">
      <a href="https://bscscan.com/token/0x913ef7244bEd019b95Ec5321408eE4CE83E25c01"
         target="_blank" rel="noopener noreferrer"
-        class="btn-bsc" aria-label="Token na BscScan">
+        class="btn-bsc" aria-label="Token on BscScan">
         BscScan
      </a>
      <a href="https://www.geckoterminal.com/bsc/pools/0x553b402b3d6f91ea2208c7df61a6d4aa96ccb6191787c20fedb7ae6c9823b280"
         target="_blank" rel="noopener noreferrer"
-        class="btn-gecko" aria-label="Token na GeckoTerminal">
+        class="btn-gecko" aria-label="Token on GeckoTerminal">
         GeckoTerminal
      </a>
-     <a href="https://github.com/petrholoubek/USDTz-Premium/blob/main/docs/USDTz_Whitepaper_CS.pdf"
+     <a href="/docs/USDTz_Whitepaper_CS.pdf"
         target="_blank" rel="noopener noreferrer"
-        class="btn-pdf" aria-label="Otevřít Whitepaper PDF">
+        class="btn-pdf" aria-label="Open Whitepaper PDF">
         Whitepaper PDF
      </a>
    </div>
@@ -513,6 +514,7 @@ document.getElementById('convertBtn').addEventListener('click',()=>{
 
 #bottom-box .logo img {
  height: 40px;
+ flex-shrink: 0;
 }
 
 #bottom-box .text {
@@ -553,10 +555,10 @@ document.getElementById('convertBtn').addEventListener('click',()=>{
 }
 
 #bottom-box .btn-pdf {
- background-color: #28a745;
+ background-color: #4caf50;
 }
 #bottom-box .btn-pdf:hover {
- background-color: #1e7e34;
+ background-color: #388e3c;
 }
 
 /* Responzivita pro mobil */
@@ -566,9 +568,12 @@ document.getElementById('convertBtn').addEventListener('click',()=>{
    gap: 1rem;
    text-align: center;
  }
- #bottom-box .btn-group {
+ #bottom-box .right-side .btn-group {
    justify-content: center;
    width: 100%;
+ }
+ #bottom-box .left-side {
+   justify-content: center;
  }
 }
 </style>
