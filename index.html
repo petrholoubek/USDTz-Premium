@@ -346,19 +346,21 @@ document.getElementById('convertBtn').addEventListener('click',()=>{
 ">
 
  
- <div style="flex:1 1 580px; background:#f9f9f9; border-radius:12px; padding:20px; box-shadow:0 2px 8px rgba(0,0,0,0.08);">
-   <h2 style="color: rgb(31,186,156); margin-bottom:20px;">Stablecoin - nové generace</h2>
+ <div style="flex:1; background:#f9f9f9; border-radius:12px; padding:20px; box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+   <h2 style="color: rgb(31,186,156); text-align:center; margin-bottom:20px;">Stablecoin - nové generace</h2>
    <h3 style="color: rgb(31,186,156); margin-bottom:10px;">Využití tokenu</h3>
-   <p>Token může být použit v bankovním i nebankovním sektoru jako kolaterál pro půjčky a rychlé transakce.</p>
-   <p>Blockchain technologie zajišťuje transparentnost, bezpečnost a okamžité vyrovnání transakcí.</p>
-   <p>Podpora smart kontraktů umožňuje automatizované finanční operace a integraci s dalšími platformami.</p>
+   <p><strong>Bankovní sektor:</strong> kolaterál, půjčky, bezpečnost, stabilita, rychlé blockchainové převody.</p>
+   <p><strong>Nebankovní sektor:</strong> platby, převody, praktické využití, jednoduchá integrace.</p>
+   <p><strong>Další aspekty:</strong> transparentnost, nadčasovost, snadná správa a sledovatelnost transakcí.</p>
  </div>
 
  
- <div style="flex:1 1 580px; background:#f9f9f9; border-radius:12px; padding:20px; box-shadow:0 2px 8px rgba(0,0,0,0.08);">
-   <h2 style="color: rgb(31,186,156); text-align:center; margin-bottom:20px;">Tokenomics & Roadmapa</h2>
+ <div style="flex:1; background:#f9f9f9; border-radius:12px; padding:20px; box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+   <h2 style="color: rgb(31,186,156); text-align:center; margin-bottom:20px;">Tokenomics a Roadmapa</h2>
+
    
    <canvas id="donutChart" style="width:100%; height:200px; margin-bottom:30px;"></canvas>
+
    
    <canvas id="lineChart" style="width:100%; height:200px;"></canvas>
  </div>
@@ -367,35 +369,52 @@ document.getElementById('convertBtn').addEventListener('click',()=>{
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
- // Donut graf (Tokenomics)
- const ctxDonut = document.getElementById('donutChart').getContext('2d');
- const donutChart = new Chart(ctxDonut, {
+ // Donut graf
+ const donutCtx = document.getElementById('donutChart').getContext('2d');
+ const donutChart = new Chart(donutCtx, {
      type: 'doughnut',
      data: {
-         labels: ['Banky', 'Nebankovní', 'Rezerva'],
+         labels: ['Bankovní sektor', 'Nebankovní sektor', 'Rezerva'],
          datasets: [{
-             data: [40, 35, 25],
-             backgroundColor: ['#1fba9c','#1fba9c','#1fba9c'],
+             data: [40, 40, 20],
+             backgroundColor: ['#1fba9c', '#2ca8ff', '#f7b801']
          }]
      },
-     options: { responsive: true, plugins: { legend: { position: 'bottom' } } }
+     options: {
+         responsive: true,
+         plugins: { legend: { position: 'bottom' } }
+     }
  });
 
  // Křivkový graf roadmapa
- const ctxLine = document.getElementById('lineChart').getContext('2d');
- const lineChart = new Chart(ctxLine, {
+ const lineCtx = document.getElementById('lineChart').getContext('2d');
+ const lineChart = new Chart(lineCtx, {
      type: 'line',
      data: {
          labels: ['Q1', 'Q2', 'Q3', 'Q4'],
          datasets: [
-           { label: 'Milník A', data: [10, 30, 50, 70], borderColor: '#1fba9c', fill:false },
-           { label: 'Milník B', data: [5, 20, 40, 60], borderColor: '#2ca3b9', fill:false }
+             {
+                 label: 'Plán vývoje',
+                 data: [10, 30, 50, 80],
+                 borderColor: '#1fba9c',
+                 backgroundColor: 'rgba(31,186,156,0.2)',
+                 tension: 0.3
+             },
+             {
+                 label: 'Skutečný pokrok',
+                 data: [5, 25, 45, 70],
+                 borderColor: '#2ca8ff',
+                 backgroundColor: 'rgba(44,168,255,0.2)',
+                 tension: 0.3
+             }
          ]
      },
      options: {
          responsive: true,
          plugins: { legend: { position: 'bottom' } },
-         scales: { y: { beginAtZero: true } }
+         scales: {
+             y: { beginAtZero: true }
+         }
      }
  });
 </script>
