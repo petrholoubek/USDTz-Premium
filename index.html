@@ -461,7 +461,7 @@ document.getElementById('convertBtn').addEventListener('click',()=>{
 </section>
 
 <section id="bottom-box" aria-label="Explore USDt.z token">
- <div class="left-column">
+ <div class="column left-column">
    <div class="logo">
      <img src="/USDTz-Premium/img/flags/logo.png" alt="USDt.z Logo" />
    </div>
@@ -469,19 +469,16 @@ document.getElementById('convertBtn').addEventListener('click',()=>{
    <p>Objevte možnosti tokenu USDt.z a jeho využití v různých sektorech.</p>
  </div>
 
- <div class="right-column">
+ <div class="column right-column">
    <div class="btn-group">
-     <a href="https://bscscan.com/token/0x913ef7244bEd019b95Ec5321408eE4CE83E25c01"
-        target="_blank" rel="noopener noreferrer" class="btn-bsc" aria-label="Token na BscScan">
-        BscScan
+     <a href="https://bscscan.com/token/0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" target="_blank" rel="noopener noreferrer" class="btn-bsc">
+       BscScan
      </a>
-     <a href="https://www.geckoterminal.com/bsc/pools/0x553b402b3d6f91ea2208c7df61a6d4aa96ccb6191787c20fedb7ae6c9823b280"
-        target="_blank" rel="noopener noreferrer" class="btn-gecko" aria-label="Token na GeckoTerminal">
-        GeckoTerminal
+     <a href="https://www.geckoterminal.com/bsc/pools/0x553b402b3d6f91ea2208c7df61a6d4aa96ccb6191787c20fedb7ae6c9823b280" target="_blank" rel="noopener noreferrer" class="btn-gecko">
+       GeckoTerminal
      </a>
-     <a href="/USDTz-Premium/docs/USDTz_Whitepaper_CZ.pdf"
-        target="_blank" class="btn-pdf" aria-label="PDF Whitepaper">
-        PDF Whitepaper
+     <a href="/USDTz-Premium/docs/USDTz_Whitepaper_CZ.pdf" target="_blank" class="btn-pdf">
+       PDF Whitepaper
      </a>
    </div>
  </div>
@@ -491,59 +488,40 @@ document.getElementById('convertBtn').addEventListener('click',()=>{
 #bottom-box {
  max-width: 1200px;
  margin: 2rem auto;
+ display: flex;
+ justify-content: space-between;
+ align-items: flex-start;
+ gap: 2rem;
+ padding: 2rem;
  background: #fff;
  border: 1px solid #ddd;
  border-radius: 10px;
- box-shadow: 0 0 12px rgb(31 186 156 / 0.15);
- display: flex;
- justify-content: space-between;
- align-items: center;
- padding: 2rem;
- gap: 2rem;
+ box-shadow: 0 0 12px rgba(31, 186, 156, 0.15);
  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.left-column {
- flex: 0 0 60%;
-}
-
-.left-column .logo img {
- height: 50px;
- margin-bottom: 1rem;
-}
-
-.left-column h2 {
- font-size: 1.5rem;
- margin-bottom: 0.5rem;
- color: rgb(31,186,156);
-}
-
-.left-column p {
- font-size: 1rem;
- color: #333;
-}
-
-.right-column {
- flex: 0 0 40%;
+.column {
  display: flex;
- justify-content: flex-end;
- align-items: center;
+ flex-direction: column;
 }
 
-.btn-group {
- display: flex;
- gap: 1rem;
-}
+.left-column { flex: 0 0 60%; }
+.right-column { flex: 0 0 40%; display: flex; justify-content: flex-end; }
+
+.left-column .logo img { height: 50px; margin-bottom: 1rem; }
+.left-column h2 { font-size: 1.5rem; margin-bottom: 0.5rem; color: rgb(31,186,156); }
+.left-column p { font-size: 1rem; color: #333; }
+
+.btn-group { display: flex; gap: 1rem; }
 
 .btn-group a {
  padding: 0.5rem 1.2rem;
  border-radius: 6px;
  font-weight: 700;
  text-decoration: none;
- display: inline-block;
- cursor: pointer;
  color: white;
  transition: background-color 0.3s ease;
+ cursor: pointer;
  white-space: nowrap;
 }
 
@@ -563,8 +541,6 @@ document.getElementById('convertBtn').addEventListener('click',()=>{
    text-align: center;
    gap: 1rem;
  }
- .right-column {
-   justify-content: center;
- }
+ .right-column { justify-content: center; }
 }
 </style>
