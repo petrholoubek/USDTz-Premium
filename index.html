@@ -354,108 +354,35 @@ document.getElementById('convertBtn').addEventListener('click',()=>{
 <section style="
    max-width: 1200px;
    margin: 2rem auto;
-   padding: 20px;
    display: flex;
    gap: 20px;
    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-   flex-wrap: wrap;
+   box-sizing: border-box;
 ">
+
  
  <div style="
-     flex:1 1 580px;
-     min-width: 300px;
-     background:#f9f9f9;
-     border-radius:12px;
-     padding:20px;
-     box-shadow:0 4px 12px rgba(0,0,0,0.15);
+     flex: 1 1 0;
+     background: #f9f9f9;
+     border-radius: 12px;
+     padding: 20px;
+     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
  ">
-   <h2 style="color: rgb(31,186,156); margin-bottom:20px;">Stablecoin – nové generace</h2>
-   <p style="line-height:1.5; margin-bottom:15px;">
-     Náš USDt.z token přináší moderní řešení pro bankovní i nebankovní sektor.
-     Lze jej využít jako kolaterál, pro bezpečné platby, smart kontrakty nebo pro likviditu v decentralizovaných protokolech.
-   </p>
-   <p style="line-height:1.5; margin-bottom:15px;">
-     Bankovní sektor: stabilní platby, kolaterál, správa aktiv, propojení s tradičními produkty.
-   </p>
-   <p style="line-height:1.5; margin-bottom:15px;">
-     Nebankovní sektor: rychlé a bezpečné transakce, decentralizované aplikace, investiční a trading produkty.
-   </p>
-   <p style="line-height:1.5; margin-bottom:0;">
-     Token je navržen pro dlouhodobou stabilitu, transparentnost a maximální bezpečnost ekosystému.
-   </p>
+   <h2 style="color: rgb(31,186,156); text-align:center; margin-bottom:20px;">Stablecoin - nové generace</h2>
+   
+   <p>Zde bude podrobný text o využití tokenu, bankovní a nebankovní možnosti, kolaterál apod.</p>
  </div>
 
  
  <div style="
-     flex:1 1 580px;
-     min-width: 300px;
-     background:#f9f9f9;
-     border-radius:12px;
-     padding:20px;
-     box-shadow:0 4px 12px rgba(0,0,0,0.15);
-     display:flex;
-     flex-direction: column;
-     gap:30px;
+     flex: 1 1 0;
+     background: #f9f9f9;
+     border-radius: 12px;
+     padding: 20px;
+     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
  ">
-   <h2 style="color: rgb(31,186,156); text-align:center; margin-bottom:10px;">Tokenomics</h2>
-   <canvas id="donutChart" style="height:250px;"></canvas>
-
-   <h2 style="color: rgb(31,186,156); text-align:center; margin-bottom:10px;">Roadmapa</h2>
-   <canvas id="lineChart" style="height:250px;"></canvas>
+   <h2 style="color: rgb(31,186,156); text-align:center; margin-bottom:20px;">Pravý sloupec</h2>
+   
  </div>
+
 </section>
-
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script>
- // Donut graf (Tokenomics)
- const ctxDonut = document.getElementById('donutChart').getContext('2d');
- const donutChart = new Chart(ctxDonut, {
-   type: 'doughnut',
-   data: {
-     labels: ['Bankovní sektor', 'Nebankovní sektor', 'Rezerva', 'Marketing'],
-     datasets: [{
-       data: [40, 25, 20, 15],
-       backgroundColor: ['#1fba9c','#4caf50','#ff9800','#2196f3'],
-       borderWidth: 1
-     }]
-   },
-   options: {
-     responsive: true,
-     plugins: { legend: { position: 'bottom' } }
-   }
- });
-
- // Křivkový graf (Roadmapa)
- const ctxLine = document.getElementById('lineChart').getContext('2d');
- const lineChart = new Chart(ctxLine, {
-   type: 'line',
-   data: {
-     labels: ['Q1','Q2','Q3','Q4','Q1','Q2'],
-     datasets: [
-       {
-         label: 'Plánované milníky',
-         data: [10,20,30,40,50,60],
-         borderColor: '#1fba9c',
-         backgroundColor: 'rgba(31,186,156,0.2)',
-         tension: 0.4,
-         fill:true
-       },
-       {
-         label: 'Skutečný progres',
-         data: [5,15,25,35,45,55],
-         borderColor: '#2196f3',
-         backgroundColor: 'rgba(33,150,243,0.2)',
-         tension: 0.4,
-         fill:true
-       }
-     ]
-   },
-   options: {
-     responsive: true,
-     plugins: { legend: { position: 'bottom' } },
-     scales: {
-       y: { beginAtZero: true }
-     }
-   }
- });
-</script>
