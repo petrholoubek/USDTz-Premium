@@ -351,38 +351,53 @@ document.getElementById('convertBtn').addEventListener('click',()=>{
      </ul>
    </div>
 
-<section style="
-   max-width: 1200px;
-   margin: 2rem auto;
-   display: flex;
-   gap: 20px;
-   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-   box-sizing: border-box;
-">
+<section style="max-width:1200px; margin:2rem auto; display:flex; gap:20px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
 
  
- <div style="
-     flex: 1 1 0;
-     background: #f9f9f9;
-     border-radius: 12px;
-     padding: 20px;
-     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
- ">
-   <h2 style="color: rgb(31,186,156); text-align:center; margin-bottom:20px;">Stablecoin - nové generace</h2>
-   
-   <p>Zde bude podrobný text o využití tokenu, bankovní a nebankovní možnosti, kolaterál apod.</p>
+ <div style="flex:1; background:#f9f9f9; border-radius:12px; padding:20px; box-shadow:0 4px 12px rgba(0,0,0,0.15);">
+   <h2 style="color: rgb(31,186,156); margin-bottom:20px;">Stablecoin – nové generace</h2>
+   <p>Bankovní a nebankovní možnosti využití tokenu, kolaterál, bezpečnost, likvidita, dlouhodobá stabilita...</p>
+   <p>Další informace, postupy, ukázky implementace v ekosystému USDt.z...</p>
  </div>
 
  
- <div style="
-     flex: 1 1 0;
-     background: #f9f9f9;
-     border-radius: 12px;
-     padding: 20px;
-     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
- ">
-   <h2 style="color: rgb(31,186,156); text-align:center; margin-bottom:20px;">Pravý sloupec</h2>
-   
+ <div style="flex:1; background:#f9f9f9; border-radius:12px; padding:20px; box-shadow:0 4px 12px rgba(0,0,0,0.15);">
+   <h2 style="color: rgb(31,186,156); margin-bottom:20px;">Tokenomics</h2>
+   <canvas id="donutChart" style="width:100%; height:200px;"></canvas>
+
+   <h2 style="color: rgb(31,186,156); margin:30px 0 10px;">Roadmapa</h2>
+   <canvas id="lineChart" style="width:100%; height:200px;"></canvas>
  </div>
 
 </section>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+ // Donut graf
+ const ctxDonut = document.getElementById('donutChart').getContext('2d');
+ new Chart(ctxDonut, {
+   type: 'doughnut',
+   data: {
+     labels: ['Banky', 'Nebanky', 'Investoři'],
+     datasets: [{
+       data: [40, 35, 25],
+       backgroundColor: ['#1fba9c', '#27ae60', '#2ecc71']
+     }]
+   },
+   options: { responsive:true, plugins:{legend:{position:'bottom'}} }
+ });
+
+ // Line graf roadmapa
+ const ctxLine = document.getElementById('lineChart').getContext('2d');
+ new Chart(ctxLine, {
+   type: 'line',
+   data: {
+     labels: ['Q1','Q2','Q3','Q4'],
+     datasets: [
+       { label:'Vývoj produktu', data:[10,30,50,70], borderColor:'#1fba9c', tension:0.4, fill:false },
+       { label:'Marketing & Komunita', data:[5,25,45,65], borderColor:'#27ae60', tension:0.4, fill:false }
+     ]
+   },
+   options: { responsive:true, plugins:{legend:{position:'bottom'}} }
+ });
+</script>
