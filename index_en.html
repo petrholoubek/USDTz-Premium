@@ -327,3 +327,96 @@ document.getElementById('convertBtnEN').addEventListener('click', ()=>{
    usdtzInputEN.value = (usd/price).toFixed(3);
 });
 </script>
+
+<section style="
+   max-width: 1200px;
+   margin: 2rem auto;
+   padding: 1.5rem;
+   background: #fff;
+   border-radius: 12px;
+   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+   display: flex;
+   gap: 20px;
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+">
+
+ 
+ <div style="flex:1 1 580px; min-width:300px; background:#f9f9f9; border-radius:12px; padding:20px; box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+   <h2 style="color: rgb(31,186,156); text-align:center; margin-bottom:20px;">Stablecoin – Next Generation</h2>
+   <h3 style="color: rgb(31,186,156); margin-bottom:10px;">Token Usage</h3>
+   
+   <p><strong style="color: rgb(31,186,156);">Banking sector:</strong> <span style="color:black;">The token enables banks to use collateral for loans, accelerates transactions, and supports fair interest rates within decentralized applications.</span></p>
+   
+   <p><strong style="color: rgb(31,186,156);">Non-banking sector:</strong> <span style="color:black;">Facilitates payments and transfers between individuals and businesses, supports microtransactions, and ensures instant liquidity for e-commerce and other online services.</span></p>
+   
+   <p><strong style="color: rgb(31,186,156);">Security & Blockchain:</strong> <span style="color:black;">Blockchain technology ensures all transactions are auditable, secure, and transparent, providing protection against fraud and fast confirmation of payments.</span></p>
+   
+   <p><strong style="color: rgb(31,186,156);">Liquidity & Holders:</strong> <span style="color:black;">The token supports staking, rewards, and fund management, motivating holders to maintain stable liquidity and actively participate in the ecosystem.</span></p>
+   
+   <p><strong style="color: rgb(31,186,156);">Tokenomics:</strong> <span style="color:black;">Manages inflation, reward distribution, and token stability over time, ensuring predictable value and user trust.</span></p>
+   
+   <p><strong style="color: rgb(31,186,156);">Regulation & Compliance:</strong> <span style="color:black;">The token complies with legal frameworks, supports AML/KYC processes, and allows banks and non-banking institutions to meet regulatory requirements.</span></p>
+ </div>
+
+ 
+ <div style="flex:1 1 580px; min-width:300px; background:#f9f9f9; border-radius:12px; padding:20px; box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+   <h3 style="color: rgb(31,186,156); text-align:center; margin-bottom:15px;">Tokenomics</h3>
+   <canvas id="donutChartEn" style="width:100%; height:200px; margin-bottom:30px;"></canvas>
+
+   <h3 style="color: rgb(31,186,156); text-align:center; margin-bottom:15px;">Roadmap</h3>
+   <canvas id="lineChartEn" style="width:100%; height:200px;"></canvas>
+ </div>
+
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+ // Donut chart Tokenomics
+ const donutCtxEn = document.getElementById('donutChartEn').getContext('2d');
+ const donutChartEn = new Chart(donutCtxEn, {
+   type: 'doughnut',
+   data: {
+     labels: ['Staking', 'Inflation', 'Rewards', 'Reserve'],
+     datasets: [{
+       data: [30, 25, 25, 20],
+       backgroundColor: ['#1fba9c', '#2ca8ff', '#ffb400', '#ff6f61']
+     }]
+   },
+   options: {
+     responsive: true,
+     plugins: { legend: { position: 'bottom' } }
+   }
+ });
+
+ // Line chart roadmap
+ const lineCtxEn = document.getElementById('lineChartEn').getContext('2d');
+ const lineChartEn = new Chart(lineCtxEn, {
+   type: 'line',
+   data: {
+     labels: ['Q1', 'Q2', 'Q3', 'Q4'],
+     datasets: [
+       {
+         label: 'Product Development',
+         data: [10, 30, 50, 80],
+         borderColor: '#1fba9c',
+         fill: false,
+         tension: 0.4
+       },
+       {
+         label: 'Marketing & Adoption',
+         data: [5, 20, 40, 70],
+         borderColor: '#2ca8ff',
+         fill: false,
+         tension: 0.4
+       }
+     ]
+   },
+   options: {
+     responsive: true,
+     plugins: { legend: { position: 'bottom' } },
+     scales: {
+       y: { beginAtZero: true }
+     }
+   }
+ });
+</script>
