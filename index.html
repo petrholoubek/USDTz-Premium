@@ -333,88 +333,114 @@ document.getElementById('convertBtn').addEventListener('click',()=>{
 });
 </script>
 
-<section style="
-   max-width: 1200px;
-   margin: 2rem auto;
-   padding: 1.5rem;
-   background: #fff;
-   border-radius: 12px;
-   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-   display: flex;
-   gap: 20px;
-   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-">
+<section style="max-width:1200px; margin:2rem auto; padding:1.5rem; display:flex; gap:20px; flex-wrap:wrap; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
 
  
- <div style="flex:1; background:#f9f9f9; border-radius:12px; padding:20px; box-shadow:0 2px 8px rgba(0,0,0,0.08);">
-   <h2 style="color: rgb(31,186,156); text-align:center; margin-bottom:20px;">Stablecoin - nové generace</h2>
-   <h3 style="color: rgb(31,186,156); margin-bottom:10px;">Využití tokenu</h3>
-   <p><strong>Bankovní sektor:</strong> kolaterál, půjčky, bezpečnost, stabilita, rychlé blockchainové převody.</p>
-   <p><strong>Nebankovní sektor:</strong> platby, převody, praktické využití, jednoduchá integrace.</p>
-   <p><strong>Další aspekty:</strong> transparentnost, nadčasovost, snadná správa a sledovatelnost transakcí.</p>
+ <div style="flex:1 1 600px; min-width:300px; padding:20px; background:#f9f9f9; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+
+   
+   <h2 style="color: rgb(31,186,156); text-align:left; margin-bottom:20px;">Stablecoin – nové generace</h2>
+
+   
+   <h3 style="color: rgb(31,186,156); margin-bottom:15px;">Využití tokenu</h3>
+
+   
+   <div style="margin-left:10px;">
+
+     <h4 style="color: rgb(31,186,156); margin-bottom:5px;">1. Bankovní využití</h4>
+     <p style="color:#000; margin-bottom:15px;">
+       Token může sloužit jako kolaterál pro půjčky, zajištění plateb mezi bankami a zrychlení mezibankovních transakcí.
+     </p>
+
+     <h4 style="color: rgb(31,186,156); margin-bottom:5px;">2. Nebankovní sektor</h4>
+     <p style="color:#000; margin-bottom:15px;">
+       Využití tokenu pro nebankovní půjčky, platby mezi obchodníky a decentralizované finance (DeFi) aplikace.
+     </p>
+
+     <h4 style="color: rgb(31,186,156); margin-bottom:5px;">3. Kolaterální možnosti</h4>
+     <p style="color:#000; margin-bottom:15px;">
+       Token slouží jako zajištění pro úvěry a finanční produkty, zvyšuje bezpečnost a snižuje riziko.
+     </p>
+
+     <h4 style="color: rgb(31,186,156); margin-bottom:5px;">4. Rychlé platby</h4>
+     <p style="color:#000; margin-bottom:15px;">
+       Umožňuje okamžité převody mezi účty bez zpoždění, minimalizuje transakční poplatky.
+     </p>
+
+     <h4 style="color: rgb(31,186,156); margin-bottom:5px;">5. Bezpečnost</h4>
+     <p style="color:#000; margin-bottom:15px;">
+       Využití blockchain technologie chrání před podvody a neoprávněnými zásahy do transakcí.
+     </p>
+
+     <h4 style="color: rgb(31,186,156); margin-bottom:5px;">6. Blockchain a rychlé transakce</h4>
+     <p style="color:#000; margin-bottom:15px;">
+       Transparentní a decentralizovaný systém, který zajišťuje rychlé a bezpečné převody tokenu.
+     </p>
+
+   </div>
  </div>
 
  
- <div style="flex:1; background:#f9f9f9; border-radius:12px; padding:20px; box-shadow:0 2px 8px rgba(0,0,0,0.08);">
-   <h2 style="color: rgb(31,186,156); text-align:center; margin-bottom:20px;">Tokenomics a Roadmapa</h2>
+ <div style="flex:1 1 600px; min-width:300px; padding:20px; background:#f9f9f9; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.08);">
 
    
-   <canvas id="donutChart" style="width:100%; height:200px; margin-bottom:30px;"></canvas>
+   <h3 style="color: rgb(31,186,156); text-align:center; margin-bottom:15px;">Tokenomics</h3>
+   <canvas id="donutChart" style="width:100%; height:250px;"></canvas>
 
    
-   <canvas id="lineChart" style="width:100%; height:200px;"></canvas>
+   <h3 style="color: rgb(31,186,156); text-align:center; margin-top:30px; margin-bottom:15px;">Roadmapa</h3>
+   <canvas id="lineChart" style="width:100%; height:250px;"></canvas>
+
  </div>
 
 </section>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
- // Donut graf
+ // Donut graf Tokenomics
  const donutCtx = document.getElementById('donutChart').getContext('2d');
  const donutChart = new Chart(donutCtx, {
-     type: 'doughnut',
-     data: {
-         labels: ['Bankovní sektor', 'Nebankovní sektor', 'Rezerva'],
-         datasets: [{
-             data: [40, 40, 20],
-             backgroundColor: ['#1fba9c', '#2ca8ff', '#f7b801']
-         }]
-     },
-     options: {
-         responsive: true,
-         plugins: { legend: { position: 'bottom' } }
-     }
+   type: 'doughnut',
+   data: {
+     labels: ['Banky', 'NeBanky', 'Kolaterál', 'Transakce'],
+     datasets: [{
+       data: [40, 25, 20, 15],
+       backgroundColor: ['#1fba9c','#28c76f','#ff9f43','#ff6b6b']
+     }]
+   },
+   options: {
+     responsive: true,
+     plugins: { legend: { position:'bottom' } }
+   }
  });
 
- // Křivkový graf roadmapa
+ // Roadmap křivkový graf
  const lineCtx = document.getElementById('lineChart').getContext('2d');
  const lineChart = new Chart(lineCtx, {
-     type: 'line',
-     data: {
-         labels: ['Q1', 'Q2', 'Q3', 'Q4'],
-         datasets: [
-             {
-                 label: 'Plán vývoje',
-                 data: [10, 30, 50, 80],
-                 borderColor: '#1fba9c',
-                 backgroundColor: 'rgba(31,186,156,0.2)',
-                 tension: 0.3
-             },
-             {
-                 label: 'Skutečný pokrok',
-                 data: [5, 25, 45, 70],
-                 borderColor: '#2ca8ff',
-                 backgroundColor: 'rgba(44,168,255,0.2)',
-                 tension: 0.3
-             }
-         ]
-     },
-     options: {
-         responsive: true,
-         plugins: { legend: { position: 'bottom' } },
-         scales: {
-             y: { beginAtZero: true }
-         }
-     }
+   type: 'line',
+   data: {
+     labels: ['Q1','Q2','Q3','Q4','Q1','Q2'],
+     datasets: [
+       {
+         label: 'Vývoj produktu',
+         data: [10,20,30,50,65,80],
+         borderColor: '#1fba9c',
+         backgroundColor: 'rgba(31,186,156,0.1)',
+         fill:true
+       },
+       {
+         label: 'Marketing & Expanzé',
+         data: [5,15,25,40,55,70],
+         borderColor: '#28c76f',
+         backgroundColor: 'rgba(40,199,111,0.1)',
+         fill:true
+       }
+     ]
+   },
+   options: {
+     responsive:true,
+     plugins:{ legend:{ position:'bottom' } },
+     scales:{ y:{ beginAtZero:true } }
+   }
  });
 </script>
