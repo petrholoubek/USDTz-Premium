@@ -461,27 +461,21 @@ document.getElementById('convertBtn').addEventListener('click',()=>{
 </section>
 
 <section id="bottom-box" aria-label="Prozkoumej token USDt.z">
- <div class="logo">
-   <img src="/USDTz-Premium/img/flags/logo.png" alt="USDt.z Logo" />
- </div>
- <div class="text-group">
-   <div class="title">Prozkoumej token USDt.z</div>
+ <div class="left-side">
+   <div class="logo">
+     <img src="/USDTz-Premium/img/flags/logo.png" alt="USDt.z Logo" />
+   </div>
+   <h2 class="title">Prozkoumej token USDt.z</h2>
    <div class="btn-group">
      <a href="https://bscscan.com/token/0x913ef7244bEd019b95Ec5321408eE4CE83E25c01"
         target="_blank" rel="noopener noreferrer"
-        class="btn btn-bsc" aria-label="Token na BscScan">
-        BscScan
-     </a>
+        class="btn-bsc">BscScan</a>
      <a href="https://www.geckoterminal.com/bsc/pools/0x553b402b3d6f91ea2208c7df61a6d4aa96ccb6191787c20fedb7ae6c9823b280"
         target="_blank" rel="noopener noreferrer"
-        class="btn btn-gecko" aria-label="Token na GeckoTerminal">
-        GeckoTerminal
-     </a>
-     <a href="https://github.com/petrholoubek/USDTz-Premium/raw/main/docs/USDt.z-Whitepaper.pdf"
+        class="btn-gecko">GeckoTerminal</a>
+     <a href="/USDTz-Premium/docs/whitepaper.pdf"
         target="_blank" rel="noopener noreferrer"
-        class="btn btn-pdf" aria-label="Whitepaper">
-        Whitepaper
-     </a>
+        class="btn-pdf">Whitepaper PDF</a>
    </div>
  </div>
 </section>
@@ -494,37 +488,36 @@ document.getElementById('convertBtn').addEventListener('click',()=>{
  border: 1px solid #ddd;
  border-radius: 10px;
  box-shadow: 0 0 12px rgb(31 186 156 / 0.15);
- padding: 1rem 2rem;
+ padding: 1.5rem 2rem;
  display: flex;
- align-items: center;
- gap: 2rem;
- justify-content: flex-start;
+ flex-direction: column;
+ align-items: flex-start;
+ gap: 1.5rem;
+ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-#bottom-box .logo {
- flex-shrink: 0;
+#bottom-box .left-side {
+ width: 100%;
+ display: flex;
+ flex-direction: column;
+ gap: 1rem;
 }
+
 #bottom-box .logo img {
  height: 50px;
 }
 
-#bottom-box .text-group {
- flex: 1;
- display: flex;
- flex-direction: column;
- gap: 0.5rem;
-}
-
 #bottom-box .title {
+ font-size: 1.5rem;
  font-weight: 700;
- font-size: 1.3rem;
  color: rgb(31,186,156);
+ margin: 0;
 }
 
 #bottom-box .btn-group {
  display: flex;
- gap: 1rem;
  flex-wrap: wrap;
+ gap: 1rem;
 }
 
 #bottom-box .btn-group a {
@@ -563,9 +556,7 @@ document.getElementById('convertBtn').addEventListener('click',()=>{
 /* Responzivita pro mobil */
 @media (max-width: 768px) {
  #bottom-box {
-   flex-direction: column;
-   gap: 1rem;
-   text-align: center;
+   padding: 1rem;
  }
  #bottom-box .btn-group {
    justify-content: center;
