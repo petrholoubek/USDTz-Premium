@@ -478,7 +478,7 @@ document.getElementById('convertBtn').addEventListener('click',()=>{
    </a>
    <a href="/USDTz-Premium/docs/USDt.z-Whitepaper.pdf"
       target="_blank" rel="noopener noreferrer"
-      class="btn-pdf" aria-label="PDF Whitepaper">
+      class="btn-whitepaper" aria-label="PDF Whitepaper">
       Whitepaper
    </a>
  </div>
@@ -497,25 +497,25 @@ document.getElementById('convertBtn').addEventListener('click',()=>{
  align-items: center;
  gap: 1.5rem;
  justify-content: space-between;
+ flex-wrap: wrap; /* pro lepší responzivitu */
 }
 
-#bottom-box .logo {
- flex-shrink: 0;
-}
 #bottom-box .logo img {
- height: 50px;
+ height: 40px;
+ flex-shrink: 0;
 }
 
 #bottom-box .text {
  flex: 1;
  font-weight: 600;
  color: rgb(31,186,156);
- font-size: 1.2rem;
+ font-size: 1.1rem;
 }
 
 #bottom-box .btn-group {
  display: flex;
  gap: 1rem;
+ flex-wrap: wrap;
 }
 
 #bottom-box .btn-group a {
@@ -544,18 +544,17 @@ document.getElementById('convertBtn').addEventListener('click',()=>{
  background-color: #1669bb;
 }
 
-#bottom-box .btn-pdf {
+#bottom-box .btn-whitepaper {
  background-color: #4caf50;
 }
-#bottom-box .btn-pdf:hover {
- background-color: #3a8c3a;
+#bottom-box .btn-whitepaper:hover {
+ background-color: #3b9a40;
 }
 
 /* Responzivita pro mobil */
 @media (max-width: 768px) {
  #bottom-box {
    flex-direction: column;
-   gap: 1rem;
    text-align: center;
  }
  #bottom-box .btn-group {
