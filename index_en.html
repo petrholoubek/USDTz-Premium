@@ -455,32 +455,25 @@ document.getElementById('convertBtnEN').addEventListener('click', ()=>{
 
 </section>
 
-<section id="bottom-box" aria-label="Explore the USDt.z token">
- <div class="logo">
-   <img src="/USDTz-Premium/img/flags/logo.png" alt="USDt.z Logo" />
+<section id="explore-token" aria-label="Explore USDt.z Token">
+ <div class="left">
+   <div class="logo">
+     <img src="/USDTz-Premium/img/flags/logo.png" alt="USDt.z Logo" />
+   </div>
+   <h2>Explore USDt.z Token</h2>
  </div>
- <div class="text">Explore the USDt.z token on these platforms:</div>
- <div class="btn-group">
+ <div class="right">
    <a href="https://bscscan.com/token/0x913ef7244bEd019b95Ec5321408eE4CE83E25c01"
-      target="_blank" rel="noopener noreferrer"
-      class="btn-bsc" aria-label="Token on BscScan">
-      BscScan
-   </a>
+      target="_blank" rel="noopener noreferrer" class="btn btn-bsc">BscScan</a>
    <a href="https://www.geckoterminal.com/bsc/pools/0x553b402b3d6f91ea2208c7df61a6d4aa96ccb6191787c20fedb7ae6c9823b280"
-      target="_blank" rel="noopener noreferrer"
-      class="btn-gecko" aria-label="Token on GeckoTerminal">
-      GeckoTerminal
-   </a>
-   <a href="/docs/USDTz_Whitepaper_EN.pdf"
-      target="_blank" rel="noopener noreferrer"
-      class="btn-pdf" aria-label="Download Whitepaper">
-      Whitepaper
-   </a>
+      target="_blank" rel="noopener noreferrer" class="btn btn-gecko">GeckoTerminal</a>
+   <a href="https://petrholoubek.github.io/USDTz-Premium/docs/USDTz_Whitepaper_EN.pdf"
+      target="_blank" rel="noopener noreferrer" class="btn btn-whitepaper">Whitepaper</a>
  </div>
 </section>
 
 <style>
-#bottom-box {
+#explore-token {
  max-width: 1200px;
  margin: 2rem auto;
  background: #fff;
@@ -489,31 +482,32 @@ document.getElementById('convertBtnEN').addEventListener('click', ()=>{
  box-shadow: 0 0 12px rgb(31 186 156 / 0.15);
  padding: 1rem 2rem;
  display: flex;
- align-items: center;
- gap: 1.5rem;
  justify-content: space-between;
+ align-items: center;
 }
 
-#bottom-box .logo {
- flex-shrink: 0;
-}
-#bottom-box .logo img {
- height: 40px;
+#explore-token .left {
+ display: flex;
+ flex-direction: column;
+ gap: 0.5rem;
 }
 
-#bottom-box .text {
- flex: 1;
- font-weight: 600;
+#explore-token .logo img {
+ height: 50px;
+}
+
+#explore-token h2 {
+ font-size: 1.5rem;
  color: rgb(31,186,156);
- font-size: 1.1rem;
+ margin: 0;
 }
 
-#bottom-box .btn-group {
+#explore-token .right {
  display: flex;
  gap: 1rem;
 }
 
-#bottom-box .btn-group a {
+#explore-token .btn {
  padding: 0.5rem 1.2rem;
  border-radius: 6px;
  font-weight: 700;
@@ -525,35 +519,35 @@ document.getElementById('convertBtnEN').addEventListener('click', ()=>{
  white-space: nowrap;
 }
 
-#bottom-box .btn-bsc {
+#explore-token .btn-bsc {
  background-color: #f0b90b;
 }
-#bottom-box .btn-bsc:hover {
+#explore-token .btn-bsc:hover {
  background-color: #d9a200;
 }
 
-#bottom-box .btn-gecko {
+#explore-token .btn-gecko {
  background-color: #1e88e5;
 }
-#bottom-box .btn-gecko:hover {
+#explore-token .btn-gecko:hover {
  background-color: #1669bb;
 }
 
-#bottom-box .btn-pdf {
+#explore-token .btn-whitepaper {
  background-color: #31ba9c;
 }
-#bottom-box .btn-pdf:hover {
- background-color: #27a386;
+#explore-token .btn-whitepaper:hover {
+ background-color: #27a38b;
 }
 
 /* Responzivita pro mobil */
 @media (max-width: 768px) {
- #bottom-box {
+ #explore-token {
    flex-direction: column;
-   gap: 1rem;
    text-align: center;
+   gap: 1rem;
  }
- #bottom-box .btn-group {
+ #explore-token .right {
    justify-content: center;
    width: 100%;
  }
