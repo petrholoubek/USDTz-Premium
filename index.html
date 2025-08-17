@@ -461,7 +461,7 @@ document.getElementById('convertBtn').addEventListener('click',()=>{
 </section>
 
 <section id="bottom-box" aria-label="Explore USDt.z token">
- <div class="column left-column">
+ <div class="left-column">
    <div class="logo">
      <img src="/USDTz-Premium/img/flags/logo.png" alt="USDt.z Logo" />
    </div>
@@ -469,17 +469,11 @@ document.getElementById('convertBtn').addEventListener('click',()=>{
    <p>Objevte možnosti tokenu USDt.z a jeho využití v různých sektorech.</p>
  </div>
 
- <div class="column right-column">
+ <div class="right-column">
    <div class="btn-group">
-     <a href="https://bscscan.com/token/0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" target="_blank" rel="noopener noreferrer" class="btn-bsc">
-       BscScan
-     </a>
-     <a href="https://www.geckoterminal.com/bsc/pools/0x553b402b3d6f91ea2208c7df61a6d4aa96ccb6191787c20fedb7ae6c9823b280" target="_blank" rel="noopener noreferrer" class="btn-gecko">
-       GeckoTerminal
-     </a>
-     <a href="/USDTz-Premium/docs/USDTz_Whitepaper_CZ.pdf" target="_blank" class="btn-pdf">
-       PDF Whitepaper
-     </a>
+     <a href="https://bscscan.com/token/0x913ef7244bEd019b95Ec5321408eE4CE83E25c01" target="_blank" rel="noopener noreferrer">BscScan</a>
+     <a href="https://www.geckoterminal.com/bsc/pools/0x553b402b3d6f91ea2208c7df61a6d4aa96ccb6191787c20fedb7ae6c9823b280" target="_blank" rel="noopener noreferrer">GeckoTerminal</a>
+     <a href="/USDTz-Premium/docs/USDTz_Whitepaper_CZ.pdf" target="_blank">PDF Whitepaper</a>
    </div>
  </div>
 </section>
@@ -491,7 +485,6 @@ document.getElementById('convertBtn').addEventListener('click',()=>{
  display: flex;
  justify-content: space-between;
  align-items: flex-start;
- gap: 2rem;
  padding: 2rem;
  background: #fff;
  border: 1px solid #ddd;
@@ -500,19 +493,14 @@ document.getElementById('convertBtn').addEventListener('click',()=>{
  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.column {
- display: flex;
- flex-direction: column;
-}
-
-.left-column { flex: 0 0 60%; }
-.right-column { flex: 0 0 40%; display: flex; justify-content: flex-end; }
+.left-column { flex: 0 0 60%; display: flex; flex-direction: column; }
+.right-column { flex: 0 0 35%; display: flex; justify-content: flex-end; align-items: center; }
 
 .left-column .logo img { height: 50px; margin-bottom: 1rem; }
 .left-column h2 { font-size: 1.5rem; margin-bottom: 0.5rem; color: rgb(31,186,156); }
 .left-column p { font-size: 1rem; color: #333; }
 
-.btn-group { display: flex; gap: 1rem; }
+.btn-group { display: flex; gap: 1rem; flex-wrap: wrap; }
 
 .btn-group a {
  padding: 0.5rem 1.2rem;
@@ -520,27 +508,19 @@ document.getElementById('convertBtn').addEventListener('click',()=>{
  font-weight: 700;
  text-decoration: none;
  color: white;
+ background-color: #31ba9c;
  transition: background-color 0.3s ease;
- cursor: pointer;
- white-space: nowrap;
 }
 
-.btn-bsc { background-color: #f0b90b; }
-.btn-bsc:hover { background-color: #d9a200; }
+.btn-group a:hover { background-color: #28a88f; }
 
-.btn-gecko { background-color: #1e88e5; }
-.btn-gecko:hover { background-color: #1669bb; }
+.btn-group a:nth-child(1) { background-color: #f0b90b; }
+.btn-group a:nth-child(1):hover { background-color: #d9a200; }
+.btn-group a:nth-child(2) { background-color: #1e88e5; }
+.btn-group a:nth-child(2):hover { background-color: #1669bb; }
 
-.btn-pdf { background-color: #31ba9c; }
-.btn-pdf:hover { background-color: #28a88f; }
-
-/* Responzivita pro mobil */
 @media (max-width: 768px) {
- #bottom-box {
-   flex-direction: column;
-   text-align: center;
-   gap: 1rem;
- }
- .right-column { justify-content: center; }
+ #bottom-box { flex-direction: column; text-align: center; }
+ .right-column { justify-content: center; margin-top: 1rem; }
 }
 </style>
