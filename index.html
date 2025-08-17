@@ -460,89 +460,114 @@ document.getElementById('convertBtn').addEventListener('click',()=>{
 
 </section>
 
-<section id="explore-token" aria-label="Explore USDt.z Token">
- <div class="container">
-   <div class="logo">
-     <img src="/USDTz-Premium/img/flags/logo.png" alt="USDt.z Logo" />
-   </div>
-   <div class="content">
-     <h2>Prozkoumej token USDt.z</h2>
-     <div class="btn-group">
-       <a href="https://bscscan.com/token/0x913ef7244bEd019b95Ec5321408eE4CE83E25c01"
-          target="_blank" rel="noopener noreferrer" class="btn btn-bsc">
-          BscScan
-       </a>
-       <a href="https://www.geckoterminal.com/bsc/pools/0x553b402b3d6f91ea2208c7df61a6d4aa96ccb6191787c20fedb7ae6c9823b280"
-          target="_blank" rel="noopener noreferrer" class="btn btn-gecko">
-          GeckoTerminal
-       </a>
-       <a href="/USDTz-Premium/docs/USDt.z-Whitepaper.pdf"
-          target="_blank" rel="noopener noreferrer" class="btn btn-pdf">
-          Whitepaper
-       </a>
-     </div>
+<section id="bottom-box" aria-label="Prozkoumej token USDt.z">
+ <div class="logo">
+   <img src="/USDTz-Premium/img/flags/logo.png" alt="USDt.z Logo" />
+ </div>
+ <div class="text-group">
+   <div class="title">Prozkoumej token USDt.z</div>
+   <div class="btn-group">
+     <a href="https://bscscan.com/token/0x913ef7244bEd019b95Ec5321408eE4CE83E25c01"
+        target="_blank" rel="noopener noreferrer"
+        class="btn btn-bsc" aria-label="Token na BscScan">
+        BscScan
+     </a>
+     <a href="https://www.geckoterminal.com/bsc/pools/0x553b402b3d6f91ea2208c7df61a6d4aa96ccb6191787c20fedb7ae6c9823b280"
+        target="_blank" rel="noopener noreferrer"
+        class="btn btn-gecko" aria-label="Token na GeckoTerminal">
+        GeckoTerminal
+     </a>
+     <a href="https://github.com/petrholoubek/USDTz-Premium/raw/main/docs/USDt.z-Whitepaper.pdf"
+        target="_blank" rel="noopener noreferrer"
+        class="btn btn-pdf" aria-label="Whitepaper">
+        Whitepaper
+     </a>
    </div>
  </div>
 </section>
 
 <style>
-#explore-token .container {
+#bottom-box {
  max-width: 1200px;
  margin: 2rem auto;
  background: #fff;
  border: 1px solid #ddd;
  border-radius: 10px;
  box-shadow: 0 0 12px rgb(31 186 156 / 0.15);
- padding: 2rem;
+ padding: 1rem 2rem;
  display: flex;
  align-items: center;
  gap: 2rem;
+ justify-content: flex-start;
 }
 
-#explore-token .logo img {
- height: 60px;
+#bottom-box .logo {
  flex-shrink: 0;
 }
-
-#explore-token .content h2 {
- margin: 0 0 1rem 0;
- color: rgb(31,186,156);
- font-size: 1.5rem;
+#bottom-box .logo img {
+ height: 50px;
 }
 
-#explore-token .btn-group {
+#bottom-box .text-group {
+ flex: 1;
+ display: flex;
+ flex-direction: column;
+ gap: 0.5rem;
+}
+
+#bottom-box .title {
+ font-weight: 700;
+ font-size: 1.3rem;
+ color: rgb(31,186,156);
+}
+
+#bottom-box .btn-group {
  display: flex;
  gap: 1rem;
  flex-wrap: wrap;
 }
 
-#explore-token .btn {
- padding: 0.6rem 1.5rem;
+#bottom-box .btn-group a {
+ padding: 0.5rem 1.2rem;
  border-radius: 6px;
  font-weight: 700;
  text-decoration: none;
  display: inline-block;
+ cursor: pointer;
  color: white;
  transition: background-color 0.3s ease;
  white-space: nowrap;
 }
 
-#explore-token .btn-bsc { background-color: #f0b90b; }
-#explore-token .btn-bsc:hover { background-color: #d9a200; }
+#bottom-box .btn-bsc {
+ background-color: #f0b90b;
+}
+#bottom-box .btn-bsc:hover {
+ background-color: #d9a200;
+}
 
-#explore-token .btn-gecko { background-color: #1e88e5; }
-#explore-token .btn-gecko:hover { background-color: #1669bb; }
+#bottom-box .btn-gecko {
+ background-color: #1e88e5;
+}
+#bottom-box .btn-gecko:hover {
+ background-color: #1669bb;
+}
 
-#explore-token .btn-pdf { background-color: #4caf50; }
-#explore-token .btn-pdf:hover { background-color: #3b8d3b; }
+#bottom-box .btn-pdf {
+ background-color: #4caf50;
+}
+#bottom-box .btn-pdf:hover {
+ background-color: #3e8e41;
+}
 
-/* Responzivita */
+/* Responzivita pro mobil */
 @media (max-width: 768px) {
- #explore-token .container {
+ #bottom-box {
    flex-direction: column;
+   gap: 1rem;
    text-align: center;
  }
- #explore-token .btn-group {
+ #bottom-box .btn-group {
    justify-content: center;
    width: 100%;
  }
