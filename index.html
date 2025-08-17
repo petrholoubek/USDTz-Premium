@@ -334,118 +334,67 @@ document.getElementById('convertBtn').addEventListener('click',()=>{
 </script>
 
 <section style="
-   max-width:1200px;
-   margin:2rem auto;
-   display:flex;
-   gap:20px;
-   flex-wrap:wrap;
-   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   max-width: 1200px;
+   margin: 2rem auto;
+   display: flex;
+   gap: 20px;
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 ">
 
  
- <div style="flex:1 1 580px; min-width:300px; background:#f9f9f9; border-radius:12px; padding:20px; box-shadow:0 2px 8px rgba(0,0,0,0.08);">
-
-   <h2 style="color: rgb(31,186,156); text-align:center; margin-bottom:20px;">Stablecoin – nové generace</h2>
-
-   <p style="font-size:1rem; line-height:1.6; margin-bottom:15px;">
-     USDt.z je moderní stablecoin, který kombinuje stabilitu, transparentnost a široké možnosti využití v bankovním i nebankovním sektoru.
-   </p>
-
-   <h3 style="color: rgb(31,186,156); margin-bottom:10px;">Bankovní možnosti</h3>
-   <ul style="margin:0 0 15px 20px; line-height:1.5;">
-     <li>Likvidita pro bankovní operace</li>
-     <li>Bezpečné transakce v rámci platebních systémů</li>
-     <li>Možnost využití jako kolaterálu pro půjčky</li>
-   </ul>
-
-   <h3 style="color: rgb(31,186,156); margin-bottom:10px;">Nebankovní možnosti</h3>
-   <ul style="margin:0 0 15px 20px; line-height:1.5;">
-     <li>Integrace do DeFi platform</li>
-     <li>Okamžité přeshraniční převody</li>
-     <li>Bezpečné držení hodnoty mimo tradiční bankovní systém</li>
-   </ul>
-
-   <h3 style="color: rgb(31,186,156); margin-bottom:10px;">Kolaterál</h3>
-   <p style="font-size:1rem; line-height:1.6; margin-bottom:15px;">
-     USDt.z lze využít jako zajištění pro půjčky, deriváty a další finanční produkty, přičemž zachovává stabilní hodnotu a důvěryhodnost.
-   </p>
-
-   <div style="display:flex; justify-content:space-around; margin-top:15px; flex-wrap:wrap;">
-     <div style="text-align:center; width:80px; margin-bottom:10px;">
-       <img src="/USDTz-Premium/img/icons/bank.png" alt="Bank" style="width:40px; margin-bottom:5px;">
-       <p style="font-size:0.8rem;">Banky</p>
-     </div>
-     <div style="text-align:center; width:80px; margin-bottom:10px;">
-       <img src="/USDTz-Premium/img/icons/defi.png" alt="DeFi" style="width:40px; margin-bottom:5px;">
-       <p style="font-size:0.8rem;">DeFi</p>
-     </div>
-     <div style="text-align:center; width:80px; margin-bottom:10px;">
-       <img src="/USDTz-Premium/img/icons/transaction.png" alt="Transaction" style="width:40px; margin-bottom:5px;">
-       <p style="font-size:0.8rem;">Transakce</p>
-     </div>
-     <div style="text-align:center; width:80px; margin-bottom:10px;">
-       <img src="/USDTz-Premium/img/icons/collateral.png" alt="Collateral" style="width:40px; margin-bottom:5px;">
-       <p style="font-size:0.8rem;">Kolaterál</p>
-     </div>
-   </div>
-
-   <div style="text-align:center; margin-top:20px;">
-     <a href="/USDTz-Premium/pages/usecases.html" style="display:inline-block; padding:10px 20px; background: rgb(31,186,156); color:#fff; border-radius:6px; text-decoration:none; font-weight:600;">Zjistit více</a>
-   </div>
-
+ <div style="flex:1; background:#f9f9f9; border-radius:12px; padding:20px; box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+   <h2 style="color: rgb(31,186,156); margin-bottom:15px;">Stablecoin – nové generace</h2>
+   <p>Zde bude text o využití tokenu, bankovní a nebankovní možnosti, kolaterál, půjčky a další relevantní informace.</p>
+   <p>Doplňující text může popisovat výhody, bezpečnost, integrace do systémů a praktické příklady použití.</p>
+   
  </div>
 
  
- <div style="flex:1 1 580px; min-width:300px; background:#f9f9f9; border-radius:12px; padding:20px; box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+ <div style="flex:1; background:#f9f9f9; border-radius:12px; padding:20px; box-shadow:0 2px 8px rgba(0,0,0,0.08); display:flex; flex-direction:column; gap:20px;">
+
    
-   <h2 style="color: rgb(31,186,156); text-align:center; margin-bottom:20px;">Tokenomics & Roadmap</h2>
+   <div>
+     <h3 style="color: rgb(31,186,156); text-align:center;">Tokenomics</h3>
+     <canvas id="donutChart" style="width:100%; height:250px;"></canvas>
+   </div>
+
    
-   <canvas id="donutChart" style="width:100%; height:250px; margin-bottom:30px;"></canvas>
-   <canvas id="lineChart" style="width:100%; height:250px;"></canvas>
- 
+   <div>
+     <h3 style="color: rgb(31,186,156); text-align:center;">Roadmapa</h3>
+     <canvas id="lineChart" style="width:100%; height:250px;"></canvas>
+   </div>
+
  </div>
 
 </section>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
- // Donut graf Tokenomics
- const ctxDonut = document.getElementById('donutChart').getContext('2d');
- const donutChart = new Chart(ctxDonut, {
-     type: 'doughnut',
-     data: {
-         labels: ['Banky', 'DeFi', 'Transakce', 'Kolaterál'],
-         datasets: [{
-             data: [30, 25, 25, 20],
-             backgroundColor: ['#1fba9c','#4bc0c0','#ffcd56','#ff6384']
-         }]
-     },
-     options: { responsive:true, plugins:{ legend:{ position:'bottom' } } }
+ // Donut graf
+ const donutCtx = document.getElementById('donutChart').getContext('2d');
+ const donutChart = new Chart(donutCtx, {
+   type: 'doughnut',
+   data: {
+     labels: ['Banky', 'Nebanky', 'Kolaterál'],
+     datasets: [{
+       data: [40, 35, 25],
+       backgroundColor: ['#1fba9c', '#26d07d', '#a0e9d1']
+     }]
+   },
+   options: { responsive: true, plugins: { legend: { position: 'bottom' } } }
  });
 
- // Křivkový graf roadmapa
- const ctxLine = document.getElementById('lineChart').getContext('2d');
- const lineChart = new Chart(ctxLine, {
-     type: 'line',
-     data: {
-         labels: ['Q1','Q2','Q3','Q4'],
-         datasets: [
-           {
-             label: 'Vývoj tokenu',
-             data: [10,30,50,70],
-             borderColor:'#1fba9c',
-             backgroundColor:'rgba(31,186,156,0.1)',
-             tension:0.4
-           },
-           {
-             label: 'Integrace platformy',
-             data: [5,20,45,60],
-             borderColor:'#ff6384',
-             backgroundColor:'rgba(255,99,132,0.1)',
-             tension:0.4
-           }
-         ]
-     },
-     options: { responsive:true, plugins:{ legend:{ position:'bottom' } }, scales:{ y:{ beginAtZero:true } } }
+ // Křivkový graf
+ const lineCtx = document.getElementById('lineChart').getContext('2d');
+ const lineChart = new Chart(lineCtx, {
+   type: 'line',
+   data: {
+     labels: ['Q1', 'Q2', 'Q3', 'Q4'],
+     datasets: [
+       { label: 'Roadmapa 1', data: [10, 20, 15, 25], borderColor: '#1fba9c', fill:false, tension:0.4 },
+       { label: 'Roadmapa 2', data: [5, 15, 10, 20], borderColor: '#26d07d', fill:false, tension:0.4 }
+     ]
+   },
+   options: { responsive:true, plugins:{ legend:{ position:'bottom' } } }
  });
 </script>
