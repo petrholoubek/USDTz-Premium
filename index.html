@@ -354,54 +354,11 @@ document.getElementById('convertBtn').addEventListener('click',()=>{
 <section style="
    max-width: 1200px;
    margin: 2rem auto;
-   padding: 1.5rem;
-   display: flex;
-   gap: 20px;
+   padding: 20px;
+   background: #f9f9f9;
+   border-radius: 12px;
+   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 ">
  
- <div style="flex:1; background:#f9f9f9; border-radius:12px; padding:20px; box-shadow:0 2px 8px rgba(0,0,0,0.08);">
-   <h2 style="color: rgb(31,186,156); text-align:center;">Stablecoin - nové generace</h2>
-   <p>Obsah levého sloupce bude zahrnovat bankovní a nebankovní využití tokenu, možnosti kolaterálu, praktické aplikace a další relevantní informace.</p>
- </div>
-
- 
- <div style="flex:1; display:flex; flex-direction:column; gap:20px; background:#f9f9f9; border-radius:12px; padding:20px; box-shadow:0 2px 8px rgba(0,0,0,0.08);">
-   <h2 style="color: rgb(31,186,156); text-align:center;">Tokenomics</h2>
-   <canvas id="donutChart" style="width:100%; height:250px;"></canvas>
-
-   <h2 style="color: rgb(31,186,156); text-align:center;">Roadmapa</h2>
-   <canvas id="lineChart" style="width:100%; height:250px;"></canvas>
- </div>
 </section>
-
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script>
- // Donut chart
- const donutCtx = document.getElementById('donutChart').getContext('2d');
- new Chart(donutCtx, {
-   type: 'doughnut',
-   data: {
-     labels: ['Banky', 'Nebanky', 'Kolaterál', 'Rezerva'],
-     datasets: [{
-       data: [40, 30, 20, 10],
-       backgroundColor: ['#1fba9c','#00bfa5','#26a69a','#00796b']
-     }]
-   },
-   options: { responsive: true, plugins: { legend: { position: 'bottom' } } }
- });
-
- // Line chart (Roadmapa)
- const lineCtx = document.getElementById('lineChart').getContext('2d');
- new Chart(lineCtx, {
-   type: 'line',
-   data: {
-     labels: ['Q1','Q2','Q3','Q4'],
-     datasets: [
-       { label:'Vývoj produktu', data:[10,30,50,70], borderColor:'#1fba9c', fill:false },
-       { label:'Marketing', data:[5,20,35,60], borderColor:'#26a69a', fill:false }
-     ]
-   },
-   options: { responsive:true, plugins:{ legend:{ position:'bottom' } } }
- });
-</script>
