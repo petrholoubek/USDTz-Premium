@@ -461,31 +461,37 @@ document.getElementById('convertBtn').addEventListener('click',()=>{
 </section>
 
 <section id="bottom-box" aria-label="Prozkoumej token USDt.z">
- <div class="logo">
-   <img src="/USDTz-Premium/img/flags/logo.png" alt="USDt.z Logo" />
- </div>
- <div class="text-links">
-   <h2>Prozkoumej token USDt.z</h2>
-   <div class="btn-group">
-     <a href="https://bscscan.com/token/0x913ef7244bEd019b95Ec5321408eE4CE83E25c01"
-        target="_blank" rel="noopener noreferrer" class="btn-bsc" aria-label="Token na BscScan">
-        BscScan
-     </a>
-     <a href="https://www.geckoterminal.com/bsc/pools/0x553b402b3d6f91ea2208c7df61a6d4aa96ccb6191787c20fedb7ae6c9823b280"
-        target="_blank" rel="noopener noreferrer" class="btn-gecko" aria-label="Token na GeckoTerminal">
-        GeckoTerminal
-     </a>
-     <a href="https://raw.githubusercontent.com/petrholoubek/USDTz-Premium/main/docs/USDTz_Whitepaper_CZ.pdf"
-        target="_blank" rel="noopener noreferrer" class="btn-pdf" aria-label="PDF Whitepaper">
-        Whitepaper PDF
-     </a>
+ <div class="left-side">
+   <div class="logo">
+     <img src="/USDTz-Premium/img/flags/logo.png" alt="USDt.z Logo" />
    </div>
+   <div class="text">
+     Prozkoumejte token USDt.z na těchto platformách:
+   </div>
+ </div>
+
+ <div class="right-side">
+   <a href="https://bscscan.com/token/0x913ef7244bEd019b95Ec5321408eE4CE83E25c01"
+      target="_blank" rel="noopener noreferrer"
+      class="btn-bsc" aria-label="Token na BscScan">
+      BscScan
+   </a>
+   <a href="https://www.geckoterminal.com/bsc/pools/0x553b402b3d6f91ea2208c7df61a6d4aa96ccb6191787c20fedb7ae6c9823b280"
+      target="_blank" rel="noopener noreferrer"
+      class="btn-gecko" aria-label="Token na GeckoTerminal">
+      GeckoTerminal
+   </a>
+   <a href="/USDTz-Premium/docs/USDTz_Whitepaper_CZ.pdf"
+      target="_blank" rel="noopener noreferrer"
+      class="btn-pdf" aria-label="Whitepaper PDF">
+      Whitepaper PDF
+   </a>
  </div>
 </section>
 
 <style>
 #bottom-box {
- max-width: 1200px; /* fix šířky */
+ max-width: 1200px;
  margin: 2rem auto;
  background: #fff;
  border: 1px solid #ddd;
@@ -494,30 +500,33 @@ document.getElementById('convertBtn').addEventListener('click',()=>{
  padding: 1rem 2rem;
  display: flex;
  align-items: center;
- gap: 2rem;
- justify-content: flex-start;
+ justify-content: space-between;
+ gap: 1.5rem;
+ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-#bottom-box .logo {
- flex-shrink: 0;
-}
-#bottom-box .logo img {
- height: 50px;
-}
-
-#bottom-box .text-links h2 {
- color: rgb(31,186,156);
- font-size: 1.4rem;
- margin-bottom: 0.5rem;
-}
-
-#bottom-box .btn-group {
+#bottom-box .left-side {
  display: flex;
- flex-wrap: wrap;
+ align-items: center;
  gap: 1rem;
 }
 
-#bottom-box .btn-group a {
+#bottom-box .logo img {
+ height: 40px;
+}
+
+#bottom-box .text {
+ font-weight: 600;
+ color: rgb(31,186,156);
+ font-size: 1.1rem;
+}
+
+#bottom-box .right-side {
+ display: flex;
+ gap: 1rem;
+}
+
+#bottom-box .right-side a {
  padding: 0.5rem 1.2rem;
  border-radius: 6px;
  font-weight: 700;
@@ -544,10 +553,10 @@ document.getElementById('convertBtn').addEventListener('click',()=>{
 }
 
 #bottom-box .btn-pdf {
- background-color: #2e7d32;
+ background-color: #28a745;
 }
 #bottom-box .btn-pdf:hover {
- background-color: #1b5e20;
+ background-color: #1e7e34;
 }
 
 /* Responzivita pro mobil */
@@ -557,7 +566,7 @@ document.getElementById('convertBtn').addEventListener('click',()=>{
    gap: 1rem;
    text-align: center;
  }
- #bottom-box .btn-group {
+ #bottom-box .left-side, #bottom-box .right-side {
    justify-content: center;
    width: 100%;
  }
